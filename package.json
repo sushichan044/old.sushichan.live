@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "prepare": "husky install",
     "postinstall": "husky install",
     "lint:precommit": "eslint './**/*.{ts,tsx}' --max-warnings 0 --ignore-path .gitignore",
     "fmt:precommit": "prettier --check './**/*.{js,jsx,ts,tsx}' --ignore-path .gitignore",
