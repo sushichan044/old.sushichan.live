@@ -6,7 +6,16 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "husky install",
+    "lint:precommit": "eslint './**/*.{ts,tsx}' --max-warnings 0 --ignore-path .gitignore",
+    "fmt:precommit": "prettier --check './**/*.{js,jsx,ts,tsx}' --ignore-path .gitignore",
+    "lint:css": "stylelint './**/*.{css,scss}' --max-warnings 0 --ignore-path .gitignore"
+  },
+  "lint-staged": {
+    "./**/*.{ts,tsx}": "npm run lint:precommit",
+    "./**/*.{js,jsx,ts,tsx}": "npm run fmt:precommit",
+    "./**/*.{css,scss}": "npm run lint:css"
   },
   "dependencies": {
     "next": "13.4.2",
@@ -23,6 +32,9 @@
     "eslint-config-next": "13.4.2",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.2.2",
+    "postcss": "^8.4.23",
     "prettier": "^2.8.8",
     "sass": "^1.62.1",
     "stylelint": "^15.6.2",
