@@ -21,5 +21,9 @@
     "eslint-config-next": "13.4.2",
     "sass": "^1.62.1",
     "typescript": "5.0.4"
+  },
+  "volta": {
+    "node": "18.16.0",
+    "yarn": "1.22.19"
   }
 }
