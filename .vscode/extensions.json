@@ -1,0 +1,22 @@
+{
+  "recommendations": [
+    "1natsu.insert-br-tag",
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "codezombiech.gitignore",
+    "dbaeumer.vscode-eslint",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "gruntfuggly.todo-tree",
+    "mhutchie.git-graph",
+    "mosapride.zenkaku",
+    "ms-ceintl.vscode-language-pack-ja",
+    "naumovs.color-highlight",
+    "oderwat.indent-rainbow",
+    "shardulm94.trailing-spaces",
+    "streetsidesoftware.code-spell-checker",
+    "yoavbls.pretty-ts-errors",
+    "yzhang.markdown-all-in-one",
+    "stylelint.vscode-stylelint"
+  ]
+}
