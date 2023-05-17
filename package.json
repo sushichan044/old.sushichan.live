@@ -10,7 +10,7 @@
     "prepare": "husky install",
     "postinstall": "husky install",
     "lint:precommit": "eslint './**/*.{ts,tsx}' --max-warnings 0 --ignore-path .gitignore",
-    "fmt:precommit": "prettier --check './**/*.{js,jsx,ts,tsx}' --ignore-path .gitignore",
+    "fmt:precommit": "prettier --check './**/*.{js,jsx,ts,tsx,css,scss}' --ignore-path .gitignore",
     "lint:css": "stylelint './**/*.{css,scss}' --max-warnings 0 --ignore-path .gitignore"
   },
   "lint-staged": {
@@ -45,7 +45,6 @@
     "stylelint-config-sass-guidelines": "^10.0.0",
     "stylelint-config-standard-scss": "^9.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.7.0",
-    "stylelint-no-unsupported-browser-features": "^6.1.0",
     "stylelint-value-no-unknown-custom-properties": "^4.0.0",
     "typescript": "5.0.4"
   },
