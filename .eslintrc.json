@@ -15,7 +15,7 @@
     "prettier"
   ],
   "ignorePatterns": [
-    "next.config.js"
+    "next.config.mjs"
   ],
   "rules": {
     "simple-import-sort/imports": "error",
