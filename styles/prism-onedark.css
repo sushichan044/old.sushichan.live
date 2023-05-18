@@ -6,7 +6,8 @@
  */
 code[class*="language-"],
 pre[class*="language-"] {
-  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-family: var(--font-fira-code), var(--font-noto-sans-jp), Consolas, Monaco,
+    "Andale Mono", "Ubuntu Mono", monospace;
   hyphens: none;
   line-height: 1.5;
   color: #abb2bf;
@@ -27,13 +28,13 @@ code[class*="language-"] ::selection {
   background: #383e49;
 }
 
-pre[class*="language-"]::selection,
+/* pre[class*="language-"]::selection,
 pre[class*="language-"] ::selection,
 code[class*="language-"]::selection,
 code[class*="language-"] ::selection {
   text-shadow: none;
   background: #9aa2b1;
-}
+} */
 
 @media print {
   code[class*="language-"],
@@ -65,7 +66,7 @@ pre[class*="language-"] {
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: #5c6370;
+  color: #7f848e;
 }
 
 .token.punctuation {

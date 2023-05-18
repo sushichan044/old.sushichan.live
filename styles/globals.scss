@@ -4,8 +4,7 @@
 
 main {
   /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
-  font-family: var(--font-lato), var(--font-roboto), var(--font-noto-sans-jp),
-    sans-serif;
+  font-family: var(--font-roboto), var(--font-noto-sans-jp), sans-serif;
 }
 
 body {
@@ -16,4 +15,10 @@ body {
   > main {
     flex: 1;
   }
+}
+
+code:not([class*="language-"]),
+pre:not([class*="language-"]) {
+  /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
+  font-family: var(--font-fira-code), var(--font-noto-sans-jp), monospace;
 }
