@@ -1,19 +1,5 @@
-:root {
-  color: #0f172a;
-}
-
-main {
+.container {
   /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
   font-family: var(--font-lato), var(--font-roboto), var(--font-noto-sans-jp),
     sans-serif;
-}
-
-body {
-  display: flex;
-  flex-flow: column nowrap;
-  min-height: 100vh;
-
-  > main {
-    flex: 1;
-  }
 }
