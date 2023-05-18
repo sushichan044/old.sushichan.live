@@ -1,3 +1,4 @@
+import 'modern-css-reset'
 import '@/styles/globals.scss'
 
 import { Inter } from 'next/font/google'
