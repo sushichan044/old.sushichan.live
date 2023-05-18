@@ -41,5 +41,5 @@ export const checkMDXExists = (fileName: string) => {
 export const getAllMDXSlugs = async () => {
   return (await fs.promises.readdir(postsDir))
     .filter((file) => file.endsWith('.mdx'))
-    .map((file) => file.split('.')[0])
+    .map((file) => file.replace('/.mdx$/', ''))
 }
