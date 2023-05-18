@@ -1,3 +1,4 @@
+import { MDXComponents } from 'mdx/types'
 import dynamic from 'next/dynamic'
 import { notFound } from 'next/navigation'
 
@@ -19,19 +20,23 @@ export default async function Page({ params: { slug } }: PageProps) {
     notFound()
   }
 
-  const MDXComponent = dynamic(() => import(`../../../posts/${slug}.mdx`))
+  const MDXContent = dynamic<MDXComponents>(
+    () => import(`../../../posts/${slug}.mdx`)
+  )
   const meta = await getMDXMeta(slug)
   return (
     <>
-      <p>
-        {Object.entries(meta)
-          .map(([key, value]) => `${key}: ${value}`)
-          .reduce<React.ReactNode>(
-            (prev, curr) => [prev, <br key={null} />, curr],
-            []
-          )}
-      </p>
-      <MDXComponent />
+      {meta && (
+        <p>
+          {Object.entries(meta)
+            .map(([key, value]) => `${key}: ${value}`)
+            .reduce<React.ReactNode>(
+              (prev, curr) => [prev, <br key={null} />, curr],
+              []
+            )}
+        </p>
+      )}
+      <MDXContent />
     </>
   )
 }
