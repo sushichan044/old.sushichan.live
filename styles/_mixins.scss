@@ -1,0 +1,22 @@
+$breakpoints: (
+  "sm": 576px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+);
+$color-schemes: (
+  "light": "light",
+  "dark": "dark",
+);
+
+@mixin mq($size, $range: min) {
+  @media screen and (#{$range}-width: #{map-get($breakpoints, $size)}) {
+    @content;
+  }
+}
+
+@mixin theme($scheme) {
+  @media screen and (prefers-color-scheme: #{map-get($color-schemes, $scheme)}) {
+    @content;
+  }
+}
