@@ -1,9 +1,7 @@
 import 'modern-css-reset'
 import '@/styles/globals.scss'
 
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import { fontVariables } from '@/lib/font'
 
 export const metadata = {
   title: 'Create Next App',
@@ -16,9 +14,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="ja">
+      <body className={fontVariables}>
+        <header>アヌアヌ</header>
         <main>{children}</main>
+        <footer>© 2021 AnuAnu</footer>
       </body>
     </html>
   )

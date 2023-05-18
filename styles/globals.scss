@@ -1,3 +1,11 @@
 :root {
   color: #0f172a;
 }
+
+main,
+header,
+footer {
+  /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
+  font-family: var(--font-lato), var(--font-roboto), var(--font-noto-sans-jp),
+    sans-serif;
+}
