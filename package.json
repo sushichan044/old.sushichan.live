@@ -23,11 +23,13 @@
     "@mdx-js/loader": "^2.3.0",
     "@mdx-js/react": "^2.3.0",
     "@next/mdx": "^13.4.2",
+    "@radix-ui/react-navigation-menu": "^1.1.2",
     "modern-css-reset": "^1.4.0",
     "next": "13.4.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "rehype-autolink-headings": "^6.1.1",
+    "remark-gfm": "^3.0.1",
     "ress": "^5.0.2"
   },
   "devDependencies": {
