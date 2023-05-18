@@ -18,6 +18,7 @@
     "yoavbls.pretty-ts-errors",
     "yzhang.markdown-all-in-one",
     "stylelint.vscode-stylelint",
-    "mrmlnc.vscode-scss"
+    "mrmlnc.vscode-scss",
+    "unifiedjs.vscode-mdx"
   ]
 }
