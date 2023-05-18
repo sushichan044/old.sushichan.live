@@ -12,11 +12,11 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
-  // FIXME
-  // disabled for now because plugins are not working
-  // experimental: {
-  //   mdxRs: true,
-  // },
+  // FIXME: disabled mdxRs for now because plugins are not working
+  experimental: {
+    //   mdxRs: true,
+    typedRoutes: true,
+  },
 }
 
 const nextMDX = withMDX({
