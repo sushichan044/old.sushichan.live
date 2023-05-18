@@ -10,7 +10,7 @@ const postsDir = `${process.cwd()}/posts`
 
 export const getMDXMeta = async (fileName: string) => {
   const { meta } = await import(`/posts/${fileName}.mdx`)
-  return meta as mdxMetaData
+  return meta as mdxMetaData | undefined
 }
 
 export const checkMDXExists = (fileName: string) => {
