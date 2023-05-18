@@ -1,4 +1,4 @@
-import 'modern-css-reset'
+import 'ress'
 import '@/styles/globals.scss'
 import '@/styles/prism-onedark.css'
 
