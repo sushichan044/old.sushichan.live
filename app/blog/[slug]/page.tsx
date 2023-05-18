@@ -14,7 +14,7 @@ export default async function Page({ params: { slug } }: PageProps) {
     notFound()
   }
 
-  const MDXContent = lazy(() => import(`../../../posts/${slug}.mdx`))
+  const MDXComponent = lazy(() => import(`../../../posts/${slug}.mdx`))
   const meta = await getMDXMeta(slug)
   return (
     <>
@@ -26,7 +26,7 @@ export default async function Page({ params: { slug } }: PageProps) {
             []
           )}
       </p>
-      <MDXContent />
+      <MDXComponent />
     </>
   )
 }
