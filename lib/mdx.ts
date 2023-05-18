@@ -9,8 +9,9 @@ type mdxMetaData = {
 const postsDir = `${process.cwd()}/posts`
 
 export const getMDXMeta = async (fileName: string) => {
-  const { meta } = await import(`/posts/${fileName}.mdx`)
-  return meta as mdxMetaData | undefined
+  return await import(`/posts/${fileName}.mdx`).then(({ meta }) => {
+    return meta as mdxMetaData | undefined
+  })
 }
 
 export const checkMDXExists = (fileName: string) => {
