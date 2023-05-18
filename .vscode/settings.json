@@ -28,6 +28,9 @@
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
+  "[mdx]": {
+    "editor.formatOnSave": false,
+  },
   "stylelint.validate": [
     "css",
     "scss",
