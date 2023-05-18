@@ -1,5 +1,5 @@
+import dynamic from 'next/dynamic'
 import { notFound } from 'next/navigation'
-import { lazy, ReactNode } from 'react'
 
 import { checkMDXExists, getMDXMeta } from '@/lib/mdx'
 
@@ -14,14 +14,14 @@ export default async function Page({ params: { slug } }: PageProps) {
     notFound()
   }
 
-  const MDXComponent = lazy(() => import(`../../../posts/${slug}.mdx`))
+  const MDXComponent = dynamic(() => import(`../../../posts/${slug}.mdx`))
   const meta = await getMDXMeta(slug)
   return (
     <>
       <p>
         {Object.entries(meta)
           .map(([key, value]) => `${key}: ${value}`)
-          .reduce<ReactNode>(
+          .reduce<React.ReactNode>(
             (prev, curr) => [prev, <br key={null} />, curr],
             []
           )}
