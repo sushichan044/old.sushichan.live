@@ -10,7 +10,7 @@ type PageProps = {
 
 export async function generateStaticParams() {
   const slugs = await getAllMDXSlugs()
-  return slugs.map((slug) => ({ params: { slug } }))
+  return slugs?.map((slug) => ({ slug: slug }))
 }
 
 export default async function Page({ params: { slug } }: PageProps) {
