@@ -1,12 +1,17 @@
 import dynamic from 'next/dynamic'
 import { notFound } from 'next/navigation'
 
-import { checkMDXExists, getMDXMeta } from '@/lib/mdx'
+import { checkMDXExists, getAllMDXSlugs, getMDXMeta } from '@/lib/mdx'
 
 type PageProps = {
   params: {
     slug: string
   }
+}
+
+export async function generateStaticParams() {
+  const slugs = await getAllMDXSlugs()
+  return slugs.map((slug) => ({ params: { slug } }))
 }
 
 export default async function Page({ params: { slug } }: PageProps) {
