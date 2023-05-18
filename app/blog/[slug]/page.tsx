@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 
-import { checkMDXExists, compileMDXFile, getAllMDXSlugs } from '@/lib/mdx'
+import { checkMDXExistence, compileMDX, getAllMDXSlugs } from '@/lib/mdx'
 
 type PageProps = {
   params: {
@@ -14,11 +14,12 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params: { slug } }: PageProps) {
-  if (!checkMDXExists(slug)) {
+  const mdx = checkMDXExistence(slug)
+  if (!mdx.exists) {
     notFound()
   }
 
-  const { content, frontmatter } = await compileMDXFile(slug)
+  const { content, frontmatter } = await compileMDX(slug, mdx.extension)
   return (
     <>
       {frontmatter && (
