@@ -34,9 +34,9 @@ export const recursiveGetFilepath = async (dir: string): Promise<string[]> => {
     files.map(async (file) => {
       if (file.isDirectory()) {
         const subFiles = await recursiveGetFilepath(`${dir}/${file.name}`)
-        subFiles.forEach((subFile) => {
+        for (const subFile of subFiles) {
           recursiveFiles.push(`${file.name}/${subFile}`)
-        })
+        }
       } else {
         recursiveFiles.push(file.name)
       }
