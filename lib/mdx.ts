@@ -1,5 +1,6 @@
 import rehypePrism from '@mapbox/rehype-prism'
 import fs from 'fs'
+import matter from 'gray-matter'
 import { compileMDX as compileMDXFile } from 'next-mdx-remote/rsc'
 import remarkGfm from 'remark-gfm'
 
@@ -34,7 +35,7 @@ export const compileMDX = async (fileName: string, extension: 'mdx' | 'md') => {
     'utf8'
   )
 
-  const { content, frontmatter } = await compileMDXFile<mdxMetaData>({
+  const { content } = await compileMDXFile<mdxMetaData>({
     components: customComponents,
     source: mdx,
     options: {
@@ -42,10 +43,13 @@ export const compileMDX = async (fileName: string, extension: 'mdx' | 'md') => {
         remarkPlugins: [remarkGfm],
         rehypePlugins: [rehypePrism],
       },
+      // if this set to false,
+      // frontMatter will appear as content
       parseFrontmatter: true,
     },
   })
-  return { content, frontmatter }
+  const frontMatter = getMDXFrontMatter(fileName, extension)
+  return { content, frontMatter }
 }
 
 export const checkMDXExistence = (fileName: string): MDXExistence => {
@@ -65,6 +69,14 @@ export const checkMDXExistence = (fileName: string): MDXExistence => {
   return {
     exists: false,
   }
+}
+
+export const getMDXFrontMatter = (
+  fileName: string,
+  extension: 'mdx' | 'md'
+) => {
+  const { data } = matter.read(`${postsDir}/${fileName}.${extension}`)
+  return data as mdxMetaData
 }
 
 export const getAllMDXSlugs = async () => {

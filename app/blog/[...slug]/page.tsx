@@ -19,12 +19,12 @@ export default async function Page({ params: { slug } }: PageProps) {
   if (!mdx.exists) {
     notFound()
   }
-  const { content, frontmatter } = await compileMDX(mdxPath, mdx.extension)
+  const { content, frontMatter } = await compileMDX(mdxPath, mdx.extension)
   return (
     <>
-      {frontmatter && (
+      {frontMatter && (
         <p>
-          {Object.entries(frontmatter)
+          {Object.entries(frontMatter)
             .map(([key, value]) => `${key}: ${value}`)
             .reduce<React.ReactNode>(
               (prev, curr) => [prev, <br key={null} />, curr],

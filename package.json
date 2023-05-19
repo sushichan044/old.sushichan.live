@@ -21,6 +21,7 @@
   "dependencies": {
     "@mapbox/rehype-prism": "^0.8.0",
     "@radix-ui/react-navigation-menu": "^1.1.2",
+    "gray-matter": "^4.0.3",
     "modern-css-reset": "^1.4.0",
     "next": "13.4.2",
     "next-mdx-remote": "^4.4.1",
