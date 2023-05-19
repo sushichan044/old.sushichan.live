@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 
+import Section from '@/components/section'
 import { checkMDXExistence, compileMDX, getAllMDXSlugs } from '@/lib/mdx'
-
 type PageProps = {
   params: {
     slug: string[]
@@ -19,7 +19,15 @@ export default async function Page({ params: { slug } }: PageProps) {
   if (!mdx.exists) {
     notFound()
   }
-  const { content, frontMatter } = await compileMDX(mdxPath, mdx.extension)
+
+  // list of Custom Components used in mdx
+  const customComponents = { Section }
+
+  const { content, frontMatter } = await compileMDX(
+    mdxPath,
+    mdx.extension,
+    customComponents
+  )
   return (
     <>
       {frontMatter && (
