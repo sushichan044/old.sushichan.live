@@ -6,6 +6,7 @@ import {
   type MDXRemoteProps,
 } from 'next-mdx-remote/rsc'
 import remarkGfm from 'remark-gfm'
+import remarkUnwrapImages from 'remark-unwrap-images'
 
 import { fileHasExtension, recursiveGetFilepath } from '@/lib/fs'
 
@@ -43,7 +44,7 @@ export const compileMDX = async (
     source: mdx,
     options: {
       mdxOptions: {
-        remarkPlugins: [remarkGfm],
+        remarkPlugins: [remarkGfm, remarkUnwrapImages],
         rehypePlugins: [rehypePrism],
       },
       // if this set to false,
