@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
+import React from 'react'
 
-import Section from '@/components/section'
+import MDXImage from '@/components/mdx/image'
 import { checkMDXExistence, compileMDX, getAllMDXSlugs } from '@/lib/mdx'
 type PageProps = {
   params: {
@@ -21,7 +22,11 @@ export default async function Page({ params: { slug } }: PageProps) {
   }
 
   // list of Custom Components used in mdx
-  const customComponents = { Section }
+  const customComponents = {
+    // FIXME: 型パズルに敗北...
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    img: (props: any) => <MDXImage {...props} />,
+  }
 
   const { content, frontMatter } = await compileMDX(
     mdxPath,
