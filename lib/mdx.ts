@@ -4,6 +4,7 @@ import { compileMDX as compileMDXFile } from 'next-mdx-remote/rsc'
 import remarkGfm from 'remark-gfm'
 
 import Section from '@/components/section'
+import { fileHasExtension, recursiveGetFilepath } from '@/lib/fs'
 
 type mdxMetaData = {
   title: string
@@ -66,9 +67,8 @@ export const checkMDXExistence = (fileName: string): MDXExistence => {
   }
 }
 
-//TODO: refactor me
 export const getAllMDXSlugs = async () => {
-  return (await fs.promises.readdir(postsDir))
-    .filter((file) => file.match('/.+.mdx?$/'))
-    .map((file) => file.replace('/.mdx?$/', ''))
+  return (await recursiveGetFilepath(postsDir))
+    .filter((file) => fileHasExtension(file, ['md', 'mdx']))
+    .map((file) => file.replace(/.mdx?$/, ''))
 }
