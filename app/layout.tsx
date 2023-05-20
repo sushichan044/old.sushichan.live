@@ -1,6 +1,6 @@
 import 'ress'
 import '@/styles/globals.scss'
-import '@/styles/rehype-pretty-code.scss'
+import '@/styles/syntax-highlight.scss'
 
 import Footer from '@/components/layout/footer'
 import Header from '@/components/layout/header'
