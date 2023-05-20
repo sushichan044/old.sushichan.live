@@ -5,6 +5,7 @@ import React from 'react'
 import styles from '@/app/blog/post/[...slug]/page.module.scss'
 import FrontMatter from '@/components/mdx/frontMatter'
 import MDXImage from '@/components/mdx/image'
+import NotFoundMeta from '@/components/meta/404'
 import {
   checkMDXExistence,
   compileMDX,
@@ -24,9 +25,7 @@ export async function generateMetadata({
   const mdxPath = slug.join('/')
   const mdx = checkMDXExistence(mdxPath)
   if (!mdx.exists) {
-    return {
-      title: '404 Not Found',
-    }
+    return NotFoundMeta
   }
   const mdxMetaData = getMDXFrontMatter(mdxPath, mdx.extension)
 
