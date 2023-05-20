@@ -10,10 +10,10 @@ import remarkUnwrapImages from 'remark-unwrap-images'
 
 import { fileHasExtension, recursiveGetFilepath } from '@/lib/fs'
 
-type mdxMetaData = {
+export type mdxMetaData = {
   title: string
   description: string
-  date: string
+  date: Date
 }
 
 type MDXExistence =

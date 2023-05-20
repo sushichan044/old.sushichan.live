@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation'
 import React from 'react'
 
+import styles from '@/app/blog/[...slug]/page.module.scss'
+import FrontMatter from '@/components/mdx/frontMatter'
 import MDXImage from '@/components/mdx/image'
 import { checkMDXExistence, compileMDX, getAllMDXSlugs } from '@/lib/mdx'
 type PageProps = {
@@ -35,17 +37,10 @@ export default async function Page({ params: { slug } }: PageProps) {
   )
   return (
     <div id="main-container">
-      {frontMatter && (
-        <p>
-          {Object.entries(frontMatter)
-            .map(([key, value]) => `${key}: ${value}`)
-            .reduce<React.ReactNode>(
-              (prev, curr) => [prev, <br key={null} />, curr],
-              []
-            )}
-        </p>
-      )}
-      {content}
+      <div className={styles['article-root']}>
+        {frontMatter && <FrontMatter {...frontMatter} />}
+        {content}
+      </div>
     </div>
   )
 }
