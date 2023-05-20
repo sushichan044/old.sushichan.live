@@ -59,11 +59,9 @@ export default async function Page({ params: { slug } }: PageProps) {
     customComponents
   )
   return (
-    <div id="main-container">
-      <div className={styles['article-root']}>
-        {frontMatter && <FrontMatter {...frontMatter} />}
-        {content}
-      </div>
+    <div className={styles['article-root']}>
+      {frontMatter && <FrontMatter {...frontMatter} />}
+      {content}
     </div>
   )
 }

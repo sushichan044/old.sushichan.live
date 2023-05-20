@@ -3,9 +3,5 @@ export const metadata = {
 }
 
 export default async function Page() {
-  return (
-    <div id="main-container">
-      <h1>Blog Top</h1>
-    </div>
-  )
+  return <h1>Blog Top</h1>
 }
