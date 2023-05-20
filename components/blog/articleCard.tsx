@@ -8,7 +8,7 @@ import { type mdxMetaDataWithFile } from '@/lib/mdx'
 const ArticleCard = ({
   title,
   date,
-  image,
+  thumbnail,
   file,
 }: Omit<mdxMetaDataWithFile, 'description'>) => {
   return (
@@ -16,7 +16,7 @@ const ArticleCard = ({
       <div className={styles.card}>
         <span className={styles.title}>{title}</span>
         <div className={styles.thumbnail}>
-          {image && <Image alt={title} fill src={image} />}{' '}
+          {thumbnail && <Image alt={title} fill src={thumbnail} />}
         </div>
 
         <span>{convertDate(date)}</span>

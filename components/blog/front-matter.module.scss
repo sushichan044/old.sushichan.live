@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+
+  > span {
+    display: inline-block;
+  }
+}
+
+.thumbnail {
+  position: relative;
+  width: calc(100% / 3);
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  border-radius: 0.5rem;
+
+  > img {
+    object-fit: cover;
+  }
+}

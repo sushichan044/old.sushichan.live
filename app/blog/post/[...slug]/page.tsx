@@ -3,8 +3,8 @@ import { notFound } from 'next/navigation'
 import React from 'react'
 
 import styles from '@/app/blog/post/[...slug]/page.module.scss'
+import FrontMatter from '@/components/blog/frontMatter'
 import Section from '@/components/blog/section'
-import FrontMatter from '@/components/mdx/frontMatter'
 import MDXImage from '@/components/mdx/image'
 import NotFoundMeta from '@/components/meta/notFound'
 import {
