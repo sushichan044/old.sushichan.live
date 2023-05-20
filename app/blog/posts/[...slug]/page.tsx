@@ -1,13 +1,36 @@
+import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import React from 'react'
 
 import styles from '@/app/blog/posts/[...slug]/page.module.scss'
 import FrontMatter from '@/components/mdx/frontMatter'
 import MDXImage from '@/components/mdx/image'
-import { checkMDXExistence, compileMDX, getAllMDXSlugs } from '@/lib/mdx'
+import {
+  checkMDXExistence,
+  compileMDX,
+  getAllMDXSlugs,
+  getMDXFrontMatter,
+} from '@/lib/mdx'
 type PageProps = {
   params: {
     slug: string[]
+  }
+}
+
+export async function generateMetadata({
+  params: { slug },
+}: PageProps): Promise<Metadata> {
+  const mdxPath = slug.join('/')
+  const mdx = checkMDXExistence(mdxPath)
+  if (!mdx.exists) {
+    return {
+      title: '404 Not Found',
+    }
+  }
+  const mdxMetaData = getMDXFrontMatter(mdxPath, mdx.extension)
+
+  return {
+    title: mdxMetaData.title,
   }
 }
 

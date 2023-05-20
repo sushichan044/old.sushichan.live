@@ -1,3 +1,7 @@
+export const metadata = {
+  title: 'ブログ',
+}
+
 export default async function Page() {
   return (
     <div id="main-container">
