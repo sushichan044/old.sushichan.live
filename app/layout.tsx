@@ -16,7 +16,6 @@ export const metadata: Metadata = {
   },
   description: 'インターネット寿司屋',
   openGraph: {
-    siteName: 'すし.らいぶ',
     url: '/',
     locale: 'ja_JP',
   },
