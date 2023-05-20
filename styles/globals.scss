@@ -6,7 +6,8 @@
   --header-color: #2d8ce5;
   --border-color: #061c31;
   --border-style: 3px solid var(--border-color);
-  --content-margin: 2rem;
+  --layout-margin: 2rem;
+  --content-margin: 1rem;
 }
 
 @include mix.theme("dark") {
@@ -41,9 +42,9 @@ pre:not([class*="language-"]) {
 
 /* stylelint-disable-next-line selector-max-id */
 #main-container {
-  width: calc(100% - 2 * var(--content-margin));
+  width: calc(100% - 2 * var(--layout-margin));
   max-width: 1080px;
-  margin-block: var(--content-margin);
+  margin-block: var(--layout-margin);
   margin-inline: auto;
   @include mix.mq("md", max) {
     width: 100%;

@@ -1,6 +1,10 @@
 .section-root {
-  padding: var(--content-margin);
-  margin-block: var(--content-margin);
+  padding: var(--layout-margin);
+  margin-block: var(--layout-margin);
   background-color: #151920;
   border-radius: 1rem;
+
+  > * {
+    margin-block: var(--content-margin);
+  }
 }
