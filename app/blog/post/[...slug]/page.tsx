@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import React from 'react'
 
-import styles from '@/app/blog/posts/[...slug]/page.module.scss'
+import styles from '@/app/blog/post/[...slug]/page.module.scss'
 import FrontMatter from '@/components/mdx/frontMatter'
 import MDXImage from '@/components/mdx/image'
 import {
