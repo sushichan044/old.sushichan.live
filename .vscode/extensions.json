@@ -20,6 +20,7 @@
     "stylelint.vscode-stylelint",
     "mrmlnc.vscode-scss",
     "unifiedjs.vscode-mdx",
-    "usernamehw.errorlens"
+    "usernamehw.errorlens",
+    "davidanson.vscode-markdownlint"
   ]
 }
