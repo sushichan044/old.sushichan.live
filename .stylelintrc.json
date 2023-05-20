@@ -20,7 +20,7 @@
     "a11y/selector-pseudo-class-focus": true,
     "plugin/declaration-block-no-ignored-properties": true,
     "csstools/value-no-unknown-custom-properties": [
-      false,
+      null,
       {
         "importFrom": ["./styles/globals.scss", "./styles/_variables.scss"]
       }
