@@ -2,10 +2,8 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import React from 'react'
 
-import styles from '@/app/blog/post/[...slug]/page.module.scss'
 import FrontMatter from '@/components/blog/frontMatter'
 import Section from '@/components/blog/section'
-import MDXImage from '@/components/mdx/image'
 import NotFoundMeta from '@/components/meta/notFound'
 import {
   compileMDX,
@@ -48,26 +46,15 @@ export default async function Page({ params: { slug } }: PageProps) {
     notFound()
   }
 
-  // list of Custom Components used in mdx
-  const customComponents = {
-    // FIXME: 型パズルに敗北...
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    img: (props: any) => <MDXImage {...props} />,
-  }
-
-  const { content, frontMatter } = await compileMDX(
-    mdxPath,
-    mdx.extension,
-    customComponents
-  )
+  const { content, frontMatter } = await compileMDX(mdxPath, mdx.extension)
   return (
-    <div className={styles['article-root']}>
+    <>
       {frontMatter && (
         <Section>
           <FrontMatter {...frontMatter} />
         </Section>
       )}
       <Section>{content}</Section>
-    </div>
+    </>
   )
 }

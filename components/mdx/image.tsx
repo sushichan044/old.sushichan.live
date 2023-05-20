@@ -1,21 +1,26 @@
 import Image from 'next/image'
 
-export type MDXImageProps = Omit<
-  React.ComponentProps<'img'>,
-  'src' | 'width' | 'height' | 'placeholder' | 'ref'
-> & {
+import styles from '@/components/mdx/image.module.scss'
+
+export type MDXImageProps = {
   src: string
+  alt?: string
+  width: number
+  height: number
+  blurDataURL: string
 }
 
-const MDXImage = (props: MDXImageProps) => {
+const MDXImage = ({ src, alt, width, height, blurDataURL }: MDXImageProps) => {
   return (
-    <div style={{ width: '300px', height: '200px', position: 'relative' }}>
+    <div>
       <Image
-        alt={props.alt || ''}
-        fill
-        placeholder="empty"
-        style={{ objectFit: 'contain' }}
-        {...props}
+        alt={alt || 'image'}
+        blurDataURL={blurDataURL}
+        className={styles.image}
+        height={height}
+        placeholder="blur"
+        src={src}
+        width={width}
       />
     </div>
   )

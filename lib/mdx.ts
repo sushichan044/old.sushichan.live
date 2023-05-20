@@ -1,14 +1,13 @@
 import fs from 'fs'
 import matter from 'gray-matter'
-import {
-  compileMDX as compileMDXFile,
-  type MDXRemoteProps,
-} from 'next-mdx-remote/rsc'
+import { compileMDX as compileMDXFile } from 'next-mdx-remote/rsc'
 import rehypePrettyCode from 'rehype-pretty-code'
 import remarkGfm from 'remark-gfm'
 import remarkUnwrapImages from 'remark-unwrap-images'
 
 import { fileHasExtension, recursiveGetFilepath } from '@/lib/fs'
+import { customComponents } from '@/lib/mdxComponent'
+import rehypeImageOpt from '@/lib/rehype-image'
 
 export type mdxMetaData = {
   title: string
@@ -38,23 +37,20 @@ type MDXExistence =
 const postsDir = `${process.cwd()}/posts`
 
 // compile MDX file to React Component
-export const compileMDX = async (
-  fileName: string,
-  extension: 'mdx' | 'md',
-  components: MDXRemoteProps['components']
-) => {
+export const compileMDX = async (fileName: string, extension: 'mdx' | 'md') => {
   const mdx = await fs.promises.readFile(
     `${postsDir}/${fileName}.${extension}`,
     'utf8'
   )
 
   const { content } = await compileMDXFile<mdxMetaData>({
-    components: components,
+    components: customComponents,
     source: mdx,
     options: {
       mdxOptions: {
         remarkPlugins: [remarkGfm, remarkUnwrapImages],
         rehypePlugins: [
+          rehypeImageOpt,
           [
             rehypePrettyCode,
             {
