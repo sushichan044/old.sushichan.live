@@ -34,7 +34,7 @@ export default async function Page({ params: { slug } }: PageProps) {
     customComponents
   )
   return (
-    <>
+    <div id="main-container">
       {frontMatter && (
         <p>
           {Object.entries(frontMatter)
@@ -46,6 +46,6 @@ export default async function Page({ params: { slug } }: PageProps) {
         </p>
       )}
       {content}
-    </>
+    </div>
   )
 }
