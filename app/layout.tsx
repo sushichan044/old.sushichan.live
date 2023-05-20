@@ -1,6 +1,6 @@
 import 'ress'
 import '@/styles/globals.scss'
-import '@/styles/prism-onedark.css'
+import '@/styles/rehype-pretty-code.scss'
 
 import Footer from '@/components/layout/footer'
 import Header from '@/components/layout/header'

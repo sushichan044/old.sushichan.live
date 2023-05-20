@@ -1,10 +1,10 @@
-import rehypePrism from '@mapbox/rehype-prism'
 import fs from 'fs'
 import matter from 'gray-matter'
 import {
   compileMDX as compileMDXFile,
   type MDXRemoteProps,
 } from 'next-mdx-remote/rsc'
+import rehypePrettyCode from 'rehype-pretty-code'
 import remarkGfm from 'remark-gfm'
 import remarkUnwrapImages from 'remark-unwrap-images'
 
@@ -45,7 +45,18 @@ export const compileMDX = async (
     options: {
       mdxOptions: {
         remarkPlugins: [remarkGfm, remarkUnwrapImages],
-        rehypePlugins: [rehypePrism],
+        rehypePlugins: [
+          [
+            rehypePrettyCode,
+            {
+              theme: {
+                dark: 'one-dark-pro',
+                light: 'github-light',
+              },
+              keepBackground: true,
+            },
+          ],
+        ],
       },
       // if this set to false,
       // frontMatter will appear as content

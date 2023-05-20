@@ -21,6 +21,14 @@ body {
 
 code:not([class*="language-"]),
 pre:not([class*="language-"]) {
-  /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
   font-family: var(--font-fira-code), var(--font-noto-sans-jp), monospace;
+  font-weight: 400;
+}
+
+/* stylelint-disable-next-line selector-max-id */
+#main-container {
+  width: calc(100% - 2 * var(--content-margin));
+  max-width: 1080px;
+  margin-block: var(--content-margin);
+  margin-inline: auto;
 }
