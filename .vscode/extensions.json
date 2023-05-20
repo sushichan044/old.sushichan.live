@@ -19,6 +19,7 @@
     "yzhang.markdown-all-in-one",
     "stylelint.vscode-stylelint",
     "mrmlnc.vscode-scss",
-    "unifiedjs.vscode-mdx"
+    "unifiedjs.vscode-mdx",
+    "usernamehw.errorlens"
   ]
 }
