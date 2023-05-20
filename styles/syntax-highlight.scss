@@ -47,8 +47,20 @@ div[data-rehype-pretty-code-fragment] {
 
     /* stylelint-disable-next-line max-nesting-depth */
     + pre {
+      position: relative;
       padding-left: 1rem;
       border-radius: 0 0 0.5rem 0.5rem;
+
+      // &::after {
+      //   position: absolute;
+      //   top: 0;
+      //   right: 2rem;
+      //   padding-inline: 0.5rem;
+      //   font-size: 0.6rem;
+      //   content: attr(data-language);
+      //   background-color: #4f5263;
+      //   border-radius: 0 0 0.5em 0.5em;
+      // }
     }
   }
 }
