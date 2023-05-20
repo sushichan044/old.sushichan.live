@@ -1,0 +1,10 @@
+.article-root {
+  padding: var(--content-margin);
+  background-color: #151920;
+  border-radius: 1rem;
+
+  /* stylelint-disable-next-line selector-no-qualifying-type */
+  > :not(div[data-front-matter]) {
+    margin-block: 1em;
+  }
+}
