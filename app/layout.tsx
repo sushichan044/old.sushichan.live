@@ -6,6 +6,7 @@ import { Metadata } from 'next'
 
 import Footer from '@/components/layout/footer'
 import Header from '@/components/layout/header'
+import Favicons from '@/components/meta/favicons'
 import { fontVariables } from '@/lib/font'
 
 export const metadata: Metadata = {
@@ -32,6 +33,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
+      <Favicons />
       <body className={fontVariables}>
         <Header />
         <main>{children}</main>
