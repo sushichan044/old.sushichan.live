@@ -1,6 +1,12 @@
+@use "/styles/mixins" as mix;
+
 :root {
   --text-color: #0f172a;
   --background-color: #73b2ee;
+  --header-color: #2d8ce5;
+  --border-color: #061c31;
+  --border-style: 3px solid var(--border-color);
+  --content-margin: 2rem;
 }
 
 @include mix.theme("dark") {

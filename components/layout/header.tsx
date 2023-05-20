@@ -4,8 +4,10 @@ import NavigationMenu from '@/components/navigation/navigationMenu'
 const Header = () => {
   return (
     <header className={styles.container}>
-      <p>Header</p>
-      <NavigationMenu />
+      <div className={styles['header-inside']}>
+        <p className={styles.title}>お寿司だいすきチャンネル</p>
+        <NavigationMenu />
+      </div>
     </header>
   )
 }
