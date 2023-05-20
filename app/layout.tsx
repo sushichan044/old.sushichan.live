@@ -20,6 +20,10 @@ export const metadata: Metadata = {
     url: '/',
     locale: 'ja_JP',
   },
+  twitter: {
+    card: 'summary',
+    site: '@sushi_chan_sub',
+  },
 }
 
 export default function RootLayout({
