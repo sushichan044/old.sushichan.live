@@ -31,6 +31,7 @@ export async function generateMetadata({
 
   return {
     title: mdxMetaData.title,
+    description: mdxMetaData.description,
   }
 }
 

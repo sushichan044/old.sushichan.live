@@ -2,14 +2,23 @@ import 'ress'
 import '@/styles/globals.scss'
 import '@/styles/syntax-highlight.scss'
 
+import { Metadata } from 'next'
+
 import Footer from '@/components/layout/footer'
 import Header from '@/components/layout/header'
 import { fontVariables } from '@/lib/font'
 
-export const metadata = {
+export const metadata: Metadata = {
+  metadataBase: new URL('https://sushichan.live'),
   title: {
     default: 'すし.らいぶ',
     template: '%s - すし.らいぶ',
+  },
+  description: 'インターネット寿司屋',
+  openGraph: {
+    siteName: 'すし.らいぶ',
+    url: '/',
+    locale: 'ja_JP',
   },
 }
 
