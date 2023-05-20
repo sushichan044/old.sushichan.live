@@ -1,18 +1,20 @@
 @use "/styles/mixins" as mix;
 
-code {
+/* stylelint-disable-next-line selector-no-qualifying-type */
+code[data-line-numbers] {
   counter-reset: line;
-}
 
-code > .line::before {
-  /* Other styling */
-  display: inline-block;
-  width: 1rem;
-  margin-right: 2rem;
-  color: #808080;
-  text-align: right;
-  content: counter(line);
-  counter-increment: line;
+  /* stylelint-disable-next-line selector-no-qualifying-type */
+  > .line::before {
+    /* Other styling */
+    display: inline-block;
+    width: 1rem;
+    margin-right: 1rem;
+    color: #808080;
+    text-align: right;
+    content: counter(line);
+    counter-increment: line;
+  }
 }
 
 /* stylelint-disable-next-line selector-no-qualifying-type */
@@ -28,22 +30,25 @@ code[data-line-numbers-max-digits="3"] > .line::before {
 /* stylelint-disable-next-line selector-no-qualifying-type */
 div[data-rehype-pretty-code-fragment] {
   pre {
-    padding-block: 0.5em;
-    padding-inline: 1em;
-    border-radius: 0.5em;
+    padding-block: 0.5rem;
+    padding-inline: 0.5rem;
+    overflow: auto;
+    border-radius: 0.5rem;
+    scrollbar-width: auto;
+    scrollbar-color: #4e5363 #292c34;
   }
-
   /* stylelint-disable-next-line selector-no-qualifying-type */
   > div[data-rehype-pretty-code-title] {
-    padding-inline: 1em;
+    padding-inline: 1rem;
     font-weight: 400;
     color: #e3e3e3;
     background-color: #4e5363;
-    border-radius: 0.5em 0.5em 0 0;
+    border-radius: 0.5rem 0.5rem 0 0;
 
     /* stylelint-disable-next-line max-nesting-depth */
     + pre {
-      border-radius: 0 0 0.5em 0.5em;
+      padding-left: 1rem;
+      border-radius: 0 0 0.5rem 0.5rem;
     }
   }
 }
@@ -72,11 +77,12 @@ div[data-rehype-pretty-code-fragment] {
   }
 }
 
+// for inline code
 p > code {
-  padding-inline: 0.1em;
-  margin-inline: 0.25em;
+  padding-inline: 0.1rem;
+  margin-inline: 0.25rem;
   background-color: #fff;
-  border-radius: 0.25em;
+  border-radius: 0.25rem;
   @include mix.theme("dark") {
     background-color: #292c34;
   }
