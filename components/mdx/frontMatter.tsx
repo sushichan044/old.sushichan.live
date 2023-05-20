@@ -1,16 +1,10 @@
-import styles from '@/components/mdx/frontMatter.module.scss'
-import { mdxMetaData } from '@/lib/mdx'
+import { convertDate } from '@/lib/date'
+import { type mdxMetaDataWithFile } from '@/lib/mdx'
 
-const FrontMatter = ({ title, date, description }: mdxMetaData) => {
+const FrontMatter = ({ title, date, description }: mdxMetaDataWithFile) => {
   return (
-    <div className={styles.container} data-front-matter>
-      <p>
-        {new Intl.DateTimeFormat('ja-JP', {
-          year: 'numeric',
-          month: 'numeric',
-          day: 'numeric',
-        }).format(date)}
-      </p>
+    <div>
+      <p>{convertDate(date)}</p>
       <h1>{title}</h1>
       <p>{description}</p>
     </div>
