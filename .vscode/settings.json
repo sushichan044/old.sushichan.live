@@ -4,7 +4,8 @@
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true
+    "source.fixAll.stylelint": true,
+    "source.fixAll.markdownlint": true,
   },
   "files.trimTrailingWhitespace": true,
   "[javascript]": {
