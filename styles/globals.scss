@@ -45,4 +45,8 @@ pre:not([class*="language-"]) {
   max-width: 1080px;
   margin-block: var(--content-margin);
   margin-inline: auto;
+  @include mix.mq("md", max) {
+    width: 100%;
+    padding-inline: 1.25rem;
+  }
 }
