@@ -3,13 +3,14 @@ import { notFound } from 'next/navigation'
 import React from 'react'
 
 import styles from '@/app/blog/post/[...slug]/page.module.scss'
+import Section from '@/components/blog/section'
 import FrontMatter from '@/components/mdx/frontMatter'
 import MDXImage from '@/components/mdx/image'
 import NotFoundMeta from '@/components/meta/notFound'
 import {
-  checkMDXExistence,
   compileMDX,
   getAllMDXSlugs,
+  getMDXExistence,
   getMDXFrontMatter,
 } from '@/lib/mdx'
 
@@ -23,7 +24,7 @@ export async function generateMetadata({
   params: { slug },
 }: PageProps): Promise<Metadata> {
   const mdxPath = slug.join('/')
-  const mdx = checkMDXExistence(mdxPath)
+  const mdx = getMDXExistence(mdxPath)
   if (!mdx.exists) {
     return NotFoundMeta
   }
@@ -42,7 +43,7 @@ export async function generateStaticParams() {
 
 export default async function Page({ params: { slug } }: PageProps) {
   const mdxPath = slug.join('/')
-  const mdx = checkMDXExistence(mdxPath)
+  const mdx = getMDXExistence(mdxPath)
   if (!mdx.exists) {
     notFound()
   }
@@ -61,8 +62,12 @@ export default async function Page({ params: { slug } }: PageProps) {
   )
   return (
     <div className={styles['article-root']}>
-      {frontMatter && <FrontMatter {...frontMatter} />}
-      {content}
+      {frontMatter && (
+        <Section>
+          <FrontMatter {...frontMatter} />
+        </Section>
+      )}
+      <Section>{content}</Section>
     </div>
   )
 }

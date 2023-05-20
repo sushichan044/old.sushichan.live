@@ -1,0 +1,33 @@
+.link {
+  text-decoration: none;
+}
+
+.card {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+  padding: 1rem;
+  color: var(--text-color);
+  text-align: center;
+  background-color: #151920;
+  border-radius: 1rem;
+}
+
+.title {
+  display: inline-block;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.thumbnail {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-inline: auto;
+  overflow: hidden;
+  border-radius: 0.5rem;
+
+  img {
+    object-fit: cover;
+  }
+}
