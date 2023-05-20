@@ -1,3 +1,5 @@
+@use "/styles/mixins" as mix;
+
 $footer-height: 80px;
 
 .container {
@@ -16,9 +18,17 @@ $footer-height: 80px;
   max-width: 1080px;
   height: 100%;
   margin-inline: auto;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
 }
 
 .title {
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: 700;
+  @include mix.mq("md", min) {
+    font-size: 1.5rem;
+  }
 }
