@@ -25,6 +25,17 @@ $footer-height: 80px;
   }
 }
 
+.hero {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  @include mix.mq("md", max) {
+    img {
+      display: none;
+    }
+  }
+}
+
 .title {
   font-size: 1rem;
   font-weight: 700;
