@@ -11,6 +11,7 @@ import {
   getAllMDXSlugs,
   getMDXFrontMatter,
 } from '@/lib/mdx'
+
 type PageProps = {
   params: {
     slug: string[]

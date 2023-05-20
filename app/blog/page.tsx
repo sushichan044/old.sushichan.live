@@ -1,3 +1,7 @@
 export default async function Page() {
-  return <h1>Blog Top</h1>
+  return (
+    <div id="main-container">
+      <h1>Blog Top</h1>
+    </div>
+  )
 }
