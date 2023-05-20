@@ -14,11 +14,20 @@ export type mdxMetaData = {
   title: string
   description: string
   date: Date
+  image?: string
+}
+
+export type mdxMetaDataWithFile = mdxMetaData & {
+  file: {
+    fileName: string
+    extension: 'mdx' | 'md'
+  }
 }
 
 type MDXExistence =
   | {
       exists: true
+      fileName: string
       extension: 'mdx' | 'md'
     }
   | {
@@ -67,9 +76,10 @@ export const compileMDX = async (
   return { content, frontMatter }
 }
 
-export const checkMDXExistence = (fileName: string): MDXExistence => {
+export const getMDXExistence = (fileName: string): MDXExistence => {
   if (fs.existsSync(`${postsDir}/${fileName}.mdx`)) {
     return {
+      fileName: fileName,
       exists: true,
       extension: 'mdx',
     }
@@ -77,6 +87,7 @@ export const checkMDXExistence = (fileName: string): MDXExistence => {
 
   if (fs.existsSync(`${postsDir}/${fileName}.md`)) {
     return {
+      fileName: fileName,
       exists: true,
       extension: 'md',
     }
@@ -89,9 +100,21 @@ export const checkMDXExistence = (fileName: string): MDXExistence => {
 export const getMDXFrontMatter = (
   fileName: string,
   extension: 'mdx' | 'md'
-) => {
+): mdxMetaDataWithFile => {
   const { data } = matter.read(`${postsDir}/${fileName}.${extension}`)
-  return data as mdxMetaData
+
+  return {
+    title: data.title,
+    description: data.description,
+    date: data.date,
+    image: data?.image,
+    file: {
+      fileName: fileName,
+      extension: extension,
+    },
+  }
+
+  // return data as mdxMetaData
 }
 
 export const getAllMDXSlugs = async () => {
