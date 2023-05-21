@@ -10,11 +10,17 @@ export type MDXImageProps = {
   blurDataURL: string
 }
 
-const MDXImage = ({ src, alt, width, height, blurDataURL }: MDXImageProps) => {
+const MDXImage = ({
+  src,
+  alt = '',
+  width,
+  height,
+  blurDataURL,
+}: MDXImageProps) => {
   return (
-    <div>
+    <figure>
       <Image
-        alt={alt || 'image'}
+        alt={alt}
         blurDataURL={blurDataURL}
         className={styles.image}
         height={height}
@@ -22,7 +28,8 @@ const MDXImage = ({ src, alt, width, height, blurDataURL }: MDXImageProps) => {
         src={src}
         width={width}
       />
-    </div>
+      {alt !== '' && <figcaption className={styles.caption}>{alt}</figcaption>}
+    </figure>
   )
 }
 
