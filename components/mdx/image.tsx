@@ -18,7 +18,7 @@ const MDXImage = ({
   blurDataURL,
 }: MDXImageProps) => {
   return (
-    <figure>
+    <figure className={styles.container}>
       <Image
         alt={alt}
         blurDataURL={blurDataURL}
