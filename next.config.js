@@ -4,7 +4,6 @@ const path = require('path')
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['images.microcms-assets.io'],
     remotePatterns: [
       {
         protocol: 'https',
