@@ -1,5 +1,9 @@
 @use "/styles/mixins" as mix;
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --text-color: #0f172a;
   --background-color: #73b2ee;

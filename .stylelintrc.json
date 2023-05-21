@@ -11,6 +11,19 @@
     "stylelint-value-no-unknown-custom-properties"
   ],
   "rules": {
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "tailwind",
+          "apply",
+          "variants",
+          "responsive",
+          "screen"
+        ]
+      }
+    ],
     "declaration-property-value-no-unknown": true,
     "color-named": "never",
     "a11y/font-size-is-readable": true,
