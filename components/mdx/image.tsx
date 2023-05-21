@@ -1,5 +1,4 @@
-import Image from 'next/image'
-
+import NextImage from '@/components/image/nextImage'
 import styles from '@/components/mdx/image.module.scss'
 
 export type MDXImageProps = {
@@ -10,21 +9,13 @@ export type MDXImageProps = {
   blurDataURL: string
 }
 
-const MDXImage = ({
-  src,
-  alt = '',
-  width,
-  height,
-  blurDataURL,
-}: MDXImageProps) => {
+const MDXImage = ({ src, alt = '', width, height }: MDXImageProps) => {
   return (
     <figure className={styles.container}>
-      <Image
+      <NextImage
         alt={alt}
-        blurDataURL={blurDataURL}
         className={styles.image}
         height={height}
-        placeholder="blur"
         src={src}
         width={width}
       />
