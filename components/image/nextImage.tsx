@@ -10,7 +10,7 @@ const NextImage = ({
   height,
   src,
   ...props
-}: Omit<ImageProps, 'src' | 'width' | 'height'> & {
+}: Omit<ImageProps, 'src' | 'width' | 'height' | 'fill'> & {
   src: string
   width: number
   height: number
@@ -26,11 +26,11 @@ const NextImage = ({
   return (
     <Image
       alt={alt}
-      blurDataURL={`${optimizedSrc}/width=${width},blur=250,fit=scale-down,metadata=none,quality=20`}
+      blurDataURL={`${optimizedSrc}/width=${width},blur=125,fit=scale-down,metadata=none,quality=20`}
       height={height}
       loader={cloudflareLoader}
       placeholder="blur"
-      src={optimizedSrc}
+      src={src}
       width={width}
       {...props}
     />
