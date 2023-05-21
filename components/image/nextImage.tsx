@@ -2,7 +2,7 @@
 
 import Image, { type ImageProps } from 'next/image'
 
-import useAdjustedSize from '@/lib/hooks/adjustSize'
+import cloudflareLoader from '@/lib/imageLoader'
 
 const NextImage = ({
   alt,
@@ -16,16 +16,22 @@ const NextImage = ({
   height: number
 }) => {
   const optimizedSrc = src.substring(0, src.lastIndexOf('/'))
-  const optimizedSize = useAdjustedSize(width, height, 'width')
+
+  const maxHeight = 800
+  if (height > maxHeight) {
+    width = (width / height) * maxHeight
+    height = maxHeight
+  }
 
   return (
     <Image
       alt={alt}
-      blurDataURL={`${optimizedSrc}/width=${optimizedSize.width},blur=250,fit=scale-down,metadata=none,quality=20`}
-      height={optimizedSize.height}
+      blurDataURL={`${optimizedSrc}/width=${width},blur=250,fit=scale-down,metadata=none,quality=20`}
+      height={height}
+      loader={cloudflareLoader}
       placeholder="blur"
-      src={`${optimizedSrc}/width=${optimizedSize.width},fit=scale-down,metadata=none,quality=75`}
-      width={optimizedSize.width}
+      src={optimizedSrc}
+      width={width}
       {...props}
     />
   )
