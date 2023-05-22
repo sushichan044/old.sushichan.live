@@ -5,8 +5,8 @@ import rehypePrettyCode from 'rehype-pretty-code'
 import remarkGfm from 'remark-gfm'
 import remarkUnwrapImages from 'remark-unwrap-images'
 
+import { customComponents } from '@/components/mdx/customComponents'
 import { fileHasExtension, recursiveGetFilepath } from '@/lib/fs'
-import { customComponents } from '@/lib/mdxComponent'
 import rehypeImageOpt from '@/lib/rehype-image'
 
 export type mdxMetaData = {
