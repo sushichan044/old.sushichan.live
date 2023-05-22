@@ -14,3 +14,8 @@ export default async function BlogLayout({
 }) {
   return <div id="main-container">{children}</div>
 }
+
+// set this for production
+// https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#dynamicparams
+// routes not included in generateStaticParams will go to 404
+export const dynamicParams = false
