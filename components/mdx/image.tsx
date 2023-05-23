@@ -14,18 +14,19 @@ export type MDXImageProps = {
 
 const MDXImage = ({ src, alt = '', width, height }: MDXImageProps) => {
   const imageId = getImageId(src)
+  const altIsEmpty = alt === '' || alt === undefined
 
   return (
     <Link href={`/image/${imageId}`}>
       <figure className={styles.container}>
         <NextImage
-          alt={alt}
+          alt={altIsEmpty ? 'image' : alt}
           className={styles.image}
           height={height}
           src={src}
           width={width}
         />
-        {alt !== '' && (
+        {!altIsEmpty && (
           <figcaption className={styles.caption}>{alt}</figcaption>
         )}
       </figure>
