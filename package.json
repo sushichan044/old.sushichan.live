@@ -25,6 +25,7 @@
     "client-only": "^0.0.1",
     "gray-matter": "^4.0.3",
     "modern-css-reset": "^1.4.0",
+    "monaco-editor": "^0.38.0",
     "next": "^13.4.3",
     "next-mdx-remote": "^4.4.1",
     "plaiceholder": "^2.5.0",
