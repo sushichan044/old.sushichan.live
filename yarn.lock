@@ -4406,6 +4406,11 @@ modern-css-reset@^1.4.0:
   resolved "https://registry.yarnpkg.com/modern-css-reset/-/modern-css-reset-1.4.0.tgz#5bee4d11eeca2ff19b882c6e8f1769773e792d04"
   integrity sha512-0crZmSFmrxkI7159rvQWjpDhy0u4+Awg/iOycJdlVn0RSeft/a+6BrQHR3IqvmdK25sqt0o6Z5Ap7cWgUee2rw==
 
+monaco-editor@^0.38.0:
+  version "0.38.0"
+  resolved "https://registry.yarnpkg.com/monaco-editor/-/monaco-editor-0.38.0.tgz#7b3cd16f89b1b8867fcd3c96e67fccee791ff05c"
+  integrity sha512-11Fkh6yzEmwx7O0YoLxeae0qEGFwmyPRlVxpg7oF9czOOCB/iCjdJrG5I67da5WiXK3YJCxoz9TJFE8Tfq/v9A==
+
 mri@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/mri/-/mri-1.2.0.tgz#6721480fec2a11a4889861115a48b6cbe7cc8f0b"
