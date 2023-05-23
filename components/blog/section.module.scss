@@ -17,4 +17,17 @@
   @include mix.mq("md") {
     padding: var.$layout-padding;
   }
+
+  span {
+    display: block;
+  }
+
+  a {
+    display: block;
+    width: inherit;
+  }
+
+  @include mix.mq("md") {
+    padding: var(--layout-margin);
+  }
 }
