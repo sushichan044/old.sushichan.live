@@ -1,10 +1,25 @@
+@use "../../styles/mixins" as mix;
+
 .section-root {
-  padding: var(--layout-margin);
+  padding: var(--content-margin);
   margin-block: var(--layout-margin);
   background-color: #151920;
   border-radius: 1rem;
 
   > * {
     margin-block: var(--content-margin);
+  }
+
+  span {
+    display: block;
+  }
+
+  a {
+    display: block;
+    width: inherit;
+  }
+
+  @include mix.mq("md") {
+    padding: var(--layout-margin);
   }
 }
