@@ -1,4 +1,5 @@
 const path = require('path')
+const withLinaria = require('next-with-linaria')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -21,8 +22,9 @@ const nextConfig = {
     includePaths: [path.join(__dirname, 'styles')],
   },
   experimental: {
+    serverActions: true,
     typedRoutes: true,
   },
 }
 
-module.exports = nextConfig
+module.exports = withLinaria(nextConfig)
