@@ -1,8 +1,13 @@
+import { Metadata } from 'next'
 import { AiOutlineWarning } from 'react-icons/ai'
 
 import Fukuwarai from '@/app/css-fukuwarai/fukuwarai'
 import styles from '@/app/css-fukuwarai/page.module.scss'
 import Section from '@/components/blog/section'
+
+export const metadata: Metadata = {
+  title: 'CSS福笑い',
+}
 
 export default async function Page() {
   return (
