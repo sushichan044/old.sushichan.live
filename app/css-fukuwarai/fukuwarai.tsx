@@ -31,9 +31,9 @@ export default function Fukuwarai() {
   const defaultCSS = `.face {
   display: grid;
   grid-template:
-    "r-eye b l-eye" 1fr
-    "d nose f" 1fr
-    "g mouth i" 1fr / 1fr 1fr 1fr;
+    "a b c" 1fr
+    "d e f" 1fr
+    "g h i" 1fr / 1fr 1fr 1fr;
   align-items: center;
   height: 100%;
   font-size: 4rem;
@@ -41,19 +41,19 @@ export default function Fukuwarai() {
 }
 
 .right-eye {
-  grid-area: r-eye;
+  grid-area: a;
 }
 
 .left-eye {
-  grid-area: l-eye;
+  grid-area: c;
 }
 
 .nose {
-  grid-area: nose;
+  grid-area: e;
 }
 
 .mouth {
-  grid-area: mouth;
+  grid-area: h;
 }
 `
 
