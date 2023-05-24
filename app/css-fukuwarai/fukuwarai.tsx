@@ -68,7 +68,7 @@ export default function Fukuwarai() {
           setFukuCSS(defaultCSS)
         }}
         options={{
-          fontSize: 20,
+          fontSize: 16,
         }}
         theme="vs-dark"
       />
