@@ -4,21 +4,9 @@
   display: flex;
   height: 75vh;
   border: 2px solid #576163;
-  @include mix.mq("md", max) {
-    display: none;
-  }
 
   > * {
     flex: 1;
-  }
-}
-
-.sp-notice {
-  display: flex;
-  flex-flow: column nowrap;
-  place-items: center;
-  @include mix.mq("md") {
-    display: none;
   }
 }
 

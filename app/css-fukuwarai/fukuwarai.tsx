@@ -2,11 +2,9 @@
 
 import dynamic from 'next/dynamic'
 import { useState } from 'react'
-import { AiOutlineWarning } from 'react-icons/ai'
 import { styled } from 'styled-components'
 
 import styles from '@/app/css-fukuwarai/fukuwarai.module.scss'
-import Section from '@/components/blog/section'
 
 const FaceRootDiv = styled.div<{ css: string }>`
   ${(props) => props.css}
@@ -60,40 +58,28 @@ export default function Fukuwarai() {
 `
 
   return (
-    <div id="main-container">
-      <Section className={styles['sp-notice']}>
-        <AiOutlineWarning size="40%" />
-        このコンテンツは
-        <br />
-        まだスマートフォンに
-        <br />
-        対応していません。
-        <br />
-        ご迷惑をおかけします。
-      </Section>
-      <div className={styles.container}>
-        <Editor
-          defaultLanguage="css"
-          defaultValue={defaultCSS}
-          height="100%"
-          onChange={handleChange}
-          onMount={() => {
-            setFukuCSS(defaultCSS)
-          }}
-          options={{
-            fontSize: 20,
-          }}
-          theme="vs-dark"
-        />
-        <FaceRootDiv className={styles['fuku-root']} css={fukuCSS}>
-          <div className="face">
-            <div className="right-eye">右目</div>
-            <div className="left-eye">左目</div>
-            <div className="nose">鼻</div>
-            <div className="mouth">口</div>
-          </div>
-        </FaceRootDiv>
-      </div>
+    <div className={styles.container}>
+      <Editor
+        defaultLanguage="css"
+        defaultValue={defaultCSS}
+        height="100%"
+        onChange={handleChange}
+        onMount={() => {
+          setFukuCSS(defaultCSS)
+        }}
+        options={{
+          fontSize: 20,
+        }}
+        theme="vs-dark"
+      />
+      <FaceRootDiv className={styles['fuku-root']} css={fukuCSS}>
+        <div className="face">
+          <div className="right-eye">右目</div>
+          <div className="left-eye">左目</div>
+          <div className="nose">鼻</div>
+          <div className="mouth">口</div>
+        </div>
+      </FaceRootDiv>
     </div>
   )
 }
