@@ -1,5 +1,4 @@
 const path = require('path')
-const withLinaria = require('next-with-linaria')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -25,6 +24,9 @@ const nextConfig = {
     serverActions: true,
     typedRoutes: true,
   },
+  compiler: {
+    styledComponents: true,
+  },
 }
 
-module.exports = withLinaria(nextConfig)
+module.exports = nextConfig
