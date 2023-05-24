@@ -3,7 +3,7 @@
 // import { editor } from 'monaco-editor'
 // import { KeyCode, KeyMod } from 'monaco-editor/esm/vs/editor/editor.api'
 import dynamic from 'next/dynamic'
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import { styled } from 'styled-components'
 
 // import { ExtractedCSS, parseCSS } from '@/app/css-fukuwarai/action'
@@ -18,18 +18,16 @@ const Editor = dynamic(() => import('@monaco-editor/react'), {
 
 export default function Fukuwarai() {
   const [fukuCSS, setFukuCSS] = useState('')
-  const codeRef = useRef<string>('')
 
   let applyCssTimer: NodeJS.Timeout | null = null
-  const applyCss = () => {
+  const applyCss = (css: string) => {
     if (applyCssTimer) clearTimeout(applyCssTimer)
     applyCssTimer = setTimeout(() => {
-      setFukuCSS(codeRef.current)
+      setFukuCSS(css)
     }, 500)
   }
   const handleChange = (value: string | undefined) => {
-    codeRef.current = value || ''
-    applyCss()
+    applyCss(value || '')
   }
 
   return (
