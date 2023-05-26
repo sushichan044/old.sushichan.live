@@ -4,6 +4,7 @@ import { AiOutlineWarning } from 'react-icons/ai'
 import Fukuwarai from '@/app/css-fukuwarai/fukuwarai'
 import styles from '@/app/css-fukuwarai/page.module.scss'
 import Section from '@/components/blog/section'
+import MainContainer from '@/components/common/mainContainer'
 
 export const metadata: Metadata = {
   title: 'CSS福笑い',
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   return (
-    <div id="main-container">
+    <MainContainer>
       <div className={styles['sp-only']}>
         <Section className={styles['sp-notice']}>
           <AiOutlineWarning size="40%" />
@@ -37,6 +38,6 @@ export default async function Page() {
         </Section>
         <Fukuwarai />
       </div>
-    </div>
+    </MainContainer>
   )
 }

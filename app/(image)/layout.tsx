@@ -1,3 +1,5 @@
+import MainContainer from '@/components/common/mainContainer'
+
 export default async function imageLayout(props: { modal: React.ReactNode }) {
-  return <div id="main-container">{props.modal}</div>
+  return <MainContainer>{props.modal}</MainContainer>
 }
