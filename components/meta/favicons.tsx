@@ -26,12 +26,12 @@ const Favicons = () => (
     <meta content="/favicons/browserconfig.xml" name="msapplication-config" />
     <meta content="#da532c" name="msapplication-TileColor" />
     <meta
-      content="#73b2ee"
+      content="#e2e2e2"
       media="(prefers-color-scheme: light)"
       name="theme-color"
     />
     <meta
-      content="#0d3c68"
+      content="#202020"
       media="(prefers-color-scheme: dark)"
       name="theme-color"
     />
