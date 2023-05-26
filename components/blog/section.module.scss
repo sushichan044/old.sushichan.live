@@ -17,8 +17,4 @@
   @include mix.mq("md") {
     padding: var.$layout-padding;
   }
-
-  @include mix.mq("md") {
-    padding: var.$layout-padding;
-  }
 }
