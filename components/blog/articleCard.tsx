@@ -14,12 +14,11 @@ const ArticleCard = ({
   return (
     <Link className={styles.link} href={`/blog/post/${file.fileName}`}>
       <div className={styles.card}>
-        <span className={styles.title}>{title}</span>
         <div className={styles.thumbnail}>
           {thumbnail && <Image alt={title} fill src={thumbnail} />}
         </div>
-
         <span>{convertDate(date)}</span>
+        <span className={styles.title}>{title}</span>
       </div>
     </Link>
   )
