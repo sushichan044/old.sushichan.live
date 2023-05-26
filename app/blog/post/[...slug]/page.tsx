@@ -28,9 +28,37 @@ export async function generateMetadata({
   }
   const mdxMetaData = getMDXFrontMatter(mdxPath, mdx.extension)
 
+  // FIXME: Dynamic OG images are not working
+  // https://github.com/vercel/next.js/issues/49630
+  // https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image#props
+
   return {
     title: mdxMetaData.title,
     description: mdxMetaData.description,
+    openGraph: {
+      url: `/blog/post/${mdxPath}`,
+      images: [
+        {
+          alt: mdxMetaData.title,
+          height: 630,
+          width: 1200,
+          url: `/opengraph/blog/post/${mdxPath}`,
+        },
+      ],
+    },
+    twitter: {
+      title: mdxMetaData.title,
+      description: mdxMetaData.description,
+      card: 'summary_large_image',
+      images: [
+        {
+          alt: mdxMetaData.title,
+          height: 630,
+          width: 1200,
+          url: `/opengraph/blog/post/${mdxPath}`,
+        },
+      ],
+    },
   }
 }
 

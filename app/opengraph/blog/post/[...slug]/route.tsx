@@ -1,10 +1,9 @@
 import { ImageResponse } from 'next/server'
 
-import NextImage from '@/components/image/nextImage'
 import { getMDXExistence, getMDXFrontMatter } from '@/lib/mdx'
 
 // Route segment config
-export const runtime = 'edge'
+// export const runtime = 'edge'
 
 // Image metadata
 export const size = {
@@ -15,11 +14,14 @@ export const size = {
 export const contentType = 'image/png'
 
 // Image generation
-export default function Image({
-  params: { slug },
-}: {
-  params: { slug: string[] }
-}) {
+export function GET(
+  request: Request,
+  {
+    params: { slug },
+  }: {
+    params: { slug: string[] }
+  }
+) {
   const mdxPath = slug.join('/')
   const mdx = getMDXExistence(mdxPath)
   if (!mdx.exists) {
@@ -32,10 +34,12 @@ export default function Image({
 
   return new ImageResponse(
     (
-      <NextImage
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
         alt={title}
         height={size.height}
         src={thumbnail}
+        style={{ objectFit: 'cover' }}
         width={size.width}
       />
     ),
