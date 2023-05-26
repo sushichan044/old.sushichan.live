@@ -1,17 +1,16 @@
-$header-height: 80px;
+@use "/styles/mixins" as mix;
+@use "/styles/variables" as var;
+@use "/styles/general" as gen;
 
 .container {
   width: 100%;
-  height: $header-height;
-  border-top: 2px solid var(--border-color);
+  height: var.$header-height;
 }
 
 .header-inside {
+  @include gen.set-layout;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: calc(100% - 2 * var(--content-margin));
-  max-width: 1080px;
-  height: 100%;
-  margin-inline: auto;
 }
