@@ -1,9 +1,13 @@
 @use "/styles/mixins" as mix;
 
 .container {
-  display: flex;
   height: 75vh;
   border: 2px solid #576163;
+}
+
+.editor {
+  display: flex;
+  height: 75vh;
 
   > * {
     flex: 1;
@@ -11,5 +15,15 @@
 }
 
 .fuku-root {
+  max-width: 50%;
   background-color: #292c34;
+}
+
+.loading {
+  display: flex;
+  place-content: center;
+  align-items: center;
+  height: inherit;
+  font-size: 6rem;
+  text-align: center;
 }
