@@ -12,16 +12,16 @@ const FrontMatter = ({
 }: mdxMetaDataWithFile) => {
   return (
     <div className={styles.container}>
-      <span>
-        <p>{convertDate(date)}</p>
-        <h1>{title}</h1>
-        <p>{description}</p>
-      </span>
       {thumbnail && (
         <div className={styles.thumbnail}>
           <Image alt={title} fill src={thumbnail} />
         </div>
       )}
+      <span>
+        <p>{convertDate(date)}</p>
+        <h1>{title}</h1>
+        <p>{description}</p>
+      </span>
     </div>
   )
 }

@@ -1,19 +1,32 @@
+@use "/styles/mixins" as mix;
+
 .container {
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
+  flex-flow: column nowrap;
+  gap: 1rem;
+  place-content: center;
+
+  @include mix.mq(md) {
+    flex-flow: row-reverse nowrap;
+  }
 
   > span {
     display: inline-block;
+    width: fit-content;
   }
 }
 
 .thumbnail {
   position: relative;
-  width: calc(100% / 3);
+  width: 100%;
   aspect-ratio: 16/9;
+  margin-inline: auto;
   overflow: hidden;
   border-radius: 0.5rem;
+
+  @include mix.mq(md) {
+    width: 50%;
+  }
 
   > img {
     object-fit: cover;
