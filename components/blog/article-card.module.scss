@@ -17,7 +17,7 @@
   background-color: #9e9e9e;
   border-radius: 1rem;
 
-  @include mix.theme(dark) {
+  @include mix.theme("dark") {
     color: var.$text-color-dark;
     background-color: #1b1b1b;
   }

@@ -5,7 +5,7 @@
   color: var.$text-color-light;
   background-color: var.$theme-color-light;
 
-  @include mix.theme(dark) {
+  @include mix.theme("dark") {
     color: var.$text-color-dark;
     background-color: var.$theme-color-dark;
   }
@@ -16,10 +16,10 @@
   padding-inline: var.$layout-padding-sp;
   margin-block: var.$layout-margin;
   margin-inline: auto;
-  @include mix.mq(md) {
+  @include mix.mq("md") {
     padding-inline: var.$layout-padding;
   }
-  @include mix.mq(2xl) {
+  @include mix.mq("2xl") {
     max-width: var.$layout-max-width-2xl;
   }
 }

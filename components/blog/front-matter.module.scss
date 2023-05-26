@@ -6,7 +6,7 @@
   gap: 1rem;
   place-content: center;
 
-  @include mix.mq(md) {
+  @include mix.mq("md") {
     flex-flow: row-reverse nowrap;
   }
 
@@ -24,7 +24,7 @@
   overflow: hidden;
   border-radius: 0.5rem;
 
-  @include mix.mq(md) {
+  @include mix.mq("md") {
     width: 50%;
   }
 

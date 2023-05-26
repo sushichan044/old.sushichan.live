@@ -13,7 +13,7 @@
 }
 
 .sp-hide {
-  @include mix.mq("md", max) {
+  @include mix.mq("md", "max") {
     display: none;
   }
 }
