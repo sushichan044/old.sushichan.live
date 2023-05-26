@@ -36,7 +36,7 @@ export default function RootLayout({
     <html lang="ja">
       <Favicons />
       <body className={fontVariables}>
-        <NextTopLoader color="#e2e2e2" />
+        <NextTopLoader color="#e2e2e2" showSpinner={false} />
         <Header />
         <main>{children}</main>
         <Footer />
