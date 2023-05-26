@@ -3,7 +3,7 @@ import { ImageResponse } from 'next/server'
 import { getMDXExistence, getMDXFrontMatter } from '@/lib/mdx'
 
 // Route segment config
-// export const runtime = 'edge'
+export const runtime = 'edge'
 
 // Image metadata
 export const size = {
