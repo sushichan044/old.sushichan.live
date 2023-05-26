@@ -8,6 +8,7 @@ import NextTopLoader from 'nextjs-toploader'
 import Footer from '@/components/layout/footer'
 import Header from '@/components/layout/header'
 import Favicons from '@/components/meta/favicons'
+import GeneralMetaData from '@/components/meta/general'
 import { fontVariables } from '@/lib/font'
 
 export const metadata: Metadata = {
@@ -34,6 +35,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
+      <GeneralMetaData />
       <Favicons />
       <body className={fontVariables}>
         <NextTopLoader color="#e2e2e2" showSpinner={false} />
