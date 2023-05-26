@@ -3,6 +3,7 @@ import '@/styles/globals.scss'
 import '@/styles/syntax-highlight.scss'
 
 import { Metadata } from 'next'
+import NextTopLoader from 'nextjs-toploader'
 
 import Footer from '@/components/layout/footer'
 import Header from '@/components/layout/header'
@@ -35,6 +36,7 @@ export default function RootLayout({
     <html lang="ja">
       <Favicons />
       <body className={fontVariables}>
+        <NextTopLoader color="#e2e2e2" />
         <Header />
         <main>{children}</main>
         <Footer />
