@@ -110,7 +110,7 @@ export const getMDXFrontMatter = (
     title: data.title,
     description: data.description,
     date: data.date,
-    thumbnail: data?.image,
+    thumbnail: data?.thumbnail,
     file: {
       fileName: fileName,
       extension: extension,
