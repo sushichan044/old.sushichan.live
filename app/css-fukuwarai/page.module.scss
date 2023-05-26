@@ -1,0 +1,19 @@
+@use "/styles/mixins" as mix;
+
+.sp-notice {
+  display: flex;
+  flex-flow: column nowrap;
+  place-items: center;
+}
+
+.sp-only {
+  @include mix.mq("md") {
+    display: none;
+  }
+}
+
+.sp-hide {
+  @include mix.mq("md", max) {
+    display: none;
+  }
+}

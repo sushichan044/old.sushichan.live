@@ -21,7 +21,11 @@ const nextConfig = {
     includePaths: [path.join(__dirname, 'styles')],
   },
   experimental: {
+    serverActions: true,
     typedRoutes: true,
+  },
+  compiler: {
+    styledComponents: true,
   },
 }
 
