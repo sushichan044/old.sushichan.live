@@ -1,9 +1,12 @@
 import Section from '@/components/blog/section'
+import MainContainer from '@/components/common/mainContainer'
 
 export default function Page() {
   return (
-    <Section>
-      <p>Now Loading...</p>
-    </Section>
+    <MainContainer>
+      <Section>
+        <p>Now Loading...</p>
+      </Section>
+    </MainContainer>
   )
 }
