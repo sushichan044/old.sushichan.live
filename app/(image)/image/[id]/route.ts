@@ -6,3 +6,5 @@ export async function GET(request: Request) {
     'https://imagedelivery.net/i4QA6VLSP0gXyj6-3zNFXg/' + id + '/public'
   redirect(url)
 }
+
+export const runtime = 'edge'

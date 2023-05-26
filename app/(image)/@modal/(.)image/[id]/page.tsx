@@ -19,3 +19,5 @@ export default async function Page({ params: { id } }: PageProps) {
     </>
   )
 }
+
+export const runtime = 'edge'
