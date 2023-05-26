@@ -1,25 +1,8 @@
-@use "/styles/mixins" as mix;
+@use "/styles/general" as gen;
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --text-color: #0f172a;
-  --background-color: #73b2ee;
-  --header-color: #2d8ce5;
-  --border-color: #061c31;
-  --border-style: 3px solid var(--border-color);
-  --layout-margin: 2rem;
-  --content-margin: 1rem;
-}
-
-@include mix.theme("dark") {
-  :root {
-    --text-color: #e2e2e2;
-    --background-color: #0d3c68;
-  }
-}
 
 body {
   display: flex;
@@ -28,8 +11,9 @@ body {
   font-family: var(--font-roboto), var(--font-noto-sans-jp), system-ui,
     -apple-system, blinkmacsystemfont, "Segoe UI", oxygen, ubuntu, cantarell,
     "Open Sans", "Helvetica Neue", sans-serif;
-  color: var(--text-color);
-  background-color: var(--background-color);
+
+  // color
+  @include gen.set-theme;
 }
 
 main {
@@ -44,14 +28,11 @@ pre:not([class*="language-"]) {
   font-weight: 400;
 }
 
+a {
+  color: inherit;
+}
+
 /* stylelint-disable-next-line selector-max-id */
 #main-container {
-  width: calc(100% - 2 * var(--layout-margin));
-  max-width: 1080px;
-  margin-block: var(--layout-margin);
-  margin-inline: auto;
-  @include mix.mq("md", max) {
-    width: 100%;
-    padding-inline: 8px;
-  }
+  @include gen.set-layout;
 }

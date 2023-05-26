@@ -7,9 +7,10 @@
   flex-flow: column nowrap;
   gap: 1rem;
   padding: 1rem;
-  color: var(--text-color);
   text-align: center;
-  background-color: #151920;
+
+  // TODO light/dark mode
+  background-color: #1b1b1b;
   border-radius: 1rem;
 }
 
