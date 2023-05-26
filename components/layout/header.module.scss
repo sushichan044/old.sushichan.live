@@ -1,28 +1,19 @@
 @use "/styles/mixins" as mix;
-
-$footer-height: 80px;
+@use "/styles/variables" as var;
+@use "/styles/general" as gen;
 
 .container {
   position: sticky;
   width: 100%;
-  height: $footer-height;
-  background-color: var(--header-color);
-  border-bottom: var(--border-style);
+  height: var.$header-height;
 }
 
 .header-inside {
+  @include gen.set-layout;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: calc(100% - 2 * var(--content-margin));
-  max-width: 1080px;
-  height: 100%;
-  margin-inline: auto;
-
-  a {
-    color: #fff;
-    text-decoration: none;
-  }
 }
 
 .hero {
