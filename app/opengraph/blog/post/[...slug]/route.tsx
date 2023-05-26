@@ -3,12 +3,10 @@ import { ImageResponse } from 'next/server'
 import { getMDXExistence, getMDXFrontMatter } from '@/lib/mdx'
 
 // Image metadata
-export const size = {
+const size = {
   width: 1200,
   height: 630,
 }
-
-export const contentType = 'image/png'
 
 // Image generation
 export function GET(
