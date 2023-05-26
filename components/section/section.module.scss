@@ -2,8 +2,9 @@
 @use "/styles/variables" as var;
 
 .section-root {
-  padding: var.$layout-padding-sp;
+  padding-inline: var.$layout-padding-sp;
   margin-block: var.$layout-margin;
+  margin-inline: auto;
   border-radius: 1rem;
 
   > * {
@@ -15,6 +16,6 @@
   }
 
   @include mix.mq("md") {
-    padding: var.$layout-padding;
+    padding-inline: var.$layout-padding;
   }
 }

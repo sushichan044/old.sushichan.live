@@ -3,8 +3,8 @@ import { notFound } from 'next/navigation'
 import React from 'react'
 
 import FrontMatter from '@/components/blog/frontMatter'
-import Section from '@/components/blog/section'
 import NotFoundMeta from '@/components/meta/notFound'
+import Section from '@/components/section'
 import {
   compileMDX,
   getAllMDXSlugs,

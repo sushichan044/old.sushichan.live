@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { styled } from 'styled-components'
 
 import styles from '@/app/css-fukuwarai/fukuwarai.module.scss'
-import Section from '@/components/blog/section'
+import Section from '@/components/section'
 
 const defaultCSS = `.face {
   display: grid;

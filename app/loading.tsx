@@ -1,5 +1,5 @@
-import Section from '@/components/blog/section'
 import MainContainer from '@/components/common/mainContainer'
+import Section from '@/components/section'
 
 export default function Page() {
   return (

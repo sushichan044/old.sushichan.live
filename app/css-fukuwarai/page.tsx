@@ -3,7 +3,7 @@ import { AiOutlineWarning } from 'react-icons/ai'
 
 import Fukuwarai from '@/app/css-fukuwarai/fukuwarai'
 import styles from '@/app/css-fukuwarai/page.module.scss'
-import Section from '@/components/blog/section'
+import Section from '@/components/section'
 
 export const metadata: Metadata = {
   title: 'CSS福笑い',
