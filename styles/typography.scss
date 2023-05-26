@@ -1,0 +1,27 @@
+@use "/styles/mixins" as mix;
+
+@mixin set-typography {
+  h1 {
+    font-size: 1.25rem;
+    @include mix.mq("md") {
+      font-size: 2rem;
+    }
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    @include mix.mq("md") {
+      font-size: 1.5rem;
+    }
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 1.25rem;
+  }
+
+  line-height: 1.8;
+  letter-spacing: 0.025em;
+}
