@@ -1,12 +1,15 @@
-import MainContainer from '@/components/common/mainContainer'
-import Section from '@/components/section'
+import { GiSushis } from 'react-icons/gi'
+
+import FullHeightMainContainer from '@/components/common/fullHeightMainContainer'
+import FullScreenSection from '@/components/section/fullScreenSection'
 
 export default function Page() {
   return (
-    <MainContainer>
-      <Section>
+    <FullHeightMainContainer>
+      <FullScreenSection>
+        <GiSushis size="40%" />
         <p>Now Loading...</p>
-      </Section>
-    </MainContainer>
+      </FullScreenSection>
+    </FullHeightMainContainer>
   )
 }
