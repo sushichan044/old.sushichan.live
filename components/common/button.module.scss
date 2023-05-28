@@ -23,6 +23,7 @@
   font-size: 1.25rem;
   font-weight: 700;
   border-radius: 0.5rem;
+  transition: all 0.25s ease-in-out;
 
   @include mix.mq("md") {
     padding: 1rem;
@@ -45,10 +46,7 @@
 
 .root:hover,
 .root:focus {
-  color: var.$theme-color-light;
-  background-color: var.$theme-color-dark-hover;
-  @include mix.theme("dark") {
-    color: var.$theme-color-dark;
-    background-color: var.$theme-color-light-hover;
-  }
+  color: #257aea;
+  transition: all 0.25s ease-in-out;
+  transform: translateY(-0.25rem);
 }

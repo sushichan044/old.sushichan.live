@@ -9,7 +9,7 @@ export default function Page() {
     <FullHeightMainContainer>
       <FullScreenSection>
         <GiSushis size="25%" />
-        <p>存在しないページです。</p>
+        <p>404 Not Found</p>
         <BackButton />
       </FullScreenSection>
     </FullHeightMainContainer>
