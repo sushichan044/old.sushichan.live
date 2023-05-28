@@ -1,13 +1,19 @@
 import styles from '@/components/section/section.module.scss'
 
-type SectionProps = {
+export type SectionProps = {
   className?: string
   children: React.ReactNode
   style?: React.CSSProperties
 }
 
+export const SectionBase = ({ children, className, style }: SectionProps) => (
+  <section className={className} style={style}>
+    {children}
+  </section>
+)
+
 const Section = ({ children, className, style }: SectionProps) => (
-  <section
+  <SectionBase
     className={
       className
         ? `${className} ${styles['section-root']}`
@@ -16,7 +22,7 @@ const Section = ({ children, className, style }: SectionProps) => (
     style={style}
   >
     {children}
-  </section>
+  </SectionBase>
 )
 
 export default Section
