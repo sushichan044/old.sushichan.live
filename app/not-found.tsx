@@ -1,14 +1,17 @@
-import BackButton from '@/components/common/backButton'
-import MainContainer from '@/components/common/mainContainer'
-import Section from '@/components/section'
+import { GiSushis } from 'react-icons/gi'
 
-export default async function NotFound() {
+import BackButton from '@/components/common/backButton'
+import FullHeightMainContainer from '@/components/common/fullHeightMainContainer'
+import FullScreenSection from '@/components/section/fullScreenSection'
+
+export default function Page() {
   return (
-    <MainContainer>
-      <Section>
+    <FullHeightMainContainer>
+      <FullScreenSection>
+        <GiSushis size="25%" />
         <p>存在しないページです。</p>
         <BackButton />
-      </Section>
-    </MainContainer>
+      </FullScreenSection>
+    </FullHeightMainContainer>
   )
 }
