@@ -1,13 +1,14 @@
 'use client'
-
 import { useRouter } from 'next/navigation'
+
+import Button from '@/components/common/button'
 
 export default function BackButton() {
   const router = useRouter()
 
   return (
-    <button onClick={() => router.back()} style={{ color: 'inherit' }}>
+    <Button onClick={() => router.back()}>
       <p>最後に閲覧していたページに戻る</p>
-    </button>
+    </Button>
   )
 }
