@@ -1,0 +1,54 @@
+@use "/styles/variables" as var;
+@use "/styles/mixins" as mix;
+
+@mixin apply-color {
+  color: var.$text-color-light;
+  background-color: var.$theme-color-light;
+  border: 0.125rem solid var.$theme-color-dark;
+  @include mix.theme("dark") {
+    color: var.$text-color-dark;
+    background-color: var.$theme-color-dark;
+    border: 0.125rem solid var.$theme-color-light;
+  }
+}
+
+.root {
+  @include apply-color;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  margin-inline: auto;
+  font-size: 1.25rem;
+  font-weight: 700;
+  border-radius: 0.5rem;
+
+  @include mix.mq("md") {
+    padding: 1rem;
+  }
+}
+
+// .root::after {
+//   width: 0.5rem;
+//   height: 0.5rem;
+//   margin-left: 0.5rem;
+//   content: "";
+//   border-top: 2px solid var.$theme-color-dark;
+//   border-right: 2px solid var.$theme-color-dark;
+//   transform: rotate(45deg);
+//   @include mix.theme("dark") {
+//     border-top: 2px solid var.$theme-color-light;
+//     border-right: 2px solid var.$theme-color-light;
+//   }
+// }
+
+.root:hover,
+.root:focus {
+  color: var.$theme-color-light;
+  background-color: var.$theme-color-dark-hover;
+  @include mix.theme("dark") {
+    color: var.$theme-color-dark;
+    background-color: var.$theme-color-light-hover;
+  }
+}
