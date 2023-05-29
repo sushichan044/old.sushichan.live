@@ -1,25 +1,32 @@
 @use "/styles/mixins" as mix;
 @use "/styles/variables" as var;
+@use "/styles/general.scss" as gen;
 
 .link {
   text-decoration: none;
 }
 
 .card {
+  // TODO: これは一時的なスタイル
+  // あとから枠線つきでページ背景と合わせるなどのスタイルを検討する
+  $bg-color: #e3e3e3;
+
   display: flex;
   flex-flow: column nowrap;
   gap: 0.5rem;
   padding: 1rem;
-
-  // background is 30% darker than the theme color
   color: var.$text-color-light;
   text-align: center;
-  background-color: #9e9e9e;
+  background-color: $bg-color;
   border-radius: 1rem;
+  @include gen.hover($bg-color, $bg: true);
 
   @include mix.theme("dark") {
+    $bg-color: #1b1b1b;
+
     color: var.$text-color-dark;
-    background-color: #1b1b1b;
+    background-color: $bg-color;
+    @include gen.hover($bg-color, $bg: true);
   }
 }
 
