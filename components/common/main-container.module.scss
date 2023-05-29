@@ -1,0 +1,5 @@
+@use "/styles/general.scss" as gen;
+
+.root {
+  @include gen.set-layout;
+}
