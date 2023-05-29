@@ -4,6 +4,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
+  justify-items: stretch;
   width: 100%;
 
   @include mix.mq("md") {
