@@ -26,20 +26,25 @@
 }
 
 @mixin hover($color, $bg: false, $shadow: false) {
-  $bg-color: color.adjust($color, $alpha: -0.5);
+  $bg-color-light: color.adjust($color, $blackness: 10%);
+  $bg-color-dark: color.adjust($color, $whiteness: 10%);
   $box-shadow: rgb(0 0 0 / 25%) 0 0.5em 0.5em;
   $transition: all 0.25s ease-in-out;
 
   &:hover,
   &:focus {
     color: var.$hover-color;
+    transition: $transition;
+
     @if $bg {
-      background-color: $bg-color;
+      background-color: $bg-color-light;
+      @include mix.theme("dark") {
+        background-color: $bg-color-dark;
+      }
     }
+
     @if $shadow {
       box-shadow: $box-shadow;
     }
-
-    transition: $transition;
   }
 }
