@@ -1,6 +1,7 @@
 import React from 'react'
 import { MdArrowBackIosNew, MdArrowForwardIos } from 'react-icons/md'
 
+import styles from '@/components/button/arrow-button.module.scss'
 import Button, { ButtonProps } from '@/components/common/button'
 
 type ArrowButtonProps = {
@@ -17,9 +18,11 @@ export default function ArrowButton({
 }: ArrowButtonProps) {
   return (
     <Button onClick={onClick} style={style}>
-      {showBack && <MdArrowBackIosNew size="0.8em" />}
-      {children}
-      {showForward && <MdArrowForwardIos size="0.8em" />}
+      <span className={styles.label}>
+        {showBack && <MdArrowBackIosNew size="0.8em" />}
+        {children}
+        {showForward && <MdArrowForwardIos size="0.8em" />}
+      </span>
     </Button>
   )
 }

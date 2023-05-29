@@ -9,7 +9,7 @@ export type ButtonProps = {
 const Button = ({ children, style, onClick }: ButtonProps) => {
   return (
     <button className={styles.root} onClick={onClick} style={style}>
-      <span className={styles.label}>{children}</span>
+      {children}
     </button>
   )
 }

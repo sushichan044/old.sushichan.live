@@ -5,15 +5,13 @@
 @mixin apply-color {
   color: var.$text-color-light;
   background-color: var.$theme-color-light;
-  border-color: var.$theme-color-dark;
-  border-style: solid;
-  border-width: 0.125rem;
+  outline: var.$theme-color-dark solid 1px;
   @include gen.hover(var.$theme-color-light, $bg: true, $shadow: true);
 
   @include mix.theme("dark") {
     color: var.$text-color-dark;
     background-color: var.$theme-color-dark;
-    border-color: var.$theme-color-light;
+    outline: var.$theme-color-light solid 1px;
     @include gen.hover(var.$theme-color-dark, $bg: true, $shadow: true);
   }
 }
@@ -21,23 +19,8 @@
 .root {
   @include apply-color;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem;
+  padding: 0.75em;
   margin-inline: auto;
   font-size: 1.25rem;
-  border-radius: 0.5rem;
-
-  @include mix.mq("md") {
-    padding: 1rem;
-  }
-}
-
-.label {
-  display: flex;
-  flex-flow: row wrap;
-  gap: calc(1em / 3);
-  align-items: center;
-  justify-content: center;
+  border-radius: 0.5em;
 }
