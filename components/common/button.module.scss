@@ -46,7 +46,14 @@
 
 .root:hover,
 .root:focus {
-  color: #257aea;
+  color: var.$text-color-dark;
+  background-color: var.$theme-color-dark;
+  box-shadow: rgb(0 0 0 / 25%) 0 8px 15px;
   transition: all 0.25s ease-in-out;
   transform: translateY(-0.25rem);
+
+  @include mix.theme("dark") {
+    color: var.$text-color-light;
+    background-color: var.$theme-color-light;
+  }
 }
