@@ -29,7 +29,8 @@
   $bg-color-light: color.adjust($bg-color, $blackness: 10%);
   $bg-color-dark: color.adjust($bg-color, $whiteness: 10%);
   $box-shadow: rgb(0 0 0 / 25%) 0 0.5em 0.5em;
-  $transition: all 0.25s ease-in-out;
+  $transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out,
+    box-shadow 0.25s ease-in-out;
 
   transition: $transition;
 
