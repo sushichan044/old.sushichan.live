@@ -1,9 +1,9 @@
 import styles from '@/components/common/button.module.scss'
 
-type ButtonProps = {
+export type ButtonProps = {
   children: React.ReactNode
   style?: React.CSSProperties
-  onClick?: () => void
+  onClick?: React.ComponentProps<'button'>['onClick'] | undefined
 }
 
 const Button = ({ children, style, onClick }: ButtonProps) => {
