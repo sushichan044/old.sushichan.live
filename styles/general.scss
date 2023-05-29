@@ -1,5 +1,6 @@
 @use "/styles/mixins" as mix;
 @use "/styles/variables" as var;
+@use "sass:color";
 
 @mixin set-theme {
   color: var.$text-color-light;
@@ -21,5 +22,24 @@
   }
   @include mix.mq("2xl") {
     max-width: var.$layout-max-width-2xl;
+  }
+}
+
+@mixin hover($color, $bg: false, $shadow: false) {
+  $bg-color: color.adjust($color, $alpha: -0.5);
+  $box-shadow: rgb(0 0 0 / 25%) 0 0.5em 0.5em;
+  $transition: all 0.25s ease-in-out;
+
+  &:hover,
+  &:focus {
+    color: var.$hover-color;
+    @if $bg {
+      background-color: $bg-color;
+    }
+    @if $shadow {
+      box-shadow: $box-shadow;
+    }
+
+    transition: $transition;
   }
 }
