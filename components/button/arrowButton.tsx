@@ -17,9 +17,9 @@ export default function ArrowButton({
 }: ArrowButtonProps) {
   return (
     <Button onClick={onClick} style={style}>
-      {showBack && <MdArrowBackIosNew />}
+      {showBack && <MdArrowBackIosNew size="0.8em" />}
       {children}
-      {showForward && <MdArrowForwardIos />}
+      {showForward && <MdArrowForwardIos size="0.8em" />}
     </Button>
   )
 }
