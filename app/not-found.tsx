@@ -1,7 +1,7 @@
 import { GiSushis } from 'react-icons/gi'
 
 import styles from '@/app/not-found.module.scss'
-import BackButton from '@/components/common/backButton'
+import BackButton from '@/components/button/backButton'
 import FullHeightMainContainer from '@/components/common/fullHeightMainContainer'
 import FullScreenSection from '@/components/section/fullScreenSection'
 
