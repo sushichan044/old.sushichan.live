@@ -1,5 +1,7 @@
 @use "/styles/general" as gen;
 @use "/styles/typography.scss" as typography;
+@use "/styles/variables" as var;
+@use "/styles/mixins" as mix;
 
 @tailwind base;
 @tailwind components;
@@ -31,10 +33,13 @@ pre:not([class*="language-"]) {
 }
 
 a {
-  color: inherit;
-}
+  // TODO: ここは多分リンクに最初から色を付けるべき...
+  color: var.$text-color-light;
+  text-decoration: none;
+  @include gen.hover(var.$text-color-light);
 
-/* stylelint-disable-next-line selector-max-id */
-#main-container {
-  @include gen.set-layout;
+  @include mix.theme("dark") {
+    color: var.$text-color-dark;
+    @include gen.hover(var.$text-color-dark);
+  }
 }
