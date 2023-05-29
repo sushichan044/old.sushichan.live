@@ -25,15 +25,14 @@
   }
 }
 
-@mixin hover($color, $bg: false, $shadow: false) {
-  $bg-color-light: color.adjust($color, $blackness: 10%);
-  $bg-color-dark: color.adjust($color, $whiteness: 10%);
+@mixin hover($bg-color, $bg: false, $color: false, $shadow: false) {
+  $bg-color-light: color.adjust($bg-color, $blackness: 10%);
+  $bg-color-dark: color.adjust($bg-color, $whiteness: 10%);
   $box-shadow: rgb(0 0 0 / 25%) 0 0.5em 0.5em;
   $transition: all 0.25s ease-in-out;
 
   &:hover,
   &:focus {
-    color: var.$hover-color;
     transition: $transition;
 
     @if $bg {
@@ -41,6 +40,10 @@
       @include mix.theme("dark") {
         background-color: $bg-color-dark;
       }
+    }
+
+    @if $color {
+      color: var.$hover-color;
     }
 
     @if $shadow {

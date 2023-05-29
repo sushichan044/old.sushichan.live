@@ -36,10 +36,10 @@ a {
   // TODO: ここは多分リンクに最初から色を付けるべき...
   color: var.$text-color-light;
   text-decoration: none;
-  @include gen.hover(var.$text-color-light);
+  @include gen.hover(var.$text-color-light, $color: true);
 
   @include mix.theme("dark") {
     color: var.$text-color-dark;
-    @include gen.hover(var.$text-color-dark);
+    @include gen.hover(var.$text-color-dark, $color: true);
   }
 }
