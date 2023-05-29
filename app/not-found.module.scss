@@ -1,0 +1,10 @@
+@use "/styles/mixins" as mix;
+
+.logo {
+  width: 50%;
+  height: auto;
+
+  @include mix.mq("md") {
+    width: calc(100% / 3);
+  }
+}
