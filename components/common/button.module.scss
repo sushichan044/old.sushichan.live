@@ -28,7 +28,6 @@
   margin-inline: auto;
   font-size: 1.25rem;
   border-radius: 0.5rem;
-  transition: all 0.25s ease-in-out;
 
   @include mix.mq("md") {
     padding: 1rem;
