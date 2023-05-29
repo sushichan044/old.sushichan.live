@@ -61,10 +61,11 @@ export const compileMDX = async (fileName: string, extension: 'mdx' | 'md') => {
           [
             rehypePrettyCode,
             {
-              theme: {
-                dark: 'one-dark-pro',
-                light: 'github-light',
-              },
+              // theme: {
+              //   dark: 'one-dark-pro',
+              //   light: 'github-light',
+              // },
+              theme: 'one-dark-pro',
               keepBackground: true,
             },
           ],
