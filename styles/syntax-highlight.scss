@@ -1,4 +1,5 @@
 @use "/styles/mixins" as mix;
+@use "sass:color";
 
 /* stylelint-disable-next-line selector-no-qualifying-type */
 code[data-line-numbers] {
@@ -34,8 +35,10 @@ div[data-rehype-pretty-code-fragment] {
     padding-inline: 1rem;
     overflow: auto;
     border-radius: 0.5rem;
+
+    // TODO: Chrome向けスクロールバーCSS
     scrollbar-width: auto;
-    scrollbar-color: #4e5363 #292c34;
+    scrollbar-color: #4e5363 #282c34;
   }
   /* stylelint-disable-next-line selector-no-qualifying-type */
   > div[data-rehype-pretty-code-title] {
