@@ -1,9 +1,13 @@
 import fs from 'fs'
 import matter from 'gray-matter'
 import { compileMDX as compileMDXFile } from 'next-mdx-remote/rsc'
+import rehypeAutoLinkHeadings from 'rehype-autolink-headings'
+import rehypeKatex from 'rehype-katex'
 import rehypePrettyCode from 'rehype-pretty-code'
+import rehypeSlug from 'rehype-slug'
 import remarkEmoji from 'remark-emoji'
 import remarkGfm from 'remark-gfm'
+import remarkMath from 'remark-math'
 import remarkUnwrapImages from 'remark-unwrap-images'
 
 import { customComponents } from '@/components/mdx/customComponents'
@@ -49,8 +53,11 @@ export const compileMDX = async (fileName: string, extension: 'mdx' | 'md') => {
     source: mdx,
     options: {
       mdxOptions: {
-        remarkPlugins: [remarkGfm, remarkEmoji, remarkUnwrapImages],
+        remarkPlugins: [remarkGfm, remarkEmoji, remarkMath, remarkUnwrapImages],
         rehypePlugins: [
+          rehypeSlug,
+          rehypeAutoLinkHeadings,
+          rehypeKatex,
           rehypeImageOpt,
           [
             rehypePrettyCode,
