@@ -17,7 +17,7 @@ const FrontMatter = ({
     <div className={styles.container}>
       {thumbnail && (
         <div className={styles.thumbnail}>
-          <Image alt={title} fill src={thumbnail} />
+          <Image alt={title} fill priority src={thumbnail} />
         </div>
       )}
       <div className={styles.heading}>
