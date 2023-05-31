@@ -1,5 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { MdOutlineUpdate } from 'react-icons/md'
+import { TbPencil } from 'react-icons/tb'
 
 import styles from '@/components/blog/front-matter.module.scss'
 import Tag from '@/components/blog/tag'
@@ -9,6 +11,7 @@ import { type mdxMetaDataWithFile } from '@/lib/mdx'
 const FrontMatter = ({
   title,
   date,
+  updated,
   description,
   thumbnail,
   tags,
@@ -28,7 +31,18 @@ const FrontMatter = ({
       )}
       <div className={styles.heading}>
         <h1>{title}</h1>
-        <p>{convertDate(date)}</p>
+        <div className={styles['date-container']}>
+          <span className={styles.date}>
+            <TbPencil size="1.25em" />
+            <p>{convertDate(date)}</p>
+          </span>
+          {updated && (
+            <span className={styles.date}>
+              <MdOutlineUpdate size="1.25em" />
+              <p>{convertDate(updated)}</p>
+            </span>
+          )}
+        </div>
         {tags && (
           <div className={styles.tags}>
             {tags.map((tag) => (
