@@ -32,3 +32,14 @@
     object-fit: cover;
   }
 }
+
+.heading {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.tags {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1em;
+}

@@ -1,6 +1,8 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 import styles from '@/components/blog/front-matter.module.scss'
+import Tag from '@/components/blog/tag'
 import { convertDate } from '@/lib/date'
 import { type mdxMetaDataWithFile } from '@/lib/mdx'
 
@@ -9,6 +11,7 @@ const FrontMatter = ({
   date,
   description,
   thumbnail,
+  tags,
 }: mdxMetaDataWithFile) => {
   return (
     <div className={styles.container}>
@@ -17,11 +20,23 @@ const FrontMatter = ({
           <Image alt={title} fill src={thumbnail} />
         </div>
       )}
-      <span>
-        <p>{convertDate(date)}</p>
+      <div className={styles.heading}>
         <h1>{title}</h1>
-        <p>{description}</p>
-      </span>
+        <p>{convertDate(date)}</p>
+        {tags && (
+          <div className={styles.tags}>
+            {tags.map((tag) => (
+              <Link href={`/blog/tags/${tag}`} key={tag}>
+                <Tag key={tag} tag={tag} />
+              </Link>
+            ))}
+          </div>
+        )}
+        {/* TODO: descriptionのCSSを書く(位置調整など) */}
+        <span>
+          <p>{description}</p>
+        </span>
+      </div>
     </div>
   )
 }
