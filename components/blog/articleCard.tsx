@@ -15,7 +15,14 @@ const ArticleCard = ({
     <Link className={styles.link} href={`/blog/post/${file.fileName}`}>
       <div className={styles.card}>
         <div className={styles.thumbnail}>
-          {thumbnail && <Image alt={title} fill src={thumbnail} />}
+          {thumbnail && (
+            <Image
+              alt={title}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              src={thumbnail}
+            />
+          )}
         </div>
         <span>{convertDate(date)}</span>
         <span className={styles.title}>{title}</span>

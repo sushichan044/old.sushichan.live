@@ -17,7 +17,13 @@ const FrontMatter = ({
     <div className={styles.container}>
       {thumbnail && (
         <div className={styles.thumbnail}>
-          <Image alt={title} fill priority src={thumbnail} />
+          <Image
+            alt={title}
+            fill
+            priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            src={thumbnail}
+          />
         </div>
       )}
       <div className={styles.heading}>
