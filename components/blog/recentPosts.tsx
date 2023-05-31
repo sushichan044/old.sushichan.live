@@ -1,11 +1,12 @@
 import ArticleCard from '@/components/blog/articleCard'
+// import ReadMoreButton from '@/components/blog/readMoreButton'
 import styles from '@/components/blog/recent-posts.module.scss'
 import { getAllMDXSlugs, getMDXExistence, getMDXFrontMatter } from '@/lib/mdx'
 
 // TODO: 部分的な取得ができるようにする
 const RecentPosts = async () => {
   // https://qiita.com/xx2xyyy/items/9116d52d6dfd4f3549ef
-  const allPosts = (await getAllMDXSlugs())
+  const allPosts = (await getAllMDXSlugs({}))
     .map((slug) => getMDXExistence(slug))
     .flatMap((mdx) => (mdx.exists ? mdx : []))
 
@@ -16,11 +17,14 @@ const RecentPosts = async () => {
     })
 
   return (
-    <div className={styles['post-grid']}>
-      {metaDatas.map((metaData) => (
-        <ArticleCard key={metaData.title} {...metaData} />
-      ))}
-    </div>
+    <>
+      <div className={styles['post-grid']}>
+        {metaDatas.map((metaData) => (
+          <ArticleCard key={metaData.title} {...metaData} />
+        ))}
+      </div>
+      {/* <ReadMoreButton /> */}
+    </>
   )
 }
 
