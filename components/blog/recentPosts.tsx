@@ -1,5 +1,4 @@
 import ArticleCard from '@/components/blog/articleCard'
-// import ReadMoreButton from '@/components/blog/readMoreButton'
 import styles from '@/components/blog/recent-posts.module.scss'
 import { getAllMDXSlugs, getMDXExistence, getMDXFrontMatter } from '@/lib/mdx'
 
@@ -17,14 +16,11 @@ const RecentPosts = async () => {
     })
 
   return (
-    <>
-      <div className={styles['post-grid']}>
-        {metaDatas.map((metaData) => (
-          <ArticleCard key={metaData.title} {...metaData} />
-        ))}
-      </div>
-      {/* <ReadMoreButton /> */}
-    </>
+    <div className={styles['post-grid']}>
+      {metaDatas.map((metaData) => (
+        <ArticleCard key={metaData.title} {...metaData} />
+      ))}
+    </div>
   )
 }
 
