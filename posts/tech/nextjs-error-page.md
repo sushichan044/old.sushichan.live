@@ -2,6 +2,7 @@
 title: Next.js(app router)でのCustom Error Page
 description: 404の方はすんなり解決したけど500で沼った
 date: 2023-05-30
+updated: 2023-06-01
 thumbnail: https://imagedelivery.net/i4QA6VLSP0gXyj6-3zNFXg/483de844-1c72-4d3d-6fe9-ac4e867dc200/public
 tags:
   - Next.js

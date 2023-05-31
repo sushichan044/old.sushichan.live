@@ -18,6 +18,7 @@ export type mdxMetaData = {
   title: string
   description: string
   date: Date
+  updated?: Date
   thumbnail?: string
   tags?: string[]
 }
@@ -113,6 +114,7 @@ export const getMDXFrontMatter = (
     title: data.title,
     description: data.description,
     date: data.date,
+    updated: data?.updated,
     thumbnail: data?.thumbnail,
     tags: data?.tags,
     file: {
