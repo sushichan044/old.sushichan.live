@@ -122,8 +122,14 @@ export const getMDXFrontMatter = (
   // return data as mdxMetaData
 }
 
-export const getAllMDXSlugs = async (ignorePrefix = /^_/) => {
-  return (await recursiveGetFilepath(postsDir, ignorePrefix))
+export const getAllMDXSlugs = async ({
+  ignorePrefix = /^_/,
+  maxCount,
+}: {
+  ignorePrefix?: RegExp
+  maxCount?: number
+}) => {
+  return (await recursiveGetFilepath(postsDir, ignorePrefix, maxCount))
     .filter((file) => fileHasExtension(file, ['md', 'mdx']))
     .map((file) => file.replace(/.mdx?$/, ''))
 }

@@ -29,12 +29,17 @@ export const fileHasExtension = (
 
 export const recursiveGetFilepath = async (
   dir: string,
-  ignorePattern?: RegExp
+  ignorePattern?: RegExp,
+  maxCount?: number,
+  start?: number
 ): Promise<string[]> => {
   const recursiveFiles: string[] = []
   const files = await fs.promises.readdir(dir, { withFileTypes: true })
   const isTargetFile = (file: string) => {
     return ignorePattern ? !file.match(ignorePattern) : true
+  }
+  const filesIsMax = () => {
+    return maxCount ? recursiveFiles.length >= maxCount : false
   }
 
   const ignoreAppliedFiles = files.filter((file) => isTargetFile(file.name))
@@ -46,14 +51,25 @@ export const recursiveGetFilepath = async (
           ignorePattern
         )
         for (const subFile of subFiles) {
+          if (filesIsMax()) {
+            break
+          }
           recursiveFiles.push(`${file.name}/${subFile}`)
         }
       } else {
         if (isTargetFile(file.name)) {
+          if (filesIsMax()) {
+            return
+          }
           recursiveFiles.push(file.name)
         }
       }
     })
   )
+
+  if (start) {
+    return recursiveFiles.length >= start ? recursiveFiles.slice(start) : []
+  }
+
   return recursiveFiles
 }
