@@ -63,7 +63,7 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  const slugs = await getAllMDXSlugs()
+  const slugs = await getAllMDXSlugs({})
   return slugs?.map((slug) => ({ slug: slug.split('/') }))
 }
 
