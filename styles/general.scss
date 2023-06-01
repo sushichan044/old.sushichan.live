@@ -25,12 +25,18 @@
   }
 }
 
-@mixin hover($bg-color, $bg: false, $color: false, $shadow: false) {
-  $bg-color-light: color.adjust($bg-color, $blackness: 10%);
-  $bg-color-dark: color.adjust($bg-color, $whiteness: 10%);
-  $box-shadow: rgb(0 0 0 / 25%) 0 0.5em 0.5em;
+@mixin hover(
+  $bg-color,
+  $bg: false,
+  $color: false,
+  $shadow: false,
+  $transform: false
+) {
+  $bg-color-light: color.adjust($bg-color, $blackness: 1.25%);
+  $bg-color-dark: color.adjust($bg-color, $whiteness: 5%);
+  $box-shadow: rgb(0 0 0 / 25%) 0 0.25em 0.25em;
   $transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out,
-    box-shadow 0.25s ease-in-out;
+    box-shadow 0.25s ease-in-out, transform 0.25s ease-in-out;
 
   transition: $transition;
 
@@ -51,6 +57,10 @@
 
     @if $shadow {
       box-shadow: $box-shadow;
+    }
+
+    @if $transform {
+      transform: translateY(-0.125em);
     }
   }
 }

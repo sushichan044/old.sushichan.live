@@ -6,13 +6,23 @@
   color: var.$text-color-light;
   background-color: var.$theme-color-light;
   outline: var.$theme-color-dark solid 1px;
-  @include gen.hover(var.$theme-color-light, $bg: true, $shadow: true);
+  @include gen.hover(
+    var.$theme-color-light,
+    $bg: true,
+    $shadow: true,
+    $transform: true
+  );
 
   @include mix.theme("dark") {
     color: var.$text-color-dark;
     background-color: var.$theme-color-dark;
     outline: var.$theme-color-light solid 1px;
-    @include gen.hover(var.$theme-color-dark, $bg: true, $shadow: true);
+    @include gen.hover(
+      var.$theme-color-dark,
+      $bg: true,
+      $shadow: true,
+      $transform: true
+    );
   }
 }
 
