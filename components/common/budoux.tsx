@@ -1,6 +1,10 @@
 import { loadDefaultJapaneseParser } from 'budoux'
 
-const WithBudoux = ({ children }: { children: string }) => {
+const WithBudoux = ({ children }: { children?: string }) => {
+  if (!children || children === '') {
+    return <></>
+  }
+
   const parser = loadDefaultJapaneseParser()
 
   return (
