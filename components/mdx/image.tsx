@@ -17,7 +17,7 @@ const MDXImage = ({ src, alt = '', width, height }: MDXImageProps) => {
   const altIsEmpty = alt === '' || alt === undefined
 
   return (
-    <Link href={`/image/${imageId}`}>
+    <Link href={`/blog/image/${imageId}`}>
       <figure className={styles.container}>
         <NextImage
           alt={altIsEmpty ? 'image' : alt}

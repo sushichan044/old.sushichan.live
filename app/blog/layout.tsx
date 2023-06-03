@@ -11,8 +11,15 @@ export const metadata: Metadata = {
 
 export default async function BlogLayout({
   children,
+  modal,
 }: {
   children: React.ReactNode
+  modal: React.ReactNode
 }) {
-  return <MainContainer>{children}</MainContainer>
+  return (
+    <MainContainer>
+      {children}
+      {modal}
+    </MainContainer>
+  )
 }
