@@ -1,3 +1,4 @@
+import TextCard from '@/app/blog/_components/textCard'
 import Message from '@/components/common/message'
 import MDXImage from '@/components/mdx/image'
 
@@ -7,4 +8,5 @@ export const customComponents = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   img: (props: any) => <MDXImage {...props} />,
   Message,
+  TextCard,
 }
