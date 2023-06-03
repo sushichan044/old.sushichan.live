@@ -26,7 +26,7 @@
 }
 
 @mixin hover(
-  $bg-color,
+  $bg-color: #fff,
   $bg: false,
   $color: false,
   $shadow: false,
