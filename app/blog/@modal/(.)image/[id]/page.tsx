@@ -1,4 +1,4 @@
-import Modal from '@/components/common/modal'
+import Modal from '@/app/blog/_components/modal'
 import NextImage from '@/components/image/nextImage'
 
 type PageProps = {
