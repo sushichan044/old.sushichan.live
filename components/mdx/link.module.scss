@@ -1,0 +1,19 @@
+@use "/styles/variables" as var;
+
+.span {
+  display: inline-block;
+  flex-flow: row nowrap;
+
+  //   text-decoration: underline;
+  //   text-underline-offset: 0.125em;
+}
+
+.link {
+  display: inline-block;
+  color: var.$hover-color;
+
+  &:hover,
+  &:focus {
+    color: var.$hover-color-lighter;
+  }
+}
