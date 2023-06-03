@@ -27,7 +27,7 @@ export default function Modal({ children, className }: ModalProps) {
         if (onDismiss) onDismiss()
       }
     },
-    [onDismiss, modalRef]
+    [onDismiss, modalRef, wrapperRef]
   )
 
   const onKeyDown = useCallback(
