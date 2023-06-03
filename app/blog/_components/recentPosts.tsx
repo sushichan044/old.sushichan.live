@@ -1,5 +1,5 @@
-import ArticleCard from '@/components/blog/articleCard'
-import styles from '@/components/blog/recent-posts.module.scss'
+import ArticleCard from '@/app/blog/_components/articleCard'
+import styles from '@/app/blog/_components/recent-posts.module.scss'
 import { getAllMDXSlugs, getMDXExistence, getMDXFrontMatter } from '@/lib/mdx'
 
 // TODO: 部分的な取得ができるようにする

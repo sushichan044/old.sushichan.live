@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import React from 'react'
 
-import FrontMatter from '@/components/blog/frontMatter'
+import FrontMatter from '@/app/blog/_components/frontMatter'
 import NotFoundMeta from '@/components/meta/notFound'
 import Section from '@/components/section'
 import {

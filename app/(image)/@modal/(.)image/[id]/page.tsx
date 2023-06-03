@@ -8,7 +8,7 @@ type PageProps = {
 
 export default async function Page({ params: { id } }: PageProps) {
   return (
-    <>
+    <div>
       <h1>Image Modal</h1>
       <NextImage
         alt="image"
@@ -16,6 +16,6 @@ export default async function Page({ params: { id } }: PageProps) {
         src={`https://imagedelivery.net/i4QA6VLSP0gXyj6-3zNFXg/${id}/public`}
         width={800}
       />
-    </>
+    </div>
   )
 }

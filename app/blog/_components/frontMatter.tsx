@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { MdOutlineUpdate } from 'react-icons/md'
 import { TbPencil } from 'react-icons/tb'
 
-import styles from '@/components/blog/front-matter.module.scss'
-import Tag from '@/components/blog/tag'
+import styles from '@/app/blog/_components/front-matter.module.scss'
+import Tag from '@/app/blog/_components/tag'
 import { convertDate } from '@/lib/date'
 import { type mdxMetaDataWithFile } from '@/lib/mdx'
 
