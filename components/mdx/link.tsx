@@ -16,17 +16,17 @@ const MDXLink = ({ children, href, ...rest }: Props) => {
   return (
     <>
       <Link
-        className={styles.link}
         /* FIXME */
         /* @ts-expect-error 型パズルに敗北...*/
         href={href}
         {...rest}
+        className={styles.link}
         target={isExternal ? '_blank' : '_self'}
       >
-        <span className={styles.span}>
-          {children}
-          {/* {isExternal && <TbArrowUpRight color="inherit" />} */}
-        </span>
+        {children}
+        {/* <span>
+          {isExternal && <TbArrowUpRight color="inherit" />
+        </span> */}
       </Link>
     </>
   )
