@@ -1,0 +1,11 @@
+@use "/styles/variables" as var;
+
+.root {
+  width: min(100%, 600px);
+  padding: var.$content-margin;
+  margin-inline: auto;
+}
+
+.round {
+  border-radius: 0.5rem;
+}
