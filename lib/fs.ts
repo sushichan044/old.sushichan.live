@@ -73,3 +73,8 @@ export const recursiveGetFilepath = async (
 
   return recursiveFiles
 }
+
+export const getFileModifiedTime = async (filePath: string) => {
+  const stat = await fs.promises.stat(filePath)
+  return stat.mtime
+}

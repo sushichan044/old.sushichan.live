@@ -11,7 +11,11 @@ import remarkMath from 'remark-math'
 import remarkUnwrapImages from 'remark-unwrap-images'
 
 import { customComponents } from '@/components/mdx/customComponents'
-import { fileHasExtension, recursiveGetFilepath } from '@/lib/fs'
+import {
+  fileHasExtension,
+  getFileModifiedTime,
+  recursiveGetFilepath,
+} from '@/lib/fs'
 import rehypeImageOpt from '@/lib/rehype-image'
 
 export type mdxMetaData = {
@@ -79,7 +83,7 @@ export const compileMDX = async (fileName: string, extension: 'mdx' | 'md') => {
       parseFrontmatter: true,
     },
   })
-  const frontMatter = getMDXFrontMatter(fileName, extension)
+  const frontMatter = await getMDXFrontMatter(fileName, extension)
   return { content, frontMatter }
 }
 
@@ -104,17 +108,20 @@ export const getMDXExistence = (fileName: string): MDXExistence => {
   }
 }
 
-export const getMDXFrontMatter = (
+export const getMDXFrontMatter = async (
   fileName: string,
   extension: 'mdx' | 'md'
-): mdxMetaDataWithFile => {
-  const { data } = matter.read(`${postsDir}/${fileName}.${extension}`)
+): Promise<mdxMetaDataWithFile> => {
+  const mdxPath = `${postsDir}/${fileName}.${extension}`
+
+  const { data } = matter.read(mdxPath)
+  const mtime = await getFileModifiedTime(mdxPath)
 
   return {
     title: data.title,
     description: data.description,
     date: data.date,
-    updated: data?.updated,
+    updated: mtime,
     thumbnail: data?.thumbnail,
     tags: data?.tags,
     file: {

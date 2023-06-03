@@ -9,7 +9,7 @@ const size = {
 }
 
 // Image generation
-export function GET(
+export async function GET(
   request: Request,
   {
     params: { slug },
@@ -22,7 +22,7 @@ export function GET(
   if (!mdx.exists) {
     return
   }
-  const { thumbnail, title } = getMDXFrontMatter(mdxPath, mdx.extension)
+  const { thumbnail, title } = await getMDXFrontMatter(mdxPath, mdx.extension)
   if (!thumbnail) {
     return
   }

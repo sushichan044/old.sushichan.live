@@ -26,7 +26,7 @@ export async function generateMetadata({
   if (!mdx.exists) {
     return NotFoundMeta
   }
-  const mdxMetaData = getMDXFrontMatter(mdxPath, mdx.extension)
+  const mdxMetaData = await getMDXFrontMatter(mdxPath, mdx.extension)
 
   // FIXME: Dynamic OG images are not working
   // https://github.com/vercel/next.js/issues/49630

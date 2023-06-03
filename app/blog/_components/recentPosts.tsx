@@ -9,15 +9,16 @@ const RecentPosts = async () => {
     .map((slug) => getMDXExistence(slug))
     .flatMap((mdx) => (mdx.exists ? mdx : []))
 
-  const metaDatas = allPosts
-    .map((mdx) => getMDXFrontMatter(mdx.fileName, mdx.extension))
-    .sort((a, b) => {
-      return a.date < b.date ? 1 : -1
-    })
+  const rawFrontMatters = await Promise.all(
+    allPosts.map((mdx) => getMDXFrontMatter(mdx.fileName, mdx.extension))
+  )
+  const FrontMatters = rawFrontMatters.sort((a, b) => {
+    return a.date < b.date ? 1 : -1
+  })
 
   return (
     <div className={styles['post-grid']}>
-      {metaDatas.map((metaData) => (
+      {FrontMatters.map((metaData) => (
         <ArticleCard key={metaData.title} {...metaData} />
       ))}
     </div>
