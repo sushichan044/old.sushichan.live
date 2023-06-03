@@ -20,14 +20,14 @@
   text-align: center;
   background-color: $bg-color;
   border-radius: 1rem;
-  @include gen.hover($bg-color, $bg: true);
+  @include gen.hover($bg-color, $bg: true, $shadow: true);
 
   @include mix.theme("dark") {
     $bg-color: #1b1b1b;
 
     color: var.$text-color-dark;
     background-color: $bg-color;
-    @include gen.hover($bg-color, $bg: true);
+    @include gen.hover($bg-color, $bg: true, $shadow: true);
   }
 }
 
