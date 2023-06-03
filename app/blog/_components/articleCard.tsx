@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import styles from '@/app/blog/_components/article-card.module.scss'
+import WithBudoux from '@/components/common/budoux'
 import { convertDate } from '@/lib/date'
 import { type mdxMetaDataWithFile } from '@/lib/mdx'
 
@@ -25,7 +26,9 @@ const ArticleCard = ({
           )}
         </div>
         <span>{convertDate(date)}</span>
-        <span className={styles.title}>{title}</span>
+        <span className={styles.title}>
+          <WithBudoux>{title}</WithBudoux>
+        </span>
       </div>
     </Link>
   )

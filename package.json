@@ -30,6 +30,7 @@
   "dependencies": {
     "@monaco-editor/react": "^4.5.1",
     "@radix-ui/react-navigation-menu": "^1.1.2",
+    "budoux": "^0.5.1",
     "client-only": "^0.0.1",
     "clsx": "^1.2.1",
     "gray-matter": "^4.0.3",

@@ -5,6 +5,7 @@ import { TbPencil } from 'react-icons/tb'
 
 import styles from '@/app/blog/_components/front-matter.module.scss'
 import Tag from '@/app/blog/_components/tag'
+import WithBudoux from '@/components/common/budoux'
 import { convertDate } from '@/lib/date'
 import { type mdxMetaDataWithFile } from '@/lib/mdx'
 
@@ -30,7 +31,13 @@ const FrontMatter = ({
         </div>
       )}
       <div className={styles.heading}>
-        <h1>{title}</h1>
+        <h1>
+          <WithBudoux>{title}</WithBudoux>
+        </h1>
+        {/* TODO: descriptionのCSSを書く(位置調整など) */}
+        <span>
+          <p>{description}</p>
+        </span>
         <div className={styles['date-container']}>
           <span className={styles.date}>
             <TbPencil size="1.25em" />
@@ -52,10 +59,6 @@ const FrontMatter = ({
             ))}
           </div>
         )}
-        {/* TODO: descriptionのCSSを書く(位置調整など) */}
-        <span>
-          <p>{description}</p>
-        </span>
       </div>
     </div>
   )
