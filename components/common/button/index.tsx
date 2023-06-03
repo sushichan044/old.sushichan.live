@@ -1,4 +1,4 @@
-import styles from '@/components/common/button.module.scss'
+import styles from '@/components/common/button/button.module.scss'
 
 export type ButtonProps = {
   children: React.ReactNode
