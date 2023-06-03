@@ -1,0 +1,33 @@
+@use "/styles/variables" as var;
+@use "/styles/mixins" as mix;
+
+.icon {
+  width: auto;
+  height: 100%;
+}
+
+.card {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 0.5em;
+  align-items: flex-start;
+  width: 100%;
+  padding: var.$content-margin;
+  margin-inline: auto;
+  border-radius: 0.5rem;
+
+  &__warn {
+    background-color: #fdecbf;
+
+    @include mix.theme("dark") {
+      background-color: #6a4b16;
+    }
+  }
+
+  &__alert {
+    background-color: #fdd8df;
+    @include mix.theme("dark") {
+      background-color: #630001;
+    }
+  }
+}
