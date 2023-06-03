@@ -3,7 +3,13 @@
 @use "/styles/general" as gen;
 
 .container {
-  position: sticky;
+  // TODO: sticky
+  // きれいに隠したりしようとするとframer-motionが必要
+  // @include gen.set-theme;
+
+  // position: sticky;
+  // top: 0;
+  // z-index: 100;
   width: 100%;
   height: var.$header-height;
 }
