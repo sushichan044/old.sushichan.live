@@ -32,6 +32,7 @@ export function GET(
       // eslint-disable-next-line @next/next/no-img-element
       <img
         alt={title}
+        decoding="async"
         height={size.height}
         src={thumbnail}
         style={{ objectFit: 'cover' }}

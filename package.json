@@ -7,15 +7,24 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "lint:markup": "markuplint \"./**/*.{jsx,tsx}\"",
     "prepare": "husky install",
     "postinstall": "husky install",
-    "lint:precommit": "eslint --max-warnings 0 --ignore-path .gitignore",
+    "eslint:precommit": "eslint --max-warnings 0 --ignore-path .gitignore",
     "fmt:precommit": "prettier --check --ignore-path .gitignore",
-    "stylelint:precommit": "stylelint --max-warnings 0 --ignore-path .gitignore"
+    "stylelint:precommit": "stylelint --max-warnings 0 --ignore-path .gitignore",
+    "markuplint:precommit": "markuplint --no-color --problem-only \"./**/*.{jsx,tsx}\""
   },
   "lint-staged": {
-    "./**/*.{ts,tsx}": "npm run lint:precommit",
-    "./**/*.{js,jsx,ts,tsx}": "npm run fmt:precommit",
+    "./**/*.{js,ts}": [
+      "npm run eslint:precommit",
+      "npm run fmt:precommit"
+    ],
+    "./**/*.{jsx,tsx}": [
+      "npm run eslint:precommit",
+      "npm run fmt:precommit",
+      "npm run markuplint:precommit"
+    ],
     "./**/*.{css,scss}": "npm run stylelint:precommit"
   },
   "dependencies": {
@@ -48,6 +57,8 @@
     "unist-util-visit": "^4.1.2"
   },
   "devDependencies": {
+    "@markuplint/jsx-parser": "^3.7.0",
+    "@markuplint/react-spec": "^3.8.0",
     "@types/node": "20.1.7",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
@@ -61,6 +72,7 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "husky": "^8.0.0",
     "lint-staged": "^13.2.2",
+    "markuplint": "^3.10.0",
     "postcss": "^8.4.23",
     "prettier": "^2.8.8",
     "sass": "^1.62.1",
@@ -73,6 +85,7 @@
     "stylelint-declaration-block-no-ignored-properties": "^2.7.0",
     "stylelint-value-no-unknown-custom-properties": "^4.0.0",
     "tailwindcss": "^3.3.2",
+    "ts-node": "^10.9.1",
     "typescript": "5.0.4"
   },
   "volta": {
