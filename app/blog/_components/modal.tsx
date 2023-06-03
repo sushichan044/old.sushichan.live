@@ -1,18 +1,16 @@
 'use client'
 
-import clsx from 'clsx'
 import { useRouter } from 'next/navigation'
 import { MouseEvent, useCallback, useEffect, useRef } from 'react'
 
-import styles from '@/components/common/modal/modal.module.scss'
+import styles from '@/app/blog/_components/modal.module.scss'
 
 type ModalProps = {
   children: React.ReactNode
-  className?: string
 }
 
 // https://github.com/vercel-labs/nextgram/blob/main/components/modal/index.js
-export default function Modal({ children, className }: ModalProps) {
+export default function Modal({ children }: ModalProps) {
   const router = useRouter()
   const modalRef = useRef<HTMLDivElement>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)
@@ -43,11 +41,7 @@ export default function Modal({ children, className }: ModalProps) {
   }, [onKeyDown])
 
   return (
-    <div
-      className={clsx(styles.root, className && className)}
-      onClick={onClick}
-      ref={modalRef}
-    >
+    <div className={styles.root} onClick={onClick} ref={modalRef}>
       <div className={styles.wrapper} ref={wrapperRef}>
         {children}
       </div>
