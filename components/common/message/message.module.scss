@@ -16,6 +16,9 @@
   margin-inline: auto;
   border-radius: 0.5rem;
 
+  // colors got from Microsoft docs
+  // https://learn.microsoft.com/ja-jp/windows/wsl/wsl-config
+  // light theme's color is 8% darken than the original
   &__warn {
     background-color: #fdecbf;
 
@@ -28,6 +31,13 @@
     background-color: #fdd8df;
     @include mix.theme("dark") {
       background-color: #630001;
+    }
+  }
+
+  &__info {
+    background-color: #e3b5f9;
+    @include mix.theme("dark") {
+      background-color: #3b2e58;
     }
   }
 }

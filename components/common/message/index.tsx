@@ -6,18 +6,18 @@ import WithBudoux from '@/components/common/budoux'
 import styles from '@/components/common/message/message.module.scss'
 
 type MessageProps = {
-  type: 'warning' | 'alert'
+  type: 'warning' | 'alert' | 'info'
   children: string
 }
 
 const Message = ({ type, children }: MessageProps) => {
-  const isWarning = type === 'warning'
-
   return (
     <div
       className={clsx(
         styles.card,
-        isWarning ? styles.card__warn : styles.card__alert
+        type === 'warning' && styles.card__warn,
+        type === 'alert' && styles.card__alert,
+        type === 'info' && styles.card__info
       )}
     >
       <div className={styles.icon}>
