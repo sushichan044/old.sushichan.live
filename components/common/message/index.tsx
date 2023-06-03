@@ -2,6 +2,7 @@ import clsx from 'clsx'
 import React from 'react'
 import { RiErrorWarningLine } from 'react-icons/ri'
 
+import WithBudoux from '@/components/common/budoux'
 import styles from '@/components/common/message/message.module.scss'
 
 type MessageProps = {
@@ -22,7 +23,9 @@ const Message = ({ type, children }: MessageProps) => {
       <div className={styles.icon}>
         <RiErrorWarningLine color="inherit" size="1.75em" />
       </div>
-      <div>{children}</div>
+      <div>
+        <WithBudoux>{children}</WithBudoux>
+      </div>
     </div>
   )
 }
