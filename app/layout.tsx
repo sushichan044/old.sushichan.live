@@ -1,6 +1,7 @@
 import 'ress'
 import '@/styles/globals.scss'
 import '@/styles/syntax-highlight.scss'
+import 'katex/dist/katex.min.css'
 
 import { Metadata } from 'next'
 import NextTopLoader from 'nextjs-toploader'
