@@ -5,37 +5,34 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true,
-    "source.fixAll.markdownlint": true,
+    "source.fixAll.markdownlint": true
   },
   "files.trimTrailingWhitespace": true,
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[mdx]": {
-    "editor.formatOnSave": false,
+    "editor.formatOnSave": false
   },
-  "stylelint.validate": [
-    "css",
-    "scss",
-  ],
+  "stylelint.validate": ["css", "scss"],
   "auto-close-tag.activationOnLanguage": [
     "xml",
     "php",
@@ -57,5 +54,6 @@
     "HTML (Eex)",
     "plist",
     "mdx"
-  ]
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
