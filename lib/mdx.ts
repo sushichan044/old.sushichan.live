@@ -23,7 +23,7 @@ export type mdxMetaData = {
   description: string
   date: Date
   updated?: Date
-  thumbnail?: string
+  thumbnail: string
   tags?: string[]
 }
 

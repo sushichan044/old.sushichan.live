@@ -27,7 +27,9 @@ export async function generateMetadata({
     return NotFoundMeta
   }
   const mdxMetaData = await getMDXFrontMatter(mdxPath, mdx.extension)
+  // TODO: Add fallback ogp image url like favicon
 
+  // ↓ これは記事内のthumbnailUrlに直接アクセスさせて解決する
   // FIXME: Dynamic OG images are not working
   // https://github.com/vercel/next.js/issues/49630
   // https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image#props
@@ -42,7 +44,7 @@ export async function generateMetadata({
           alt: mdxMetaData.title,
           height: 630,
           width: 1200,
-          url: `/opengraph/blog/post/${mdxPath}`,
+          url: mdxMetaData.thumbnail,
         },
       ],
     },
@@ -55,7 +57,7 @@ export async function generateMetadata({
           alt: mdxMetaData.title,
           height: 630,
           width: 1200,
-          url: `/opengraph/blog/post/${mdxPath}`,
+          url: mdxMetaData.thumbnail,
         },
       ],
     },
