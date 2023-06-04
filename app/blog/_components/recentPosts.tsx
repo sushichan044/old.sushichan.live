@@ -1,5 +1,4 @@
-import ArticleCard from '@/app/blog/_components/articleCard'
-import styles from '@/app/blog/_components/recent-posts.module.scss'
+import PostGrid from '@/app/blog/_components/postGrid'
 import { getAllMDXSlugs, getMDXExistence, getMDXFrontMatter } from '@/lib/mdx'
 
 // TODO: 部分的な取得ができるようにする
@@ -16,13 +15,7 @@ const RecentPosts = async () => {
     return a.date < b.date ? 1 : -1
   })
 
-  return (
-    <div className={styles['post-grid']}>
-      {FrontMatters.map((metaData) => (
-        <ArticleCard key={metaData.title} {...metaData} />
-      ))}
-    </div>
-  )
+  return <PostGrid posts={FrontMatters} />
 }
 
 export default RecentPosts
