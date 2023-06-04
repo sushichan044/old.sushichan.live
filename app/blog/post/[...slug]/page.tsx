@@ -38,6 +38,7 @@ export async function generateMetadata({
     title: mdxMetaData.title,
     description: mdxMetaData.description,
     openGraph: {
+      title: mdxMetaData.title,
       url: `/blog/post/${mdxPath}`,
       images: [
         {

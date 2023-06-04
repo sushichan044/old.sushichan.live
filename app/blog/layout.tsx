@@ -7,6 +7,12 @@ export const metadata: Metadata = {
     absolute: 'すしの雑記',
     template: '%s - すしの雑記',
   },
+  openGraph: {
+    title: {
+      absolute: 'すしの雑記',
+      template: '%s - すしの雑記',
+    },
+  },
 }
 
 export default async function BlogLayout({
