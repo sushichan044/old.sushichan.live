@@ -27,5 +27,22 @@
 			"}"
 		],
 		"description": "Generate new page"
+	},
+	"new post": {
+		"scope": "markdown,mdx",
+		"prefix": "post",
+		"body": [
+			"---",
+			"title: ${1:title}",
+			"description: ${2:description}",
+			"date: ${3:date}",
+			"thumbnail: ${4:thumbnail}",
+			"tags: ",
+			"  - ${5:tag}",
+			"---",
+			"",
+			""
+		],
+		"description": "new post"
 	}
 }
