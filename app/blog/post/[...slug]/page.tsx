@@ -73,15 +73,20 @@ export default async function Page({ params: { slug } }: PageProps) {
   if (!mdx.exists) {
     notFound()
   }
+  const { fileName, extension } = mdx
 
-  const { content, frontMatter } = await compileMDX(mdxPath, mdx.extension)
+  const content = await compileMDX({
+    isRaw: false,
+    fileName: fileName,
+    extension: extension,
+  })
+  const frontMatter = await getMDXFrontMatter(fileName, extension)
+
   return (
     <>
-      {frontMatter && (
-        <Section>
-          <FrontMatter {...frontMatter} />
-        </Section>
-      )}
+      <Section>
+        <FrontMatter {...frontMatter} />
+      </Section>
       <Section>{content}</Section>
     </>
   )

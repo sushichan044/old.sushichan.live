@@ -27,6 +27,12 @@ export type mdxMetaData = {
   tags?: string[]
 }
 
+export type fetchedMDXData = {
+  content: string
+  path: string
+  extension: 'mdx' | 'md'
+}
+
 export type mdxMetaDataWithFile = mdxMetaData & {
   file: {
     fileName: string
@@ -44,19 +50,29 @@ type MDXExistence =
       exists: false
     }
 
+type MDXCompilerOption =
+  | {
+      isRaw: false
+      fileName: string
+      extension: 'mdx' | 'md'
+    }
+  | {
+      isRaw: true
+      rawContent: string
+    }
+
 // path to posts directory
 const postsDir = `${process.cwd()}/posts`
 
 // compile MDX file to React Component
-export const compileMDX = async (fileName: string, extension: 'mdx' | 'md') => {
-  const mdx = await fs.promises.readFile(
-    `${postsDir}/${fileName}.${extension}`,
-    'utf8'
-  )
+export const compileMDX = async (params: MDXCompilerOption) => {
+  const mdxContent = params.isRaw
+    ? params.rawContent
+    : await getMDXContent(params.fileName, params.extension)
 
   const { content } = await compileMDXFile<mdxMetaData>({
     components: customComponents,
-    source: mdx,
+    source: mdxContent,
     options: {
       mdxOptions: {
         remarkPlugins: [remarkGfm, remarkEmoji, remarkMath, remarkUnwrapImages],
@@ -83,8 +99,7 @@ export const compileMDX = async (fileName: string, extension: 'mdx' | 'md') => {
       parseFrontmatter: true,
     },
   })
-  const frontMatter = await getMDXFrontMatter(fileName, extension)
-  return { content, frontMatter }
+  return content
 }
 
 export const getMDXExistence = (fileName: string): MDXExistence => {
@@ -106,6 +121,14 @@ export const getMDXExistence = (fileName: string): MDXExistence => {
   return {
     exists: false,
   }
+}
+
+export const getMDXContent = async (
+  fileName: string,
+  extension: 'mdx' | 'md'
+): Promise<string> => {
+  const mdxPath = `${postsDir}/${fileName}.${extension}`
+  return await fs.promises.readFile(mdxPath, 'utf8')
 }
 
 export const getMDXFrontMatter = async (
