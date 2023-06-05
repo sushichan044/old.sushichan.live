@@ -1,6 +1,6 @@
 import React from 'react'
 
-import TextCard from '@/app/blog/components/textCard'
+import TextCard from '@/app/blog/components/card/textCard'
 import Message from '@/components/common/message'
 import MDXImage from '@/components/mdx/image'
 import MDXLink from '@/components/mdx/link'
