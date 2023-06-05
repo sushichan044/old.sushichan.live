@@ -1,5 +1,6 @@
 import React from 'react'
 
+import SpotifyCard from '@/app/blog/components/card/spotifyCard'
 import TextCard from '@/app/blog/components/card/textCard'
 import Message from '@/components/common/message'
 import MDXImage from '@/components/mdx/image'
@@ -17,6 +18,7 @@ const replaceComponents = {
 const customComponents = {
   Message,
   TextCard,
+  SpotifyCard,
 }
 
 // list of Custom Components used in mdx
