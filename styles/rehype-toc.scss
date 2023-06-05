@@ -1,0 +1,25 @@
+@use "/styles/mixins" as mix;
+@use "/styles/variables" as var;
+@use "/styles/general.scss" as gen;
+
+.toc-level {
+  &::before {
+    margin-block-end: 0.5rem;
+    font-size: 1.5em;
+    content: "目次";
+  }
+
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.25em;
+  @include mix.theme("dark") {
+    background-color: var.$theme-color-dark-lighter;
+  }
+
+  width: 100%;
+  padding: var.$content-margin;
+  font-weight: 700;
+  list-style: none;
+  background-color: var.$theme-color-light-darker;
+  border-radius: 0.5rem;
+}

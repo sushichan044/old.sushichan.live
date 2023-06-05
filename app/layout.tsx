@@ -1,5 +1,6 @@
 import 'ress'
 import '@/styles/globals.scss'
+import '@/styles/rehype-toc.scss'
 import '@/styles/syntax-highlight.scss'
 import 'katex/dist/katex.min.css'
 
