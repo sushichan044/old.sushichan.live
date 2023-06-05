@@ -10,7 +10,7 @@ import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import remarkUnwrapImages from 'remark-unwrap-images'
 
-import { customComponents } from '@/components/mdx/customComponents'
+import { MDXComponents } from '@/components/mdx/customComponents'
 import {
   fileHasExtension,
   getFileModifiedTime,
@@ -71,7 +71,7 @@ export const compileMDX = async (params: MDXCompilerOption) => {
     : await getMDXContent(params.fileName, params.extension)
 
   const { content } = await compileMDXFile<mdxMetaData>({
-    components: customComponents,
+    components: MDXComponents,
     source: mdxContent,
     options: {
       mdxOptions: {
