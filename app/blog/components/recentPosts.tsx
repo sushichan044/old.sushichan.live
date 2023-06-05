@@ -1,4 +1,4 @@
-import PostGrid from '@/app/blog/_components/postGrid'
+import PostGrid from '@/app/blog/components/postGrid'
 import { getAllMDXSlugs, getMDXExistence, getMDXFrontMatter } from '@/lib/mdx'
 
 // TODO: 部分的な取得ができるようにする

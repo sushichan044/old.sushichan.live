@@ -1,4 +1,4 @@
-import styles from '@/app/blog/_components/tag.module.scss'
+import styles from '@/app/blog/components/tag.module.scss'
 
 type TagProps = {
   tag: string

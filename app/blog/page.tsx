@@ -1,4 +1,4 @@
-import RecentPosts from '@/app/blog/_components/recentPosts'
+import RecentPosts from '@/app/blog/components/recentPosts'
 import Section from '@/components/section'
 
 export default async function Page() {

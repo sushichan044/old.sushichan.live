@@ -1,4 +1,4 @@
-import PostGrid from '@/app/blog/_components/postGrid'
+import PostGrid from '@/app/blog/components/postGrid'
 import Section from '@/components/section'
 import { getAllMDXSlugs, getMDXExistence, getMDXFrontMatter } from '@/lib/mdx'
 

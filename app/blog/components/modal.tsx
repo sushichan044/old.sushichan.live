@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { MouseEvent, useCallback, useEffect, useRef } from 'react'
 
-import styles from '@/app/blog/_components/modal.module.scss'
+import styles from '@/app/blog/components/modal.module.scss'
 
 type ModalProps = {
   children: React.ReactNode

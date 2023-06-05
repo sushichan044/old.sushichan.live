@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import styles from '@/app/blog/_components/article-card.module.scss'
+import styles from '@/app/blog/components/article-card.module.scss'
 import WithBudoux from '@/components/common/budoux'
 import { convertDate } from '@/lib/date'
 import { type mdxMetaDataWithFile } from '@/lib/mdx'

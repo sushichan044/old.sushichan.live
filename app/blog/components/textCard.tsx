@@ -1,4 +1,4 @@
-import styles from '@/app/blog/_components/text-card.module.scss'
+import styles from '@/app/blog/components/text-card.module.scss'
 import Card from '@/components/common/card'
 
 const AA = ({ children }: { children: string }) => {

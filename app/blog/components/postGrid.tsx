@@ -1,5 +1,5 @@
-import ArticleCard from '@/app/blog/_components/articleCard'
-import styles from '@/app/blog/_components/post-grid.module.scss'
+import ArticleCard from '@/app/blog/components/articleCard'
+import styles from '@/app/blog/components/post-grid.module.scss'
 import { mdxMetaDataWithFile } from '@/lib/mdx'
 
 const PostGrid = ({ posts }: { posts: mdxMetaDataWithFile[] }) => {
