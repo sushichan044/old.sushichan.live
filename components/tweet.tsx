@@ -13,10 +13,6 @@ export const Tweet: React.FC<{ id: string; theme: 'dark' | 'light' }> = ({
     window.twttr?.widgets.load(ref.current)
   }, [id])
 
-  if (!/^\d+$/u.test(id)) {
-    throw new Error(`Invalid tweet ID: ${id}`)
-  }
-
   return (
     <div
       dangerouslySetInnerHTML={{
