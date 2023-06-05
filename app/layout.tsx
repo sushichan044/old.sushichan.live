@@ -39,7 +39,7 @@ export default function RootLayout({
       <GeneralMetaData />
       <Favicons />
       <body className={fontVariables}>
-        <NextTopLoader color="#e2e2e2" showSpinner={false} />
+        <NextTopLoader color="#2b78dd" showSpinner={false} />
         <Header />
         <main>{children}</main>
         <Footer />
