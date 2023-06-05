@@ -16,7 +16,7 @@
 
   display: flex;
   flex-flow: column nowrap;
-  gap: 0.25em;
+  gap: 0.5em;
   @include mix.theme("dark") {
     background-color: var.$theme-color-dark-lighter;
   }
@@ -27,4 +27,12 @@
   list-style: none;
   background-color: var.$theme-color-light-darker;
   border-radius: 0.5rem;
+}
+
+.toc-item {
+  border-bottom: 2px solid rgba(var.$text-color-light, 0.25);
+
+  @include mix.theme("dark") {
+    border-bottom: 2px solid rgba(var.$text-color-dark, 0.25);
+  }
 }
