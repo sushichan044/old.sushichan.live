@@ -11,6 +11,7 @@ import Footer from '@/components/layout/footer'
 import Header from '@/components/layout/header'
 import Favicons from '@/components/meta/favicons'
 import GeneralMetaData from '@/components/meta/general'
+import TwitterScript from '@/components/meta/twitterScript'
 import { fontVariables } from '@/lib/font'
 
 export const metadata: Metadata = {
@@ -44,6 +45,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <TwitterScript />
       </body>
     </html>
   )

@@ -1,19 +1,23 @@
 'use client'
 
-import { useMediaQuery } from 'react-responsive'
-import { TwitterTweetEmbed } from 'react-twitter-embed'
+import dynamic from 'next/dynamic'
 
 import EmbedCard from '@/components/common/card/embedCard'
+import { Tweet } from '@/components/tweet'
 
 const TweetCard = ({ id }: { id: string }) => {
-  const isDark = useMediaQuery({ query: '(prefers-color-scheme: dark)' })
+  const MediaQuery = dynamic(() => import('react-responsive'), {
+    ssr: false,
+  })
 
   return (
     <EmbedCard>
-      <TwitterTweetEmbed
-        options={{ theme: `${isDark ? 'dark' : 'light'}` }}
-        tweetId={id}
-      />
+      <MediaQuery query="(prefers-color-scheme: light)">
+        <Tweet id={id} theme="light" />
+      </MediaQuery>
+      <MediaQuery query="(prefers-color-scheme: dark)">
+        <Tweet id={id} theme="dark" />
+      </MediaQuery>
     </EmbedCard>
   )
 }
