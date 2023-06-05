@@ -1,0 +1,37 @@
+---
+title: お気に入りの曲とか、アーティストとか
+description: 随時更新します
+date: 2023-06-05
+thumbnail: https://imagedelivery.net/i4QA6VLSP0gXyj6-3zNFXg/a169e70d-c1d8-4413-8105-475d94ea5600/public
+tags:
+  - 音楽
+  - 雑記
+---
+
+import SpotifyCard from "@/app/blog/components/card/spotifyCard"
+
+## 最近良く聴いている曲
+
+{
+<div className="grid grid-cols-1 md:grid-cols-2">{
+[
+  "https://open.spotify.com/track/4PLZYL3uBFJxfVuZqVUAAf?si=477ff788770f4898",
+  "https://open.spotify.com/track/0dyC1vG4SBjYmsbZTyc45K?si=5d97026fc03c4922",
+  "https://open.spotify.com/track/6eBiZCdAjVkcuW4h3F94iV?si=a7934b5a0fc54405",
+  "https://open.spotify.com/track/4iLe5rmbYgidc36805n8ao?si=ddee080d28fe4e9f",
+
+].map((url) => <SpotifyCard key={url} url={url} />)}
+</div>}
+
+## 好きなアーティスト・サークル・音楽コンテンツ(順不同)
+
+- 星街すいせい
+- La prière
+- ノクチル
+- TAKU INOUE
+- 棗いつき
+- 響界メトロ
+- Nornis
+- KMNZ
+- MKLNtic
+- Morfonica
