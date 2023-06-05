@@ -2,6 +2,7 @@ import React from 'react'
 
 import SpotifyCard from '@/app/blog/components/card/spotifyCard'
 import TextCard from '@/app/blog/components/card/textCard'
+import TweetCard from '@/app/blog/components/card/tweetCard'
 import Message from '@/components/common/message'
 import MDXImage from '@/components/mdx/image'
 import MDXLink from '@/components/mdx/link'
@@ -18,6 +19,7 @@ const replaceComponents = {
 const customComponents = {
   Message,
   TextCard,
+  TweetCard,
   SpotifyCard,
 }
 
