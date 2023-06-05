@@ -1,15 +1,13 @@
 import Link from 'next/link'
-import React from 'react'
 
 // import { TbArrowUpRight } from 'react-icons/tb'
 import styles from '@/components/mdx/link.module.scss'
-
 type Props = React.ComponentProps<'a'> & {
   children: React.ReactNode
 }
 
 const MDXLink = ({ children, href, ...rest }: Props) => {
-  if (!href) return <></>
+  if (!href) return null
 
   const isExternal = !href.startsWith('#') && !href.startsWith('/')
 
@@ -24,9 +22,6 @@ const MDXLink = ({ children, href, ...rest }: Props) => {
         target={isExternal ? '_blank' : '_self'}
       >
         {children}
-        {/* <span>
-          {isExternal && <TbArrowUpRight color="inherit" />
-        </span> */}
       </Link>
     </>
   )
