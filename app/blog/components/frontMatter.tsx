@@ -40,12 +40,12 @@ const FrontMatter = ({
         </span>
         <div className={styles['date-container']}>
           <span className={styles.date}>
-            <TbPencil size="1.25em" />
+            <TbPencil size="1.5em" />
             <p>{convertDate(date)}</p>
           </span>
           {updated && (
             <span className={styles.date}>
-              <MdOutlineUpdate size="1.25em" />
+              <MdOutlineUpdate size="1.5em" />
               <p>{convertDate(updated)}</p>
             </span>
           )}
