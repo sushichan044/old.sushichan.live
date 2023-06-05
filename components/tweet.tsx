@@ -13,12 +13,24 @@ export const Tweet: React.FC<{ id: string; theme: 'dark' | 'light' }> = ({
     window.twttr?.widgets.load(ref.current)
   }, [id])
 
+  if (!/^\d+$/u.test(id)) {
+    throw new Error(`Invalid tweet ID: ${id}`)
+  }
+
   return (
     <div
       dangerouslySetInnerHTML={{
-        __html: `<blockquote class="twitter-tweet" data-lang="ja" data-theme="${theme}"><a href="https://twitter.com/i/status/${id}"></a></blockquote>`,
+        __html: generateEmbedHtml(id, theme),
       }}
       ref={ref}
     />
   )
+}
+
+const generateEmbedHtml = (id: string, theme: 'dark' | 'light'): string => {
+  if (!/^\d+$/u.test(id)) {
+    throw new Error(`Invalid tweet ID: ${id}`)
+  }
+
+  return `<blockquote class="twitter-tweet" data-lang="ja" data-theme="${theme}" data-dnt="true"><a href="https://twitter.com/i/status/${id}"></a></blockquote>`
 }
