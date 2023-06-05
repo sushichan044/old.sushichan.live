@@ -5,6 +5,7 @@ import rehypeAutoLinkHeadings from 'rehype-autolink-headings'
 import rehypeKatex from 'rehype-katex'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
+import rehypeToc from 'rehype-toc'
 import remarkEmoji from 'remark-emoji'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
@@ -79,6 +80,12 @@ export const compileMDX = async (params: MDXCompilerOption) => {
         rehypePlugins: [
           rehypeSlug,
           rehypeAutoLinkHeadings,
+          [
+            rehypeToc,
+            {
+              headings: ['h2'],
+            },
+          ],
           rehypeKatex,
           rehypeImageOpt,
           [
