@@ -1,8 +1,8 @@
 import { Metadata } from 'next'
-import { AiOutlineWarning } from 'react-icons/ai'
 
 import Fukuwarai from '@/app/css-fukuwarai/fukuwarai'
 import styles from '@/app/css-fukuwarai/page.module.scss'
+import ErrorDialog from '@/components/error/errorDialog'
 import Section from '@/components/section'
 
 export const metadata: Metadata = {
@@ -14,14 +14,15 @@ export default async function Page() {
     <>
       <div className={styles['sp-only']}>
         <Section className={styles['sp-notice']}>
-          <AiOutlineWarning size="40%" />
-          このコンテンツは
-          <br />
-          まだスマートフォンに
-          <br />
-          対応していません。
-          <br />
-          ご迷惑をおかけします。
+          <ErrorDialog>
+            このコンテンツは
+            <br />
+            まだスマートフォンに
+            <br />
+            対応していません。
+            <br />
+            ご迷惑をおかけします。
+          </ErrorDialog>
         </Section>
       </div>
       <div className={styles['sp-hide']}>
