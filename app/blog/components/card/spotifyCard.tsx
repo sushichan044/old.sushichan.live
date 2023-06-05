@@ -3,10 +3,10 @@ import { Spotify } from 'react-spotify-embed'
 import styles from '@/app/blog/components/card/spotify-card.module.scss'
 import EmbedCard from '@/components/common/card/embedCard'
 
-const SpotifyCard = ({ link }: { link: string }) => {
+const SpotifyCard = ({ url }: { url: string }) => {
   return (
     <EmbedCard>
-      <Spotify className={styles.card} link={link} />
+      <Spotify className={styles.card} link={url} />
     </EmbedCard>
   )
 }

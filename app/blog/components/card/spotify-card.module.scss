@@ -3,6 +3,7 @@
 .card {
   width: 100%;
   height: 80px;
+
   @include mix.mq("md") {
     height: 152px;
   }
