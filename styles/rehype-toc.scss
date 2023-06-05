@@ -3,6 +3,11 @@
 @use "/styles/general.scss" as gen;
 
 .toc-level {
+  // hide toc when no h2 tag in post
+  &:not(:has(li)) {
+    display: none;
+  }
+
   &::before {
     margin-block-end: 0.5rem;
     font-size: 1.5em;
