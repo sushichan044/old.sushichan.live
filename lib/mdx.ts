@@ -11,7 +11,7 @@ import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import remarkUnwrapImages from 'remark-unwrap-images'
 
-import { MDXComponents } from '@/components/mdx/customComponents'
+import { MDXComponents } from '@/components/mdx'
 import {
   fileHasExtension,
   getFileModifiedTime,
