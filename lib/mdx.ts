@@ -91,10 +91,6 @@ export const compileMDX = async (params: MDXCompilerOption) => {
           [
             rehypePrettyCode,
             {
-              // theme: {
-              //   dark: 'one-dark-pro',
-              //   light: 'github-light',
-              // },
               theme: 'one-dark-pro',
               keepBackground: true,
             },
