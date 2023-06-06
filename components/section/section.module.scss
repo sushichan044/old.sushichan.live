@@ -11,6 +11,10 @@
     margin-block: var.$content-margin;
   }
 
+  > *:has(+ h2, + h3, + h4, + h5, + h6) {
+    margin-block-end: calc(2 * #{var.$content-margin});
+  }
+
   > span {
     display: block;
   }
