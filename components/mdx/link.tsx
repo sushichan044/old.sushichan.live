@@ -1,5 +1,6 @@
 import Link from 'next/link'
 
+import WithBudoux from '@/components/common/budoux'
 // import { TbArrowUpRight } from 'react-icons/tb'
 import styles from '@/components/mdx/link.module.scss'
 type Props = React.ComponentProps<'a'> & {
@@ -21,7 +22,11 @@ const MDXLink = ({ children, href, ...rest }: Props) => {
         className={styles.link}
         target={isExternal ? '_blank' : '_self'}
       >
-        {children}
+        {typeof children !== 'string' ? (
+          children
+        ) : (
+          <WithBudoux>{children}</WithBudoux>
+        )}
       </Link>
     </>
   )

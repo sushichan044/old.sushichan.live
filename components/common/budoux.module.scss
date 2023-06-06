@@ -1,0 +1,5 @@
+.span {
+  &:not(:first-child) {
+    display: inline-block;
+  }
+}
