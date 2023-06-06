@@ -2,6 +2,8 @@
 @use "/styles/mixins" as mix;
 
 .icon {
+  display: flex;
+  align-items: center;
   width: auto;
   height: 100%;
 }
