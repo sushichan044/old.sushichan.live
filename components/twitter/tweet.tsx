@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from 'react'
 
-export const Tweet: React.FC<{ id: string; theme: 'dark' | 'light' }> = ({
+export const TweetEmbed: React.FC<{ id: string; theme: 'dark' | 'light' }> = ({
   id,
   theme,
 }) => {
@@ -19,6 +19,11 @@ export const Tweet: React.FC<{ id: string; theme: 'dark' | 'light' }> = ({
         __html: generateEmbedHtml(id, theme),
       }}
       ref={ref}
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
     />
   )
 }
