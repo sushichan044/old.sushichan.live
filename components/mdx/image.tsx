@@ -17,20 +17,20 @@ const MDXImage = ({ src, alt = '', width, height }: MDXImageProps) => {
   const altIsEmpty = alt === '' || alt === undefined
 
   return (
-    <Link href={`/blog/image/${imageId}`}>
-      <figure className={styles.container}>
-        <NextImage
-          alt={altIsEmpty ? 'image' : alt}
-          className={styles.image}
-          height={height}
-          src={src}
-          width={width}
-        />
-        {!altIsEmpty && (
-          <figcaption className={styles.caption}>{alt}</figcaption>
-        )}
-      </figure>
-    </Link>
+    <div className={styles.container}>
+      <Link href={`/blog/image/${imageId}`}>
+        <figure className={styles.figure}>
+          <NextImage
+            alt={altIsEmpty ? 'image' : alt}
+            className={styles.image}
+            height={height}
+            src={src}
+            width={width}
+          />{' '}
+        </figure>{' '}
+      </Link>
+      {!altIsEmpty && <figcaption className={styles.caption}>{alt}</figcaption>}
+    </div>
   )
 }
 
