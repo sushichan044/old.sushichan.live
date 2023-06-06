@@ -10,6 +10,7 @@ import remarkEmoji from 'remark-emoji'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import remarkUnwrapImages from 'remark-unwrap-images'
+import stringWidth from 'string-width'
 
 import { MDXComponents } from '@/components/mdx'
 import {
@@ -76,7 +77,17 @@ export const compileMDX = async (params: MDXCompilerOption) => {
     source: mdxContent,
     options: {
       mdxOptions: {
-        remarkPlugins: [remarkGfm, remarkEmoji, remarkMath, remarkUnwrapImages],
+        remarkPlugins: [
+          [
+            remarkGfm,
+            {
+              stringLength: stringWidth,
+            },
+          ],
+          remarkEmoji,
+          remarkMath,
+          remarkUnwrapImages,
+        ],
         rehypePlugins: [
           rehypeSlug,
           // rehypeAutoLinkHeadings,
