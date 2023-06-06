@@ -1,7 +1,7 @@
 import fs from 'fs'
 import matter from 'gray-matter'
 import { compileMDX as compileMDXFile } from 'next-mdx-remote/rsc'
-import rehypeAutoLinkHeadings from 'rehype-autolink-headings'
+// import rehypeAutoLinkHeadings from 'rehype-autolink-headings'
 import rehypeKatex from 'rehype-katex'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
@@ -79,7 +79,7 @@ export const compileMDX = async (params: MDXCompilerOption) => {
         remarkPlugins: [remarkGfm, remarkEmoji, remarkMath, remarkUnwrapImages],
         rehypePlugins: [
           rehypeSlug,
-          rehypeAutoLinkHeadings,
+          // rehypeAutoLinkHeadings,
           [
             rehypeToc,
             {
