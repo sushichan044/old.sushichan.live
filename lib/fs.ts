@@ -14,15 +14,11 @@ import fs from 'fs'
 export const fileHasExtension = (
   file: string,
   expectedExtensions: string[]
-): string | null => {
-  for (const ext of expectedExtensions) {
-    // add '.' if not included
-    const extWithDot = ext.startsWith('.') ? ext : `.${ext}`
-    if (file.endsWith(extWithDot)) {
-      return file
-    }
-  }
-  return null
+): boolean => {
+  const extWithDot = expectedExtensions.map((ext) =>
+    ext.startsWith('.') ? ext : `.${ext}`
+  )
+  return extWithDot.some((ext) => file.endsWith(ext))
 }
 
 // TODO: cut out file judge logic from this function
