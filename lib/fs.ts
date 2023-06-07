@@ -16,17 +16,16 @@ export const fileHasExtension = (
   expectedExtensions: string[]
 ): string | null => {
   for (const ext of expectedExtensions) {
-    if (!file.startsWith('.')) {
-      file = `.${file}`
-    }
-
-    if (file.endsWith(ext)) {
+    // add '.' if not included
+    const extWithDot = ext.startsWith('.') ? ext : `.${ext}`
+    if (file.endsWith(extWithDot)) {
       return file
     }
   }
   return null
 }
 
+// TODO: cut out file judge logic from this function
 export const recursiveGetFilepath = async (
   dir: string,
   ignorePattern?: RegExp,
