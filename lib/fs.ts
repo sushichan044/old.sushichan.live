@@ -29,35 +29,38 @@ export const recursiveGetFilepath = async (
   start?: number
 ): Promise<string[]> => {
   const recursiveFiles: string[] = []
-  const files = await fs.promises.readdir(dir, { withFileTypes: true })
-  const isTargetFile = (file: string) => {
-    return ignorePattern ? !file.match(ignorePattern) : true
-  }
-  const filesIsMax = () => {
-    return maxCount ? recursiveFiles.length >= maxCount : false
-  }
 
-  const ignoreAppliedFiles = files.filter((file) => isTargetFile(file.name))
+  const checkFileName = (file: fs.Dirent): boolean => {
+    if (ignorePattern && file.name.match(ignorePattern)) {
+      return false
+    }
+    return true
+  }
+  const arrayIsPushable =
+    maxCount && recursiveFiles.length >= maxCount ? false : true
+
+  const files = await fs.promises.readdir(dir, { withFileTypes: true })
   await Promise.all(
-    ignoreAppliedFiles.map(async (file) => {
+    files.map(async (file) => {
       if (file.isDirectory()) {
         const subFiles = await recursiveGetFilepath(
           `${dir}/${file.name}`,
           ignorePattern
         )
         for (const subFile of subFiles) {
-          if (filesIsMax()) {
+          if (!arrayIsPushable) {
             break
+          }
+          if (!checkFileName(file)) {
+            continue
           }
           recursiveFiles.push(`${file.name}/${subFile}`)
         }
       } else {
-        if (isTargetFile(file.name)) {
-          if (filesIsMax()) {
-            return
-          }
-          recursiveFiles.push(file.name)
+        if (!arrayIsPushable || !checkFileName(file)) {
+          return
         }
+        recursiveFiles.push(file.name)
       }
     })
   )
