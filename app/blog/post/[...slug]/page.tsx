@@ -77,7 +77,13 @@ export default async function Page({ params: { slug } }: PageProps) {
     notFound()
   }
 
-  const content = await compileMDX({ isRaw: false, mdxFile: mdx })
+  const content = await compileMDX({
+    isRaw: false,
+    mdxFile: mdx,
+    feature: {
+      generateToc: true,
+    },
+  })
   const frontMatter = await getMDXMetaData(mdx)
   return (
     <>
