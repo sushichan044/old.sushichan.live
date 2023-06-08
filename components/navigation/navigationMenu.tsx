@@ -24,11 +24,6 @@ const NavigationMenu = () => {
     <NavMenu.Root className={styles['menu-root']}>
       <NavMenu.List className={styles['menu-list']}>
         <NavMenu.Item>
-          <NavLink href="/">
-            <p>home</p>
-          </NavLink>
-        </NavMenu.Item>
-        <NavMenu.Item>
           <NavLink href="/about">
             <p>About</p>
           </NavLink>

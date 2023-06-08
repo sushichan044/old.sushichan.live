@@ -17,15 +17,10 @@ export default async function Page() {
     isRaw: false,
     fileName: fileName,
     extension: extension,
+    feature: {
+      generateToc: false,
+    },
   })
 
-  return (
-    <>
-      {/* <Section>
-        <h1>About me</h1>
-        <div>岡山出身の大学生。現在は電気通信大学に通っています。</div>
-      </Section> */}
-      <Section>{content}</Section>
-    </>
-  )
+  return <Section>{content}</Section>
 }
