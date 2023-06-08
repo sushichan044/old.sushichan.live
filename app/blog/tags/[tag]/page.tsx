@@ -8,6 +8,23 @@ type PageProps = {
   }
 }
 
+export async function generateStaticParams() {
+  const allPosts = (await getAllMDXSlugs({}))
+    .map((slug) => getMDXExistence(slug))
+    .flatMap((mdx) => (mdx.exists ? mdx : []))
+
+  const allTags = (
+    await Promise.all(
+      allPosts.map((mdx) => getMDXFrontMatter(mdx.fileName, mdx.extension))
+    )
+  ).flatMap((frontMatter) => frontMatter.tags ?? [])
+  const uniqueTags = Array.from(new Set(allTags))
+
+  return uniqueTags
+    ?.map((tag) => encodeURIComponent(tag))
+    ?.map((tag) => ({ tag }))
+}
+
 export default async function Page({ params: { tag } }: PageProps) {
   const decodedTag = decodeURIComponent(tag)
 
