@@ -20,9 +20,7 @@ export async function generateStaticParams() {
   ).flatMap((frontMatter) => frontMatter.tags ?? [])
   const uniqueTags = Array.from(new Set(allTags))
 
-  return uniqueTags
-    ?.map((tag) => encodeURIComponent(tag))
-    ?.map((tag) => ({ tag }))
+  return uniqueTags?.map((tag) => ({ tag }))
 }
 
 export default async function Page({ params: { tag } }: PageProps) {
