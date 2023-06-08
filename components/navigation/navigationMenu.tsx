@@ -29,8 +29,13 @@ const NavigationMenu = () => {
           </NavLink>
         </NavMenu.Item>
         <NavMenu.Item>
+          <NavLink href="/about">
+            <p>About</p>
+          </NavLink>
+        </NavMenu.Item>
+        <NavMenu.Item>
           <NavLink href="/blog">
-            <p>blog</p>
+            <p>Blog</p>
           </NavLink>
         </NavMenu.Item>
         <NavMenu.Indicator />
