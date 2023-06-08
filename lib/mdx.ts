@@ -91,12 +91,6 @@ const remarkDefaultPlugins: PluggableList = [
 const rehypeDefaultPlugins: PluggableList = [
   rehypeSlug,
   // rehypeAutoLinkHeadings,
-  [
-    rehypeToc,
-    {
-      headings: ['h2'],
-    },
-  ],
   rehypeKatex,
   rehypeImageOpt,
   [
