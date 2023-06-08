@@ -2,14 +2,14 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import React from 'react'
 
-import FrontMatter from '@/app/blog/components/frontMatter'
+import FrontMatterCard from '@/app/blog/components/frontMatterCard'
 import NotFoundMeta from '@/components/meta/notFound'
 import Section from '@/components/section'
 import {
   compileMDX,
-  getAllMDXSlugs,
-  getMDXExistence,
-  getMDXFrontMatter,
+  getAllMDX,
+  getMDXFromPath,
+  getMDXMetaData,
 } from '@/lib/mdx'
 
 type PageProps = {
@@ -21,13 +21,12 @@ type PageProps = {
 export async function generateMetadata({
   params: { slug },
 }: PageProps): Promise<Metadata> {
-  const mdxPath = slug.join('/')
-  const mdx = getMDXExistence(`posts/${mdxPath}`)
-  if (!mdx.exists) {
+  const fileName = slug.join('/')
+  const mdx = getMDXFromPath({ topDirectory: 'posts', fileName })
+  if (!mdx) {
     return NotFoundMeta
   }
-  const { fileName, extension } = mdx
-  const mdxMetaData = await getMDXFrontMatter(fileName, extension)
+  const { title, description, file, thumbnail } = await getMDXMetaData(mdx)
   // TODO: Add fallback ogp image url like favicon
 
   // ↓ これは記事内のthumbnailUrlに直接アクセスさせて解決する
@@ -36,30 +35,30 @@ export async function generateMetadata({
   // https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image#props
 
   return {
-    title: mdxMetaData.title,
-    description: mdxMetaData.description,
+    title: title,
+    description: description,
     openGraph: {
-      title: mdxMetaData.title,
-      url: `/blog/post/${mdxPath}`,
+      title: title,
+      url: `/blog/post/${file.fileName}`,
       images: [
         {
-          alt: mdxMetaData.title,
+          alt: title,
           height: 630,
           width: 1200,
-          url: mdxMetaData.thumbnail,
+          url: thumbnail,
         },
       ],
     },
     twitter: {
-      title: mdxMetaData.title,
-      description: mdxMetaData.description,
+      title: title,
+      description: description,
       card: 'summary_large_image',
       images: [
         {
-          alt: mdxMetaData.title,
+          alt: title,
           height: 630,
           width: 1200,
-          url: mdxMetaData.thumbnail,
+          url: thumbnail,
         },
       ],
     },
@@ -67,29 +66,23 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  const slugs = await getAllMDXSlugs({})
-  return slugs?.map((slug) => ({ slug: slug.split('/') }))
+  const slugs = await getAllMDX({ topDirectory: 'posts' })
+  return slugs?.map(({ fileName }) => ({ slug: fileName.split('/') }))
 }
 
 export default async function Page({ params: { slug } }: PageProps) {
-  const mdxPath = slug.join('/')
-  const mdx = getMDXExistence(`posts/${mdxPath}`)
-  if (!mdx.exists) {
+  const fileName = slug.join('/')
+  const mdx = getMDXFromPath({ topDirectory: 'posts', fileName })
+  if (!mdx) {
     notFound()
   }
-  const { fileName, extension } = mdx
 
-  const content = await compileMDX({
-    isRaw: false,
-    fileName: fileName,
-    extension: extension,
-  })
-  const frontMatter = await getMDXFrontMatter(fileName, extension)
-
+  const content = await compileMDX({ isRaw: false, mdxFile: mdx })
+  const frontMatter = await getMDXMetaData(mdx)
   return (
     <>
       <Section>
-        <FrontMatter {...frontMatter} />
+        <FrontMatterCard {...frontMatter} />
       </Section>
       <Section>{content}</Section>
     </>

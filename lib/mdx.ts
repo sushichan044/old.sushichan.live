@@ -14,64 +14,45 @@ import stringWidth from 'string-width'
 import { type PluggableList } from 'unified'
 
 import { MDXComponents } from '@/components/mdx'
-import {
-  fileHasExtension,
-  getFileModifiedTime,
-  recursiveGetFilepath,
-} from '@/lib/fs'
+import { findFilesRecursive, getFileModifiedTime } from '@/lib/fs'
 import rehypeImageOpt from '@/lib/rehype-image'
 
-export type mdxMetaData = {
+type MDXFile = {
+  topDirectory: string
+  fileName: string
+  extension: 'mdx' | 'md'
+}
+
+export type FrontMatter = {
   title: string
   description: string
   date: Date
-  updated?: Date
+  updated: Date
   thumbnail: string
   tags?: string[]
 }
 
-export type fetchedMDXData = {
-  content: string
-  path: string
-  extension: 'mdx' | 'md'
+export type MDXMetaData = FrontMatter & {
+  file: MDXFile
 }
-
-export type mdxMetaDataWithFile = mdxMetaData & {
-  file: {
-    fileName: string
-    extension: 'mdx' | 'md'
-  }
-}
-
-type MDXExistence =
-  | {
-      exists: true
-      fileName: string
-      extension: 'mdx' | 'md'
-    }
-  | {
-      exists: false
-    }
 
 type MDXCompilerFeature = {
-  feature?: {
-    generateToc?: boolean
-  }
+  generateToc?: boolean
 }
 
 type MDXCompilerOption =
   | (
       | {
           isRaw: false
-          fileName: string
-          extension: 'mdx' | 'md'
+          mdxFile: MDXFile
         }
       | {
           isRaw: true
           rawContent: string
         }
-    ) &
-      MDXCompilerFeature
+    ) & {
+      feature?: MDXCompilerFeature
+    }
 
 // path to directory
 const homeDir = process.cwd()
@@ -109,9 +90,9 @@ export const compileMDX = async ({
 }: MDXCompilerOption) => {
   const mdxContent = params.isRaw
     ? params.rawContent
-    : await getMDXContent(params.fileName, params.extension)
+    : await getMDXContent(params.mdxFile)
 
-  const { content } = await compileMDXFile<mdxMetaData>({
+  const { content } = await compileMDXFile<FrontMatter>({
     components: MDXComponents,
     source: mdxContent,
     options: {
@@ -138,40 +119,79 @@ export const compileMDX = async ({
   return content
 }
 
-export const getMDXExistence = (fileName: string): MDXExistence => {
-  if (fs.existsSync(`${homeDir}/${fileName}.mdx`)) {
-    return {
-      fileName: fileName,
-      exists: true,
-      extension: 'mdx',
+export const getMDXFromPath = ({
+  topDirectory,
+  fileName,
+  extension,
+}: {
+  topDirectory: string
+  fileName: string
+  extension?: 'mdx' | 'md'
+}): MDXFile | undefined => {
+  if (extension) {
+    if (!fs.existsSync(`${homeDir}/${topDirectory}/${fileName}.${extension}`)) {
+      return undefined
     }
+    return { topDirectory, fileName, extension }
   }
 
-  if (fs.existsSync(`${homeDir}/${fileName}.md`)) {
-    return {
-      fileName: fileName,
-      exists: true,
-      extension: 'md',
-    }
+  if (fs.existsSync(`${homeDir}/${topDirectory}/${fileName}.mdx`)) {
+    return { topDirectory, fileName, extension: 'mdx' }
   }
-  return {
-    exists: false,
+
+  if (fs.existsSync(`${homeDir}/${topDirectory}/${fileName}.md`)) {
+    return { topDirectory, fileName, extension: 'md' }
   }
+  return undefined
 }
 
-export const getMDXContent = async (
-  fileName: string,
-  extension: 'mdx' | 'md'
-): Promise<string> => {
-  const mdxPath = `${homeDir}/${fileName}.${extension}`
+export const getAllMDX = async ({
+  topDirectory,
+  ignorePattern = /^_/,
+  maxCount,
+}: {
+  topDirectory: string
+  ignorePattern?: RegExp
+  maxCount?: number
+}): Promise<MDXFile[]> => {
+  const allPosts = await findFilesRecursive(
+    `${homeDir}/${topDirectory}`,
+    ignorePattern,
+    maxCount
+  )
+
+  // flatMapでいい感じに型ガードする
+  // https://qiita.com/xx2xyyy/items/9116d52d6dfd4f3549ef
+  const MDXFiles: MDXFile[] = allPosts.flatMap((file) => {
+    const fragment = file.split('.')
+    const fileName = fragment.slice(0, fragment.length - 1).join('.')
+    const extension = fragment[fragment.length - 1]
+
+    if (extension !== 'md' && extension !== 'mdx') {
+      return []
+    }
+
+    return [{ topDirectory, fileName, extension }]
+  })
+
+  return MDXFiles
+}
+
+export const getMDXContent = async ({
+  topDirectory,
+  fileName,
+  extension,
+}: MDXFile): Promise<string> => {
+  const mdxPath = `${homeDir}/${topDirectory}/${fileName}.${extension}`
   return await fs.promises.readFile(mdxPath, 'utf8')
 }
 
-export const getMDXFrontMatter = async (
-  fileName: string,
-  extension: 'mdx' | 'md'
-): Promise<mdxMetaDataWithFile> => {
-  const mdxPath = `${homeDir}/${fileName}.${extension}`
+export const getMDXMetaData = async ({
+  topDirectory,
+  fileName,
+  extension,
+}: MDXFile): Promise<MDXMetaData> => {
+  const mdxPath = `${homeDir}/${topDirectory}/${fileName}.${extension}`
 
   const { data } = matter.read(mdxPath)
   const mtime = await getFileModifiedTime(mdxPath)
@@ -181,27 +201,23 @@ export const getMDXFrontMatter = async (
     description: data.description,
     date: data.date,
     updated: mtime,
-    thumbnail: data?.thumbnail,
+    thumbnail: data.thumbnail,
     tags: data?.tags,
     file: {
-      fileName: fileName,
-      extension: extension,
+      topDirectory,
+      fileName,
+      extension,
     },
   }
-
-  // return data as mdxMetaData
 }
 
-export const getAllMDXSlugs = async ({
-  ignorePattern = /^_/,
-  maxCount,
-}: {
-  ignorePattern?: RegExp
-  maxCount?: number
-}) => {
-  return (
-    await recursiveGetFilepath(`${homeDir}/posts`, ignorePattern, maxCount)
-  )
-    .filter((file) => fileHasExtension(file, ['md', 'mdx']))
-    .map((file) => file.replace(/.mdx?$/, ''))
+export const getAllTagsFromMDX = async (mdxFiles: MDXFile[]) => {
+  const tags = new Set<string>()
+  for (const mdxFile of mdxFiles) {
+    const mdxMetaData = await getMDXMetaData(mdxFile)
+    for (const tag of mdxMetaData.tags ?? []) {
+      tags.add(tag)
+    }
+  }
+  return Array.from(tags)
 }

@@ -7,16 +7,16 @@ import styles from '@/app/blog/components/front-matter.module.scss'
 import Tag from '@/app/blog/components/tag'
 import WithBudoux from '@/components/common/budoux'
 import { convertDate } from '@/lib/date'
-import { type mdxMetaDataWithFile } from '@/lib/mdx'
+import { type FrontMatter } from '@/lib/mdx'
 
-const FrontMatter = ({
+const FrontMatterCard = ({
   title,
   date,
   updated,
   description,
   thumbnail,
   tags,
-}: mdxMetaDataWithFile) => {
+}: FrontMatter) => {
   return (
     <div className={styles.container}>
       {thumbnail && (
@@ -64,4 +64,4 @@ const FrontMatter = ({
   )
 }
 
-export default FrontMatter
+export default FrontMatterCard

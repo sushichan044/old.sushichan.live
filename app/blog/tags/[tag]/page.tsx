@@ -1,6 +1,6 @@
 import PostGrid from '@/app/blog/components/postGrid'
 import Section from '@/components/section'
-import { getAllMDXSlugs, getMDXExistence, getMDXFrontMatter } from '@/lib/mdx'
+import { getAllMDX, getAllTagsFromMDX, getMDXMetaData } from '@/lib/mdx'
 
 type PageProps = {
   params: {
@@ -9,31 +9,18 @@ type PageProps = {
 }
 
 export async function generateStaticParams() {
-  const allPosts = (await getAllMDXSlugs({}))
-    .map((slug) => getMDXExistence(slug))
-    .flatMap((mdx) => (mdx.exists ? mdx : []))
-
-  const allTags = (
-    await Promise.all(
-      allPosts.map((mdx) => getMDXFrontMatter(mdx.fileName, mdx.extension))
-    )
-  ).flatMap((frontMatter) => frontMatter.tags ?? [])
-  const uniqueTags = Array.from(new Set(allTags))
-
-  return uniqueTags?.map((tag) => ({ tag }))
+  const allPosts = await getAllMDX({ topDirectory: 'posts' })
+  const allTags = await getAllTagsFromMDX(allPosts)
+  return allTags.map((tag) => ({ tag }))
 }
 
 export default async function Page({ params: { tag } }: PageProps) {
   const decodedTag = decodeURIComponent(tag)
-
-  const allPosts = (await getAllMDXSlugs({}))
-    .map((slug) => getMDXExistence(slug))
-    .flatMap((mdx) => (mdx.exists ? mdx : []))
-
-  const rawFrontMatters = await Promise.all(
-    allPosts.map((mdx) => getMDXFrontMatter(mdx.fileName, mdx.extension))
+  const allPosts = await getAllMDX({ topDirectory: 'posts' })
+  const metaDataList = await Promise.all(
+    allPosts.map((mdx) => getMDXMetaData(mdx))
   )
-  const matchedFrontMatters = rawFrontMatters
+  const matchedMetaDataList = metaDataList
     .filter((metaData) => {
       return metaData.tags?.includes(decodedTag)
     })
@@ -44,7 +31,7 @@ export default async function Page({ params: { tag } }: PageProps) {
   return (
     <Section>
       <h1>{`「${decodedTag}」 のタグがついた記事`}</h1>
-      <PostGrid posts={matchedFrontMatters} />
+      <PostGrid posts={matchedMetaDataList} />
     </Section>
   )
 }

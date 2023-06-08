@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/server'
 
-import { getMDXExistence, getMDXFrontMatter } from '@/lib/mdx'
+import { getMDXFromPath, getMDXMetaData } from '@/lib/mdx'
 
 // Image metadata
 const size = {
@@ -18,14 +18,14 @@ export async function GET(
   }
 ) {
   const mdxPath = slug.join('/')
-  const mdx = getMDXExistence(mdxPath)
-  if (!mdx.exists) {
+  const mdx = getMDXFromPath({
+    topDirectory: 'posts',
+    fileName: mdxPath,
+  })
+  if (!mdx) {
     return
   }
-  const { thumbnail, title } = await getMDXFrontMatter(mdxPath, mdx.extension)
-  if (!thumbnail) {
-    return
-  }
+  const { thumbnail, title } = await getMDXMetaData(mdx)
 
   return new ImageResponse(
     (

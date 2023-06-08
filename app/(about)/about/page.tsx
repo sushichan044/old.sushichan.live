@@ -1,6 +1,7 @@
-import NotFoundMeta from '@/components/meta/notFound'
+import { notFound } from 'next/navigation'
+
 import Section from '@/components/section'
-import { compileMDX, getMDXExistence } from '@/lib/mdx'
+import { compileMDX, getMDXFromPath } from '@/lib/mdx'
 
 export const metadata = {
   title: 'about',
@@ -8,19 +9,17 @@ export const metadata = {
 }
 
 export default async function Page() {
-  const mdx = getMDXExistence('md/about')
-  if (!mdx.exists) {
-    return NotFoundMeta
+  const mdx = getMDXFromPath({ topDirectory: 'md', fileName: 'about' })
+  if (!mdx) {
+    notFound()
   }
-  const { fileName, extension } = mdx
+
   const content = await compileMDX({
     isRaw: false,
-    fileName: fileName,
-    extension: extension,
+    mdxFile: mdx,
     feature: {
       generateToc: false,
     },
   })
-
   return <Section>{content}</Section>
 }

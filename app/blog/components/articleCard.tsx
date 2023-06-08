@@ -4,14 +4,9 @@ import Link from 'next/link'
 import styles from '@/app/blog/components/article-card.module.scss'
 import WithBudoux from '@/components/common/budoux'
 import { convertDate } from '@/lib/date'
-import { type mdxMetaDataWithFile } from '@/lib/mdx'
+import { type MDXMetaData } from '@/lib/mdx'
 
-const ArticleCard = ({
-  title,
-  date,
-  thumbnail,
-  file,
-}: Omit<mdxMetaDataWithFile, 'description'>) => {
+const ArticleCard = ({ title, date, thumbnail, file }: MDXMetaData) => {
   return (
     <Link className={styles.link} href={`/blog/post/${file.fileName}`}>
       <div className={styles.card}>
