@@ -11,7 +11,7 @@ import fs from 'fs'
  * fileHasExtension('index.mdx', ['.mdx', '.md']) // returns 'index.mdx'
  * fileHasExtension('index.zip', ['.mdx', '.md']) // returns null
  */
-export const fileHasExtension = (
+export const hasExtension = (
   file: string,
   expectedExtensions: string[]
 ): boolean => {
@@ -21,14 +21,13 @@ export const fileHasExtension = (
   return extWithDot.some((ext) => file.endsWith(ext))
 }
 
-// TODO: cut out file judge logic from this function
-export const recursiveGetFilepath = async (
+export const findFilesRecursive = async (
   dir: string,
   ignorePattern?: RegExp,
   maxCount?: number,
   start?: number
 ): Promise<string[]> => {
-  const recursiveFiles: string[] = []
+  const foundFiles: string[] = []
 
   const checkFileName = (file: fs.Dirent): boolean => {
     if (ignorePattern && file.name.match(ignorePattern)) {
@@ -37,13 +36,13 @@ export const recursiveGetFilepath = async (
     return true
   }
   const arrayIsPushable =
-    maxCount && recursiveFiles.length >= maxCount ? false : true
+    maxCount && foundFiles.length >= maxCount ? false : true
 
   const files = await fs.promises.readdir(dir, { withFileTypes: true })
   await Promise.all(
     files.map(async (file) => {
       if (file.isDirectory()) {
-        const subFiles = await recursiveGetFilepath(
+        const subFiles = await findFilesRecursive(
           `${dir}/${file.name}`,
           ignorePattern
         )
@@ -54,22 +53,22 @@ export const recursiveGetFilepath = async (
           if (!checkFileName(file)) {
             continue
           }
-          recursiveFiles.push(`${file.name}/${subFile}`)
+          foundFiles.push(`${file.name}/${subFile}`)
         }
       } else {
         if (!arrayIsPushable || !checkFileName(file)) {
           return
         }
-        recursiveFiles.push(file.name)
+        foundFiles.push(file.name)
       }
     })
   )
 
   if (start) {
-    return recursiveFiles.length >= start ? recursiveFiles.slice(start) : []
+    return foundFiles.length >= start ? foundFiles.slice(start) : []
   }
 
-  return recursiveFiles
+  return foundFiles
 }
 
 export const getFileModifiedTime = async (filePath: string) => {
