@@ -22,11 +22,12 @@ export async function generateMetadata({
   params: { slug },
 }: PageProps): Promise<Metadata> {
   const mdxPath = slug.join('/')
-  const mdx = getMDXExistence(mdxPath)
+  const mdx = getMDXExistence(`posts/${mdxPath}`)
   if (!mdx.exists) {
     return NotFoundMeta
   }
-  const mdxMetaData = await getMDXFrontMatter(mdxPath, mdx.extension)
+  const { fileName, extension } = mdx
+  const mdxMetaData = await getMDXFrontMatter(fileName, extension)
   // TODO: Add fallback ogp image url like favicon
 
   // ↓ これは記事内のthumbnailUrlに直接アクセスさせて解決する
@@ -72,7 +73,7 @@ export async function generateStaticParams() {
 
 export default async function Page({ params: { slug } }: PageProps) {
   const mdxPath = slug.join('/')
-  const mdx = getMDXExistence(mdxPath)
+  const mdx = getMDXExistence(`posts/${mdxPath}`)
   if (!mdx.exists) {
     notFound()
   }

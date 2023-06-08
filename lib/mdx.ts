@@ -11,6 +11,7 @@ import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import remarkUnwrapImages from 'remark-unwrap-images'
 import stringWidth from 'string-width'
+import { type PluggableList } from 'unified'
 
 import { MDXComponents } from '@/components/mdx'
 import {
@@ -52,22 +53,66 @@ type MDXExistence =
       exists: false
     }
 
-type MDXCompilerOption =
-  | {
-      isRaw: false
-      fileName: string
-      extension: 'mdx' | 'md'
-    }
-  | {
-      isRaw: true
-      rawContent: string
-    }
+type MDXCompilerFeature = {
+  feature?: {
+    generateToc?: boolean
+  }
+}
 
-// path to posts directory
-const postsDir = `${process.cwd()}/posts`
+type MDXCompilerOption =
+  | (
+      | {
+          isRaw: false
+          fileName: string
+          extension: 'mdx' | 'md'
+        }
+      | {
+          isRaw: true
+          rawContent: string
+        }
+    ) &
+      MDXCompilerFeature
+
+// path to directory
+const homeDir = process.cwd()
+
+const remarkDefaultPlugins: PluggableList = [
+  [
+    remarkGfm,
+    {
+      stringLength: stringWidth,
+    },
+  ],
+  remarkEmoji,
+  remarkMath,
+  remarkUnwrapImages,
+]
+
+const rehypeDefaultPlugins: PluggableList = [
+  rehypeSlug,
+  // rehypeAutoLinkHeadings,
+  [
+    rehypeToc,
+    {
+      headings: ['h2'],
+    },
+  ],
+  rehypeKatex,
+  rehypeImageOpt,
+  [
+    rehypePrettyCode,
+    {
+      theme: 'one-dark-pro',
+      keepBackground: true,
+    },
+  ],
+]
 
 // compile MDX file to React Component
-export const compileMDX = async (params: MDXCompilerOption) => {
+export const compileMDX = async ({
+  feature: { generateToc = false } = {},
+  ...params
+}: MDXCompilerOption) => {
   const mdxContent = params.isRaw
     ? params.rawContent
     : await getMDXContent(params.fileName, params.extension)
@@ -77,36 +122,19 @@ export const compileMDX = async (params: MDXCompilerOption) => {
     source: mdxContent,
     options: {
       mdxOptions: {
-        remarkPlugins: [
-          [
-            remarkGfm,
-            {
-              stringLength: stringWidth,
-            },
-          ],
-          remarkEmoji,
-          remarkMath,
-          remarkUnwrapImages,
-        ],
-        rehypePlugins: [
-          rehypeSlug,
-          // rehypeAutoLinkHeadings,
-          [
-            rehypeToc,
-            {
-              headings: ['h2'],
-            },
-          ],
-          rehypeKatex,
-          rehypeImageOpt,
-          [
-            rehypePrettyCode,
-            {
-              theme: 'one-dark-pro',
-              keepBackground: true,
-            },
-          ],
-        ],
+        remarkPlugins: remarkDefaultPlugins,
+        rehypePlugins: (() => {
+          const plugins = [...rehypeDefaultPlugins]
+          if (generateToc) {
+            plugins.push([
+              rehypeToc,
+              {
+                headings: ['h2'],
+              },
+            ])
+          }
+          return plugins
+        })(),
       },
       // if this set to false,
       // frontMatter will appear as content
@@ -117,7 +145,7 @@ export const compileMDX = async (params: MDXCompilerOption) => {
 }
 
 export const getMDXExistence = (fileName: string): MDXExistence => {
-  if (fs.existsSync(`${postsDir}/${fileName}.mdx`)) {
+  if (fs.existsSync(`${homeDir}/${fileName}.mdx`)) {
     return {
       fileName: fileName,
       exists: true,
@@ -125,7 +153,7 @@ export const getMDXExistence = (fileName: string): MDXExistence => {
     }
   }
 
-  if (fs.existsSync(`${postsDir}/${fileName}.md`)) {
+  if (fs.existsSync(`${homeDir}/${fileName}.md`)) {
     return {
       fileName: fileName,
       exists: true,
@@ -141,7 +169,7 @@ export const getMDXContent = async (
   fileName: string,
   extension: 'mdx' | 'md'
 ): Promise<string> => {
-  const mdxPath = `${postsDir}/${fileName}.${extension}`
+  const mdxPath = `${homeDir}/${fileName}.${extension}`
   return await fs.promises.readFile(mdxPath, 'utf8')
 }
 
@@ -149,7 +177,7 @@ export const getMDXFrontMatter = async (
   fileName: string,
   extension: 'mdx' | 'md'
 ): Promise<mdxMetaDataWithFile> => {
-  const mdxPath = `${postsDir}/${fileName}.${extension}`
+  const mdxPath = `${homeDir}/${fileName}.${extension}`
 
   const { data } = matter.read(mdxPath)
   const mtime = await getFileModifiedTime(mdxPath)
@@ -177,7 +205,9 @@ export const getAllMDXSlugs = async ({
   ignorePattern?: RegExp
   maxCount?: number
 }) => {
-  return (await recursiveGetFilepath(postsDir, ignorePattern, maxCount))
+  return (
+    await recursiveGetFilepath(`${homeDir}/posts`, ignorePattern, maxCount)
+  )
     .filter((file) => fileHasExtension(file, ['md', 'mdx']))
     .map((file) => file.replace(/.mdx?$/, ''))
 }
