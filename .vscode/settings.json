@@ -63,5 +63,6 @@
     "typescriptreact",
     "markdown",
     "mdx"
-  ]
+  ],
+  "editor.linkedEditing": true
 }
