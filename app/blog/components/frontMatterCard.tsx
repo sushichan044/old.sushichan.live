@@ -53,7 +53,7 @@ const FrontMatterCard = ({
         {tags && (
           <div className={styles.tags}>
             {tags.map((tag) => (
-              <Link href={`/blog/tags/${tag}`} key={tag}>
+              <Link href={`/blog/tag/${tag}`} key={tag}>
                 <Tag key={tag} tag={tag} />
               </Link>
             ))}
