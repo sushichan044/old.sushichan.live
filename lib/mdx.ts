@@ -14,7 +14,11 @@ import stringWidth from 'string-width'
 import { type PluggableList } from 'unified'
 
 import { MDXComponents } from '@/components/mdx'
-import { findFilesRecursive, getFileModifiedTime } from '@/lib/fs'
+import {
+  findFilesRecursive,
+  getFileModifiedTime,
+  getFileModifiedTimeSync,
+} from '@/lib/fs'
 import rehypeImageOpt from '@/lib/rehype-image'
 
 export type MDXFile = {
@@ -195,6 +199,31 @@ export const getMDXMetaData = async ({
 
   const { data } = matter.read(mdxPath)
   const mtime = await getFileModifiedTime(mdxPath)
+
+  return {
+    title: data.title,
+    description: data.description,
+    date: data.date,
+    updated: mtime,
+    thumbnail: data.thumbnail,
+    tags: data?.tags,
+    file: {
+      topDirectory,
+      fileName,
+      extension,
+    },
+  }
+}
+
+export const getMDXMetaDataSync = ({
+  topDirectory,
+  fileName,
+  extension,
+}: MDXFile): MDXMetaData => {
+  const mdxPath = `${homeDir}/${topDirectory}/${fileName}.${extension}`
+
+  const { data } = matter.read(mdxPath)
+  const mtime = getFileModifiedTimeSync(mdxPath)
 
   return {
     title: data.title,

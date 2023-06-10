@@ -75,3 +75,8 @@ export const getFileModifiedTime = async (filePath: string) => {
   const stat = await fs.promises.stat(filePath)
   return stat.mtime
 }
+
+export const getFileModifiedTimeSync = (filePath: string) => {
+  const stat = fs.statSync(filePath)
+  return stat.mtime
+}
