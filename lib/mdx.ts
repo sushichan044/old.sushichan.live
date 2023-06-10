@@ -17,7 +17,7 @@ import { MDXComponents } from '@/components/mdx'
 import { findFilesRecursive, getFileModifiedTime } from '@/lib/fs'
 import rehypeImageOpt from '@/lib/rehype-image'
 
-type MDXFile = {
+export type MDXFile = {
   topDirectory: string
   fileName: string
   extension: 'mdx' | 'md'
