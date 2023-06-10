@@ -1,5 +1,6 @@
 import React from 'react'
 
+import ArticleCard from '@/app/blog/components/card/articleCard'
 import SpotifyCard from '@/app/blog/components/card/spotifyCard'
 import TextCard from '@/app/blog/components/card/textCard'
 import TimelineCard from '@/app/blog/components/card/timelineCard'
@@ -36,6 +37,7 @@ const replaceComponents = {
 
 const customComponents = {
   Message,
+  ArticleCard,
   TextCard,
   TweetCard,
   TimelineCard,
