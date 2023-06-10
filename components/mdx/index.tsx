@@ -6,6 +6,7 @@ import TextCard from '@/app/blog/components/card/textCard'
 import TimelineCard from '@/app/blog/components/card/timelineCard'
 import TweetCard from '@/app/blog/components/card/tweetCard'
 import YouTubeCard from '@/app/blog/components/card/youTubeCard'
+import WithBudoux from '@/components/common/budoux'
 import Message from '@/components/common/message'
 import MDXHeading from '@/components/mdx/heading'
 import MDXImage from '@/components/mdx/image'
@@ -43,6 +44,7 @@ const customComponents = {
   TimelineCard,
   SpotifyCard,
   YouTubeCard,
+  WithBudoux,
 }
 
 // list of Custom Components used in mdx
