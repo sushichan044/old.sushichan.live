@@ -16,9 +16,10 @@ const MDXImage = ({ src, alt = '', width, height }: MDXImageProps) => {
   const imageId = getImageId(src)
   const altIsEmpty = alt === '' || alt === undefined
 
+  // TODO: mdxを使う部分をすべて(mdx)に集約して@modalの制約をなくす
   return (
     <div className={styles.container}>
-      <Link href={`/blog/image/${imageId}`}>
+      {alt === 'mdx-config-no-link' ? (
         <figure className={styles.figure}>
           <NextImage
             alt={altIsEmpty ? 'image' : alt}
@@ -26,10 +27,25 @@ const MDXImage = ({ src, alt = '', width, height }: MDXImageProps) => {
             height={height}
             src={src}
             width={width}
-          />{' '}
-        </figure>{' '}
-      </Link>
-      {!altIsEmpty && <figcaption className={styles.caption}>{alt}</figcaption>}
+          />
+        </figure>
+      ) : (
+        <Link href={`/blog/image/${imageId}`}>
+          <figure className={styles.figure}>
+            <NextImage
+              alt={altIsEmpty ? 'image' : alt}
+              className={styles.image}
+              height={height}
+              src={src}
+              width={width}
+            />
+          </figure>
+        </Link>
+      )}
+
+      {!altIsEmpty && !alt.startsWith('mdx-config') && (
+        <figcaption className={styles.caption}>{alt}</figcaption>
+      )}
     </div>
   )
 }
