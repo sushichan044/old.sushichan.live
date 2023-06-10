@@ -1,12 +1,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import styles from '@/app/blog/components/article-card.module.scss'
+import styles from '@/app/blog/components/post-grid-element.module.scss'
 import WithBudoux from '@/components/common/budoux'
 import { convertDate } from '@/lib/date'
 import { type MDXMetaData } from '@/lib/mdx'
 
-const ArticleCard = ({ title, date, thumbnail, file }: MDXMetaData) => {
+const PostGridElement = ({ title, date, thumbnail, file }: MDXMetaData) => {
   return (
     <Link className={styles.link} href={`/blog/post/${file.fileName}`}>
       <div className={styles.card}>
@@ -30,4 +30,4 @@ const ArticleCard = ({ title, date, thumbnail, file }: MDXMetaData) => {
   )
 }
 
-export default ArticleCard
+export default PostGridElement
