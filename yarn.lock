@@ -1822,11 +1822,6 @@
   dependencies:
     "@types/ms" "*"
 
-"@types/eslint-config-prettier@^6.11.0":
-  version "6.11.0"
-  resolved "https://registry.yarnpkg.com/@types/eslint-config-prettier/-/eslint-config-prettier-6.11.0.tgz#5e944e94240df9c1ba755c3b1ebc3879d96ab991"
-  integrity sha512-UBuZMZVog9c9jXvArbYtWH570sRWNaU6kEnUAHsHb/+zAufzPT4I+gMkUR2dVPWlqiceoRU1thjUVdGrAWVpCA==
-
 "@types/eslint@8.40.1":
   version "8.40.1"
   resolved "https://registry.yarnpkg.com/@types/eslint/-/eslint-8.40.1.tgz#92edc592c3575b52a8e790cd5ec04efe28f3d24c"
@@ -1894,11 +1889,6 @@
   resolved "https://registry.yarnpkg.com/@types/katex/-/katex-0.16.0.tgz#0e640df3647fe237212be863e1f5111eb9754f93"
   integrity sha512-hz+S3nV6Mym5xPbT9fnO8dDhBFQguMYpY0Ipxv06JMi1ORgnEM4M1ymWDUhUNer3ElLmT583opRo4RzxKmh9jw==
 
-"@types/lint-staged@^13.2.0":
-  version "13.2.0"
-  resolved "https://registry.yarnpkg.com/@types/lint-staged/-/lint-staged-13.2.0.tgz#d2fca51e4fec0f4088067acaa2d4843244b593dc"
-  integrity sha512-rYHDtOV4BHb1hRH5dA7P+jarU/YFmQ9CGgwYPZNVRoxhrsrm2exEETeIEB+EmBk2AXIKAaK9JDzjpNCkceDGFQ==
-
 "@types/mdast@^3.0.0":
   version "3.0.11"
   resolved "https://registry.yarnpkg.com/@types/mdast/-/mdast-3.0.11.tgz#dc130f7e7d9306124286f6d6cee40cf4d14a3dc0"
@@ -1947,11 +1937,6 @@
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@types/nprogress/-/nprogress-0.2.0.tgz#86c593682d4199212a0509cc3c4d562bbbd6e45f"
   integrity sha512-1cYJrqq9GezNFPsWTZpFut/d4CjpZqA0vhqDUPFWYKF1oIyBz5qnoYMzR+0C/T96t3ebLAC1SSnwrVOm5/j74A==
-
-"@types/prettier@^2.7.3":
-  version "2.7.3"
-  resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-2.7.3.tgz#3e51a17e291d01d17d3fc61422015a933af7a08f"
-  integrity sha512-+68kP9yzs4LMp7VNh8gdzMSPZFL44MLGqiHWvttYJe+6qnuVr4Ek9wSBQoveqY/r+LwjCcU29kNVkidwim+kYA==
 
 "@types/prop-types@*":
   version "15.7.5"
