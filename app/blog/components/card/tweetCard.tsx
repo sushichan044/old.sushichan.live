@@ -11,7 +11,7 @@ const TweetCard = ({ id }: { id: string }) => {
   })
 
   return (
-    <EmbedCard>
+    <EmbedCard shadow>
       <MediaQuery query="(prefers-color-scheme: light)">
         <TweetEmbed id={id} theme="light" />
       </MediaQuery>

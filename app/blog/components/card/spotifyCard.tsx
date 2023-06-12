@@ -5,7 +5,7 @@ import EmbedCard from '@/components/common/card/embedCard'
 
 const SpotifyCard = ({ url }: { url: string }) => {
   return (
-    <EmbedCard>
+    <EmbedCard shadow>
       <Spotify className={styles.card} link={url} />
     </EmbedCard>
   )

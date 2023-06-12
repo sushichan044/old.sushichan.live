@@ -7,15 +7,17 @@ type CardProps = {
   style?: React.CSSProperties
   rounded?: boolean
   children: React.ReactNode
+  shadow?: boolean
 }
 
-const Card = ({ children, rounded, className, style }: CardProps) => {
+const Card = ({ children, rounded, className, style, shadow }: CardProps) => {
   return (
     <div
       className={clsx(
         styles.root,
         className && className,
-        rounded && styles.round
+        rounded && styles.round,
+        shadow && styles.shadow
       )}
       style={style}
     >

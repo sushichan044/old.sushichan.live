@@ -7,7 +7,7 @@ import EmbedCard from '@/components/common/card/embedCard'
 
 const YouTubeCard = ({ videoId }: { videoId: string }) => {
   return (
-    <EmbedCard>
+    <EmbedCard shadow>
       <YouTube
         className={styles.container}
         iframeClassName={styles.iframe}

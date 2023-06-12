@@ -1,4 +1,5 @@
 @use "/styles/variables" as var;
+@use "/styles/general.scss" as gen;
 
 .root {
   width: min(100%, 600px);
@@ -8,4 +9,14 @@
 
 .round {
   border-radius: 0.5rem;
+}
+
+.shadow {
+  transition: filter 0.25s ease-in-out;
+
+  &:hover,
+  &:focus {
+    filter: drop-shadow(0 0.25em 0.25em rgb(0 0 0 / 25%));
+    transition: filter 0.25s ease-in-out;
+  }
 }
