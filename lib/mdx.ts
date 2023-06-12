@@ -34,6 +34,7 @@ export type FrontMatter = {
   updated: Date
   thumbnail: string
   tags?: string[]
+  status: 'private' | 'public'
 }
 
 export type MDXMetaData = FrontMatter & {
@@ -207,6 +208,7 @@ export const getMDXMetaData = async ({
     updated: mtime,
     thumbnail: data.thumbnail,
     tags: data?.tags,
+    status: data?.status ?? 'public',
     file: {
       topDirectory,
       fileName,
@@ -232,6 +234,7 @@ export const getMDXMetaDataSync = ({
     updated: mtime,
     thumbnail: data.thumbnail,
     tags: data?.tags,
+    status: data?.status ?? 'public',
     file: {
       topDirectory,
       fileName,

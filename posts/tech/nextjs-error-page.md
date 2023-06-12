@@ -6,6 +6,7 @@ thumbnail: https://imagedelivery.net/i4QA6VLSP0gXyj6-3zNFXg/483de844-1c72-4d3d-6
 tags:
   - Next.js
   - 技術
+status: private
 ---
 
 ## Next.jsのエラーページをカスタマイズする
