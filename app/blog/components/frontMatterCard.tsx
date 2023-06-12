@@ -36,7 +36,9 @@ const FrontMatterCard = ({
         </h1>
         {/* TODO: descriptionのCSSを書く(位置調整など) */}
         <span>
-          <p>{description}</p>
+          <p>
+            <WithBudoux>{description}</WithBudoux>
+          </p>
         </span>
         <div className={styles['date-container']}>
           <span className={styles.date}>
