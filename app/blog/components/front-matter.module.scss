@@ -38,6 +38,10 @@
   display: flex;
   flex-flow: column nowrap;
   gap: 0.5rem;
+
+  > h1 {
+    margin-block-start: 0;
+  }
 }
 
 .tags {

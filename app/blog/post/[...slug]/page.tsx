@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import React from 'react'
 
 import FrontMatterCard from '@/app/blog/components/frontMatterCard'
+import Article from '@/components/article'
 import NotFoundMeta from '@/components/meta/notFound'
 import Section from '@/components/section'
 import {
@@ -95,7 +96,7 @@ export default async function Page({ params: { slug } }: PageProps) {
       <Section>
         <FrontMatterCard {...frontMatter} />
       </Section>
-      <Section>{content}</Section>
+      <Article>{content}</Article>
     </>
   )
 }
