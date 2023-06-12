@@ -243,6 +243,19 @@ export const getMDXMetaDataSync = ({
   }
 }
 
+export const isVisibleMDX = (mdxMetaData: MDXMetaData) => {
+  if (process.env.NODE_ENV === 'production') {
+    return mdxMetaData.status === 'public'
+  }
+  return true
+}
+
+export const getAllMDXMetaData = async (mdxFiles: MDXFile[]) => {
+  return (
+    await Promise.all(mdxFiles.map((mdxFile) => getMDXMetaData(mdxFile)))
+  ).filter((mdx) => isVisibleMDX(mdx))
+}
+
 export const getAllTagsFromMDX = async (mdxFiles: MDXFile[]) => {
   const tags = new Set<string>()
   for (const mdxFile of mdxFiles) {

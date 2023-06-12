@@ -11,6 +11,7 @@ import {
   getAllMDX,
   getMDXFromPath,
   getMDXMetaData,
+  isVisibleMDX,
 } from '@/lib/mdx'
 
 type PageProps = {
@@ -79,7 +80,7 @@ export default async function Page({ params: { slug } }: PageProps) {
   }
 
   const frontMatter = await getMDXMetaData(mdx)
-  if (frontMatter.status !== 'public') {
+  if (!isVisibleMDX(frontMatter)) {
     notFound()
   }
 
