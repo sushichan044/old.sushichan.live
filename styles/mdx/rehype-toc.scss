@@ -30,6 +30,7 @@
 }
 
 .toc-item {
+  margin-block: 0.2em;
   border-bottom: 2px solid rgba(var.$text-color-light, 0.25);
 
   @include mix.theme("dark") {
