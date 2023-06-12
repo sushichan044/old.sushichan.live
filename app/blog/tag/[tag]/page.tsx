@@ -21,8 +21,11 @@ export default async function Page({ params: { tag } }: PageProps) {
     allPosts.map((mdx) => getMDXMetaData(mdx))
   )
   const matchedMetaDataList = metaDataList
-    .filter((metaData) => {
-      return metaData.tags?.includes(decodedTag)
+    .filter(({ status }) => {
+      return status === 'private'
+    })
+    .filter(({ tags }) => {
+      return tags?.includes(decodedTag)
     })
     .sort((a, b) => {
       return a.date < b.date ? 1 : -1

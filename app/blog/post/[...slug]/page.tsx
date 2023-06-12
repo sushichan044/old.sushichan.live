@@ -77,6 +77,11 @@ export default async function Page({ params: { slug } }: PageProps) {
     notFound()
   }
 
+  const frontMatter = await getMDXMetaData(mdx)
+  if (frontMatter.status !== 'public') {
+    notFound()
+  }
+
   const content = await compileMDX({
     isRaw: false,
     mdxFile: mdx,
@@ -84,7 +89,7 @@ export default async function Page({ params: { slug } }: PageProps) {
       generateToc: true,
     },
   })
-  const frontMatter = await getMDXMetaData(mdx)
+
   return (
     <>
       <Section>

@@ -8,9 +8,11 @@ const RecentPosts = async () => {
   const allFrontMatters = await Promise.all(
     allPostFiles.map((mdx) => getMDXMetaData(mdx))
   )
-  const sortedFrontMatters = allFrontMatters.sort((a, b) => {
-    return a.date < b.date ? 1 : -1
-  })
+  const sortedFrontMatters = allFrontMatters
+    .filter(({ status }) => status === 'public')
+    .sort((a, b) => {
+      return a.date < b.date ? 1 : -1
+    })
 
   return <PostGrid posts={sortedFrontMatters} />
 }
