@@ -46,11 +46,9 @@ const parseString = (str: string) => {
   const parser = loadDefaultJapaneseParser()
   return (
     <span aria-label={str} role="document">
-      <span aria-hidden>
+      <span aria-hidden className={styles.root}>
         {parser.parse(str).map((val, i) => (
-          <span className={styles.span} key={i}>
-            {val}
-          </span>
+          <span key={i}>{val}</span>
         ))}
       </span>
     </span>
