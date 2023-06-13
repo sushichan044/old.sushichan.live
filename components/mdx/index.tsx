@@ -16,6 +16,11 @@ const replaceComponents = {
   a: (props: React.ComponentProps<'a'>) => (
     <MDXLink {...props}>{props.children}</MDXLink>
   ),
+  p: (props: React.ComponentProps<'p'>) => (
+    <p>
+      <WithBudoux {...props}>{props.children}</WithBudoux>
+    </p>
+  ),
   // FIXME: 型パズルに敗北...
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   img: (props: any) => <MDXImage {...props} />,
