@@ -8,9 +8,7 @@ tags:
   - 雑記
 ---
 
-import Message from "@/components/common/message"
 import SpotifyCard from "@/app/blog/components/card/spotifyCard"
-import TweetCard from '@/app/blog/components/card/tweetCard'
 import YouTubeCard from '@/app/blog/components/card/youTubeCard'
 
 ## 最近よく聴いている曲
@@ -27,7 +25,7 @@ import YouTubeCard from '@/app/blog/components/card/youTubeCard'
 
 ].map((url) => <SpotifyCard key={url} url={url} />)}
 </div>}
-<YouTubeCard videoId="cv_fID950bw" />
+<YouTubeCard type="video" id="cv_fID950bw" />
 {/*
 ## 好きなアーティストやサークル、音楽コンテンツ(順不同)
 
