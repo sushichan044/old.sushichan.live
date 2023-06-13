@@ -26,8 +26,8 @@ main {
   flex: 1;
 }
 
-code,
-pre {
+body code,
+body pre {
   font-family: var(--font-fira-code), var(--font-noto-sans-jp), monospace;
   font-weight: 400;
 }
