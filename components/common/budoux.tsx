@@ -44,11 +44,17 @@ const WithBudoux = ({ children }: { children?: React.ReactNode }) => {
 
 const parseString = (str: string) => {
   const parser = loadDefaultJapaneseParser()
-  return parser.parse(str).map((val, i) => (
-    <span className={styles.span} key={i}>
-      {val}
+  return (
+    <span aria-label={str}>
+      <span aria-hidden>
+        {parser.parse(str).map((val, i) => (
+          <span className={styles.span} key={i}>
+            {val}
+          </span>
+        ))}
+      </span>
     </span>
-  ))
+  )
 }
 
 const parseJSXObject = (jsx: React.ReactNode) => {
@@ -69,16 +75,7 @@ const parseJSXObject = (jsx: React.ReactNode) => {
     return jsx
   }
 
-  const parser = loadDefaultJapaneseParser()
-  const parsedFragment = (
-    <>
-      {parser.parse(_children.props.children).map((val, i) => (
-        <span className={styles.span} key={i}>
-          {val}
-        </span>
-      ))}
-    </>
-  )
+  const parsedFragment = parseString(_children.props.children)
 
   const replacedJSX = (
     <_children.type {..._children.props}>{parsedFragment}</_children.type>
