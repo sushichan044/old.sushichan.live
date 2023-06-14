@@ -1,3 +1,5 @@
+@use "/styles/variables" as var;
+
 .menu-root {
   z-index: 100;
   display: flex;
@@ -14,4 +16,9 @@
   a {
     font-size: 1.25rem;
   }
+}
+
+.indicator[data-active] {
+  text-decoration: underline;
+  text-underline-offset: 0.375em;
 }

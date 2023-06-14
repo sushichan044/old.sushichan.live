@@ -11,10 +11,19 @@ type NavLinkProps = Omit<ComponentProps<typeof NavMenu.Link>, 'href'> & {
 }
 
 const NavLink: React.FC<NavLinkProps> = ({ href, children, ...props }) => {
-  const isActive = usePathname() === href
+  const topPath = `/${usePathname().split('/')[1]}`
+  const isActive = topPath === href
+
   return (
     <Link href={href} passHref>
-      <NavMenu.Link active={isActive} asChild {...props} /> {children}
+      <NavMenu.Link
+        active={isActive}
+        asChild
+        className={styles.indicator}
+        {...props}
+      >
+        {children}
+      </NavMenu.Link>
     </Link>
   )
 }
@@ -33,7 +42,6 @@ const NavigationMenu = () => {
             <p>Blog</p>
           </NavLink>
         </NavMenu.Item>
-        <NavMenu.Indicator />
       </NavMenu.List>
     </NavMenu.Root>
   )
