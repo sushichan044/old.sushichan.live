@@ -1,6 +1,7 @@
 import fs from 'fs'
 import matter from 'gray-matter'
 import { compileMDX as compileMDXFile } from 'next-mdx-remote/rsc'
+import path from 'path'
 // import rehypeAutoLinkHeadings from 'rehype-autolink-headings'
 import rehypeKatex from 'rehype-katex'
 import rehypePrettyCode from 'rehype-pretty-code'
@@ -15,9 +16,9 @@ import { type PluggableList } from 'unified'
 
 import { MDXComponents } from '@/components/mdx'
 import {
-  findFilesRecursive,
   getFileModifiedTime,
   getFileModifiedTimeSync,
+  getFilePathRecursive,
 } from '@/lib/fs'
 import rehypeImageOpt from '@/lib/rehype-image'
 
@@ -61,6 +62,8 @@ type MDXCompilerOption =
 
 // path to directory
 const getHomeDir = () => process.cwd()
+const getMDXFilePath = ({ topDirectory, fileName, extension }: MDXFile) =>
+  path.join(getHomeDir(), topDirectory, `${fileName}.${extension}`)
 
 const remarkDefaultPlugins: PluggableList = [
   [
@@ -133,39 +136,50 @@ export const getMDXFromPath = ({
   fileName: string
   extension?: 'mdx' | 'md'
 }): MDXFile | undefined => {
-  if (extension) {
-    if (
-      !fs.existsSync(`${getHomeDir()}/${topDirectory}/${fileName}.${extension}`)
-    ) {
-      return undefined
-    }
+  if (
+    extension &&
+    fs.existsSync(getMDXFilePath({ topDirectory, fileName, extension }))
+  ) {
     return { topDirectory, fileName, extension }
   }
 
-  if (fs.existsSync(`${getHomeDir()}/${topDirectory}/${fileName}.mdx`)) {
+  if (
+    fs.existsSync(getMDXFilePath({ topDirectory, fileName, extension: 'mdx' }))
+  ) {
     return { topDirectory, fileName, extension: 'mdx' }
   }
 
-  if (fs.existsSync(`${getHomeDir()}/${topDirectory}/${fileName}.md`)) {
+  if (
+    fs.existsSync(getMDXFilePath({ topDirectory, fileName, extension: 'md' }))
+  ) {
     return { topDirectory, fileName, extension: 'md' }
   }
   return undefined
 }
 
+// TODO: this should not be marked as async
 export const getAllMDX = async ({
   topDirectory,
-  ignorePattern = /^_/,
-  maxCount,
-}: {
+}: // FIXME
+// ignorePattern = /^_/,
+// maxCount,
+{
   topDirectory: string
   ignorePattern?: RegExp
   maxCount?: number
 }): Promise<MDXFile[]> => {
-  const allPosts = await findFilesRecursive(
-    `${getHomeDir()}/${topDirectory}`,
-    ignorePattern,
-    maxCount
-  )
+  // const _allPosts = await findFilesRecursive(
+  //   `${getHomeDir()}/${topDirectory}`,
+  //   ignorePattern,
+  //   maxCount
+  // )
+  const allPosts = getFilePathRecursive(
+    path.join(getHomeDir(), topDirectory)
+  ).map((path) => {
+    const fragments = path.split('/')
+    const pathWithoutTop = fragments.slice(1).join('/')
+    return pathWithoutTop
+  })
 
   // flatMapでいい感じに型ガードする
   // https://qiita.com/xx2xyyy/items/9116d52d6dfd4f3549ef
@@ -184,22 +198,13 @@ export const getAllMDX = async ({
   return MDXFiles
 }
 
-export const getMDXContent = async ({
-  topDirectory,
-  fileName,
-  extension,
-}: MDXFile): Promise<string> => {
-  const mdxPath = `${getHomeDir()}/${topDirectory}/${fileName}.${extension}`
+export const getMDXContent = async (mdx: MDXFile): Promise<string> => {
+  const mdxPath = getMDXFilePath(mdx)
   return await fs.promises.readFile(mdxPath, 'utf8')
 }
 
-export const getMDXMetaData = async ({
-  topDirectory,
-  fileName,
-  extension,
-}: MDXFile): Promise<MDXMetaData> => {
-  const mdxPath = `${getHomeDir()}/${topDirectory}/${fileName}.${extension}`
-
+export const getMDXMetaData = async (mdx: MDXFile): Promise<MDXMetaData> => {
+  const mdxPath = getMDXFilePath(mdx)
   const { data } = matter.read(mdxPath)
   const mtime = await getFileModifiedTime(mdxPath)
 
@@ -211,21 +216,12 @@ export const getMDXMetaData = async ({
     thumbnail: data.thumbnail,
     tags: data?.tags,
     status: data?.status ?? 'public',
-    file: {
-      topDirectory,
-      fileName,
-      extension,
-    },
+    file: mdx,
   }
 }
 
-export const getMDXMetaDataSync = ({
-  topDirectory,
-  fileName,
-  extension,
-}: MDXFile): MDXMetaData => {
-  const mdxPath = `${getHomeDir()}/${topDirectory}/${fileName}.${extension}`
-
+export const getMDXMetaDataSync = (mdx: MDXFile): MDXMetaData => {
+  const mdxPath = getMDXFilePath(mdx)
   const { data } = matter.read(mdxPath)
   const mtime = getFileModifiedTimeSync(mdxPath)
 
@@ -237,11 +233,7 @@ export const getMDXMetaDataSync = ({
     thumbnail: data.thumbnail,
     tags: data?.tags,
     status: data?.status ?? 'public',
-    file: {
-      topDirectory,
-      fileName,
-      extension,
-    },
+    file: mdx,
   }
 }
 
