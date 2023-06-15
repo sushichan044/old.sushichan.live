@@ -33,6 +33,7 @@
     "budoux": "^0.5.1",
     "client-only": "^0.0.1",
     "clsx": "^1.2.1",
+    "glob": "^10.2.7",
     "gray-matter": "^4.0.3",
     "monaco-editor": "^0.38.0",
     "next": "^13.4.5-canary.6",

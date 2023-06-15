@@ -1,4 +1,5 @@
 import fs from 'fs'
+import { glob } from 'glob'
 /**
  * check if file has one of the expected extensions.
  * @param {string} file file name. e.g. `index.mdx`.
@@ -69,6 +70,15 @@ export const findFilesRecursive = async (
   }
 
   return foundFiles
+}
+
+export const getFilePathRecursive = (dir: string) => {
+  return glob.sync(`${dir}/**/*`, {
+    nodir: true,
+    posix: true,
+    absolute: false,
+    ignore: ['**/_*/**'],
+  })
 }
 
 export const getFileModifiedTime = async (filePath: string) => {
