@@ -41,6 +41,7 @@ const YouTubeCard = ({
       <YouTube
         className={styles.container}
         iframeClassName={styles.iframe}
+        loading="lazy"
         {...youtubeProps}
       />
     </EmbedCard>
