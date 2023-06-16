@@ -1,131 +1,18 @@
 import fs from 'fs'
 import matter from 'gray-matter'
-import { compileMDX as compileMDXFile } from 'next-mdx-remote/rsc'
 import path from 'path'
-// import rehypeAutoLinkHeadings from 'rehype-autolink-headings'
-import rehypeKatex from 'rehype-katex'
-import rehypePrettyCode from 'rehype-pretty-code'
-import rehypeSlug from 'rehype-slug'
-import rehypeToc from 'rehype-toc'
-import remarkEmoji from 'remark-emoji'
-import remarkGfm from 'remark-gfm'
-import remarkMath from 'remark-math'
-import remarkUnwrapImages from 'remark-unwrap-images'
-import stringWidth from 'string-width'
-import { type PluggableList } from 'unified'
 
-import { MDXComponents } from '@/components/mdx'
 import {
   getFileModifiedTime,
   getFileModifiedTimeSync,
   getFilePathRecursive,
 } from '@/lib/fs'
-import rehypeImageOpt from '@/lib/rehype-image'
-
-export type MDXFile = {
-  topDirectory: string
-  fileName: string
-  extension: 'mdx' | 'md'
-}
-
-export type FrontMatter = {
-  title: string
-  description: string
-  date: Date
-  updated: Date
-  thumbnail: string
-  tags?: string[]
-  status: 'private' | 'public'
-}
-
-export type MDXMetaData = FrontMatter & {
-  file: MDXFile
-}
-
-type MDXCompilerFeature = {
-  generateToc?: boolean
-}
-
-type MDXCompilerOption =
-  | (
-      | {
-          isRaw: false
-          mdxFile: MDXFile
-        }
-      | {
-          isRaw: true
-          rawContent: string
-        }
-    ) & {
-      feature?: MDXCompilerFeature
-    }
+import type { MDXFile, MDXMetaData } from '@/lib/mdx/type'
 
 // path to directory
 const getHomeDir = () => process.cwd()
 const getMDXFilePath = ({ topDirectory, fileName, extension }: MDXFile) =>
   path.join(getHomeDir(), topDirectory, `${fileName}.${extension}`)
-
-const remarkDefaultPlugins: PluggableList = [
-  [
-    remarkGfm,
-    {
-      stringLength: stringWidth,
-    },
-  ],
-  remarkEmoji,
-  remarkMath,
-  remarkUnwrapImages,
-]
-
-const rehypeDefaultPlugins: PluggableList = [
-  rehypeSlug,
-  // rehypeAutoLinkHeadings,
-  rehypeKatex,
-  rehypeImageOpt,
-  [
-    rehypePrettyCode,
-    {
-      theme: 'one-dark-pro',
-      keepBackground: true,
-    },
-  ],
-]
-
-// compile MDX file to React Component
-export const compileMDX = async ({
-  feature: { generateToc = false } = {},
-  ...params
-}: MDXCompilerOption) => {
-  const mdxContent = params.isRaw
-    ? params.rawContent
-    : await getMDXContent(params.mdxFile)
-
-  const { content } = await compileMDXFile<FrontMatter>({
-    components: MDXComponents,
-    source: mdxContent,
-    options: {
-      mdxOptions: {
-        remarkPlugins: remarkDefaultPlugins,
-        rehypePlugins: (() => {
-          const plugins = [...rehypeDefaultPlugins]
-          if (generateToc) {
-            plugins.push([
-              rehypeToc,
-              {
-                headings: ['h2'],
-              },
-            ])
-          }
-          return plugins
-        })(),
-      },
-      // if this set to false,
-      // frontMatter will appear as content
-      parseFrontmatter: true,
-    },
-  })
-  return content
-}
 
 export const getMDXFromPath = ({
   topDirectory,
