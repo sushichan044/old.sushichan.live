@@ -1,5 +1,5 @@
 .root > span {
-  &:not(:first-child) {
-    display: inline-block;
-  }
+  display: inline-block;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
