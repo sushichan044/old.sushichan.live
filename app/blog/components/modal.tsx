@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 import { MouseEvent, useCallback, useEffect, useRef } from 'react'
+import { MdClose } from 'react-icons/md'
 
 import styles from '@/app/blog/components/modal.module.scss'
 
@@ -43,6 +44,9 @@ export default function Modal({ children }: ModalProps) {
   return (
     <div className={styles.root} onClick={onClick} ref={modalRef}>
       <div className={styles.wrapper} ref={wrapperRef}>
+        <button className={styles.button} onClick={onDismiss}>
+          <MdClose color="#fff" size="1.5rem" />
+        </button>
         {children}
       </div>
     </div>
