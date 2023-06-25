@@ -3,21 +3,20 @@
 import dynamic from 'next/dynamic'
 
 import EmbedCard from '@/components/common/card/embedCard'
-import { TimelineEmbed } from '@/components/twitter'
+import useClientTheme from '@/lib/hooks/useClientTheme'
 
 const TimelineCard = ({ id }: { id: string }) => {
-  const MediaQuery = dynamic(() => import('react-responsive'), {
-    ssr: false,
-  })
+  const theme = useClientTheme()
+  const TimelineEmbed = dynamic(
+    () => import('@/components/twitter').then((mod) => mod.TimelineEmbed),
+    {
+      ssr: false,
+    }
+  )
 
   return (
     <EmbedCard>
-      <MediaQuery query="(prefers-color-scheme: light)">
-        <TimelineEmbed id={id} theme="light" />
-      </MediaQuery>
-      <MediaQuery query="(prefers-color-scheme: dark)">
-        <TimelineEmbed id={id} theme="dark" />
-      </MediaQuery>
+      <TimelineEmbed id={id} theme={theme} />
     </EmbedCard>
   )
 }
