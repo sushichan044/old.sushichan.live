@@ -1,16 +1,14 @@
-// import Link from 'next/link'
-
 import Link from 'next/link'
 
 import styles from '@/app/home.module.scss'
 import MainContainer from '@/components/common/mainContainer'
 import Section from '@/components/section'
-import { getFilePathRecursive } from '@/lib/fs'
+// import { getFilePathRecursive } from '@/lib/fs'
 
 export default async function Home() {
-  getFilePathRecursive(`${process.cwd()}/posts`).map((path) => {
-    console.log(path)
-  })
+  // getFilePathRecursive(`${process.cwd()}/posts`).map((path) => {
+  //   console.log(path)
+  // })
 
   return (
     <MainContainer>
