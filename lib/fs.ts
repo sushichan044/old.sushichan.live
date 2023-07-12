@@ -22,61 +22,17 @@ export const hasExtension = (
   return extWithDot.some((ext) => file.endsWith(ext))
 }
 
-export const findFilesRecursive = async (
-  dir: string,
-  ignorePattern?: RegExp,
-  maxCount?: number,
-  start?: number
-): Promise<string[]> => {
-  const foundFiles: string[] = []
-
-  const checkFileName = (file: fs.Dirent): boolean => {
-    if (ignorePattern && file.name.match(ignorePattern)) {
-      return false
-    }
-    return true
-  }
-  const arrayIsPushable =
-    maxCount && foundFiles.length >= maxCount ? false : true
-
-  const files = await fs.promises.readdir(dir, { withFileTypes: true })
-  await Promise.all(
-    files.map(async (file) => {
-      if (file.isDirectory()) {
-        const subFiles = await findFilesRecursive(
-          `${dir}/${file.name}`,
-          ignorePattern
-        )
-        for (const subFile of subFiles) {
-          if (!arrayIsPushable) {
-            break
-          }
-          if (!checkFileName(file)) {
-            continue
-          }
-          foundFiles.push(`${file.name}/${subFile}`)
-        }
-      } else {
-        if (!arrayIsPushable || !checkFileName(file)) {
-          return
-        }
-        foundFiles.push(file.name)
-      }
-    })
-  )
-
-  if (start) {
-    return foundFiles.length >= start ? foundFiles.slice(start) : []
-  }
-
-  return foundFiles
-}
-
-export const getFilePathRecursive = (dir: string) => {
+export const getFilePathRecursive = ({
+  dir,
+  absolute = false,
+}: {
+  dir: string
+  absolute?: boolean
+}) => {
   return glob.sync(`${dir}/**/*`, {
     nodir: true,
     posix: true,
-    absolute: false,
+    absolute: absolute,
     ignore: ['**/_*/**'],
   })
 }

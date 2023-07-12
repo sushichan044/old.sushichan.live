@@ -1,6 +1,6 @@
 import PostGrid from '@/app/blog/components/postGrid'
 import Section from '@/components/section'
-import { getAllMDX, getAllMDXMetaData, getAllTagsFromMDX } from '@/lib/mdx'
+import { getAllMDXFile, getAllMDXMetaData, getAllTagsFromMDX } from '@/lib/mdx'
 
 type PageProps = {
   params: {
@@ -9,15 +9,15 @@ type PageProps = {
 }
 
 export async function generateStaticParams() {
-  const allPosts = await getAllMDX({ topDirectory: 'posts' })
+  const allPosts = getAllMDXFile({ topDirectory: 'posts' })
   const allTags = await getAllTagsFromMDX(allPosts)
   return allTags.map((tag) => ({ tag }))
 }
 
 export default async function Page({ params: { tag } }: PageProps) {
   const decodedTag = decodeURIComponent(tag)
-  const allPosts = await getAllMDX({ topDirectory: 'posts' })
-  const metaDataList = await getAllMDXMetaData(allPosts)
+  const allPosts = getAllMDXFile({ topDirectory: 'posts' })
+  const metaDataList = getAllMDXMetaData(allPosts)
 
   const matchedMetaDataList = metaDataList
     .filter(({ tags }) => {

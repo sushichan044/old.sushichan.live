@@ -4,7 +4,7 @@ import Link from 'next/link'
 import styles from '@/app/blog/components/card/article-card.module.scss'
 import WithBudoux from '@/components/common/budoux'
 import Card from '@/components/common/card'
-import { getMDXMetaDataSync, type MDXFile } from '@/lib/mdx'
+import { getMDXMetaData, type MDXFile } from '@/lib/mdx'
 
 type ArticleCardProps = {
   href: string
@@ -16,7 +16,7 @@ const ArticleCard = ({
   extension,
   href,
 }: ArticleCardProps) => {
-  const { title, thumbnail, description } = getMDXMetaDataSync({
+  const { title, thumbnail, description } = getMDXMetaData({
     topDirectory,
     fileName,
     extension,

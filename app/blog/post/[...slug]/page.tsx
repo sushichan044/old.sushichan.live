@@ -8,7 +8,7 @@ import NotFoundMeta from '@/components/meta/notFound'
 import Section from '@/components/section'
 import {
   compileMDX,
-  getAllMDX,
+  getAllMDXFile,
   getMDXFromPath,
   getMDXMetaData,
   isVisibleMDX,
@@ -68,7 +68,7 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  const slugs = await getAllMDX({ topDirectory: 'posts' })
+  const slugs = getAllMDXFile({ topDirectory: 'posts' })
   return slugs?.map(({ fileName }) => ({ slug: fileName.split('/') }))
 }
 
@@ -79,7 +79,7 @@ export default async function Page({ params: { slug } }: PageProps) {
     notFound()
   }
 
-  const frontMatter = await getMDXMetaData(mdx)
+  const frontMatter = getMDXMetaData(mdx)
   if (!isVisibleMDX(frontMatter)) {
     notFound()
   }
