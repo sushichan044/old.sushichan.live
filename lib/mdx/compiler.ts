@@ -51,6 +51,8 @@ export const compileMDX = async ({
     ? params.rawContent
     : await getMDXContent(params.mdxFile)
 
+  // TODO この文字列の段階で任意の何かでページを分割できるようにする
+
   const { content } = await compileMDXFile<FrontMatter>({
     components: MDXComponents,
     source: mdxContent,
