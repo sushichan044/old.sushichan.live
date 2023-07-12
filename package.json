@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:analyze": "ANALYZE=true next build",
     "start": "next start",
     "lint": "next lint",
     "lint:markup": "markuplint \"./**/*.{jsx,tsx}\"",
@@ -29,6 +30,7 @@
     "./**/*.{css,scss}": "npm run stylelint:precommit"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^13.4.9",
     "@radix-ui/react-navigation-menu": "^1.1.3",
     "budoux": "^0.5.2",
     "client-only": "^0.0.1",
