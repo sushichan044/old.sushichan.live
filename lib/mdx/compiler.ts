@@ -8,7 +8,8 @@ import remarkEmoji from 'remark-emoji'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import remarkUnwrapImages from 'remark-unwrap-images'
-import stringWidth from 'string-width'
+// 挙動がおかしいので使わない
+// import stringWidth from 'string-width'
 import { type PluggableList } from 'unified'
 
 import { MDXComponents } from '@/components/mdx'
@@ -19,9 +20,9 @@ import rehypeImageOpt from '@/lib/rehype-image'
 const remarkDefaultPlugins: PluggableList = [
   [
     remarkGfm,
-    {
-      stringLength: stringWidth,
-    },
+    // {
+    //   stringLength: stringWidth,
+    // },
   ],
   remarkEmoji,
   remarkMath,
