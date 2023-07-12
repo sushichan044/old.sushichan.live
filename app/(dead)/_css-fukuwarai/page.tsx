@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 
-import Fukuwarai from '@/app/css-fukuwarai/fukuwarai'
+import Fukuwarai from '@/app/(dead)/_css-fukuwarai/fukuwarai'
 import styles from '@/app/css-fukuwarai/page.module.scss'
 import ErrorDialog from '@/components/error/errorDialog'
 import Section from '@/components/section'

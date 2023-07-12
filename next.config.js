@@ -24,9 +24,6 @@ const nextConfig = {
     serverActions: true,
     typedRoutes: true,
   },
-  compiler: {
-    styledComponents: true,
-  },
 }
 
 module.exports = nextConfig
