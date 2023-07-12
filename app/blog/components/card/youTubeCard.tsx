@@ -1,6 +1,6 @@
 'use client'
 
-import YouTube from 'react-youtube'
+import dynamic from 'next/dynamic'
 
 import styles from '@/app/blog/components/card/youtube-card.module.scss'
 import EmbedCard from '@/components/common/card/embedCard'
@@ -12,6 +12,11 @@ const YouTubeCard = ({
   id: string
   type: 'video' | 'playlist'
 }) => {
+  //@ts-expect-error dynamic import
+  const YouTube = dynamic(() => import('react-youtube'), {
+    ssr: false,
+  })
+
   const youtubeProps = ((type: 'video' | 'playlist') => {
     if (type === 'video') {
       return {
