@@ -76,27 +76,6 @@ export const getMDXContent = async (mdx: MDXFile): Promise<string> => {
   return await fs.promises.readFile(mdxPath, 'utf8')
 }
 
-export const getMDXMetaData = (mdx: MDXFile): MDXMetaData => {
-  const mdxPath = getMDXFilePath(mdx)
-  const { data } = matter.read(mdxPath)
-  const mtime = getFileModifiedTimeSync(mdxPath)
-
-  return {
-    title: data.title,
-    description: data.description,
-    date: data.date,
-    updated: mtime,
-    thumbnail: data.thumbnail,
-    tags: data?.tags,
-    status: data?.status ?? 'public',
-    file: mdx,
-  }
-}
-
-export const getAllMDXMetaData = (mdxFiles: MDXFile[]) => {
-  return mdxFiles.map((mdx) => getMDXMetaData(mdx))
-}
-
 export const isVisibleMDX = (mdxMetaData: MDXMetaData) => {
   if (process.env.NODE_ENV === 'production') {
     return mdxMetaData.status === 'public'
@@ -104,10 +83,46 @@ export const isVisibleMDX = (mdxMetaData: MDXMetaData) => {
   return true
 }
 
+export const getMDXMetaData = (mdx: MDXFile): MDXMetaData => {
+  const mdxPath = getMDXFilePath(mdx)
+  const { data } = matter.read(mdxPath)
+  const mtime = getFileModifiedTimeSync(mdxPath)
+
+  const meta: MDXMetaData = {
+    date: data.date,
+    description: data.description,
+    file: mdx,
+    status: data?.status ?? 'public',
+    tags: data?.tags,
+    thumbnail: data.thumbnail,
+    title: data.title,
+    updated: mtime,
+  }
+
+  return meta
+}
+
+export const getAllMDXMetaData = (
+  mdxFiles: MDXFile[],
+  { visibleOnly = true }: { visibleOnly?: boolean } = {}
+) => {
+  const allMeta = mdxFiles.flatMap((mdxFile) => {
+    const mdxMetaData = getMDXMetaData(mdxFile)
+    if (visibleOnly && !isVisibleMDX(mdxMetaData)) {
+      return []
+    }
+    return [mdxMetaData]
+  })
+  return allMeta
+}
+
 export const getAllTagsFromMDX = async (mdxFiles: MDXFile[]) => {
   const tags = new Set<string>()
   for (const mdxFile of mdxFiles) {
     const mdxMetaData = getMDXMetaData(mdxFile)
+    if (!isVisibleMDX(mdxMetaData)) {
+      continue
+    }
     for (const tag of mdxMetaData.tags ?? []) {
       tags.add(tag)
     }
