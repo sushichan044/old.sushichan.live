@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 
-import Fukuwarai from '@/app/(dead)/_css-fukuwarai/fukuwarai'
+// import Fukuwarai from '@/app/(dead)/_css-fukuwarai/fukuwarai'
 import styles from '@/app/css-fukuwarai/page.module.scss'
 import ErrorDialog from '@/components/error/errorDialog'
 import Section from '@/components/section'
@@ -36,7 +36,7 @@ export default async function Page() {
           <br />
           Keyframeなど含めてすべてのCSSが使用可能です。
         </Section>
-        <Fukuwarai />
+        {/* <Fukuwarai /> */}
       </div>
     </>
   )
