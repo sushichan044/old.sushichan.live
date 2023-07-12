@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaGithub, FaTwitter } from 'react-icons/fa'
+import { SiMisskey } from 'react-icons/si'
 
 import ArticleCard from '@/app/blog/components/card/articleCard'
 import SpotifyCard from '@/app/blog/components/card/spotifyCard'
@@ -51,12 +52,16 @@ const customComponents = {
   SpotifyCard,
   YouTubeCard,
   WithBudoux,
-  FaGithub,
-  FaTwitter,
 }
 
+const iconComponents = {
+  FaGithub,
+  FaTwitter,
+  SiMisskey,
+}
 // list of Custom Components used in mdx
 export const MDXComponents = {
   ...replaceComponents,
   ...customComponents,
+  ...iconComponents,
 }
