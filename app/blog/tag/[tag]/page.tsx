@@ -9,8 +9,10 @@ type PageProps = {
 }
 
 export async function generateStaticParams() {
-  const allPosts = getAllMDXFile({ topDirectory: 'posts' })
-  const allTags = await getAllTagsFromMDX(allPosts)
+  const allPostMetaData = getAllMDXMetaData(
+    getAllMDXFile({ topDirectory: 'posts' })
+  )
+  const allTags = getAllTagsFromMDX(allPostMetaData)
   return allTags.map((tag) => ({ tag }))
 }
 

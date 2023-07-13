@@ -114,14 +114,13 @@ export const getAllMDXMetaData = (
   return allMeta
 }
 
-export const getAllTagsFromMDX = async (mdxFiles: MDXFile[]) => {
+export const getAllTagsFromMDX = (mdxMetaData: MDXMetaData[]) => {
   const tags = new Set<string>()
-  for (const mdxFile of mdxFiles) {
-    const mdxMetaData = getMDXMetaData(mdxFile)
-    if (!isPublicMDX(mdxMetaData)) {
+  for (const metaData of mdxMetaData) {
+    if (!isPublicMDX(metaData)) {
       continue
     }
-    for (const tag of mdxMetaData.tags ?? []) {
+    for (const tag of metaData.tags ?? []) {
       tags.add(tag)
     }
   }
