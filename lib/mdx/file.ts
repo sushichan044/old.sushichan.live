@@ -13,29 +13,13 @@ const getMDXFilePath = ({ topDirectory, fileName, extension }: MDXFile) =>
 export const getMDXFromPath = ({
   topDirectory,
   fileName,
-  extension,
-}: {
-  topDirectory: string
-  fileName: string
-  extension?: 'mdx' | 'md'
-}): MDXFile | undefined => {
-  if (
-    extension &&
-    fs.existsSync(getMDXFilePath({ topDirectory, fileName, extension }))
-  ) {
-    return { topDirectory, fileName, extension }
-  }
-
-  if (
-    fs.existsSync(getMDXFilePath({ topDirectory, fileName, extension: 'mdx' }))
-  ) {
-    return { topDirectory, fileName, extension: 'mdx' }
-  }
-
-  if (
-    fs.existsSync(getMDXFilePath({ topDirectory, fileName, extension: 'md' }))
-  ) {
-    return { topDirectory, fileName, extension: 'md' }
+}: PartialMDXFile): MDXFile | undefined => {
+  const extensions = ['mdx', 'md'] as const
+  for (const extension of extensions) {
+    const filePath = getMDXFilePath({ topDirectory, fileName, extension })
+    if (fs.existsSync(filePath)) {
+      return { topDirectory, fileName, extension }
+    }
   }
   return undefined
 }
