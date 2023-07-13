@@ -42,7 +42,11 @@ export type MDXCompilerOption =
 
 // types below will used in v2
 // experimental type
-type MDXFileMetaData = MDXFile
+type MDXFileMetaData = {
+  sourceDirectory: string
+  fileName: string
+  extension: 'mdx' | 'md'
+}
 type MDXFrontMatterBase = {
   status: 'public' | 'private'
   created: Date
@@ -58,6 +62,6 @@ type MDXFrontMatter<T extends object> = keyof T extends keyof MDXFrontMatterBase
 // FUTURE: use this type as MDX general type
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 type MDX<T extends object> = {
-  file: MDXFileMetaData
-  metaData: MDXFrontMatter<T>
+  fileMetaData: MDXFileMetaData
+  frontMatter: MDXFrontMatter<T>
 }
