@@ -1,7 +1,9 @@
 import RecentPosts from '@/app/blog/components/recentPosts'
 import Section from '@/components/section'
-
+import { getAllMDXFile, getAllMDXMetaData } from '@/lib/mdx'
 export default async function Page() {
+  const allPostFiles = getAllMDXFile({ topDirectory: 'posts' })
+  const allFrontMatters = getAllMDXMetaData(allPostFiles)
   return (
     <>
       <Section>
@@ -10,7 +12,7 @@ export default async function Page() {
       </Section>
       <Section>
         <h2>最近書いた記事</h2>
-        <RecentPosts />
+        <RecentPosts frontMatters={allFrontMatters} />
       </Section>
     </>
   )
