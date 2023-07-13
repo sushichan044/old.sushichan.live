@@ -1,0 +1,11 @@
+.tags {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1rem;
+}
+
+.description {
+  > :not(h1, h2, h3, h4, h5, h6) {
+    font-size: 1.125rem;
+  }
+}
