@@ -2,32 +2,32 @@
 @use "/styles/variables" as var;
 @use "/styles/general.scss" as gen;
 
-.link {
-  text-decoration: none;
-}
-
 .card {
   // TODO: これは一時的なスタイル
   // あとから枠線つきでページ背景と合わせるなどのスタイルを検討する
-  $bg-color: #e3e3e3;
+  $bg-color: #c7c7c7;
 
   display: flex;
   flex-flow: column nowrap;
   gap: 0.5rem;
   height: 100%;
-  padding: 1rem;
+  padding-block-end: 1.25rem;
   color: var.$text-color-light;
   text-align: center;
-  background-color: $bg-color;
-  border-radius: 1rem;
-  @include gen.hover($bg-color, $bg: true, $shadow: true);
+
+  // background-color: $bg-color;
+  border-radius: 0.5rem;
+  outline: $bg-color 1px solid;
+  @include gen.hover(var.$theme-color-light, $shadow: true);
 
   @include mix.theme("dark") {
-    $bg-color: #1b1b1b;
+    $bg-color: #7e7e7e;
 
     color: var.$text-color-dark;
-    background-color: $bg-color;
-    @include gen.hover($bg-color, $bg: true, $shadow: true);
+    outline: $bg-color 1px solid;
+
+    // background-color: $bg-color;
+    @include gen.hover(var.$theme-color-dark, $shadow: true);
   }
 }
 
@@ -43,7 +43,8 @@
   aspect-ratio: 16 / 9;
   margin-inline: auto;
   overflow: hidden;
-  border-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
 
   img {
     object-fit: cover;
