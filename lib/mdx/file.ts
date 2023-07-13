@@ -3,7 +3,7 @@ import matter from 'gray-matter'
 import path from 'path'
 
 import { getFileModifiedTimeSync, getFilePathRecursive } from '@/lib/fs'
-import type { MDXFile, MDXMetaData } from '@/lib/mdx/type'
+import type { MDXFile, MDXMetaData, PartialMDXFile } from '@/lib/mdx/type'
 
 // path to directory
 const getHomeDir = () => process.cwd()
@@ -60,11 +60,25 @@ export const getMDXContent = async (mdx: MDXFile): Promise<string> => {
   return await fs.promises.readFile(mdxPath, 'utf8')
 }
 
-export const isVisibleMDX = (mdxMetaData: MDXMetaData) => {
+export const isPublicMDX = (mdxMetaData: MDXMetaData) => {
   if (process.env.NODE_ENV === 'production') {
     return mdxMetaData.status === 'public'
   }
   return true
+}
+
+export const getMDXData = (
+  mdx: PartialMDXFile
+): { mdxFile: MDXFile; metaData: MDXMetaData } | undefined => {
+  const mdxFile = getMDXFromPath(mdx)
+  if (!mdxFile) {
+    return undefined
+  }
+  const metaData = getMDXMetaData(mdxFile)
+  if (!isPublicMDX(metaData)) {
+    return undefined
+  }
+  return { mdxFile, metaData }
 }
 
 export const getMDXMetaData = (mdx: MDXFile): MDXMetaData => {
@@ -92,7 +106,7 @@ export const getAllMDXMetaData = (
 ) => {
   const allMeta = mdxFiles.flatMap((mdxFile) => {
     const mdxMetaData = getMDXMetaData(mdxFile)
-    if (visibleOnly && !isVisibleMDX(mdxMetaData)) {
+    if (visibleOnly && !isPublicMDX(mdxMetaData)) {
       return []
     }
     return [mdxMetaData]
@@ -104,7 +118,7 @@ export const getAllTagsFromMDX = async (mdxFiles: MDXFile[]) => {
   const tags = new Set<string>()
   for (const mdxFile of mdxFiles) {
     const mdxMetaData = getMDXMetaData(mdxFile)
-    if (!isVisibleMDX(mdxMetaData)) {
+    if (!isPublicMDX(mdxMetaData)) {
       continue
     }
     for (const tag of mdxMetaData.tags ?? []) {

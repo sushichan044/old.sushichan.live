@@ -9,9 +9,9 @@ import Section from '@/components/section'
 import {
   compileMDX,
   getAllMDXFile,
+  getMDXData,
   getMDXFromPath,
   getMDXMetaData,
-  isVisibleMDX,
 } from '@/lib/mdx'
 
 type PageProps = {
@@ -28,7 +28,7 @@ export async function generateMetadata({
   if (!mdx) {
     return NotFoundMeta
   }
-  const { title, description, file, thumbnail } = await getMDXMetaData(mdx)
+  const { title, description, file, thumbnail } = getMDXMetaData(mdx)
   // TODO: Add fallback ogp image url like favicon
 
   // ↓ これは記事内のthumbnailUrlに直接アクセスさせて解決する
@@ -74,19 +74,15 @@ export async function generateStaticParams() {
 
 export default async function Page({ params: { slug } }: PageProps) {
   const fileName = slug.join('/')
-  const mdx = getMDXFromPath({ topDirectory: 'posts', fileName })
-  if (!mdx) {
+  const pageData = getMDXData({ topDirectory: 'posts', fileName })
+  if (!pageData) {
     notFound()
   }
-
-  const frontMatter = getMDXMetaData(mdx)
-  if (!isVisibleMDX(frontMatter)) {
-    notFound()
-  }
+  const { mdxFile, metaData } = pageData
 
   const content = await compileMDX({
     isRaw: false,
-    mdxFile: mdx,
+    mdxFile: mdxFile,
     feature: {
       generateToc: true,
     },
@@ -95,7 +91,7 @@ export default async function Page({ params: { slug } }: PageProps) {
   return (
     <>
       <Section>
-        <FrontMatterCard {...frontMatter} />
+        <FrontMatterCard {...metaData} />
       </Section>
       <Article>{content}</Article>
     </>
