@@ -4,6 +4,10 @@ export type MDXFile = {
   extension: 'mdx' | 'md'
 }
 
+export type PartialMDXFile = Omit<MDXFile, 'extension'> & {
+  extension?: 'mdx' | 'md'
+}
+
 export type FrontMatter = {
   title: string
   description: string
