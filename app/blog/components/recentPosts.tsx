@@ -1,6 +1,6 @@
 import PostGrid from '@/app/blog/components/postGrid'
 import type { BlogFrontMatter } from '@/app/blog/lib/mdx'
-import type { MDX } from '@/lib/mdx/next'
+import type { MDX } from '@/lib/mdx'
 
 // TODO: 部分的な取得ができるようにする
 const RecentPosts = async ({

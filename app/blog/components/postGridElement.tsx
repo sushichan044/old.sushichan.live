@@ -5,7 +5,7 @@ import styles from '@/app/blog/components/post-grid-element.module.scss'
 import type { BlogFrontMatter } from '@/app/blog/lib/mdx'
 import WithBudoux from '@/components/common/budoux'
 import { convertDate } from '@/lib/date'
-import type { MDX } from '@/lib/mdx/next'
+import type { MDX } from '@/lib/mdx'
 
 const PostGridElement = ({
   fileMetaData: file,

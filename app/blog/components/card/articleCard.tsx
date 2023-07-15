@@ -5,7 +5,7 @@ import styles from '@/app/blog/components/card/article-card.module.scss'
 import { blogFrontMatterSchema } from '@/app/blog/lib/mdx'
 import WithBudoux from '@/components/common/budoux'
 import Card from '@/components/common/card'
-import { getMDX, type PartialMDXFileMetaData } from '@/lib/mdx/next'
+import { getMDX, type PartialMDXFileMetaData } from '@/lib/mdx'
 
 type ArticleCardProps = {
   href: string

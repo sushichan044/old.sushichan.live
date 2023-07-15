@@ -13,7 +13,7 @@ import remarkUnwrapImages from 'remark-unwrap-images'
 import { type PluggableList } from 'unified'
 
 import { MDXComponents } from '@/components/mdx'
-import { type MDXCompilerOption, readMDXFile } from '@/lib/mdx/next'
+import { type MDXCompilerOption, readMDXFile } from '@/lib/mdx'
 import rehypeImageOpt from '@/lib/rehype-image'
 
 const remarkDefaultPlugins: PluggableList = [

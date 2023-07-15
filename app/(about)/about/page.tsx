@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation'
 import { z } from 'zod'
 
 import Section from '@/components/section'
-import { compileMDX, getMDX } from '@/lib/mdx/next'
+import { compileMDX, getMDX } from '@/lib/mdx'
 
 export const metadata = {
   title: 'about',

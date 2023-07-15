@@ -1,7 +1,7 @@
 import styles from '@/app/blog/components/post-grid.module.scss'
 import PostGridElement from '@/app/blog/components/postGridElement'
 import type { BlogFrontMatter } from '@/app/blog/lib/mdx'
-import type { MDX } from '@/lib/mdx/next'
+import type { MDX } from '@/lib/mdx'
 
 const PostGrid = ({ posts }: { posts: MDX<BlogFrontMatter>[] }) => {
   return (

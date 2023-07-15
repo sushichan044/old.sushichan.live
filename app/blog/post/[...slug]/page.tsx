@@ -7,7 +7,7 @@ import { getAllBlogMDX, getBlogMDX } from '@/app/blog/lib/mdx'
 import Article from '@/components/article'
 import NotFoundMeta from '@/components/meta/notFound'
 import Section from '@/components/section'
-import { compileMDX } from '@/lib/mdx/next'
+import { compileMDX } from '@/lib/mdx'
 
 type PageProps = {
   params: {

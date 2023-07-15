@@ -9,7 +9,7 @@ import type {
   MDXFileMetaData,
   MDXSourceDirectory,
   PartialMDXFileMetaData,
-} from '@/lib/mdx/next'
+} from '@/lib/mdx'
 import type { WithZodSchema } from '@/utils/@types/zod'
 
 const getHomeDir = () => process.cwd()

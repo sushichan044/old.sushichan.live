@@ -1,11 +1,6 @@
 import { z } from 'zod'
 
-import {
-  getAllMDX,
-  getFrontMatterAttribute,
-  getMDX,
-  type MDX,
-} from '@/lib/mdx/next'
+import { getAllMDX, getFrontMatterAttribute, getMDX, type MDX } from '@/lib/mdx'
 
 export const blogFrontMatterSchema = z.object({
   title: z.string(),
