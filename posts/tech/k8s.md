@@ -1,7 +1,7 @@
 ---
 title: おうちKubernetes作ろうとした
 description: kubernetes なにもわからない
-date: 2022-09-02
+created: 2022-09-02
 thumbnail: https://imagedelivery.net/i4QA6VLSP0gXyj6-3zNFXg/859314d1-9b44-4560-1533-2775d11d0d00/public
 tags:
   - 技術
