@@ -46,3 +46,11 @@ export const getFileModifiedTimeSync = (filePath: string) => {
   const stat = fs.statSync(filePath)
   return stat.mtime
 }
+
+export const getFileTimestampsSync = (filePath: string) => {
+  const stat = fs.statSync(filePath)
+  return {
+    created: stat.birthtime,
+    modified: stat.mtime,
+  }
+}
