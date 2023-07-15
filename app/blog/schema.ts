@@ -9,3 +9,5 @@ export const blogFrontMatterSchema = z.object({
   tags: z.array(z.string()).optional(),
   status: z.union([z.literal('private'), z.literal('public')]),
 })
+
+export type BlogFrontMatter = z.infer<typeof blogFrontMatterSchema>
