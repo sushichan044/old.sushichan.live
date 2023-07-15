@@ -2,11 +2,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import styles from '@/app/blog/components/post-grid-element.module.scss'
+import type { BlogFrontMatter } from '@/app/blog/lib/mdx'
 import WithBudoux from '@/components/common/budoux'
 import { convertDate } from '@/lib/date'
-import { type MDXMetaData } from '@/lib/mdx'
+import type { MDX } from '@/lib/mdx/next'
 
-const PostGridElement = ({ title, date, thumbnail, file }: MDXMetaData) => {
+const PostGridElement = ({
+  fileMetaData: file,
+  frontMatter: { title, created: date, thumbnail },
+}: MDX<BlogFrontMatter>) => {
   return (
     <Link className={styles.link} href={`/blog/post/${file.fileName}`}>
       <div className={styles.card}>

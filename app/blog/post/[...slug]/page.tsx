@@ -3,11 +3,11 @@ import { notFound } from 'next/navigation'
 import React from 'react'
 
 import FrontMatterCard from '@/app/blog/components/frontMatterCard'
-import { blogFrontMatterSchema } from '@/app/blog/schema'
+import { getAllBlogMDX, getBlogMDX } from '@/app/blog/lib/mdx'
 import Article from '@/components/article'
 import NotFoundMeta from '@/components/meta/notFound'
 import Section from '@/components/section'
-import { compileMDX, getAllMDXFileMetaData, getMDX } from '@/lib/mdx/next'
+import { compileMDX } from '@/lib/mdx/next'
 
 type PageProps = {
   params: {
@@ -19,11 +19,7 @@ export async function generateMetadata({
   params: { slug },
 }: PageProps): Promise<Metadata> {
   const fileName = slug.join('/')
-  const mdx = getMDX({
-    mdx: { sourceDirectory: 'posts', fileName },
-    schema: blogFrontMatterSchema,
-  })
-
+  const mdx = getBlogMDX(fileName)
   if (!mdx) {
     return NotFoundMeta
   }
@@ -71,16 +67,15 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  const slugs = getAllMDXFileMetaData({ sourceDirectory: 'posts' })
-  return slugs?.map(({ fileName }) => ({ slug: fileName.split('/') }))
+  const allMDX = getAllBlogMDX()
+  return allMDX.map(({ fileMetaData: { fileName } }) => {
+    return { slug: fileName.split('/') }
+  })
 }
 
 export default async function Page({ params: { slug } }: PageProps) {
   const fileName = slug.join('/')
-  const mdx = getMDX({
-    mdx: { sourceDirectory: 'posts', fileName },
-    schema: blogFrontMatterSchema,
-  })
+  const mdx = getBlogMDX(fileName)
   if (!mdx) {
     notFound()
   }
@@ -96,7 +91,7 @@ export default async function Page({ params: { slug } }: PageProps) {
   return (
     <>
       <Section>
-        <FrontMatterCard date={mdx.frontMatter.created} {...mdx.frontMatter} />
+        <FrontMatterCard {...mdx.frontMatter} />
       </Section>
       <Article>{content}</Article>
     </>

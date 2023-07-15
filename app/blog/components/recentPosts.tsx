@@ -1,17 +1,17 @@
 import PostGrid from '@/app/blog/components/postGrid'
-import { type MDXMetaData } from '@/lib/mdx'
+import type { BlogFrontMatter } from '@/app/blog/lib/mdx'
+import type { MDX } from '@/lib/mdx/next'
 
 // TODO: 部分的な取得ができるようにする
 const RecentPosts = async ({
-  frontMatters,
+  mdx: frontMatters,
 }: {
-  frontMatters: MDXMetaData[]
+  mdx: MDX<BlogFrontMatter>[]
 }) => {
-  const sortedFrontMatters = frontMatters.sort((a, b) => {
-    return a.date < b.date ? 1 : -1
+  const sortedMDX = frontMatters.sort((a, b) => {
+    return a.frontMatter.created < b.frontMatter.created ? 1 : -1
   })
-
-  return <PostGrid posts={sortedFrontMatters} />
+  return <PostGrid posts={sortedMDX} />
 }
 
 export default RecentPosts

@@ -5,18 +5,18 @@ import { TbPencil } from 'react-icons/tb'
 
 import styles from '@/app/blog/components/front-matter.module.scss'
 import Tag from '@/app/blog/components/tag'
+import type { BlogFrontMatter } from '@/app/blog/lib/mdx'
 import WithBudoux from '@/components/common/budoux'
 import { convertDate } from '@/lib/date'
-import { type FrontMatter } from '@/lib/mdx'
 
 const FrontMatterCard = ({
   title,
-  date,
+  created: date,
   updated,
   description,
   thumbnail,
   tags,
-}: FrontMatter) => {
+}: BlogFrontMatter) => {
   return (
     <div className={styles.container}>
       {thumbnail && (
