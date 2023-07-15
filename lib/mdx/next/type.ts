@@ -1,30 +1,18 @@
 import { z } from 'zod'
 
-// {
-//   sourceDirectory: string
-//   fileName: string
-//   extension: 'mdx' | 'md'
-// }
-const MDXFileMetaDataSchema = z.object({
-  sourceDirectory: z.string(),
-  fileName: z.string(),
-  extension: z.union([z.literal('mdx'), z.literal('md')]),
-})
-export type MDXFileMetaData = z.infer<typeof MDXFileMetaDataSchema>
+export type MDXFileMetaData = {
+  sourceDirectory: string
+  fileName: string
+  extension: 'mdx' | 'md'
+}
 
-// {
-//   sourceDirectory: string
-//   fileName: string
-//   extension?: 'mdx' | 'md' | undefined
-// }
-const PartialMDXFileMetaDataSchema = MDXFileMetaDataSchema.omit({
-  extension: true,
-}).extend({
-  extension: z.union([z.literal('mdx'), z.literal('md')]).optional(),
-})
-export type PartialMDXFileMetaData = z.infer<
-  typeof PartialMDXFileMetaDataSchema
->
+export type PartialMDXFileMetaData = Omit<MDXFileMetaData, 'extension'> & {
+  extension?: 'mdx' | 'md' | undefined
+}
+
+export type MDXSourceDirectory = {
+  sourceDirectory: string
+}
 
 // TODO: migrate MDX handler to merge received schema with MDXFrontMatterBaseSchema
 export const MDXFrontMatterBaseSchema = z.object({
