@@ -18,7 +18,7 @@
   // background-color: $bg-color;
   border-radius: 0.5rem;
   outline: $bg-color 1px solid;
-  @include gen.hover(var.$theme-color-light, $shadow: true);
+  @include gen.hover(var.$theme-color-light, $bg: true, $shadow: true);
 
   @include mix.theme("dark") {
     $bg-color: #7e7e7e;
@@ -27,7 +27,7 @@
     outline: $bg-color 1px solid;
 
     // background-color: $bg-color;
-    @include gen.hover(var.$theme-color-dark, $shadow: true);
+    @include gen.hover(var.$theme-color-dark, $bg: true, $shadow: true);
   }
 }
 
