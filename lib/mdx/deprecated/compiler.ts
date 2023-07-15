@@ -13,9 +13,11 @@ import remarkUnwrapImages from 'remark-unwrap-images'
 import { type PluggableList } from 'unified'
 
 import { MDXComponents } from '@/components/mdx'
-import { getMDXContent } from '@/lib/mdx/file'
-import type { FrontMatter, MDXCompilerOption } from '@/lib/mdx/type'
 import rehypeImageOpt from '@/lib/rehype-image'
+
+/* eslint-disable no-restricted-imports */
+import { getMDXContent } from './file'
+import type { FrontMatter, MDXCompilerOption } from './type'
 
 const remarkDefaultPlugins: PluggableList = [
   [
@@ -44,6 +46,9 @@ const rehypeDefaultPlugins: PluggableList = [
 ]
 
 // compile MDX file to React Component
+/**
+ * @deprecated since version 2.0
+ */
 export const compileMDX = async ({
   feature: { generateToc = false } = {},
   ...params

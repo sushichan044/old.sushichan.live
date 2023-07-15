@@ -3,13 +3,18 @@ import matter from 'gray-matter'
 import path from 'path'
 
 import { getFileModifiedTimeSync, getFilePathRecursive } from '@/lib/fs'
-import type { MDXFile, MDXMetaData, PartialMDXFile } from '@/lib/mdx/type'
+
+/* eslint-disable no-restricted-imports */
+import type { MDXFile, MDXMetaData, PartialMDXFile } from './type'
 
 // path to directory
 const getHomeDir = () => process.cwd()
 const getMDXFilePath = ({ topDirectory, fileName, extension }: MDXFile) =>
   path.join(getHomeDir(), topDirectory, `${fileName}.${extension}`)
 
+/**
+ * @deprecated since version 2.0
+ */
 export const getMDXFromPath = ({
   topDirectory,
   fileName,
@@ -24,6 +29,9 @@ export const getMDXFromPath = ({
   return undefined
 }
 
+/**
+ * @deprecated since version 2.0
+ */
 export const getAllMDXFile = ({
   topDirectory,
 }: // TODO support ignorePattern, maxCount
@@ -55,11 +63,17 @@ export const getAllMDXFile = ({
   return MDXFiles
 }
 
+/**
+ * @deprecated since version 2.0
+ */
 export const getMDXContent = async (mdx: MDXFile): Promise<string> => {
   const mdxPath = getMDXFilePath(mdx)
   return await fs.promises.readFile(mdxPath, 'utf8')
 }
 
+/**
+ * @deprecated since version 2.0
+ */
 export const isPublicMDX = (mdxMetaData: MDXMetaData) => {
   if (process.env.NODE_ENV === 'production') {
     return mdxMetaData.status === 'public'
@@ -67,6 +81,9 @@ export const isPublicMDX = (mdxMetaData: MDXMetaData) => {
   return true
 }
 
+/**
+ * @deprecated since version 2.0
+ */
 export const getMDXData = (
   mdx: PartialMDXFile
 ): { mdxFile: MDXFile; metaData: MDXMetaData } | undefined => {
@@ -81,6 +98,9 @@ export const getMDXData = (
   return { mdxFile, metaData }
 }
 
+/**
+ * @deprecated since version 2.0
+ */
 export const getMDXMetaData = (mdx: MDXFile): MDXMetaData => {
   const mdxPath = getMDXFilePath(mdx)
   const { data } = matter.read(mdxPath)
@@ -100,6 +120,9 @@ export const getMDXMetaData = (mdx: MDXFile): MDXMetaData => {
   return meta
 }
 
+/**
+ * @deprecated since version 2.0
+ */
 export const getAllMDXMetaData = (
   mdxFiles: MDXFile[],
   { visibleOnly = true }: { visibleOnly?: boolean } = {}
@@ -114,6 +137,9 @@ export const getAllMDXMetaData = (
   return allMeta
 }
 
+/**
+ * @deprecated since version 2.0
+ */
 export const getAllTagsFromMDX = (mdxMetaData: MDXMetaData[]) => {
   const tags = new Set<string>()
   for (const metaData of mdxMetaData) {

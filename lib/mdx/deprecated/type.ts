@@ -1,13 +1,22 @@
+/**
+ * @deprecated since version 2.0
+ */
 export type MDXFile = {
   topDirectory: string
   fileName: string
   extension: 'mdx' | 'md'
 }
 
+/**
+ * @deprecated since version 2.0
+ */
 export type PartialMDXFile = Omit<MDXFile, 'extension'> & {
   extension?: 'mdx' | 'md'
 }
 
+/**
+ * @deprecated since version 2.0
+ */
 export type FrontMatter = {
   title: string
   description: string
@@ -18,6 +27,9 @@ export type FrontMatter = {
   status: 'private' | 'public'
 }
 
+/**
+ * @deprecated since version 2.0
+ */
 export type MDXMetaData = FrontMatter & {
   file: MDXFile
 }
@@ -26,6 +38,9 @@ type MDXCompilerFeature = {
   generateToc?: boolean
 }
 
+/**
+ * @deprecated since version 2.0
+ */
 export type MDXCompilerOption =
   | (
       | {
