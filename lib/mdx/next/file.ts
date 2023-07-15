@@ -4,11 +4,7 @@ import path from 'path'
 import { z, type ZodTypeAny } from 'zod'
 
 import { getFilePathRecursive, getFileTimestampsSync } from '@/lib/fs'
-import {
-  type MDX,
-  type MDXFileMetaData,
-  type PartialMDXFileMetaData,
-} from '@/lib/mdx/next/type'
+import type { WithZodSchema } from '@/utils/@types/zod'
 
 const getHomeDir = () => process.cwd()
 const getMDXFilePath = ({
@@ -18,13 +14,12 @@ const getMDXFilePath = ({
 }: MDXFileMetaData) =>
   path.join(getHomeDir(), sourceDirectory, `${fileName}.${extension}`)
 
-export const getMDX = <T extends ZodTypeAny>({
+export const getMDX = <Schema extends ZodTypeAny>({
   mdx,
   schema,
-}: {
-  mdx: PartialMDXFileMetaData
-  schema: T
-}): MDX<z.infer<typeof schema>> | undefined => {
+}: WithZodSchema<'mdx', PartialMDXFileMetaData, Schema>):
+  | MDX<z.infer<typeof schema>>
+  | undefined => {
   const fileMetaData = getMDXFileMetaData(mdx)
   if (!fileMetaData) return undefined
 
@@ -36,6 +31,25 @@ export const getMDX = <T extends ZodTypeAny>({
     fileMetaData,
     frontMatter: validFrontMatter,
   }
+}
+
+export const getAllMDX = <Schema extends ZodTypeAny>({
+  mdx: { sourceDirectory },
+  schema,
+}: WithZodSchema<'mdx', MDXSourceDirectory, Schema>): MDX<
+  z.infer<typeof schema>
+>[] => {
+  const allFileMetaData = getAllMDXFileMetaData({ sourceDirectory })
+  return allFileMetaData.map((fileMetaData) => {
+    const rawFrontMatter = getFrontMatter({ fileMetaData })
+    const validFrontMatter = schema.parse(rawFrontMatter) as z.infer<
+      typeof schema
+    >
+    return {
+      fileMetaData,
+      frontMatter: validFrontMatter,
+    }
+  })
 }
 
 export const getMDXFileMetaData = ({
