@@ -4,6 +4,12 @@ import path from 'path'
 import { z, type ZodTypeAny } from 'zod'
 
 import { getFilePathRecursive, getFileTimestampsSync } from '@/lib/fs'
+import type {
+  MDX,
+  MDXFileMetaData,
+  MDXSourceDirectory,
+  PartialMDXFileMetaData,
+} from '@/lib/mdx/next'
 import type { WithZodSchema } from '@/utils/@types/zod'
 
 const getHomeDir = () => process.cwd()
@@ -73,9 +79,7 @@ export const getMDXFileMetaData = ({
 
 export const getAllMDXFileMetaData = ({
   sourceDirectory,
-}: {
-  sourceDirectory: string
-}): MDXFileMetaData[] => {
+}: MDXSourceDirectory): MDXFileMetaData[] => {
   const absDir = path.posix.join(getHomeDir(), sourceDirectory)
   const allMDXPaths = getFilePathRecursive({ dir: absDir }).map((file) => {
     return path.posix.relative(sourceDirectory, file)
@@ -113,4 +117,20 @@ const getFileTimestamps = (mdx: MDXFileMetaData) => {
 
 export const readMDXFile = async (mdx: MDXFileMetaData) => {
   return fs.readFileSync(getMDXFilePath(mdx), 'utf8')
+}
+
+export const getFrontMatterAttribute = <T extends object, K extends keyof T>({
+  mdx,
+  attribute,
+  unique = true,
+}: {
+  mdx: MDX<T>[]
+  attribute: K
+  unique?: boolean
+}): T[K][] => {
+  const attributes = mdx.map((mdx) => mdx.frontMatter[attribute])
+  if (unique) {
+    return [...new Set(attributes)]
+  }
+  return attributes
 }
