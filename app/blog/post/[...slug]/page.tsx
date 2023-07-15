@@ -3,16 +3,11 @@ import { notFound } from 'next/navigation'
 import React from 'react'
 
 import FrontMatterCard from '@/app/blog/components/frontMatterCard'
+import { blogFrontMatterSchema } from '@/app/blog/schema'
 import Article from '@/components/article'
 import NotFoundMeta from '@/components/meta/notFound'
 import Section from '@/components/section'
-import {
-  compileMDX,
-  getAllMDXFile,
-  getMDXData,
-  getMDXFromPath,
-  getMDXMetaData,
-} from '@/lib/mdx'
+import { compileMDX, getAllMDXFileMetaData, getMDX } from '@/lib/mdx/next'
 
 type PageProps = {
   params: {
@@ -24,11 +19,19 @@ export async function generateMetadata({
   params: { slug },
 }: PageProps): Promise<Metadata> {
   const fileName = slug.join('/')
-  const mdx = getMDXFromPath({ topDirectory: 'posts', fileName })
+  const mdx = getMDX({
+    mdx: { sourceDirectory: 'posts', fileName },
+    schema: blogFrontMatterSchema,
+  })
+
   if (!mdx) {
     return NotFoundMeta
   }
-  const { title, description, file, thumbnail } = getMDXMetaData(mdx)
+  const {
+    fileMetaData: file,
+    frontMatter: { title, description, thumbnail },
+  } = mdx
+
   // TODO: Add fallback ogp image url like favicon
 
   // ↓ これは記事内のthumbnailUrlに直接アクセスさせて解決する
@@ -68,21 +71,23 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  const slugs = getAllMDXFile({ topDirectory: 'posts' })
+  const slugs = getAllMDXFileMetaData({ sourceDirectory: 'posts' })
   return slugs?.map(({ fileName }) => ({ slug: fileName.split('/') }))
 }
 
 export default async function Page({ params: { slug } }: PageProps) {
   const fileName = slug.join('/')
-  const pageData = getMDXData({ topDirectory: 'posts', fileName })
-  if (!pageData) {
+  const mdx = getMDX({
+    mdx: { sourceDirectory: 'posts', fileName },
+    schema: blogFrontMatterSchema,
+  })
+  if (!mdx) {
     notFound()
   }
-  const { mdxFile, metaData } = pageData
 
   const content = await compileMDX({
     isRaw: false,
-    mdxFile: mdxFile,
+    mdxFile: mdx.fileMetaData,
     feature: {
       generateToc: true,
     },
@@ -91,7 +96,7 @@ export default async function Page({ params: { slug } }: PageProps) {
   return (
     <>
       <Section>
-        <FrontMatterCard {...metaData} />
+        <FrontMatterCard date={mdx.frontMatter.created} {...mdx.frontMatter} />
       </Section>
       <Article>{content}</Article>
     </>
