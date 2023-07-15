@@ -1,3 +1,5 @@
+import { ZodTypeAny } from 'zod'
+
 export type WithZodSchema<
   K extends string,
   O extends object,
