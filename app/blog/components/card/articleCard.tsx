@@ -2,25 +2,34 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import styles from '@/app/blog/components/card/article-card.module.scss'
+import { blogFrontMatterSchema } from '@/app/blog/lib/mdx'
 import WithBudoux from '@/components/common/budoux'
 import Card from '@/components/common/card'
-import { getMDXMetaData, type MDXFile } from '@/lib/mdx'
+import { getMDX, type PartialMDXFileMetaData } from '@/lib/mdx/next'
 
 type ArticleCardProps = {
   href: string
-} & MDXFile
+} & PartialMDXFileMetaData
 
 const ArticleCard = ({
-  topDirectory,
+  sourceDirectory,
   fileName,
   extension,
   href,
 }: ArticleCardProps) => {
-  const { title, thumbnail, description } = getMDXMetaData({
-    topDirectory,
-    fileName,
-    extension,
+  const mdx = getMDX({
+    mdx: {
+      sourceDirectory,
+      fileName,
+      extension,
+    },
+    schema: blogFrontMatterSchema,
   })
+  if (!mdx) {
+    return <></>
+  }
+
+  const { title, description, thumbnail } = mdx.frontMatter
 
   return (
     <Card className={styles.root}>

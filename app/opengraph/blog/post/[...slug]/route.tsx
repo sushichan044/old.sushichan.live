@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/server'
 
-import { getMDXFromPath, getMDXMetaData } from '@/lib/mdx'
+import { getBlogMDX } from '@/app/blog/lib/mdx'
 
 // Image metadata
 const size = {
@@ -18,14 +18,11 @@ export async function GET(
   }
 ) {
   const mdxPath = slug.join('/')
-  const mdx = getMDXFromPath({
-    topDirectory: 'posts',
-    fileName: mdxPath,
-  })
+  const mdx = getBlogMDX(mdxPath)
   if (!mdx) {
     return
   }
-  const { thumbnail, title } = await getMDXMetaData(mdx)
+  const { thumbnail, title } = mdx.frontMatter
 
   return new ImageResponse(
     (
