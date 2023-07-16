@@ -91,7 +91,7 @@ export default async function Page({ params: { slug } }: PageProps) {
   return (
     <>
       <Section>
-        <FrontMatterCard {...mdx.frontMatter} />
+        <FrontMatterCard {...mdx} />
       </Section>
       <Article>{content}</Article>
     </>

@@ -8,15 +8,11 @@ import Tag from '@/app/blog/components/tag'
 import type { BlogFrontMatter } from '@/app/blog/lib/mdx'
 import WithBudoux from '@/components/common/budoux'
 import { convertDate } from '@/lib/date'
+import type { MDX } from '@/lib/mdx'
 
 const FrontMatterCard = ({
-  title,
-  created: date,
-  updated,
-  description,
-  thumbnail,
-  tags,
-}: BlogFrontMatter) => {
+  frontMatter: { title, created, updated, description, thumbnail, tags },
+}: MDX<BlogFrontMatter>) => {
   return (
     <div className={styles.container}>
       {thumbnail && (
@@ -43,7 +39,7 @@ const FrontMatterCard = ({
         <div className={styles['date-container']}>
           <span className={styles.date}>
             <TbPencil size="1.5em" />
-            <p>{convertDate(date)}</p>
+            <p>{convertDate(created)}</p>
           </span>
           {updated && (
             <span className={styles.date}>

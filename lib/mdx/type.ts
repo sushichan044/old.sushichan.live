@@ -28,7 +28,7 @@ export type AnyObjectOmittingMDXFrontMatterBase = ZodObject<
 
 export type MDX<T extends object> = {
   fileMetaData: MDXFileMetaData
-  frontMatter: T
+  frontMatter: T & MDXFrontMatterBase
 }
 
 type MDXCompilerFeature = {
