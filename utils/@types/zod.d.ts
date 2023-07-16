@@ -12,3 +12,7 @@ export type MergedZodObjectType<
   T extends AnyZodObject,
   U extends AnyZodObject
 > = z.infer<T & U>
+
+export type AnyZodObjectOmitting<T extends AnyZodObject> = ZodObject<
+  ZodObject<Omit<object, keyof T>>['shape']
+>

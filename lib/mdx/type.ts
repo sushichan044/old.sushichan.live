@@ -1,4 +1,6 @@
-import { z, type ZodObject } from 'zod'
+import { z } from 'zod'
+
+import type { AnyZodObjectOmitting } from '@/utils/@types/zod'
 
 export type MDXFileMetaData = {
   sourceDirectory: string
@@ -22,8 +24,8 @@ export const MDXFrontMatterBaseSchema = z.object({
 })
 export type MDXFrontMatterBase = z.infer<typeof MDXFrontMatterBaseSchema>
 
-export type AnyObjectOmittingMDXFrontMatterBase = ZodObject<
-  ZodObject<Omit<object, keyof typeof MDXFrontMatterBaseSchema>>['shape']
+export type AnyObjectOmittingMDXFrontMatterBase = AnyZodObjectOmitting<
+  typeof MDXFrontMatterBaseSchema
 >
 
 export type MDX<T extends object> = {
