@@ -11,7 +11,7 @@ import type {
   PartialMDXFileMetaData,
 } from '@/lib/mdx'
 import { MDXFrontMatterBaseSchema } from '@/lib/mdx'
-import type { MergedZodObjectType, WithZodSchema } from '@/utils/@types/zod'
+import type { MergedZodObjectInfer, WithZodSchema } from '@/utils/@types/zod'
 
 const getHomeDir = () => process.cwd()
 const getMDXFilePath = ({
@@ -25,7 +25,7 @@ export const getMDX = <Schema extends AnyObjectOmittingMDXFrontMatterBase>({
   mdx,
   schema,
 }: WithZodSchema<'mdx', PartialMDXFileMetaData, Schema>):
-  | MDX<MergedZodObjectType<typeof schema, typeof MDXFrontMatterBaseSchema>>
+  | MDX<MergedZodObjectInfer<typeof schema, typeof MDXFrontMatterBaseSchema>>
   | undefined => {
   const fullSchema = schema.merge(MDXFrontMatterBaseSchema)
   const fileMetaData = getMDXFileMetaData(mdx)
@@ -43,7 +43,7 @@ export const getAllMDX = <Schema extends AnyObjectOmittingMDXFrontMatterBase>({
   mdx: { sourceDirectory },
   schema,
 }: WithZodSchema<'mdx', MDXSourceDirectory, Schema>): MDX<
-  MergedZodObjectType<typeof schema, typeof MDXFrontMatterBaseSchema>
+  MergedZodObjectInfer<typeof schema, typeof MDXFrontMatterBaseSchema>
 >[] => {
   const fullSchema = schema.merge(MDXFrontMatterBaseSchema)
   const allFileMetaData = getAllMDXFileMetaData({ sourceDirectory })

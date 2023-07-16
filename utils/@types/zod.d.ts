@@ -8,7 +8,7 @@ export type WithZodSchema<
   [key in K]: O
 } & { schema: Schema }
 
-export type MergedZodObjectType<
+export type MergedZodObjectInfer<
   T extends AnyZodObject,
   U extends AnyZodObject
 > = z.infer<T & U>
