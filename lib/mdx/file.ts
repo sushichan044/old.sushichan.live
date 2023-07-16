@@ -1,16 +1,17 @@
 import fs from 'fs'
 import matter from 'gray-matter'
 import path from 'path'
-import { z, type ZodTypeAny } from 'zod'
 
 import { getFilePathRecursive, getFileTimestampsSync } from '@/lib/fs'
 import type {
+  AnyObjectOmittingMDXFrontMatterBase,
   MDX,
   MDXFileMetaData,
   MDXSourceDirectory,
   PartialMDXFileMetaData,
 } from '@/lib/mdx'
-import type { WithZodSchema } from '@/utils/@types/zod'
+import { MDXFrontMatterBaseSchema } from '@/lib/mdx'
+import type { MergedZodObjectType, WithZodSchema } from '@/utils/@types/zod'
 
 const getHomeDir = () => process.cwd()
 const getMDXFilePath = ({
@@ -20,37 +21,35 @@ const getMDXFilePath = ({
 }: MDXFileMetaData) =>
   path.join(getHomeDir(), sourceDirectory, `${fileName}.${extension}`)
 
-export const getMDX = <Schema extends ZodTypeAny>({
+export const getMDX = <Schema extends AnyObjectOmittingMDXFrontMatterBase>({
   mdx,
   schema,
 }: WithZodSchema<'mdx', PartialMDXFileMetaData, Schema>):
-  | MDX<z.infer<typeof schema>>
+  | MDX<MergedZodObjectType<typeof schema, typeof MDXFrontMatterBaseSchema>>
   | undefined => {
+  const fullSchema = schema.merge(MDXFrontMatterBaseSchema)
   const fileMetaData = getMDXFileMetaData(mdx)
   if (!fileMetaData) return undefined
 
   const rawFrontMatter = getFrontMatter({ fileMetaData })
-  const validFrontMatter = schema.parse(rawFrontMatter) as z.infer<
-    typeof schema
-  >
+  const validFrontMatter = fullSchema.parse(rawFrontMatter)
   return {
     fileMetaData,
     frontMatter: validFrontMatter,
   }
 }
 
-export const getAllMDX = <Schema extends ZodTypeAny>({
+export const getAllMDX = <Schema extends AnyObjectOmittingMDXFrontMatterBase>({
   mdx: { sourceDirectory },
   schema,
 }: WithZodSchema<'mdx', MDXSourceDirectory, Schema>): MDX<
-  z.infer<typeof schema>
+  MergedZodObjectType<typeof schema, typeof MDXFrontMatterBaseSchema>
 >[] => {
+  const fullSchema = schema.merge(MDXFrontMatterBaseSchema)
   const allFileMetaData = getAllMDXFileMetaData({ sourceDirectory })
   return allFileMetaData.map((fileMetaData) => {
     const rawFrontMatter = getFrontMatter({ fileMetaData })
-    const validFrontMatter = schema.parse(rawFrontMatter) as z.infer<
-      typeof schema
-    >
+    const validFrontMatter = fullSchema.parse(rawFrontMatter)
     return {
       fileMetaData,
       frontMatter: validFrontMatter,

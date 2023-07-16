@@ -1,4 +1,4 @@
-import { z } from 'zod'
+import { z, type ZodObject } from 'zod'
 
 export type MDXFileMetaData = {
   sourceDirectory: string
@@ -21,6 +21,10 @@ export const MDXFrontMatterBaseSchema = z.object({
   updated: z.date(),
 })
 export type MDXFrontMatterBase = z.infer<typeof MDXFrontMatterBaseSchema>
+
+export type AnyObjectOmittingMDXFrontMatterBase = ZodObject<
+  ZodObject<Omit<object, keyof typeof MDXFrontMatterBaseSchema>>['shape']
+>
 
 export type MDX<T extends object> = {
   fileMetaData: MDXFileMetaData

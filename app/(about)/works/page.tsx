@@ -15,7 +15,7 @@ export default async function Page() {
       sourceDirectory: 'md',
       fileName: 'works',
     },
-    schema: z.any(),
+    schema: z.object({}),
   })
   if (!mdx) {
     notFound()
