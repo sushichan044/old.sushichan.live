@@ -1,4 +1,4 @@
-import type { AnyZodObject, z } from 'zod'
+import type { AnyZodObject, z, ZodObject } from 'zod'
 
 export type WithZodSchema<
   K extends string,
