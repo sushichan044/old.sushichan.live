@@ -4,14 +4,17 @@ import path from 'path'
 
 import { getFilePathRecursive, getFileTimestampsSync } from '@/lib/fs'
 import type {
-  AnyObjectOmittingMDXFrontMatterBase,
   MDX,
   MDXFileMetaData,
   MDXSourceDirectory,
   PartialMDXFileMetaData,
 } from '@/lib/mdx'
 import { MDXFrontMatterBaseSchema } from '@/lib/mdx'
-import type { MergedZodObjectInfer, WithZodSchema } from '@/utils/@types/zod'
+import type {
+  AnyZodObjectOmitting,
+  MergedZodObjectInfer,
+  WithZodSchema,
+} from '@/utils/@types/zod'
 
 const getHomeDir = () => process.cwd()
 const getMDXFilePath = ({
@@ -21,7 +24,9 @@ const getMDXFilePath = ({
 }: MDXFileMetaData) =>
   path.join(getHomeDir(), sourceDirectory, `${fileName}.${extension}`)
 
-export const getMDX = <Schema extends AnyObjectOmittingMDXFrontMatterBase>({
+export const getMDX = <
+  Schema extends AnyZodObjectOmitting<typeof MDXFrontMatterBaseSchema>
+>({
   mdx,
   schema,
 }: WithZodSchema<'mdx', PartialMDXFileMetaData, Schema>):
@@ -39,7 +44,9 @@ export const getMDX = <Schema extends AnyObjectOmittingMDXFrontMatterBase>({
   }
 }
 
-export const getAllMDX = <Schema extends AnyObjectOmittingMDXFrontMatterBase>({
+export const getAllMDX = <
+  Schema extends AnyZodObjectOmitting<typeof MDXFrontMatterBaseSchema>
+>({
   mdx: { sourceDirectory },
   schema,
 }: WithZodSchema<'mdx', MDXSourceDirectory, Schema>): MDX<
