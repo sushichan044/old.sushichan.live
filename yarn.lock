@@ -46,7 +46,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.20.7":
+"@babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.20.7, @babel/runtime@npm:^7.21.0":
   version: 7.22.6
   resolution: "@babel/runtime@npm:7.22.6"
   dependencies:
@@ -2790,6 +2790,15 @@ __metadata:
     whatwg-mimetype: "npm:^3.0.0"
     whatwg-url: "npm:^12.0.0"
   checksum: 928d9a21db31d3dcee125d514fddfeb88067c348b1225e9d2c6ca55db16e1cbe49bf58c092cae7163de958f415fd5c612c2aef2eef87896e097656fce205d766
+  languageName: node
+  linkType: hard
+
+"date-fns@npm:^2.30.0":
+  version: 2.30.0
+  resolution: "date-fns@npm:2.30.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.21.0"
+  checksum: e4b521fbf22bc8c3db332bbfb7b094fd3e7627de0259a9d17c7551e2d2702608a7307a449206065916538e384f37b181565447ce2637ae09828427aed9cb5581
   languageName: node
   linkType: hard
 
@@ -9999,6 +10008,7 @@ __metadata:
     budoux: "npm:^0.5.2"
     client-only: "npm:^0.0.1"
     clsx: "npm:^1.2.1"
+    date-fns: "npm:^2.30.0"
     eslint: "npm:8.45.0"
     eslint-config-next: "npm:13.4.10"
     eslint-config-prettier: "npm:^8.8.0"

@@ -7,8 +7,8 @@ import styles from '@/app/blog/components/front-matter.module.scss'
 import Tag from '@/app/blog/components/tag'
 import type { BlogFrontMatter } from '@/app/blog/lib/mdx'
 import WithBudoux from '@/components/common/budoux'
-import { convertDate } from '@/lib/date'
 import type { MDX } from '@/lib/mdx'
+import { getFormattedDate } from '@/utils/date'
 
 const FrontMatterCard = ({
   frontMatter: { title, created, updated, description, thumbnail, tags },
@@ -39,12 +39,12 @@ const FrontMatterCard = ({
         <div className={styles['date-container']}>
           <span className={styles.date}>
             <TbPencil size="1.5em" />
-            <p>{convertDate(created)}</p>
+            <p>{getFormattedDate(created, { format: 'yyyy/MM/dd' })}</p>
           </span>
           {updated && (
             <span className={styles.date}>
               <MdOutlineUpdate size="1.5em" />
-              <p>{convertDate(updated)}</p>
+              <p>{getFormattedDate(updated, { format: 'yyyy/MM/dd' })}</p>
             </span>
           )}
         </div>

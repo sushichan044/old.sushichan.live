@@ -4,8 +4,8 @@ import Link from 'next/link'
 import styles from '@/app/blog/components/post-grid-element.module.scss'
 import type { BlogFrontMatter } from '@/app/blog/lib/mdx'
 import WithBudoux from '@/components/common/budoux'
-import { convertDate } from '@/lib/date'
 import type { MDX } from '@/lib/mdx'
+import { getFormattedDate } from '@/utils/date'
 
 const PostGridElement = ({
   fileMetaData: file,
@@ -25,7 +25,7 @@ const PostGridElement = ({
             />
           )}
         </div>
-        <span>{convertDate(date)}</span>
+        <span>{getFormattedDate(date, { format: 'yyyy/MM/dd' })}</span>
         <span className={styles.title}>
           <WithBudoux>{title}</WithBudoux>
         </span>
