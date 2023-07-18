@@ -1,6 +1,7 @@
 import { z } from 'zod'
 
 import { getAllMDX, getFrontMatterAttribute, getMDX, type MDX } from '@/lib/mdx'
+import { isProduction } from '@/utils/env'
 
 export const blogFrontMatterSchema = z.object({
   title: z.string(),
@@ -20,7 +21,7 @@ type GetAllBlogMDXOptions = {
 
 export const getBlogMDX = (
   fileName: string,
-  { publicOnly = true }: { publicOnly?: boolean } = {}
+  { publicOnly = isProduction }: { publicOnly?: boolean } = {}
 ) => {
   const mdx = getMDX({
     mdx: {
@@ -37,24 +38,23 @@ export const getBlogMDX = (
 export const getAllBlogMDX = ({
   limit,
   offset,
-  publicOnly = true,
+  publicOnly = isProduction,
 }: GetAllBlogMDXOptions = {}) => {
-  let ReturnMDX: MDX<BlogFrontMatter>[] = []
-  const allMDX = getAllMDX({
+  let returnMDX: MDX<BlogFrontMatter>[] = getAllMDX({
     mdx: { sourceDirectory: 'posts' },
     schema: blogFrontMatterSchema,
   })
   if (publicOnly) {
-    ReturnMDX = allMDX.filter((mdx) => mdx.frontMatter.status === 'public')
+    returnMDX = returnMDX.filter((mdx) => mdx.frontMatter.status === 'public')
   }
 
   if (offset) {
-    ReturnMDX = ReturnMDX.slice(offset)
+    returnMDX = returnMDX.slice(offset)
   }
   if (limit) {
-    ReturnMDX = ReturnMDX.slice(0, limit)
+    returnMDX = returnMDX.slice(0, limit)
   }
-  return ReturnMDX
+  return returnMDX
 }
 
 export const getAllBlogTags = (mdx: MDX<BlogFrontMatter>[]) => {
