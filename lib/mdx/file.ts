@@ -2,7 +2,6 @@ import fs from 'fs'
 import matter from 'gray-matter'
 import path from 'path'
 
-import { getFilePathRecursive, getFileTimestampsSync } from '@/lib/fs'
 import type {
   MDX,
   MDXFileMetaData,
@@ -15,6 +14,7 @@ import type {
   MergedZodObjectInfer,
   WithZodSchema,
 } from '@/utils/@types/zod'
+import { getFilePathRecursive, getFileTimestampsSync } from '@/utils/fs'
 
 const getHomeDir = () => process.cwd()
 const getMDXFilePath = ({
