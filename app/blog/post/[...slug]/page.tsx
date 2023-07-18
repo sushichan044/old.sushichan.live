@@ -83,7 +83,7 @@ export default async function Page({ params: { slug } }: PageProps) {
   const content = await compileMDX({
     isRaw: false,
     mdxFile: mdx.fileMetaData,
-    feature: {
+    options: {
       generateToc: true,
     },
   })

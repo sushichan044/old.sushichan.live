@@ -43,7 +43,7 @@ const rehypeDefaultPlugins: PluggableList = [
 
 // compile MDX file to React Component
 export const compileMDX = async ({
-  feature: { generateToc = false } = {},
+  options: { generateToc = false, format = 'mdx' } = {},
   ...params
 }: MDXCompilerOption) => {
   const mdxContent = params.isRaw
@@ -57,6 +57,7 @@ export const compileMDX = async ({
     source: mdxContent,
     options: {
       mdxOptions: {
+        format: format,
         remarkPlugins: remarkDefaultPlugins,
         rehypePlugins: (() => {
           const plugins = [...rehypeDefaultPlugins]

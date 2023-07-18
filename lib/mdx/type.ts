@@ -27,8 +27,9 @@ export type MDX<T extends object> = {
   frontMatter: T & MDXFrontMatterBase
 }
 
-type MDXCompilerFeature = {
+type MDXCompilerOptions = {
   generateToc?: boolean
+  format?: 'mdx' | 'md' | undefined
 }
 
 export type MDXCompilerOption =
@@ -42,5 +43,5 @@ export type MDXCompilerOption =
           rawContent: string
         }
     ) & {
-      feature?: MDXCompilerFeature
+      options?: MDXCompilerOptions
     }

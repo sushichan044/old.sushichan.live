@@ -23,7 +23,7 @@ export default async function Page() {
   const content = await compileMDX({
     isRaw: false,
     mdxFile: mdx.fileMetaData,
-    feature: {
+    options: {
       generateToc: false,
     },
   })
