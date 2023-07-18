@@ -1,5 +1,4 @@
-import Link from 'next/link'
-
+import Link from '@/components/common/link'
 import NextImage from '@/components/image/nextImage'
 import styles from '@/components/mdx/image.module.scss'
 import getImageId from '@/lib/getImageId'

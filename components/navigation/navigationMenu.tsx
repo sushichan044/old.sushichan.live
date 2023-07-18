@@ -1,9 +1,9 @@
 'use client'
 import * as NavMenu from '@radix-ui/react-navigation-menu'
-import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ComponentProps } from 'react'
 
+import Link from '@/components/common/link'
 import styles from '@/components/navigation/styles.module.scss'
 
 type NavLinkProps = Omit<ComponentProps<typeof NavMenu.Link>, 'href'> & {
@@ -15,7 +15,7 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children, ...props }) => {
   const isActive = topPath === href
 
   return (
-    <Link href={href} passHref>
+    <Link href={href} options={{ textDecoration: 'none' }} passHref>
       <NavMenu.Link
         active={isActive}
         asChild

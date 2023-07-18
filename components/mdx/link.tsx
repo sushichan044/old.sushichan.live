@@ -1,8 +1,6 @@
-import Link from 'next/link'
-
 import WithBudoux from '@/components/common/budoux'
+import Link from '@/components/common/link'
 // import { TbArrowUpRight } from 'react-icons/tb'
-import styles from '@/components/mdx/link.module.scss'
 type Props = React.ComponentProps<'a'> & {
   children: React.ReactNode
 }
@@ -18,9 +16,9 @@ const MDXLink = ({ children, href, ...rest }: Props) => {
         /* FIXME */
         /* @ts-expect-error 型パズルに敗北...*/
         href={href}
-        {...rest}
-        className={styles.link}
+        options={{ color: 'blue' }}
         target={isExternal ? '_blank' : '_self'}
+        {...rest}
       >
         {typeof children !== 'string' ? (
           children

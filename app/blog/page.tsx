@@ -1,13 +1,12 @@
-import Link from 'next/link'
-
 import RecentPosts from '@/app/blog/components/recentPosts'
 import Tag from '@/app/blog/components/tag'
 import { getAllBlogMDX, getAllBlogTags } from '@/app/blog/lib/mdx'
 import styles from '@/app/blog/page.module.scss'
+import Link from '@/components/common/link'
 import Section from '@/components/section'
 
 export default async function Page() {
-  const allMDX = getAllBlogMDX()
+  const allMDX = getAllBlogMDX({ publicOnly: false })
   const tags = getAllBlogTags(allMDX)
 
   return (
@@ -17,7 +16,11 @@ export default async function Page() {
         <p>文字を書きます。内容はいろいろ</p>
         <div className={styles.tags}>
           {tags?.map((tag) => (
-            <Link href={`/blog/tag/${tag}`} key={tag}>
+            <Link
+              href={`/blog/tag/${tag}`}
+              key={tag}
+              options={{ textDecoration: 'none' }}
+            >
               <Tag key={tag} tag={tag} />
             </Link>
           ))}

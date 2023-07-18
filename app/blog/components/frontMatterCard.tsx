@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { MdOutlineUpdate } from 'react-icons/md'
 import { TbPencil } from 'react-icons/tb'
 
@@ -7,6 +6,7 @@ import styles from '@/app/blog/components/front-matter.module.scss'
 import Tag from '@/app/blog/components/tag'
 import type { BlogFrontMatter } from '@/app/blog/lib/mdx'
 import WithBudoux from '@/components/common/budoux'
+import Link from '@/components/common/link'
 import type { MDX } from '@/lib/mdx'
 import { getFormattedDate } from '@/utils/date'
 
@@ -51,7 +51,11 @@ const FrontMatterCard = ({
         {tags && (
           <div className={styles.tags}>
             {tags.map((tag) => (
-              <Link href={`/blog/tag/${tag}`} key={tag}>
+              <Link
+                href={`/blog/tag/${tag}`}
+                key={tag}
+                options={{ textDecoration: 'none' }}
+              >
                 <Tag key={tag} tag={tag} />
               </Link>
             ))}

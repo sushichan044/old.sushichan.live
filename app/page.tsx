@@ -1,6 +1,5 @@
-import Link from 'next/link'
-
 import styles from '@/app/home.module.scss'
+import Link from '@/components/common/link'
 import MainContainer from '@/components/common/mainContainer'
 import Section from '@/components/section'
 
@@ -12,7 +11,11 @@ export default async function Home() {
           このサイトはβ版です。
           <br />
           現在
-          <Link className={styles.link} href="/blog">
+          <Link
+            className={styles.link}
+            href="/blog"
+            options={{ textDecoration: 'underline' }}
+          >
             ブログ
           </Link>
           のみ実装されています。

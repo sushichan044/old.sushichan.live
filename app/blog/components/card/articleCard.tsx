@@ -1,10 +1,10 @@
 import Image from 'next/image'
-import Link from 'next/link'
 
 import styles from '@/app/blog/components/card/article-card.module.scss'
 import { blogFrontMatterSchema } from '@/app/blog/lib/mdx'
 import WithBudoux from '@/components/common/budoux'
 import Card from '@/components/common/card'
+import Link from '@/components/common/link'
 import { getMDX, type PartialMDXFileMetaData } from '@/lib/mdx'
 
 type ArticleCardProps = {
@@ -34,7 +34,7 @@ const ArticleCard = ({
   return (
     <Card className={styles.root}>
       {/* @ts-expect-error validate href is not able */}
-      <Link href={href}>
+      <Link href={href} options={{ textDecoration: 'none' }}>
         <div className={styles.container}>
           <div className={styles.detail}>
             <p className={styles.title}>
