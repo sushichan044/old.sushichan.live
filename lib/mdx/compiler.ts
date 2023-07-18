@@ -14,7 +14,7 @@ import { type PluggableList } from 'unified'
 
 import { MDXComponents } from '@/components/mdx'
 import { type MDXCompilerOption, readMDXFile } from '@/lib/mdx'
-import rehypeImageOpt from '@/lib/rehype-image'
+import rehypeImageOpt from '@/lib/mdx/rehype-image'
 
 const remarkDefaultPlugins: PluggableList = [
   [
