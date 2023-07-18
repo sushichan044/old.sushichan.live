@@ -1,7 +1,5 @@
 {
-  "extends": [
-    "markuplint:recommended-react"
-  ],
+  "extends": ["markuplint:recommended-react"],
   "specs": {
     "\\.[jt]sx?$": "@markuplint/react-spec"
   },

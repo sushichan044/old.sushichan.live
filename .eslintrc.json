@@ -1,7 +1,5 @@
 {
-  "plugins": [
-    "simple-import-sort"
-  ],
+  "plugins": ["simple-import-sort"],
   "parserOptions": {
     "project": "./tsconfig.json"
   },
@@ -24,11 +22,7 @@
     "no-restricted-imports": [
       "error",
       {
-        "patterns": [
-          "./",
-          "../",
-          "~/"
-        ]
+        "patterns": ["./", "../", "~/"]
       }
     ],
     "react/self-closing-comp": [
