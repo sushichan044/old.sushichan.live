@@ -6,7 +6,7 @@ import Link from '@/components/common/link'
 import Section from '@/components/section'
 
 export default async function Page() {
-  const allMDX = getAllBlogMDX({ publicOnly: false })
+  const allMDX = getAllBlogMDX()
   const tags = getAllBlogTags(allMDX)
 
   return (
