@@ -1,28 +1,39 @@
 import ArticleCard from "@/app/blog/components/card/articleCard"
-import WithBudoux from '@/components/common/budoux'
 
 # About me
 
 <div className="grid grid-cols-4">
-<span className="text-2xl col-span-3">
-すし
-</span>
+<div className="col-span-4 md:col-span-3 md:px-4">
+{/* <span className="text-xl">
+すし / sushi-chan
+</span> */}
+```bash
+$ whoami
+> sushi-chan
+$ where sushi-chan
+> Tokyo, Japan
+$ uptime
+> 19 years
+```
+</div>
 
+<div className="hidden md:block">
 ![mdx-config-no-link](https://imagedelivery.net/i4QA6VLSP0gXyj6-3zNFXg/4e7065f8-72a0-434b-c7bb-14fbd59d5200/public)
 </div>
-
-<div className="w-full flex flex-row flex-nowrap gap-8 items-center justify-center">
-<a href="https://github.com/sushi-chaaaan" target="_blank"><FaGithub size="2rem" /></a>
-<a href="https://twitter.com/sushi_chan_sub" target="_blank"><FaTwitter size="2rem" /></a>
-<a href="https://misskey.io/@sushi_chan" target="_blank"><SiMisskey size="2rem" /></a>
 </div>
 
-
+<div className="flex flex-wrap flex-row gap-x-8 gap-y-4 justify-center">
+<a href="https://github.com/sushi-chaaaan" target="_blank"><FaGithub title="Link to my GitHub" role="img" size="2rem" /></a>
+<a href="https://twitter.com/sushi_chan_sub" target="_blank"><FaTwitter title="Link to my Twitter" role="img" size="2rem" /></a>
+<a href="https://lit.link/sushichaaaan" target="_blank"><FaLink size="2rem" title="Link to my lit.link" role="img" /></a>
+<a href="https://misskey.io/@sushi_chan" target="_blank"><SiMisskey size="2rem" title="Link to my misskey.io account" role="img" /></a>
+<a href="mailto:mail@sushichan.live" target="_blank"><FiMail size="2rem" title="Mail to me" role="img" /></a>
+</div>
 ----
 ## Profile
 
-岡山県出身の2004年生まれ・19歳。現在は東京在住で、電気通信大学Ⅰ類に在学。
-高校3年時に受験勉強から逃げ出すようにプログラミングを始め、それ以降興味の赴くままに色々触っている。
+岡山県出身の2004年生まれ・19歳。電気通信大学Ⅰ類に在学。
+高校3年時にプログラミングに興味を持ち、大学1年の秋から独学を始める。
 最近はKubernetesとWebフロントエンドに興味がある。[^1]
 
 [^1]: WebAssemblyも気になっているが、まだ簡単に触れる段階でもないのでなんとも...
@@ -44,7 +55,7 @@ import WithBudoux from '@/components/common/budoux'
 - JavaScript(TypeScript)
   - React
   - Next.js
-  - tRPC(勉強中)
+  - NestJS
   - Cloudflare Workers / Hono
 
 - Go
@@ -52,5 +63,5 @@ import WithBudoux from '@/components/common/budoux'
 
 - Other
   - Docker
-  - k8s(勉強中)
+  - Kubernetes(learning)
   - Cloudflare Zero Trust

@@ -1,5 +1,6 @@
 import React from 'react'
-import { FaGithub, FaTwitter } from 'react-icons/fa'
+import { FaGithub, FaLink, FaTwitter } from 'react-icons/fa'
+import { FiMail } from 'react-icons/fi'
 import { SiMisskey } from 'react-icons/si'
 
 import ArticleCard from '@/app/blog/components/card/articleCard'
@@ -55,8 +56,10 @@ const customComponents = {
 }
 
 const iconComponents = {
+  FaLink,
   FaGithub,
   FaTwitter,
+  FiMail,
   SiMisskey,
 }
 // list of Custom Components used in mdx
