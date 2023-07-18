@@ -26,8 +26,14 @@ const cloudinaryLoaderBase = ({
 }) => {
   // src = https://res.cloudinary.com/sushi-chan/image/upload/v1689696723/blog/my-first-walk/b1iajynl60c0uvmdapfi.jpg
   const imageIdentifier = getCloudinaryIdentifier(src)
-  const params = ['f_auto', 'c_limit', `w_${width}`, `q_${quality || 'auto'}`]
-  if (blur) params.push('e=blur:800')
+  const params = [
+    'f_auto',
+    'c_limit',
+    `w_${width}`,
+    `q_${quality || 'auto'}`,
+    'f_webp',
+  ]
+  if (blur) params.push('e_blur:1600')
   return `https://res.cloudinary.com/sushi-chan/image/upload/${params.join(
     ','
   )}/${imageIdentifier}`

@@ -17,20 +17,21 @@ const CloudinaryImage = ({
   height: number
   quality?: number
 }) => {
-  const maxHeight = 800
-  if (height > maxHeight) {
-    width = (width / height) * maxHeight
-    height = maxHeight
+  const maxWidth = 960
+  if (width > maxWidth) {
+    width = maxWidth
+    height *= maxWidth / width
   }
+  const blurDataURL = cloudinaryLoaderBlur({
+    src,
+    width,
+    quality,
+  })
 
   return (
     <Image
       alt={alt}
-      blurDataURL={cloudinaryLoaderBlur({
-        src,
-        width,
-        quality,
-      })}
+      blurDataURL={blurDataURL}
       height={height}
       loader={cloudinaryLoader}
       placeholder="blur"
