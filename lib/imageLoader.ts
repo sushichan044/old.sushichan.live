@@ -12,9 +12,11 @@ export function cloudflareLoader({ src, width, quality }: ImageLoaderProps) {
   return `${optimizedSrc}/${params.join(',')}`
 }
 
-const normalizeSrc = (src: string) => (src[0] === '/' ? src.slice(1) : src)
+export const getCloudinaryIdentifier = (src: string) => {
+  return src.replace('https://res.cloudinary.com/sushi-chan/image/upload/', '')
+}
 
-const loader = ({
+const cloudinaryLoaderBase = ({
   src,
   width,
   quality,
@@ -22,15 +24,17 @@ const loader = ({
 }: ImageLoaderProps & {
   blur?: boolean
 }) => {
-  const params = ['f_auto', 'c_limit', `w=${width}`, `q=${quality || 'auto'}`]
+  // src = https://res.cloudinary.com/sushi-chan/image/upload/v1689696723/blog/my-first-walk/b1iajynl60c0uvmdapfi.jpg
+  const imageIdentifier = getCloudinaryIdentifier(src)
+  const params = ['f_auto', 'c_limit', `w_${width}`, `q_${quality || 'auto'}`]
   if (blur) params.push('e=blur:800')
   return `https://res.cloudinary.com/sushi-chan/image/upload/${params.join(
     ','
-  )}/${normalizeSrc(src)}`
+  )}/${imageIdentifier}`
 }
 
 export function cloudinaryLoader({ src, width, quality }: ImageLoaderProps) {
-  return loader({ src, width, quality })
+  return cloudinaryLoaderBase({ src, width, quality })
 }
 
 export function cloudinaryLoaderBlur({
@@ -38,5 +42,5 @@ export function cloudinaryLoaderBlur({
   width,
   quality,
 }: ImageLoaderProps) {
-  return loader({ src, width, quality, blur: true })
+  return cloudinaryLoaderBase({ src, width, quality, blur: true })
 }

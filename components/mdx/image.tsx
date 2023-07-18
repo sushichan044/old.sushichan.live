@@ -1,7 +1,7 @@
 import Link from '@/components/common/link'
-import NextImage from '@/components/image/nextImage'
+import CloudinaryImage from '@/components/image/cloudinary'
 import styles from '@/components/mdx/image.module.scss'
-import getImageId from '@/lib/getImageId'
+import { getCloudinaryIdentifier } from '@/lib/imageLoader'
 
 export type MDXImageProps = {
   src: string
@@ -12,7 +12,7 @@ export type MDXImageProps = {
 }
 
 const MDXImage = ({ src, alt = '', width, height }: MDXImageProps) => {
-  const imageId = getImageId(src)
+  const imageId = getCloudinaryIdentifier(src)
   const altIsEmpty = alt === '' || alt === undefined
 
   // TODO: mdxを使う部分をすべて(mdx)に集約して@modalの制約をなくす
@@ -20,8 +20,8 @@ const MDXImage = ({ src, alt = '', width, height }: MDXImageProps) => {
     <div className={styles.container}>
       {alt === 'mdx-config-no-link' ? (
         <figure className={styles.figure}>
-          <NextImage
-            alt={altIsEmpty ? 'image' : alt}
+          <CloudinaryImage
+            alt={altIsEmpty ? '' : alt}
             className={styles.image}
             height={height}
             src={src}
@@ -31,8 +31,8 @@ const MDXImage = ({ src, alt = '', width, height }: MDXImageProps) => {
       ) : (
         <Link href={`/blog/image/${imageId}`}>
           <figure className={styles.figure}>
-            <NextImage
-              alt={altIsEmpty ? 'image' : alt}
+            <CloudinaryImage
+              alt={altIsEmpty ? '' : alt}
               className={styles.image}
               height={height}
               src={src}
