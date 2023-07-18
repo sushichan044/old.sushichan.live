@@ -15,6 +15,11 @@ const nextConfig = {
         hostname: 'imagedelivery.net',
         pathname: '/i4QA6VLSP0gXyj6-3zNFXg/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        pathname: '/sushi-chan/**',
+      },
     ],
   },
   sassOptions: {

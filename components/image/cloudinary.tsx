@@ -2,21 +2,21 @@
 
 import Image, { type ImageProps } from 'next/image'
 
-import { cloudflareLoader } from '@/lib/imageLoader'
+import { cloudinaryLoader, cloudinaryLoaderBlur } from '@/lib/imageLoader'
 
-const NextImage = ({
-  alt,
+const CloudinaryImage = ({
+  src,
+  alt = '',
   width,
   height,
-  src,
+  quality,
   ...props
-}: Omit<ImageProps, 'src' | 'width' | 'height' | 'fill'> & {
+}: Omit<ImageProps, 'src' | 'width' | 'height' | 'fill' | 'quality'> & {
   src: string
   width: number
   height: number
+  quality?: number
 }) => {
-  const optimizedSrc = src.substring(0, src.lastIndexOf('/'))
-
   const maxHeight = 800
   if (height > maxHeight) {
     width = (width / height) * maxHeight
@@ -26,9 +26,13 @@ const NextImage = ({
   return (
     <Image
       alt={alt}
-      blurDataURL={`${optimizedSrc}/width=${width},blur=125,fit=scale-down,metadata=none,quality=20`}
+      blurDataURL={cloudinaryLoaderBlur({
+        src,
+        width,
+        quality,
+      })}
       height={height}
-      loader={cloudflareLoader}
+      loader={cloudinaryLoader}
       placeholder="blur"
       src={src}
       width={width}
@@ -37,4 +41,4 @@ const NextImage = ({
   )
 }
 
-export default NextImage
+export default CloudinaryImage
