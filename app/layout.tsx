@@ -18,8 +18,8 @@ import { fontVariables } from '@/lib/font'
 export const metadata: Metadata = {
   metadataBase: new URL('https://sushichan.live'),
   title: {
-    default: 'すし.らいぶ',
-    template: '%s - すし.らいぶ',
+    default: 'sushichan.live',
+    template: '%s - sushichan.live',
   },
   description: 'インターネット寿司屋',
   openGraph: {

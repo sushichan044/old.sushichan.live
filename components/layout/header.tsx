@@ -11,9 +11,8 @@ const Header = () => {
       <div className={styles['header-inside']}>
         <Link className={styles.hero} href="/">
           {/* <Image alt="site logo" height={50} src={LogoSvg} width={50} /> */}
-          <p className={styles.title}>お寿司だいすきチャンネル</p>
+          <p className={styles.title}>sushi-chan.live</p>
         </Link>
-
         <NavigationMenu />
       </div>
     </header>
