@@ -7,10 +7,12 @@ import { glob } from 'glob'
  * * list of expected extensions. e.g. `['.mdx', '.md']`.
  * * If the extension do not started with `'.'`, it will be automatically added.
  * * e.g. `['mdx', 'md']` will be converted to `['.mdx', '.md']`.
- * @returns {string | null} file name with extension or null if not found.
+ * @returns {boolean} returns `true` if file has one of the expected extensions.
  * @example
- * fileHasExtension('index.mdx', ['.mdx', '.md']) // returns 'index.mdx'
- * fileHasExtension('index.zip', ['.mdx', '.md']) // returns null
+ * const resMdx = fileHasExtension('index.mdx', ['.mdx', '.md'])
+ * console.log(resMdx) // returns true
+ * const resZip = fileHasExtension('index.zip', ['.mdx', '.md'])
+ * console.log(resZip) // returns false
  */
 export const hasExtension = (
   file: string,
