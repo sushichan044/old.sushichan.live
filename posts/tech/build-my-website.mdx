@@ -8,40 +8,23 @@ tags:
   - Next.js
 ---
 
-こんにちは、すしです。紆余曲折あってWebフロントエンドを学習しないといけなくなってしまい、
-学習の一環でこのサイトを作ったりしたので構成とかその他色々書き留めます。
+こんにちは、すしです。紆余曲折あって最近はWebフロントエンドを学習しているおり、その
+一環としてこのサイトを作ったりしたので構成とかその他色々書き留めます。
 
 ## 構成
 
-1. コア部分
-- React(Next.js)
+- React(Next.js) with TypeScript
   - v13.4からstableになった App Routerを採用しました
 - TypeScript
-- SASS(SCSS)
-- TypeScript
-
-いわゆるフルスタックフレームワークを使った一般的(?)な構成ですね
-
-2. ブログ部分
+- SCSS
+- TailwindCSS(Markdownのみに適用)
 - next-mdx-remote
-- markuplint
-- plaiceholder
-- gray-matter
-- remayk・rehypeのプラグイン(量が多いので割愛)
-
-
 
 ## App Routerの採用
-Next.jsのApp Routerは、v13.4からstableになったんですがこれがなかなか面白い。
-フォルダ名に()をつけると、URLに影響しないままレイアウトを統合できたりするので、
-`pages`ではできなかった機能ベースでのコード管理が楽でめちゃくちゃいいと思います。
-
-あとReact Server Componentが素晴らしい。
-最近だとAstroとかがクライアントにできる限りJSを送信しない設計思想で作られてたりしますが、
-これもそれに似た？ものを感じますね。(強い言葉で書くと強い人に刺されそう)
-Server Component内ではasyncやawaitが直接叩けるので、
-
-このあと書くブログまわりでも、記事データのコンパイルとかはゴリゴリに非同期で書けてます。素晴らしい。
+Next.jsのApp Routerは、v13.4からstableになったんですが、
+`pages`では難しかった機能ベースでのコード管理が楽でいいと思います。
+ClientとServerどちらで処理されるのかを明確にして考えながら書けるので、
+無理のある実装も自然に減るように感じています。
 
 ## ブログをmdxで構築した
 ブログ部分にはmdxを採用しました。mdxは、Markdownの中にjsxやReact Componentが書けるもので、
@@ -49,12 +32,8 @@ Server Component内ではasyncやawaitが直接叩けるので、
 加えて`next-mdx-remote`というライブラリが既にReact Server Componentに対応しているので、
 導入も極めて楽です。
 
-公式のnext/mdxでも良かったんですが、
-front-matterの解析その他の部分で面倒事が発生したので今回は使っていません。
-
-あと、個人的に好きなポイントとしてはmdx内のみでTailwindCSSが使えるようにしたところです。
-Tailwindは賛否両論あって日々Twitter上で論争を生んでいますが、
-少なくともマークアップに使う分にはここまで楽なものはないと思います。
+個人的なお気に入りポイントとしてはmdx内のみでTailwindCSSが使えるようにしたところです。
+mdx内のjsxにも簡単にスタイルを当てられるので、すべてをmdx内で完結させることができます。
 
 ```mdx
 {
@@ -78,9 +57,5 @@ Tailwindは賛否両論あって日々Twitter上で論争を生んでいます�
 </div>}
 
 こんな感じ、すごく楽でいいですね。
-
-あまりにも楽なので、後日mdxを扱う部分をすべて書き直して、
-サイト内どこでも使えるように拡張するくらいには便利です。ホントに。
-
 
 ## WIP
