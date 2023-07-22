@@ -84,7 +84,18 @@ export default async function Page({ params: { slug } }: PageProps) {
     isRaw: false,
     mdxFile: mdx.fileMetaData,
     options: {
-      generateToc: true,
+      pluginOptions: {
+        remark: {
+          remarkToc: {
+            use: true,
+            options: {
+              heading: '目次',
+              maxDepth: 2,
+            },
+          },
+        },
+        rehype: {},
+      },
     },
   })
 

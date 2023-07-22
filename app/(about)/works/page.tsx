@@ -20,12 +20,6 @@ export default async function Page() {
   if (!mdx) {
     notFound()
   }
-  const content = await compileMDX({
-    isRaw: false,
-    mdxFile: mdx.fileMetaData,
-    options: {
-      generateToc: false,
-    },
-  })
+  const content = await compileMDX({ isRaw: false, mdxFile: mdx.fileMetaData })
   return <Section>{content}</Section>
 }
