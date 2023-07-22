@@ -253,13 +253,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jsdevtools/rehype-toc@npm:3.0.2":
-  version: 3.0.2
-  resolution: "@jsdevtools/rehype-toc@npm:3.0.2"
-  checksum: 3c2ae6a20b101ef2df981142693c00e3f54e45bdd91e504b0faadb9925733b5a9ed2a41cfbd5c8e7ea21e63b4f09827d8e8ddd21b87e02357e990d7a03becef2
-  languageName: node
-  linkType: hard
-
 "@markuplint/config-presets@npm:3.8.0":
   version: 3.8.0
   resolution: "@markuplint/config-presets@npm:3.8.0"
@@ -1233,6 +1226,13 @@ __metadata:
   version: 1.0.1
   resolution: "@types/estree@npm:1.0.1"
   checksum: b4022067f834d86766f23074a1a7ac6c460e823b00cd8fe94c997bc491e7794615facd3e1520a934c42bd8c0689dbff81e5c643b01f1dee143fc758cac19669e
+  languageName: node
+  linkType: hard
+
+"@types/extend@npm:^3.0.0":
+  version: 3.0.1
+  resolution: "@types/extend@npm:3.0.1"
+  checksum: 7e1640b484c39f4fd10d9506830b694b5dffded36d846b6caf464d37bef16b1a0af8bd464f6be3623792640e13aa0f239e4d7ad03fb00d7d61db4919a033e144
   languageName: node
   linkType: hard
 
@@ -6302,6 +6302,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mdast-util-toc@npm:^6.0.0":
+  version: 6.1.1
+  resolution: "mdast-util-toc@npm:6.1.1"
+  dependencies:
+    "@types/extend": "npm:^3.0.0"
+    "@types/mdast": "npm:^3.0.0"
+    extend: "npm:^3.0.0"
+    github-slugger: "npm:^2.0.0"
+    mdast-util-to-string: "npm:^3.1.0"
+    unist-util-is: "npm:^5.0.0"
+    unist-util-visit: "npm:^4.0.0"
+  checksum: cb2855e2887625e0a4da11ba71fc9f80560498c4f073ec5edc16123766a7c418a42d913a64e8b7588b1b3833fa93ea5c8e2f78d24f2fd1df8fe57d1ae3b00b18
+  languageName: node
+  linkType: hard
+
 "mdn-data@npm:2.0.30":
   version: 2.0.30
   resolution: "mdn-data@npm:2.0.30"
@@ -8721,15 +8736,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rehype-toc@npm:^3.0.2":
-  version: 3.0.2
-  resolution: "rehype-toc@npm:3.0.2"
-  dependencies:
-    "@jsdevtools/rehype-toc": "npm:3.0.2"
-  checksum: 4da048aacc767a4570bdc2402862a7e3301a816d823eabd65ff03da9ee69db411eda95c66a8f89efdd2aed419f285ef9c9136844c41d894dc945adb16a623fad
-  languageName: node
-  linkType: hard
-
 "remark-emoji@npm:^3.1.2":
   version: 3.1.2
   resolution: "remark-emoji@npm:3.1.2"
@@ -8795,6 +8801,17 @@ __metadata:
     mdast-util-to-hast: "npm:^12.1.0"
     unified: "npm:^10.0.0"
   checksum: 803e658c9b51a9b53ee2ada42ff82e8e570444bb97c873e0d602c2d8dcb69a774fd22bd6f26643dfd5ab4c181059ea6c9fb9a99a2d7f9665f3f11bef1a1489bd
+  languageName: node
+  linkType: hard
+
+"remark-toc@npm:^8.0.1":
+  version: 8.0.1
+  resolution: "remark-toc@npm:8.0.1"
+  dependencies:
+    "@types/mdast": "npm:^3.0.0"
+    mdast-util-toc: "npm:^6.0.0"
+    unified: "npm:^10.0.0"
+  checksum: 39159150c6fe5b63163dad7482f7626f7ac7d2cf17247c02e7be840ea4b7b95a958708a75a4f64e3e17cb80dbcc4b947219100f3321e3b80d249a6ec272e3b51
   languageName: node
   linkType: hard
 
@@ -10035,10 +10052,10 @@ __metadata:
     rehype-katex: "npm:^6.0.3"
     rehype-pretty-code: "npm:^0.10.0"
     rehype-slug: "npm:^5.1.0"
-    rehype-toc: "npm:^3.0.2"
     remark-emoji: "npm:^3.1.2"
     remark-gfm: "npm:^3.0.1"
     remark-math: "npm:^5.1.1"
+    remark-toc: "npm:^8.0.1"
     remark-unwrap-images: "npm:^3.0.1"
     ress: "npm:^5.0.2"
     sass: "npm:^1.63.6"
