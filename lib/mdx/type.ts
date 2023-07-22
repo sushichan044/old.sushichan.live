@@ -27,21 +27,38 @@ export type MDX<T extends object> = {
   frontMatter: T & MDXFrontMatterBase
 }
 
-type MDXCompilerOptions = {
-  generateToc?: boolean
-  format?: 'mdx' | 'md' | undefined
+type PluginOption<T> = {
+  use?: boolean
+  options?: T
 }
 
-export type MDXCompilerOption =
-  | (
-      | {
-          isRaw: false
-          mdxFile: MDXFileMetaData
-        }
-      | {
-          isRaw: true
-          rawContent: string
-        }
-    ) & {
-      options?: MDXCompilerOptions
+export type RemarkOptions = {
+  remarkToc?: PluginOption<import('mdast-util-toc/lib').Options>
+}
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type RehypeOptions = {}
+
+type MDXSourceOption =
+  | {
+      isRaw: false
+      mdxFile: MDXFileMetaData
     }
+  | {
+      isRaw: true
+      rawContent: string
+    }
+
+type MDXPluginOptions = {
+  remark?: RemarkOptions
+  rehype?: RehypeOptions
+}
+
+type MDXCompilerOption = {
+  options?: {
+    pluginOptions?: MDXPluginOptions
+    format?: 'mdx' | 'md' | undefined
+  }
+}
+
+export type MDXOption = MDXSourceOption & MDXCompilerOption
