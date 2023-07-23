@@ -85,16 +85,15 @@ export default async function Page({ params: { slug } }: PageProps) {
     mdxFile: mdx.fileMetaData,
     options: {
       pluginOptions: {
-        remark: {
-          remarkToc: {
+        remark: {},
+        rehype: {
+          rehypeToc: {
             use: true,
             options: {
-              heading: '目次',
-              maxDepth: 2,
+              headings: ['h2'],
             },
           },
         },
-        rehype: {},
       },
     },
   })

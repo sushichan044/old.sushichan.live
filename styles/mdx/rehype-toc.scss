@@ -11,7 +11,7 @@
 // }
 
 // 目次が存在しない場合は要素そのものを非表示にする
-.toc :first-child:not(:has(:first-child)) {
+.toc:not(:has(li)) {
   display: none;
 }
 

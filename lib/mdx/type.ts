@@ -32,12 +32,12 @@ type PluginOption<T> = {
   options?: T
 }
 
-export type RemarkOptions = {
-  remarkToc?: PluginOption<import('mdast-util-toc/lib').Options>
-}
-
 // eslint-disable-next-line @typescript-eslint/ban-types
-export type RehypeOptions = {}
+export type RemarkOptions = {}
+
+export type RehypeOptions = {
+  rehypeToc?: PluginOption<import('rehype-toc').Options>
+}
 
 type MDXSourceOption =
   | {
