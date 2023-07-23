@@ -35,7 +35,7 @@
       "---",
       "title: ${1:title}",
       "description: ${2:description}",
-      "date: ${3:date}",
+      "created: ${3:created}",
       "thumbnail: ${4:thumbnail}",
       "tags: ",
       "  - ${5:tag}",
@@ -64,12 +64,5 @@
       ""
     ],
     "description": "layout"
-  },
-  "image": {
-    "prefix": "image",
-    "scope": "markdown,mdx",
-    "body": [
-      "![$1](https://imagedelivery.net/i4QA6VLSP0gXyj6-3zNFXg/$2/public)"
-    ]
   }
 }
