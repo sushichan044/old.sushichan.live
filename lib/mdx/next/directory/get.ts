@@ -4,7 +4,7 @@ import path from 'path'
 import type { MDXRoute } from '../../types/mdx'
 import { getCwd } from '../../utils/fs'
 import { globDirectories, globFilePathByExtensions } from '../../utils/glob'
-import { normalizeRoute } from '../../utils/normalize'
+import { normalizePathForGlob, normalizeRoute } from '../../utils/normalize'
 import { getExtensionsRegex } from '../../utils/regex'
 import { isMDXFile } from '../../utils/type'
 import { normalizeRouteFragments } from '../route/normalize'
@@ -18,6 +18,7 @@ const getMDXDirectory = async (
   const extRegexp = getExtensionsRegex(['.mdx', '.md'])
   const cwd = getCwd()
 
+  // define paths
   const targetAbsDir = path.join(cwd, directory)
   const rootAbsDir = path.join(cwd, rootDirectory)
   const relativePathFromCwd = path.relative(cwd, directory)
@@ -26,16 +27,19 @@ const getMDXDirectory = async (
     relativePathFromRoot.split(path.sep)
   )
 
+  // glob matters
+  const mdxPaths = globFilePathByExtensions(normalizePathForGlob(directory), {
+    extensions: ['.mdx', '.md'],
+    absolute: true,
+  })
+  const childrenDirectories = globDirectories(normalizePathForGlob(directory))
+
   const directoryMetaData = {
     absolutePath: targetAbsDir,
     relativePathFromCwd: relativePathFromCwd,
     baseRoutes,
   }
   const config = await getMDXConfig(directory)
-  const mdxPaths = globFilePathByExtensions(directory, {
-    extensions: ['.mdx', '.md'],
-    absolute: true,
-  })
 
   const routes: MDXRoute[] = mdxPaths.flatMap((absPath) => {
     const relPathFromCwd = path.relative(cwd, absPath)
@@ -60,7 +64,6 @@ const getMDXDirectory = async (
     ]
   })
 
-  const childrenDirectories = globDirectories(directory)
   const children: MDXDirectory[] = await Promise.all(
     childrenDirectories.map(async (directory) => {
       const child = await getMDXDirectory(directory, rootDirectory)
