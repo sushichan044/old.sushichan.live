@@ -88,7 +88,7 @@ export type MDXDirectoryType = {
 
   config: MDXConfig | undefined
   routes: MDXRoute[]
-  children: MDXDirectory[]
+  children: MDXDirectoryType[]
 }
 
 export interface MDXDirectoryInterface extends MDXDirectoryType {
