@@ -62,13 +62,13 @@ type MDXCompilerOption = {
 export type MDXOption = MDXSourceOption & MDXCompilerOption
 
 export type MDXRoute = {
-  rootDirectory: string
+  absolutePath: string
+  relativePathFromCwd: string
+
+  directory: string
   fileName: string
   extension: '.mdx' | '.md'
-  absolutePath: string
-  relativePath: string
-  dirname: string
-  baseRoute: string
+
   normalizedRoute: string
 }
 
@@ -77,15 +77,20 @@ export type MDXConfig = {
   tags?: string[]
 }
 
-export interface MDXDirectoryInterface {
-  directoryMetaData: {
-    absolutePath: string
-    relativePath: string
-  }
+type MDXDirectoryMetaData = {
+  absolutePath: string
+  relativePathFromCwd: string
+  baseRoutes: string[]
+}
+
+export type MDXDirectoryType = {
+  directoryMetaData: MDXDirectoryMetaData
 
   config: MDXConfig | undefined
   routes: MDXRoute[]
   children: MDXDirectory[]
+}
 
+export interface MDXDirectoryInterface extends MDXDirectoryType {
   public getAllMDXRoutes(): MDXRoute[]
 }

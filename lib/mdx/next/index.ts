@@ -1,2 +1,2 @@
 /* eslint-disable no-restricted-imports */
-export * from './directory'
+export { MDXDirectory, getMDXDirectory } from './directory'

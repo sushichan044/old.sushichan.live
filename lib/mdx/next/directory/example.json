@@ -1,56 +1,50 @@
 {
   "directoryMetaData": {
     "absolutePath": "/home/sushi/code/sushichan.live/posts",
-    "relativePath": "posts"
+    "relativePathFromCwd": "posts",
+    "baseRoutes": [""]
   },
   "routes": [
     {
-      "rootDirectory": "posts",
+      "absolutePath": "/home/sushi/code/sushichan.live/posts/seek-for-myself.mdx",
+      "relativePathFromCwd": "posts/seek-for-myself.mdx",
+      "directory": "posts",
       "fileName": "seek-for-myself.mdx",
       "extension": ".mdx",
-      "absolutePath": "/home/sushi/code/sushichan.live/posts/seek-for-myself.mdx",
-      "relativePath": "posts/seek-for-myself.mdx",
-      "dirname": "posts",
-      "baseRoute": "seek-for-myself",
-      "normalizedRoute": "seek-for-myself"
+      "normalizedRoute": "/seek-for-myself"
     },
     {
-      "rootDirectory": "posts",
+      "absolutePath": "/home/sushi/code/sushichan.live/posts/health-is-important.mdx",
+      "relativePathFromCwd": "posts/health-is-important.mdx",
+      "directory": "posts",
       "fileName": "health-is-important.mdx",
       "extension": ".mdx",
-      "absolutePath": "/home/sushi/code/sushichan.live/posts/health-is-important.mdx",
-      "relativePath": "posts/health-is-important.mdx",
-      "dirname": "posts",
-      "baseRoute": "health-is-important",
-      "normalizedRoute": "health-is-important"
+      "normalizedRoute": "/health-is-important"
     },
     {
-      "rootDirectory": "posts",
+      "absolutePath": "/home/sushi/code/sushichan.live/posts/_android.md",
+      "relativePathFromCwd": "posts/_android.md",
+      "directory": "posts",
       "fileName": "_android.md",
       "extension": ".md",
-      "absolutePath": "/home/sushi/code/sushichan.live/posts/_android.md",
-      "relativePath": "posts/_android.md",
-      "dirname": "posts",
-      "baseRoute": "_android",
-      "normalizedRoute": "_android"
+      "normalizedRoute": "/_android"
     }
   ],
   "children": [
     {
       "directoryMetaData": {
         "absolutePath": "/home/sushi/code/sushichan.live/posts/walk",
-        "relativePath": "posts/walk"
+        "relativePathFromCwd": "posts/walk",
+        "baseRoutes": ["walk"]
       },
       "routes": [
         {
-          "rootDirectory": "posts/walk",
+          "absolutePath": "/home/sushi/code/sushichan.live/posts/walk/my-first-walk.mdx",
+          "relativePathFromCwd": "posts/walk/my-first-walk.mdx",
+          "directory": "posts/walk",
           "fileName": "my-first-walk.mdx",
           "extension": ".mdx",
-          "absolutePath": "/home/sushi/code/sushichan.live/posts/walk/my-first-walk.mdx",
-          "relativePath": "posts/walk/my-first-walk.mdx",
-          "dirname": "posts/walk",
-          "baseRoute": "my-first-walk",
-          "normalizedRoute": "my-first-walk"
+          "normalizedRoute": "walk/my-first-walk"
         }
       ],
       "children": []
@@ -58,48 +52,41 @@
     {
       "directoryMetaData": {
         "absolutePath": "/home/sushi/code/sushichan.live/posts/tech",
-        "relativePath": "posts/tech"
+        "relativePathFromCwd": "posts/tech",
+        "baseRoutes": ["tech"]
       },
       "routes": [
         {
-          "rootDirectory": "posts/tech",
+          "absolutePath": "/home/sushi/code/sushichan.live/posts/tech/track-share.mdx",
+          "relativePathFromCwd": "posts/tech/track-share.mdx",
+          "directory": "posts/tech",
           "fileName": "track-share.mdx",
           "extension": ".mdx",
-          "absolutePath": "/home/sushi/code/sushichan.live/posts/tech/track-share.mdx",
-          "relativePath": "posts/tech/track-share.mdx",
-          "dirname": "posts/tech",
-          "baseRoute": "track-share",
-          "normalizedRoute": "track-share"
+          "normalizedRoute": "tech/track-share"
         },
         {
-          "rootDirectory": "posts/tech",
+          "absolutePath": "/home/sushi/code/sushichan.live/posts/tech/k8s.md",
+          "relativePathFromCwd": "posts/tech/k8s.md",
+          "directory": "posts/tech",
           "fileName": "k8s.md",
           "extension": ".md",
-          "absolutePath": "/home/sushi/code/sushichan.live/posts/tech/k8s.md",
-          "relativePath": "posts/tech/k8s.md",
-          "dirname": "posts/tech",
-          "baseRoute": "k8s",
-          "normalizedRoute": "k8s"
+          "normalizedRoute": "tech/k8s"
         },
         {
-          "rootDirectory": "posts/tech",
+          "absolutePath": "/home/sushi/code/sushichan.live/posts/tech/build-my-website.mdx",
+          "relativePathFromCwd": "posts/tech/build-my-website.mdx",
+          "directory": "posts/tech",
           "fileName": "build-my-website.mdx",
           "extension": ".mdx",
-          "absolutePath": "/home/sushi/code/sushichan.live/posts/tech/build-my-website.mdx",
-          "relativePath": "posts/tech/build-my-website.mdx",
-          "dirname": "posts/tech",
-          "baseRoute": "build-my-website",
-          "normalizedRoute": "build-my-website"
+          "normalizedRoute": "tech/build-my-website"
         },
         {
-          "rootDirectory": "posts/tech",
+          "absolutePath": "/home/sushi/code/sushichan.live/posts/tech/_nextjs-error-page.md",
+          "relativePathFromCwd": "posts/tech/_nextjs-error-page.md",
+          "directory": "posts/tech",
           "fileName": "_nextjs-error-page.md",
           "extension": ".md",
-          "absolutePath": "/home/sushi/code/sushichan.live/posts/tech/_nextjs-error-page.md",
-          "relativePath": "posts/tech/_nextjs-error-page.md",
-          "dirname": "posts/tech",
-          "baseRoute": "_nextjs-error-page",
-          "normalizedRoute": "_nextjs-error-page"
+          "normalizedRoute": "tech/_nextjs-error-page"
         }
       ],
       "children": []
@@ -107,36 +94,34 @@
     {
       "directoryMetaData": {
         "absolutePath": "/home/sushi/code/sushichan.live/posts/music",
-        "relativePath": "posts/music"
+        "relativePathFromCwd": "posts/music",
+        "baseRoutes": ["music"]
       },
       "routes": [
         {
-          "rootDirectory": "posts/music",
+          "absolutePath": "/home/sushi/code/sushichan.live/posts/music/favorite-music.mdx",
+          "relativePathFromCwd": "posts/music/favorite-music.mdx",
+          "directory": "posts/music",
           "fileName": "favorite-music.mdx",
           "extension": ".mdx",
-          "absolutePath": "/home/sushi/code/sushichan.live/posts/music/favorite-music.mdx",
-          "relativePath": "posts/music/favorite-music.mdx",
-          "dirname": "posts/music",
-          "baseRoute": "favorite-music",
-          "normalizedRoute": "favorite-music"
+          "normalizedRoute": "music/favorite-music"
         }
       ],
       "children": [
         {
           "directoryMetaData": {
             "absolutePath": "/home/sushi/code/sushichan.live/posts/music/weekly",
-            "relativePath": "posts/music/weekly"
+            "relativePathFromCwd": "posts/music/weekly",
+            "baseRoutes": ["music", "weekly"]
           },
           "routes": [
             {
-              "rootDirectory": "posts/music/weekly",
+              "absolutePath": "/home/sushi/code/sushichan.live/posts/music/weekly/2023-07-22.mdx",
+              "relativePathFromCwd": "posts/music/weekly/2023-07-22.mdx",
+              "directory": "posts/music/weekly",
               "fileName": "2023-07-22.mdx",
               "extension": ".mdx",
-              "absolutePath": "/home/sushi/code/sushichan.live/posts/music/weekly/2023-07-22.mdx",
-              "relativePath": "posts/music/weekly/2023-07-22.mdx",
-              "dirname": "posts/music/weekly",
-              "baseRoute": "2023-07-22",
-              "normalizedRoute": "2023-07-22"
+              "normalizedRoute": "music/weekly/2023-07-22"
             }
           ],
           "children": []
@@ -146,38 +131,33 @@
     {
       "directoryMetaData": {
         "absolutePath": "/home/sushi/code/sushichan.live/posts/_test",
-        "relativePath": "posts/_test"
+        "relativePathFromCwd": "posts/_test",
+        "baseRoutes": ["_test"]
       },
       "routes": [
         {
-          "rootDirectory": "posts/_test",
+          "absolutePath": "/home/sushi/code/sushichan.live/posts/_test/politics.md",
+          "relativePathFromCwd": "posts/_test/politics.md",
+          "directory": "posts/_test",
           "fileName": "politics.md",
           "extension": ".md",
-          "absolutePath": "/home/sushi/code/sushichan.live/posts/_test/politics.md",
-          "relativePath": "posts/_test/politics.md",
-          "dirname": "posts/_test",
-          "baseRoute": "politics",
-          "normalizedRoute": "politics"
+          "normalizedRoute": "_test/politics"
         },
         {
-          "rootDirectory": "posts/_test",
+          "absolutePath": "/home/sushi/code/sushichan.live/posts/_test/bikken.md",
+          "relativePathFromCwd": "posts/_test/bikken.md",
+          "directory": "posts/_test",
           "fileName": "bikken.md",
           "extension": ".md",
-          "absolutePath": "/home/sushi/code/sushichan.live/posts/_test/bikken.md",
-          "relativePath": "posts/_test/bikken.md",
-          "dirname": "posts/_test",
-          "baseRoute": "bikken",
-          "normalizedRoute": "bikken"
+          "normalizedRoute": "_test/bikken"
         },
         {
-          "rootDirectory": "posts/_test",
+          "absolutePath": "/home/sushi/code/sushichan.live/posts/_test/1.md",
+          "relativePathFromCwd": "posts/_test/1.md",
+          "directory": "posts/_test",
           "fileName": "1.md",
           "extension": ".md",
-          "absolutePath": "/home/sushi/code/sushichan.live/posts/_test/1.md",
-          "relativePath": "posts/_test/1.md",
-          "dirname": "posts/_test",
-          "baseRoute": "1",
-          "normalizedRoute": "1"
+          "normalizedRoute": "_test/1"
         }
       ],
       "children": []
@@ -185,54 +165,47 @@
     {
       "directoryMetaData": {
         "absolutePath": "/home/sushi/code/sushichan.live/posts/(tech)",
-        "relativePath": "posts/(tech)"
+        "relativePathFromCwd": "posts/(tech)",
+        "baseRoutes": []
       },
+      "routes": [
+        {
+          "absolutePath": "/home/sushi/code/sushichan.live/posts/(tech)/track-share.mdx",
+          "relativePathFromCwd": "posts/(tech)/track-share.mdx",
+          "directory": "posts/(tech)",
+          "fileName": "track-share.mdx",
+          "extension": ".mdx",
+          "normalizedRoute": "track-share"
+        },
+        {
+          "absolutePath": "/home/sushi/code/sushichan.live/posts/(tech)/k8s.md",
+          "relativePathFromCwd": "posts/(tech)/k8s.md",
+          "directory": "posts/(tech)",
+          "fileName": "k8s.md",
+          "extension": ".md",
+          "normalizedRoute": "k8s"
+        },
+        {
+          "absolutePath": "/home/sushi/code/sushichan.live/posts/(tech)/build-my-website.mdx",
+          "relativePathFromCwd": "posts/(tech)/build-my-website.mdx",
+          "directory": "posts/(tech)",
+          "fileName": "build-my-website.mdx",
+          "extension": ".mdx",
+          "normalizedRoute": "build-my-website"
+        },
+        {
+          "absolutePath": "/home/sushi/code/sushichan.live/posts/(tech)/_nextjs-error-page.md",
+          "relativePathFromCwd": "posts/(tech)/_nextjs-error-page.md",
+          "directory": "posts/(tech)",
+          "fileName": "_nextjs-error-page.md",
+          "extension": ".md",
+          "normalizedRoute": "_nextjs-error-page"
+        }
+      ],
       "config": {
         "path": "tech",
         "tags": ["技術"]
       },
-      "routes": [
-        {
-          "rootDirectory": "posts/(tech)",
-          "fileName": "track-share.mdx",
-          "extension": ".mdx",
-          "absolutePath": "/home/sushi/code/sushichan.live/posts/(tech)/track-share.mdx",
-          "relativePath": "posts/(tech)/track-share.mdx",
-          "dirname": "posts/(tech)",
-          "baseRoute": "track-share",
-          "normalizedRoute": "track-share"
-        },
-        {
-          "rootDirectory": "posts/(tech)",
-          "fileName": "k8s.md",
-          "extension": ".md",
-          "absolutePath": "/home/sushi/code/sushichan.live/posts/(tech)/k8s.md",
-          "relativePath": "posts/(tech)/k8s.md",
-          "dirname": "posts/(tech)",
-          "baseRoute": "k8s",
-          "normalizedRoute": "k8s"
-        },
-        {
-          "rootDirectory": "posts/(tech)",
-          "fileName": "build-my-website.mdx",
-          "extension": ".mdx",
-          "absolutePath": "/home/sushi/code/sushichan.live/posts/(tech)/build-my-website.mdx",
-          "relativePath": "posts/(tech)/build-my-website.mdx",
-          "dirname": "posts/(tech)",
-          "baseRoute": "build-my-website",
-          "normalizedRoute": "build-my-website"
-        },
-        {
-          "rootDirectory": "posts/(tech)",
-          "fileName": "_nextjs-error-page.md",
-          "extension": ".md",
-          "absolutePath": "/home/sushi/code/sushichan.live/posts/(tech)/_nextjs-error-page.md",
-          "relativePath": "posts/(tech)/_nextjs-error-page.md",
-          "dirname": "posts/(tech)",
-          "baseRoute": "_nextjs-error-page",
-          "normalizedRoute": "_nextjs-error-page"
-        }
-      ],
       "children": []
     }
   ]

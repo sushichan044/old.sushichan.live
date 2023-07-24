@@ -5,11 +5,12 @@ class MDXDirectory implements MDXDirectoryInterface {
   constructor(
     public directoryMetaData: {
       absolutePath: string
-      relativePath: string
+      relativePathFromCwd: string
+      baseRoutes: string[]
     },
 
-    public routes: MDXRoute[],
     public config: MDXConfig | undefined,
+    public routes: MDXRoute[],
     public children: MDXDirectory[]
   ) {}
 

@@ -1,76 +1,79 @@
+/* eslint-disable no-restricted-imports */
 import path from 'path'
 
-// eslint-disable-next-line no-restricted-imports
 import type { MDXRoute } from '../../types/mdx'
-// eslint-disable-next-line no-restricted-imports
 import { getCwd } from '../../utils/fs'
-// eslint-disable-next-line no-restricted-imports
 import { globDirectories, globFilePathByExtensions } from '../../utils/glob'
-// eslint-disable-next-line no-restricted-imports
-import { bracePathRegExp, getExtensionsRegex } from '../../utils/regex'
-// eslint-disable-next-line no-restricted-imports
+import { normalizeRoute } from '../../utils/normalize'
+import { getExtensionsRegex } from '../../utils/regex'
 import { isMDXFile } from '../../utils/type'
-// eslint-disable-next-line no-restricted-imports
+import { normalizeRouteFragments } from '../route/normalize'
 import { MDXDirectory } from './class'
-// eslint-disable-next-line no-restricted-imports
 import { getMDXConfig } from './config'
 
-const getMDXDirectory = async (dirPath: string): Promise<MDXDirectory> => {
-  const cwd = getCwd()
-  const targetAbsDir = path.join(cwd, dirPath)
+const getMDXDirectory = async (
+  directory: string,
+  rootDirectory: string = directory
+): Promise<MDXDirectory> => {
   const extRegexp = getExtensionsRegex(['.mdx', '.md'])
+  const cwd = getCwd()
+
+  const targetAbsDir = path.join(cwd, directory)
+  const rootAbsDir = path.join(cwd, rootDirectory)
+  const relativePathFromCwd = path.relative(cwd, directory)
+  const relativePathFromRoot = path.relative(rootAbsDir, directory)
+  const baseRoutes = normalizeRouteFragments(
+    relativePathFromRoot.split(path.sep)
+  )
 
   const directoryMetaData = {
-    absolutePath: path.resolve(dirPath),
-    relativePath: path.relative(cwd, dirPath),
+    absolutePath: targetAbsDir,
+    relativePathFromCwd: relativePathFromCwd,
+    baseRoutes,
   }
-
-  const config = await getMDXConfig(dirPath)
-  const mdxPaths = globFilePathByExtensions(dirPath, {
+  const config = await getMDXConfig(directory)
+  const mdxPaths = globFilePathByExtensions(directory, {
     extensions: ['.mdx', '.md'],
     absolute: true,
   })
 
   const routes: MDXRoute[] = mdxPaths.flatMap((absPath) => {
     const relPathFromCwd = path.relative(cwd, absPath)
-    const relPathFromRoot = path.relative(targetAbsDir, absPath)
+    const fileName = path.relative(targetAbsDir, absPath)
     const extension = path.extname(absPath)
     if (!isMDXFile(extension)) return []
 
-    const baseRoute = relPathFromRoot.replace(extRegexp, '')
-    const routeFragment = baseRoute.split('/')
-    const normalizedRoute = routeFragment
-      .flatMap((f) => {
-        if (bracePathRegExp.test(f)) {
-          return []
-        }
-        return [f]
-      })
-      .join('/')
+    const routeName = fileName.replace(extRegexp, '')
+    const normalizedRoute = normalizeRoute(
+      normalizeRouteFragments([...baseRoutes, routeName]).join('/')
+    )
 
     return [
       {
-        rootDirectory: dirPath,
-        fileName: relPathFromRoot,
-        extension,
         absolutePath: absPath,
-        relativePath: relPathFromCwd,
-        dirname: path.dirname(relPathFromCwd),
-        baseRoute,
+        relativePathFromCwd: relPathFromCwd,
+        directory: directory,
+        fileName,
+        extension,
         normalizedRoute,
       },
     ]
   })
 
-  const childrenDirectories = globDirectories(dirPath)
+  const childrenDirectories = globDirectories(directory)
   const children: MDXDirectory[] = await Promise.all(
     childrenDirectories.map(async (directory) => {
-      const child = await getMDXDirectory(directory)
+      const child = await getMDXDirectory(directory, rootDirectory)
       return child
     })
   )
 
-  return new MDXDirectory(directoryMetaData, routes, config, children)
+  return new MDXDirectory(directoryMetaData, config, routes, children)
 }
+
+// const p = getMDXDirectory('posts')
+// p.then((d) => {
+//   console.log(JSON.stringify(d, null, 2))
+// })
 
 export { getMDXDirectory }
