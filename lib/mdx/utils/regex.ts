@@ -8,6 +8,7 @@ export const ignoredPathRegExp = /^_[\w\-]+$/
 
 export const tailSepRegExp = new RegExp(`${sep}$`)
 
+export const leadingSlashRegExp = /^\//
 export const trailingSlashRegExp = /\/$/
 
 // returns regex that matches the given extensions

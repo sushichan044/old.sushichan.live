@@ -1,7 +1,9 @@
 import { sep } from 'path'
 
 // eslint-disable-next-line no-restricted-imports
-import { tailSepRegExp, trailingSlashRegExp } from './regex'
+import { tailSepRegExp } from './regex'
+// eslint-disable-next-line no-restricted-imports
+import { addLeadingSlash, removeTrailingSlash } from './string'
 
 const normalizeExtension = (ext: string) =>
   ext.startsWith('.') ? ext : `.${ext}`
@@ -20,12 +22,10 @@ const normalizePathForGlob = (path: string) =>
   path.split(sep).join('/').replace(tailSepRegExp, '')
 
 const normalizeRoute = (path: string) => {
-  const headNormalized = path.startsWith('/') ? path : `/${path}`
-  const tailNormalized = removeTrailSlash(headNormalized)
+  const headNormalized = addLeadingSlash(path)
+  const tailNormalized = removeTrailingSlash(headNormalized)
   return tailNormalized
 }
-
-const removeTrailSlash = (path: string) => path.replace(trailingSlashRegExp, '')
 
 export {
   normalizeExtension,
