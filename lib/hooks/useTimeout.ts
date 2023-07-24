@@ -1,3 +1,5 @@
+import 'client-only'
+
 import { useEffect } from 'react'
 
 export function useTimeout(callback: () => void, delay?: number | undefined) {

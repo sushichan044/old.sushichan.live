@@ -1,3 +1,5 @@
+import 'client-only'
+
 const useClipBoard = () => {
   const clipboardIsAvailable = () => {
     if (!global?.navigator?.clipboard) {
