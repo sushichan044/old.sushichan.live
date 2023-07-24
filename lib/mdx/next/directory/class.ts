@@ -15,6 +15,8 @@ class MDXDirectory implements MDXDirectoryInterface {
   ) {}
 
   public getAllMDXRoutes(): MDXRoute[] {
+    // TODO: 必ずnormalizedRouteの衝突を考慮した実装にする
+    // すでにnormalizedRouteが存在する場合はエラーを必ず出す
     throw new Error('Method not implemented.')
   }
 }
