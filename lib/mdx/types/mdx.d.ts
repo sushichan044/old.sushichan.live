@@ -1,5 +1,8 @@
 import { z } from 'zod'
 
+// eslint-disable-next-line no-restricted-imports
+import type { MDXFrontMatterBaseSchema } from '../utils/zod'
+
 export type MDXFileMetaData = {
   sourceDirectory: string
   fileName: string
@@ -15,11 +18,6 @@ export type MDXSourceDirectory = {
 }
 
 // TODO: migrate MDX handler to merge received schema with MDXFrontMatterBaseSchema
-export const MDXFrontMatterBaseSchema = z.object({
-  status: z.union([z.literal('public'), z.literal('private')]),
-  created: z.date(),
-  updated: z.date(),
-})
 export type MDXFrontMatterBase = z.infer<typeof MDXFrontMatterBaseSchema>
 
 export type MDX<T extends object> = {
@@ -62,3 +60,31 @@ type MDXCompilerOption = {
 }
 
 export type MDXOption = MDXSourceOption & MDXCompilerOption
+
+export type MDXPurePath = {
+  rootDirectory: string
+  fileName: string
+  extension: '.mdx' | '.md'
+  absolutePath: string
+  relativePath: string
+  dirname: string
+}
+
+export type MDXConfig = {
+  path?: string
+  tags?: string[]
+}
+
+export type MDXBaseRoute = MDXPurePath & {
+  baseRoute: string
+}
+
+export type MDXRoute = {
+  normalizedRoute: string
+} & MDXBaseRoute
+
+interface MDXDirectory {
+  config?: MDXConfig
+  mdxFiles?: MDXPurePath[]
+  children?: MDXDirectory[]
+}
