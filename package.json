@@ -15,7 +15,8 @@
     "fmt:precommit": "prettier --check --ignore-path .gitignore",
     "stylelint:precommit": "stylelint --max-warnings 0 --ignore-path .gitignore",
     "markuplint:precommit": "markuplint --no-color --problem-only \"./**/*.{jsx,tsx}\"",
-    "ncu": "ncu -u --target minor"
+    "ncu": "ncu -u --target minor",
+    "tsn": "ts-node --compilerOptions='{\"module\":\"commonjs\"}'"
   },
   "lint-staged": {
     "./**/*.{js,ts}": [
