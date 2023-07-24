@@ -1,10 +1,10 @@
 {
   "extends": ["markuplint:recommended-react"],
   "specs": {
-    "\\.[jt]sx?$": "@markuplint/react-spec"
+    "\\.[jt]sx$": "@markuplint/react-spec"
   },
   "parser": {
-    "\\.[jt]sx?$": "@markuplint/jsx-parser"
+    "\\.[jt]sx$": "@markuplint/jsx-parser"
   },
   "rules": {
     "attr-value-quotes": false,
