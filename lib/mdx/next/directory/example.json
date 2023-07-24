@@ -2,7 +2,7 @@
   "directoryMetaData": {
     "absolutePath": "/home/sushi/code/sushichan.live/posts",
     "relativePathFromCwd": "posts",
-    "baseRoutes": [""]
+    "baseRoutes": []
   },
   "routes": [
     {
@@ -44,7 +44,7 @@
           "directory": "posts/walk",
           "fileName": "my-first-walk.mdx",
           "extension": ".mdx",
-          "normalizedRoute": "walk/my-first-walk"
+          "normalizedRoute": "/walk/my-first-walk"
         }
       ],
       "children": []
@@ -62,7 +62,7 @@
           "directory": "posts/tech",
           "fileName": "track-share.mdx",
           "extension": ".mdx",
-          "normalizedRoute": "tech/track-share"
+          "normalizedRoute": "/tech/track-share"
         },
         {
           "absolutePath": "/home/sushi/code/sushichan.live/posts/tech/k8s.md",
@@ -70,7 +70,7 @@
           "directory": "posts/tech",
           "fileName": "k8s.md",
           "extension": ".md",
-          "normalizedRoute": "tech/k8s"
+          "normalizedRoute": "/tech/k8s"
         },
         {
           "absolutePath": "/home/sushi/code/sushichan.live/posts/tech/build-my-website.mdx",
@@ -78,7 +78,7 @@
           "directory": "posts/tech",
           "fileName": "build-my-website.mdx",
           "extension": ".mdx",
-          "normalizedRoute": "tech/build-my-website"
+          "normalizedRoute": "/tech/build-my-website"
         },
         {
           "absolutePath": "/home/sushi/code/sushichan.live/posts/tech/_nextjs-error-page.md",
@@ -86,7 +86,7 @@
           "directory": "posts/tech",
           "fileName": "_nextjs-error-page.md",
           "extension": ".md",
-          "normalizedRoute": "tech/_nextjs-error-page"
+          "normalizedRoute": "/tech/_nextjs-error-page"
         }
       ],
       "children": []
@@ -104,7 +104,7 @@
           "directory": "posts/music",
           "fileName": "favorite-music.mdx",
           "extension": ".mdx",
-          "normalizedRoute": "music/favorite-music"
+          "normalizedRoute": "/music/favorite-music"
         }
       ],
       "children": [
@@ -121,7 +121,7 @@
               "directory": "posts/music/weekly",
               "fileName": "2023-07-22.mdx",
               "extension": ".mdx",
-              "normalizedRoute": "music/weekly/2023-07-22"
+              "normalizedRoute": "/music/weekly/2023-07-22"
             }
           ],
           "children": []
@@ -141,7 +141,7 @@
           "directory": "posts/_test",
           "fileName": "politics.md",
           "extension": ".md",
-          "normalizedRoute": "_test/politics"
+          "normalizedRoute": "/_test/politics"
         },
         {
           "absolutePath": "/home/sushi/code/sushichan.live/posts/_test/bikken.md",
@@ -149,7 +149,7 @@
           "directory": "posts/_test",
           "fileName": "bikken.md",
           "extension": ".md",
-          "normalizedRoute": "_test/bikken"
+          "normalizedRoute": "/_test/bikken"
         },
         {
           "absolutePath": "/home/sushi/code/sushichan.live/posts/_test/1.md",
@@ -157,7 +157,7 @@
           "directory": "posts/_test",
           "fileName": "1.md",
           "extension": ".md",
-          "normalizedRoute": "_test/1"
+          "normalizedRoute": "/_test/1"
         }
       ],
       "children": []
@@ -166,7 +166,11 @@
       "directoryMetaData": {
         "absolutePath": "/home/sushi/code/sushichan.live/posts/(tech)",
         "relativePathFromCwd": "posts/(tech)",
-        "baseRoutes": []
+        "baseRoutes": ["tech"]
+      },
+      "config": {
+        "path": "tech",
+        "tags": ["技術"]
       },
       "routes": [
         {
@@ -175,7 +179,7 @@
           "directory": "posts/(tech)",
           "fileName": "track-share.mdx",
           "extension": ".mdx",
-          "normalizedRoute": "track-share"
+          "normalizedRoute": "/tech/track-share"
         },
         {
           "absolutePath": "/home/sushi/code/sushichan.live/posts/(tech)/k8s.md",
@@ -183,7 +187,7 @@
           "directory": "posts/(tech)",
           "fileName": "k8s.md",
           "extension": ".md",
-          "normalizedRoute": "k8s"
+          "normalizedRoute": "/tech/k8s"
         },
         {
           "absolutePath": "/home/sushi/code/sushichan.live/posts/(tech)/build-my-website.mdx",
@@ -191,7 +195,7 @@
           "directory": "posts/(tech)",
           "fileName": "build-my-website.mdx",
           "extension": ".mdx",
-          "normalizedRoute": "build-my-website"
+          "normalizedRoute": "/tech/build-my-website"
         },
         {
           "absolutePath": "/home/sushi/code/sushichan.live/posts/(tech)/_nextjs-error-page.md",
@@ -199,13 +203,9 @@
           "directory": "posts/(tech)",
           "fileName": "_nextjs-error-page.md",
           "extension": ".md",
-          "normalizedRoute": "_nextjs-error-page"
+          "normalizedRoute": "/tech/_nextjs-error-page"
         }
       ],
-      "config": {
-        "path": "tech",
-        "tags": ["技術"]
-      },
       "children": []
     }
   ]
