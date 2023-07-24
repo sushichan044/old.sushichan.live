@@ -2,19 +2,20 @@ import fs from 'fs'
 import matter from 'gray-matter'
 import path from 'path'
 
+import { getFilePathRecursive, getFileTimestampsSync } from '@/utils/fs'
+
+// eslint-disable-next-line no-restricted-imports
 import type {
+  AnyZodObjectOmitting,
   MDX,
   MDXFileMetaData,
   MDXSourceDirectory,
-  PartialMDXFileMetaData,
-} from '@/lib/mdx'
-import { MDXFrontMatterBaseSchema } from '@/lib/mdx'
-import type {
-  AnyZodObjectOmitting,
   MergedZodObjectInfer,
+  PartialMDXFileMetaData,
   WithZodSchema,
-} from '@/utils/@types/zod'
-import { getFilePathRecursive, getFileTimestampsSync } from '@/utils/fs'
+} from './types'
+// eslint-disable-next-line no-restricted-imports
+import { MDXFrontMatterBaseSchema } from './utils/zod'
 
 const getHomeDir = () => process.cwd()
 const getMDXFilePath = ({

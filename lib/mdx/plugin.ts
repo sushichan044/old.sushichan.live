@@ -10,8 +10,10 @@ import remarkUnwrapImages from 'remark-unwrap-images'
 import stringWidth from 'string-width'
 import { type PluggableList } from 'unified'
 
-import rehypeImageOpt from '@/lib/mdx/rehype-image'
-import { RehypeOptions, RemarkOptions } from '@/lib/mdx/type'
+// eslint-disable-next-line no-restricted-imports
+import rehypeImageOpt from './rehype-image'
+// eslint-disable-next-line no-restricted-imports
+import type { RehypeOptions, RemarkOptions } from './types'
 
 const remarkDefaultPlugins: PluggableList = [
   [

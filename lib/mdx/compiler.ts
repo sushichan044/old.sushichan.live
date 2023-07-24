@@ -1,8 +1,13 @@
 import { compileMDX as compileMDXFile } from 'next-mdx-remote/rsc'
 
 import { MDXComponents } from '@/components/mdx'
-import { type MDXOption, readMDXFile } from '@/lib/mdx'
-import { getRehypePlugins, getRemarkPlugins } from '@/lib/mdx/plugin'
+
+// eslint-disable-next-line no-restricted-imports
+import { readMDXFile } from './file'
+// eslint-disable-next-line no-restricted-imports
+import { getRehypePlugins, getRemarkPlugins } from './plugin'
+// eslint-disable-next-line no-restricted-imports
+import { type MDXOption } from './types'
 
 export const compileMDX = async ({
   options: { format = 'mdx', pluginOptions = {} } = {},
