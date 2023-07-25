@@ -1,23 +1,20 @@
 'use client'
 
-import dynamic from 'next/dynamic'
+import { Tweet } from 'react-tweet'
 
 import EmbedCard from '@/components/common/card/embedCard'
+import { TwitterTheme } from '@/components/twitter'
 import useClientTheme from '@/lib/hooks/useClientTheme'
 
 const TweetCard = ({ id }: { id: string }) => {
   const { theme } = useClientTheme()
-  const TweetEmbed = dynamic(
-    () => import('@/components/twitter').then((mod) => mod.TweetEmbed),
-    {
-      ssr: false,
-    }
-  )
 
   return (
-    <EmbedCard>
-      <TweetEmbed id={id} theme={theme} />
-    </EmbedCard>
+    <TwitterTheme asChild theme={theme}>
+      <EmbedCard>
+        <Tweet id={id} />
+      </EmbedCard>
+    </TwitterTheme>
   )
 }
 
