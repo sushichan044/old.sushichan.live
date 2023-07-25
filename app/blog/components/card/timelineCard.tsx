@@ -6,7 +6,7 @@ import EmbedCard from '@/components/common/card/embedCard'
 import useClientTheme from '@/lib/hooks/useClientTheme'
 
 const TimelineCard = ({ id }: { id: string }) => {
-  const theme = useClientTheme()
+  const { theme } = useClientTheme()
   const TimelineEmbed = dynamic(
     () => import('@/components/twitter').then((mod) => mod.TimelineEmbed),
     {

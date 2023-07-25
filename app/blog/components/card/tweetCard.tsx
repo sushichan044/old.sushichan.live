@@ -6,7 +6,7 @@ import EmbedCard from '@/components/common/card/embedCard'
 import useClientTheme from '@/lib/hooks/useClientTheme'
 
 const TweetCard = ({ id }: { id: string }) => {
-  const theme = useClientTheme()
+  const { theme } = useClientTheme()
   const TweetEmbed = dynamic(
     () => import('@/components/twitter').then((mod) => mod.TweetEmbed),
     {
