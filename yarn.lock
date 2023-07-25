@@ -1101,7 +1101,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc/helpers@npm:0.5.1":
+"@swc/helpers@npm:0.5.1, @swc/helpers@npm:^0.5.1":
   version: 0.5.1
   resolution: "@swc/helpers@npm:0.5.1"
   dependencies:
@@ -8491,6 +8491,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-tweet@npm:^3.0.3":
+  version: 3.0.3
+  resolution: "react-tweet@npm:3.0.3"
+  dependencies:
+    "@swc/helpers": "npm:^0.5.1"
+    clsx: "npm:^1.2.1"
+    date-fns: "npm:^2.30.0"
+    swr: "npm:^2.2.0"
+  peerDependencies:
+    react: ">= 18.0.0"
+    react-dom: ">= 18.0.0"
+  checksum: 00e19c7258f3f8e7e0dc8d528dd706f555b82e6332635e90505eb40e8e0c93280fe3edf67da6f1f778a0cc2622918bdfd1247db2f957cfb43b5952d490c3a345
+  languageName: node
+  linkType: hard
+
 "react-youtube@npm:^10.1.0":
   version: 10.1.0
   resolution: "react-youtube@npm:10.1.0"
@@ -10064,6 +10079,7 @@ __metadata:
     react-dom: "npm:18.2.0"
     react-icons: "npm:^4.10.1"
     react-spotify-embed: "npm:^2.0.3"
+    react-tweet: "npm:^3.0.3"
     react-youtube: "npm:^10.1.0"
     rehype-autolink-headings: "npm:^6.1.1"
     rehype-katex: "npm:^6.0.3"
@@ -10100,6 +10116,17 @@ __metadata:
   version: 1.0.0
   resolution: "svg-tags@npm:1.0.0"
   checksum: 5867e29e8f431bf7aecf5a244d1af5725f80a1086187dbc78f26d8433b5e96b8fe9361aeb10d1699ff483b9afec785a10916b9312fe9d734d1a7afd48226c954
+  languageName: node
+  linkType: hard
+
+"swr@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "swr@npm:2.2.0"
+  dependencies:
+    use-sync-external-store: "npm:^1.2.0"
+  peerDependencies:
+    react: ^16.11.0 || ^17.0.0 || ^18.0.0
+  checksum: f631dfd206a989313cd82e7d9477b11af08496000c339752c745e8b42ba58667528ee0c70ea529910a7b6dee9b4085e8a2cd622efb70b9709883211111e0d756
   languageName: node
   linkType: hard
 
@@ -10823,6 +10850,15 @@ __metadata:
     querystringify: "npm:^2.1.1"
     requires-port: "npm:^1.0.0"
   checksum: bd5aa9389f896974beb851c112f63b466505a04b4807cea2e5a3b7092f6fbb75316f0491ea84e44f66fed55f1b440df5195d7e3a8203f64fcefa19d182f5be87
+  languageName: node
+  linkType: hard
+
+"use-sync-external-store@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "use-sync-external-store@npm:1.2.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: ac4814e5592524f242921157e791b022efe36e451fe0d4fd4d204322d5433a4fc300d63b0ade5185f8e0735ded044c70bcf6d2352db0f74d097a238cebd2da02
   languageName: node
   linkType: hard
 
