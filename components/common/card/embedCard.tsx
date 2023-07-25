@@ -7,16 +7,7 @@ const EmbedCard = ({
   children: React.ReactNode
   shadow?: boolean
 }) => {
-  return (
-    <Card
-      shadow={shadow}
-      style={{
-        textAlign: 'center',
-      }}
-    >
-      {children}
-    </Card>
-  )
+  return <Card shadow={shadow}>{children}</Card>
 }
 
 export default EmbedCard
