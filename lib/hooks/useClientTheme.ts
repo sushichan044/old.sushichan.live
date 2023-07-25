@@ -5,6 +5,10 @@ import { useEffect, useState } from 'react'
 const useClientTheme = () => {
   const [theme, setTheme] = useState<'light' | 'dark'>('light')
 
+  const setDark = () => setTheme('dark')
+  const setLight = () => setTheme('light')
+  const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light')
+
   useEffect(() => {
     const onChange = (e: MediaQueryListEvent) => {
       setTheme(e.matches ? 'dark' : 'light')
@@ -18,7 +22,7 @@ const useClientTheme = () => {
     return () => mediaQuery.removeEventListener('change', onChange)
   }, [])
 
-  return theme
+  return { theme, setDark, setLight, toggleTheme }
 }
 
 export default useClientTheme
