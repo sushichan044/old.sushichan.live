@@ -1,4 +1,7 @@
 import { TimelineEmbed } from '@/components/twitter/timeline'
-import { TweetEmbed } from '@/components/twitter/tweet'
+import { Tweet } from '@/components/twitter/tweet'
 import { TwitterTheme } from '@/components/twitter/twitterTheme'
-export { TweetEmbed, TimelineEmbed, TwitterTheme }
+import type { TweetProps } from '@/components/twitter/types'
+
+export { Tweet, TimelineEmbed, TwitterTheme }
+export type { TweetProps }

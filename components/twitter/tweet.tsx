@@ -1,37 +1,24 @@
-'use client'
+import { Tweet as TweetBase } from 'react-tweet'
 
-import React, { useEffect, useRef } from 'react'
+import { TwitterTheme } from '@/components/twitter/twitterTheme'
+import type { TweetProps } from '@/components/twitter/types'
 
-export const TweetEmbed: React.FC<{ id: string; theme: 'dark' | 'light' }> = ({
-  id,
-  theme,
-}) => {
-  const ref = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    // @ts-expect-error twttr is not defined
-    window.twttr?.widgets.load(ref.current)
-  }, [id])
-
+const Tweet = ({ id, theme }: TweetProps) => {
   return (
-    <div
-      dangerouslySetInnerHTML={{
-        __html: generateEmbedHtml(id, theme),
-      }}
-      ref={ref}
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    />
+    <>
+      {theme === undefined ? (
+        <div>
+          <TweetBase id={id} />
+        </div>
+      ) : (
+        <TwitterTheme asChild theme={theme}>
+          <div>
+            <TweetBase id={id} />
+          </div>
+        </TwitterTheme>
+      )}
+    </>
   )
 }
 
-const generateEmbedHtml = (id: string, theme: 'dark' | 'light'): string => {
-  if (!/^\d+$/u.test(id)) {
-    throw new Error(`Invalid tweet ID: ${id}`)
-  }
-
-  return `<blockquote class="twitter-tweet" data-lang="ja" data-theme="${theme}" data-dnt="true"><a href="https://twitter.com/i/status/${id}"></a></blockquote>`
-}
+export { Tweet }
