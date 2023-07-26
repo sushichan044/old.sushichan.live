@@ -20,6 +20,8 @@ const nextConfig = {
         hostname: 'res.cloudinary.com',
         pathname: '/sushi-chan/**',
       },
+      { protocol: 'https', hostname: 'pbs.twimg.com' },
+      { protocol: 'https', hostname: 'abs.twimg.com' },
     ],
   },
   sassOptions: {

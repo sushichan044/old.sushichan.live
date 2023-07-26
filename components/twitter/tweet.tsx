@@ -1,5 +1,4 @@
-import { Tweet as TweetBase } from 'react-tweet'
-
+import { TweetBase } from '@/components/twitter/tweetBase'
 import { TwitterTheme } from '@/components/twitter/twitterTheme'
 import type { TweetProps } from '@/components/twitter/types'
 
