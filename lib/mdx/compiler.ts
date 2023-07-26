@@ -26,6 +26,10 @@ export const compileMDX = async ({
         format: format,
         remarkPlugins: getRemarkPlugins(pluginOptions.remark),
         rehypePlugins: getRehypePlugins(pluginOptions.rehype),
+        remarkRehypeOptions: {
+          footnoteLabel: '脚注',
+          footnoteBackLabel: '本文へ戻る',
+        },
       },
       // if this set to false,
       // frontMatter will appear as content
