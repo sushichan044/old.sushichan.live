@@ -530,90 +530,90 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/bundle-analyzer@npm:^13.4.10":
-  version: 13.4.10
-  resolution: "@next/bundle-analyzer@npm:13.4.10"
+"@next/bundle-analyzer@npm:^13.4.12":
+  version: 13.4.12
+  resolution: "@next/bundle-analyzer@npm:13.4.12"
   dependencies:
     webpack-bundle-analyzer: "npm:4.7.0"
-  checksum: 54a928f0e883dde3f890368188bdf845708f0e7a9515532ef8d2ade3d02246403b3682cf847f394770879a7f86383b8495c53e280927dd1a3dd3d6b754975198
+  checksum: eac530c62f7a6425501668a20d784134b5dbc8d8a02e4419f5bbe89d4f9dd1a6ebab8de731b93957372e9633aeae635cb15ffd70e4c327af4a01710a5ccf3ec2
   languageName: node
   linkType: hard
 
-"@next/env@npm:13.4.9":
-  version: 13.4.9
-  resolution: "@next/env@npm:13.4.9"
-  checksum: 712cd2012d42f28bd9af5659cab1cb6e2b33e6ada38f06a83411cbdcc90e39c94c924a4eb7ab3635bf5ef5fa88d24ed856e1e5f07d6c470fef317daf88d5d520
+"@next/env@npm:13.4.12":
+  version: 13.4.12
+  resolution: "@next/env@npm:13.4.12"
+  checksum: 751368260c72514ca2b64af8f938c1da4ca80bc888fa20333a585934edb3cbf9fcdaef84a4d4482bb2d893bbcb48cbc30ae92ffecc0b60cee5c38a2cc06ab971
   languageName: node
   linkType: hard
 
-"@next/eslint-plugin-next@npm:13.4.10":
-  version: 13.4.10
-  resolution: "@next/eslint-plugin-next@npm:13.4.10"
+"@next/eslint-plugin-next@npm:13.4.12":
+  version: 13.4.12
+  resolution: "@next/eslint-plugin-next@npm:13.4.12"
   dependencies:
     glob: "npm:7.1.7"
-  checksum: 90e06a7a221c21c555852a71845fd851cc0ffeb196ed5a83327d605d11e9bdf340b4ca40b112c73fc9eae8a0a9b1f01c8e233b2b0c87b74c4216ea62dad4bed5
+  checksum: fc353985cb3c1c902f7764e10c70a5e8d06578223335cabcfcb58e81b352810fb4c6b8796b2a60506e88b00fa9afc06032f3276aabf5a4b309581b3d8d6065af
   languageName: node
   linkType: hard
 
-"@next/swc-darwin-arm64@npm:13.4.9":
-  version: 13.4.9
-  resolution: "@next/swc-darwin-arm64@npm:13.4.9"
+"@next/swc-darwin-arm64@npm:13.4.12":
+  version: 13.4.12
+  resolution: "@next/swc-darwin-arm64@npm:13.4.12"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@next/swc-darwin-x64@npm:13.4.9":
-  version: 13.4.9
-  resolution: "@next/swc-darwin-x64@npm:13.4.9"
+"@next/swc-darwin-x64@npm:13.4.12":
+  version: 13.4.12
+  resolution: "@next/swc-darwin-x64@npm:13.4.12"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@next/swc-linux-arm64-gnu@npm:13.4.9":
-  version: 13.4.9
-  resolution: "@next/swc-linux-arm64-gnu@npm:13.4.9"
+"@next/swc-linux-arm64-gnu@npm:13.4.12":
+  version: 13.4.12
+  resolution: "@next/swc-linux-arm64-gnu@npm:13.4.12"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@next/swc-linux-arm64-musl@npm:13.4.9":
-  version: 13.4.9
-  resolution: "@next/swc-linux-arm64-musl@npm:13.4.9"
+"@next/swc-linux-arm64-musl@npm:13.4.12":
+  version: 13.4.12
+  resolution: "@next/swc-linux-arm64-musl@npm:13.4.12"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@next/swc-linux-x64-gnu@npm:13.4.9":
-  version: 13.4.9
-  resolution: "@next/swc-linux-x64-gnu@npm:13.4.9"
+"@next/swc-linux-x64-gnu@npm:13.4.12":
+  version: 13.4.12
+  resolution: "@next/swc-linux-x64-gnu@npm:13.4.12"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@next/swc-linux-x64-musl@npm:13.4.9":
-  version: 13.4.9
-  resolution: "@next/swc-linux-x64-musl@npm:13.4.9"
+"@next/swc-linux-x64-musl@npm:13.4.12":
+  version: 13.4.12
+  resolution: "@next/swc-linux-x64-musl@npm:13.4.12"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@next/swc-win32-arm64-msvc@npm:13.4.9":
-  version: 13.4.9
-  resolution: "@next/swc-win32-arm64-msvc@npm:13.4.9"
+"@next/swc-win32-arm64-msvc@npm:13.4.12":
+  version: 13.4.12
+  resolution: "@next/swc-win32-arm64-msvc@npm:13.4.12"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@next/swc-win32-ia32-msvc@npm:13.4.9":
-  version: 13.4.9
-  resolution: "@next/swc-win32-ia32-msvc@npm:13.4.9"
+"@next/swc-win32-ia32-msvc@npm:13.4.12":
+  version: 13.4.12
+  resolution: "@next/swc-win32-ia32-msvc@npm:13.4.12"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"@next/swc-win32-x64-msvc@npm:13.4.9":
-  version: 13.4.9
-  resolution: "@next/swc-win32-x64-msvc@npm:13.4.9"
+"@next/swc-win32-x64-msvc@npm:13.4.12":
+  version: 13.4.12
+  resolution: "@next/swc-win32-x64-msvc@npm:13.4.12"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -1210,13 +1210,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint@npm:8.44.0":
-  version: 8.44.0
-  resolution: "@types/eslint@npm:8.44.0"
+"@types/eslint@npm:8.44.1":
+  version: 8.44.1
+  resolution: "@types/eslint@npm:8.44.1"
   dependencies:
     "@types/estree": "npm:*"
     "@types/json-schema": "npm:*"
-  checksum: feac2a3aafe96844993aa0a3343e9265a13e4dbe2981a215b0103926253ce23adbee4563cef91ef0444f2463658bc10ce69fb6941f4297b4f9a021c77fdf1ec7
+  checksum: c71ac01bce467ab394c86154d1dee92fc46e33c8515036ecb8cde6a1f48ad9497909efe370c96136193d74007b02b8cd89fb91175b256771296e6b822ee6237f
   languageName: node
   linkType: hard
 
@@ -1352,10 +1352,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.4.2":
-  version: 20.4.2
-  resolution: "@types/node@npm:20.4.2"
-  checksum: ca506e089737d54effabda5d6534fdf9fdbe22adbcc4864a170feea390389f38cbae6abcf89c2b1ce5c3e4ffc450b35341509a7619f850babf43106009f01b2d
+"@types/node@npm:20.4.5":
+  version: 20.4.5
+  resolution: "@types/node@npm:20.4.5"
+  checksum: ed414b8fea1b462cb7444464e18cf0786a11def8b863bcca52b0466992d04f701422f9fc3c33e0601444bfdbf9e18d8f4b163d35902758495b51e635b09fee64
   languageName: node
   linkType: hard
 
@@ -1389,7 +1389,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:>=16, @types/react@npm:^18.2.15":
+"@types/react@npm:*, @types/react@npm:>=16":
   version: 18.2.15
   resolution: "@types/react@npm:18.2.15"
   dependencies:
@@ -1397,6 +1397,17 @@ __metadata:
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
   checksum: d1999bd8a565704a9885e3b7a44d93d8d70beb0aae7b3c66139d98832b6dddf82da790519ac9c6502d57504af1cb729c6edb3bf506fe14386a364618884ed0a2
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^18.2.16":
+  version: 18.2.16
+  resolution: "@types/react@npm:18.2.16"
+  dependencies:
+    "@types/prop-types": "npm:*"
+    "@types/scheduler": "npm:*"
+    csstype: "npm:^3.0.2"
+  checksum: 37640daef69fe812385cd5e96a3bad62ade0640790d559efab2a5e949216bbda6b84c2d7bdb0f0cd0d90aead9838bf0631bef4419a6ae6cc64f2d2dc51588a22
   languageName: node
   linkType: hard
 
@@ -2600,7 +2611,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^10.0.0":
+"commander@npm:^10.0.0, commander@npm:^10.0.1":
   version: 10.0.1
   resolution: "commander@npm:10.0.1"
   checksum: 53f33d8927758a911094adadda4b2cbac111a5b377d8706700587650fd8f45b0bbe336de4b5c3fe47fd61f420a3d9bd452b6e0e6e5600a7e74d7bf0174f6efe3
@@ -2723,7 +2734,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-functions-list@npm:^3.1.0":
+"css-functions-list@npm:^3.2.0":
   version: 3.2.0
   resolution: "css-functions-list@npm:3.2.0"
   checksum: 640a1760c6d63536def671b7ccd89c2525a7197fc845a5ae1ec9f380fedd1aa9634f547db81f02f1a3736492867e9333ee8d6bf9aa498d211e36feae0e71a672
@@ -3018,10 +3029,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"detect-libc@npm:^2.0.0, detect-libc@npm:^2.0.1":
+"detect-libc@npm:^2.0.0":
   version: 2.0.1
   resolution: "detect-libc@npm:2.0.1"
   checksum: 153009d0ce4073ea885a97641aa1cc0327ff168b971fa3c770958345ad3ead4618f3747334435dc8edff32c0f56d8ba16dcf5271543c99b24af532b1cf84a61d
+  languageName: node
+  linkType: hard
+
+"detect-libc@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "detect-libc@npm:2.0.2"
+  checksum: a9f4ffcd2701525c589617d98afe5a5d0676c8ea82bcc4ed6f3747241b79f781d36437c59a5e855254c864d36a3e9f8276568b6b531c28d6e53b093a15703f11
   languageName: node
   linkType: hard
 
@@ -3378,11 +3396,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-next@npm:13.4.10":
-  version: 13.4.10
-  resolution: "eslint-config-next@npm:13.4.10"
+"eslint-config-next@npm:13.4.12":
+  version: 13.4.12
+  resolution: "eslint-config-next@npm:13.4.12"
   dependencies:
-    "@next/eslint-plugin-next": "npm:13.4.10"
+    "@next/eslint-plugin-next": "npm:13.4.12"
     "@rushstack/eslint-patch": "npm:^1.1.3"
     "@typescript-eslint/parser": "npm:^5.42.0"
     eslint-import-resolver-node: "npm:^0.3.6"
@@ -3397,7 +3415,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: ee583807df89bae26cab9aa9b786e80494c0ec083924c9e26c4f1c87f0e3661a5103e14e90c691e507862f02a706c8871245ef3a3bc462c1e2296e47bb7fee44
+  checksum: 5f4b7202fc9dc2fef361465b394ecd262fe8096c0ee37c1b51e86cfa7b2ebbb526ed54050955c3b43d47eead8bff6dc78fd2068c211e24636c48a88b55ba81c1
   languageName: node
   linkType: hard
 
@@ -7215,20 +7233,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next@npm:13.4.9":
-  version: 13.4.9
-  resolution: "next@npm:13.4.9"
+"next@npm:13.4.12":
+  version: 13.4.12
+  resolution: "next@npm:13.4.12"
   dependencies:
-    "@next/env": "npm:13.4.9"
-    "@next/swc-darwin-arm64": "npm:13.4.9"
-    "@next/swc-darwin-x64": "npm:13.4.9"
-    "@next/swc-linux-arm64-gnu": "npm:13.4.9"
-    "@next/swc-linux-arm64-musl": "npm:13.4.9"
-    "@next/swc-linux-x64-gnu": "npm:13.4.9"
-    "@next/swc-linux-x64-musl": "npm:13.4.9"
-    "@next/swc-win32-arm64-msvc": "npm:13.4.9"
-    "@next/swc-win32-ia32-msvc": "npm:13.4.9"
-    "@next/swc-win32-x64-msvc": "npm:13.4.9"
+    "@next/env": "npm:13.4.12"
+    "@next/swc-darwin-arm64": "npm:13.4.12"
+    "@next/swc-darwin-x64": "npm:13.4.12"
+    "@next/swc-linux-arm64-gnu": "npm:13.4.12"
+    "@next/swc-linux-arm64-musl": "npm:13.4.12"
+    "@next/swc-linux-x64-gnu": "npm:13.4.12"
+    "@next/swc-linux-x64-musl": "npm:13.4.12"
+    "@next/swc-win32-arm64-msvc": "npm:13.4.12"
+    "@next/swc-win32-ia32-msvc": "npm:13.4.12"
+    "@next/swc-win32-x64-msvc": "npm:13.4.12"
     "@swc/helpers": "npm:0.5.1"
     busboy: "npm:1.6.0"
     caniuse-lite: "npm:^1.0.30001406"
@@ -7270,7 +7288,7 @@ __metadata:
       optional: true
   bin:
     next: dist/bin/next
-  checksum: 75e05ab1b3ce854031ef788df45ab378dd8c38a7eedf9562b5526b6cdd7552bf0c5e8d81ef8a479f49d665590deff5a42e2c6b61e9e0a676fb72dc48a88292fb
+  checksum: 8957092182c98f154d48cc3fc5fbadf07a691dded067e54274225b0d1f75c16f5a7c148361035629dcda5e8e10b9b9b0953d15438477d489bbe1a7ecdb664677
   languageName: node
   linkType: hard
 
@@ -7458,13 +7476,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-check-updates@npm:^16.10.16":
-  version: 16.10.16
-  resolution: "npm-check-updates@npm:16.10.16"
+"npm-check-updates@npm:^16.10.17":
+  version: 16.10.17
+  resolution: "npm-check-updates@npm:16.10.17"
   dependencies:
     chalk: "npm:^5.3.0"
     cli-table3: "npm:^0.6.3"
-    commander: "npm:^10.0.0"
+    commander: "npm:^10.0.1"
     fast-memoize: "npm:^2.5.2"
     find-up: "npm:5.0.0"
     fp-and-or: "npm:^0.1.3"
@@ -7485,7 +7503,7 @@ __metadata:
     rc-config-loader: "npm:^4.1.3"
     remote-git-tags: "npm:^3.0.0"
     rimraf: "npm:^5.0.1"
-    semver: "npm:^7.5.3"
+    semver: "npm:^7.5.4"
     semver-utils: "npm:^1.1.4"
     source-map-support: "npm:^0.5.21"
     spawn-please: "npm:^2.0.1"
@@ -7495,7 +7513,7 @@ __metadata:
   bin:
     ncu: build/src/bin/cli.js
     npm-check-updates: build/src/bin/cli.js
-  checksum: b7731e4e2256cb99e86869c7264294507e28073f4cb4e54aed335179c19c89983bdecee0f662ed2616b4c89d50c32de31d00b8cd3f2d656599a0ce7444cb857e
+  checksum: 732eebda6e40925df6db315dabc446ec800a69f5f02a60a6674ed21777364c9d4244e2d06f280bb4fd04f0781803b9962aa491fb71beeccf799df1b6c660cf4c
   languageName: node
   linkType: hard
 
@@ -8217,7 +8235,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.21, postcss@npm:^8.4.23, postcss@npm:^8.4.24, postcss@npm:^8.4.26":
+"postcss@npm:^8.4.21, postcss@npm:^8.4.23":
   version: 8.4.26
   resolution: "postcss@npm:8.4.26"
   dependencies:
@@ -8225,6 +8243,17 @@ __metadata:
     picocolors: "npm:^1.0.0"
     source-map-js: "npm:^1.0.2"
   checksum: 29c603d6b30b2f94bf971bc430600f271da76fa3ae38d4c6b255e957213051b8eeb02829e128ec4e9fa2a7bb710ba7992ebaf1997e3a9ace48caf49b48a10f6b
+  languageName: node
+  linkType: hard
+
+"postcss@npm:^8.4.25, postcss@npm:^8.4.27":
+  version: 8.4.27
+  resolution: "postcss@npm:8.4.27"
+  dependencies:
+    nanoid: "npm:^3.3.6"
+    picocolors: "npm:^1.0.0"
+    source-map-js: "npm:^1.0.2"
+  checksum: 41a0476e05cb97514ff8d75e4ff9fdcf778f22b2e0d25b7028f219cd408e01d3c4f50459d4a1cd9a430d8ef08202c881374a4fa4ea6009f4a135a07315d606e5
   languageName: node
   linkType: hard
 
@@ -9110,16 +9139,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.63.6":
-  version: 1.63.6
-  resolution: "sass@npm:1.63.6"
+"sass@npm:^1.64.1":
+  version: 1.64.1
+  resolution: "sass@npm:1.64.1"
   dependencies:
     chokidar: "npm:>=3.0.0 <4.0.0"
     immutable: "npm:^4.0.0"
     source-map-js: "npm:>=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: 32e3245634f133e4e103f5c2adaaa85d7563fa17781db123c63b18b3501aeef51e60b97d97ffbf487b39ee4078e2914ba3ede3cee0567b04f1e3b0b45cef0b46
+  checksum: 47fc8cd65b24f71ac6f107b250f3f3bf5ea1ba631c70211a8f99716ad25b6f42c2dde3ea606ec2394bc156e3c7136ea4cc2539beff082a3cbee127febc41a20e
   languageName: node
   linkType: hard
 
@@ -9185,7 +9214,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:^7.0.0, semver@npm:^7.1.1, semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.5.3, semver@npm:^7.5.4":
+"semver@npm:^7.0.0, semver@npm:^7.1.1, semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.5.4":
   version: 7.5.4
   resolution: "semver@npm:7.5.4"
   dependencies:
@@ -9210,12 +9239,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sharp@npm:^0.32.3":
-  version: 0.32.3
-  resolution: "sharp@npm:0.32.3"
+"sharp@npm:^0.32.4":
+  version: 0.32.4
+  resolution: "sharp@npm:0.32.4"
   dependencies:
     color: "npm:^4.2.3"
-    detect-libc: "npm:^2.0.1"
+    detect-libc: "npm:^2.0.2"
     node-addon-api: "npm:^6.1.0"
     node-gyp: "npm:latest"
     prebuild-install: "npm:^7.1.1"
@@ -9223,7 +9252,7 @@ __metadata:
     simple-get: "npm:^4.0.1"
     tar-fs: "npm:^3.0.4"
     tunnel-agent: "npm:^0.6.0"
-  checksum: cee99b5121af8a951b36fc1a952744aaea99bf1a60b369483d39f252eb419d7e58abb6506ea5b441ec449732dcaf488a84adf9cd99748bb4683b114527b8111b
+  checksum: 8a9f006d53835731975cea5a20d82ad107f4aefa4b821d546cdd08ddf6afaf8b57507c9433a5d84216f6503f67a4c1f44d7591bc8724388d82a122053b0e9eca
   languageName: node
   linkType: hard
 
@@ -9933,9 +9962,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint@npm:^15.10.1":
-  version: 15.10.1
-  resolution: "stylelint@npm:15.10.1"
+"stylelint@npm:^15.10.2":
+  version: 15.10.2
+  resolution: "stylelint@npm:15.10.2"
   dependencies:
     "@csstools/css-parser-algorithms": "npm:^2.3.0"
     "@csstools/css-tokenizer": "npm:^2.1.1"
@@ -9944,7 +9973,7 @@ __metadata:
     balanced-match: "npm:^2.0.0"
     colord: "npm:^2.9.3"
     cosmiconfig: "npm:^8.2.0"
-    css-functions-list: "npm:^3.1.0"
+    css-functions-list: "npm:^3.2.0"
     css-tree: "npm:^2.3.1"
     debug: "npm:^4.3.4"
     fast-glob: "npm:^3.3.0"
@@ -9964,7 +9993,7 @@ __metadata:
     micromatch: "npm:^4.0.5"
     normalize-path: "npm:^3.0.0"
     picocolors: "npm:^1.0.0"
-    postcss: "npm:^8.4.24"
+    postcss: "npm:^8.4.25"
     postcss-resolve-nested-selector: "npm:^0.1.1"
     postcss-safe-parser: "npm:^6.0.0"
     postcss-selector-parser: "npm:^6.0.13"
@@ -9979,7 +10008,7 @@ __metadata:
     write-file-atomic: "npm:^5.0.1"
   bin:
     stylelint: bin/stylelint.mjs
-  checksum: 6f1190cdb6f7f9e840a3acbf56982df9dec596fb5f80a0443411d84ef14df2479f0f0a419ac87ce003e162e2a29c400af0c442ca6d6ccb1353b7301ec714c05b
+  checksum: 8378ee868b09322d2b7e07b03461c524736778a391b2ce6d4ad46c636e55a90ed98723f253db10d9a762cfefec60200d0b9c5cd7798b2f373efd2d986768ebc7
   languageName: node
   linkType: hard
 
@@ -10042,12 +10071,12 @@ __metadata:
   dependencies:
     "@markuplint/jsx-parser": "npm:^3.9.0"
     "@markuplint/react-spec": "npm:^3.10.0"
-    "@next/bundle-analyzer": "npm:^13.4.10"
+    "@next/bundle-analyzer": "npm:^13.4.12"
     "@radix-ui/react-navigation-menu": "npm:^1.1.3"
     "@radix-ui/react-slot": "npm:^1.0.2"
-    "@types/eslint": "npm:8.44.0"
-    "@types/node": "npm:20.4.2"
-    "@types/react": "npm:^18.2.15"
+    "@types/eslint": "npm:8.44.1"
+    "@types/node": "npm:20.4.5"
+    "@types/react": "npm:^18.2.16"
     "@types/react-dom": "npm:^18.2.7"
     "@types/styled-components": "npm:^5.1.26"
     "@typescript-eslint/eslint-plugin": "npm:^5.62.0"
@@ -10058,7 +10087,7 @@ __metadata:
     clsx: "npm:^1.2.1"
     date-fns: "npm:^2.30.0"
     eslint: "npm:8.45.0"
-    eslint-config-next: "npm:13.4.10"
+    eslint-config-next: "npm:13.4.12"
     eslint-config-prettier: "npm:^8.8.0"
     eslint-plugin-simple-import-sort: "npm:^10.0.0"
     glob: "npm:^10.3.3"
@@ -10067,12 +10096,12 @@ __metadata:
     lint-staged: "npm:^13.2.3"
     markuplint: "npm:^3.12.0"
     monaco-editor: "npm:^0.40.0"
-    next: "npm:13.4.9"
+    next: "npm:13.4.12"
     next-mdx-remote: "npm:^4.4.1"
     nextjs-toploader: "npm:^1.4.2"
-    npm-check-updates: "npm:^16.10.16"
+    npm-check-updates: "npm:^16.10.17"
     plaiceholder: "npm:^2.5.0"
-    postcss: "npm:^8.4.26"
+    postcss: "npm:^8.4.27"
     prettier: "npm:^2.8.8"
     query-string: "npm:^8.1.0"
     react: "npm:18.2.0"
@@ -10091,12 +10120,12 @@ __metadata:
     remark-math: "npm:^5.1.1"
     remark-unwrap-images: "npm:^3.0.1"
     ress: "npm:^5.0.2"
-    sass: "npm:^1.63.6"
+    sass: "npm:^1.64.1"
     server-only: "npm:^0.0.1"
-    sharp: "npm:^0.32.3"
+    sharp: "npm:^0.32.4"
     shiki: "npm:^0.14.3"
     string-width: "npm:^6.1.0"
-    stylelint: "npm:^15.10.1"
+    stylelint: "npm:^15.10.2"
     stylelint-a11y: "npm:^1.2.3"
     stylelint-config-prettier: "npm:^9.0.5"
     stylelint-config-recess-order: "npm:^4.3.0"
