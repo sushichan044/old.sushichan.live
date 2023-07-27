@@ -1,12 +1,5 @@
-// [data-footnote-ref="true"],
-// [data-footnote-backref="true"] {
-//   margin-left: 0.25em;
-//   font-weight: 700;
-// }
-
-sup > [data-footnote-ref="true"],
-sup > [data-footnote-backref="true"] {
-  margin-left: 0.25em;
+[data-footnote-ref="true"] {
+  margin-left: 0.125em;
   font-weight: 700;
 
   &::before {
@@ -16,4 +9,8 @@ sup > [data-footnote-backref="true"] {
   &::after {
     content: "]";
   }
+}
+
+[data-footnote-backref="true"] {
+  font-weight: 700;
 }
