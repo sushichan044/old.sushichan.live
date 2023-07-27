@@ -1,10 +1,18 @@
-$spoiler-color: #26262e;
+@use "/styles/mixins" as mix;
+@use "/styles/variables" as var;
+
+$spoiler-color-light: #8a8a9f;
+$spoiler-color-dark: #4d4d5d;
 
 .root {
   display: inline;
   padding-inline: 0.25em;
   margin-inline: 0.25em;
-  background-color: $spoiler-color;
+  background-color: $spoiler-color-light;
+  @include mix.theme("dark") {
+    background-color: $spoiler-color-dark;
+  }
+
   border-radius: 0.25em;
 }
 
@@ -13,6 +21,10 @@ $spoiler-color: #26262e;
 }
 
 .root[aria-expanded="true"] {
-  color: inherit;
+  color: var.$text-color-light;
+  @include mix.theme("dark") {
+    color: var.$text-color-dark;
+  }
+
   cursor: auto;
 }
