@@ -1,5 +1,19 @@
-[data-footnote-ref="true"],
-[data-footnote-backref="true"] {
+// [data-footnote-ref="true"],
+// [data-footnote-backref="true"] {
+//   margin-left: 0.25em;
+//   font-weight: 700;
+// }
+
+sup > [data-footnote-ref="true"],
+sup > [data-footnote-backref="true"] {
   margin-left: 0.25em;
   font-weight: 700;
+
+  &::before {
+    content: "[";
+  }
+
+  &::after {
+    content: "]";
+  }
 }
