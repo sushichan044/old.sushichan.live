@@ -1,7 +1,7 @@
 ---
 title: 適当なAndroidスマホを考える
 description: Android選ぶの難しいよね
-date: 2023-05-21
+created: 2023-05-21
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: 政治学#3
 description: 政治学 第3回のメモ
-date: 2023-04-26
+created: 2023-04-26
 ---
 
 
