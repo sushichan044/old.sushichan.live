@@ -17,6 +17,7 @@
 
   @include mix.theme("dark") {
     outline: var.$theme-color-light-darker solid 1px;
+
     @include gen.hover(
       $bg-color: var.$theme-color-dark,
       $bg: true,

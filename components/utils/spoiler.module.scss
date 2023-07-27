@@ -9,6 +9,7 @@ $spoiler-color-dark: #4d4d5d;
   padding-inline: 0.25em;
   margin-inline: 0.25em;
   background-color: $spoiler-color-light;
+
   @include mix.theme("dark") {
     background-color: $spoiler-color-dark;
   }
@@ -22,6 +23,7 @@ $spoiler-color-dark: #4d4d5d;
 
 .root[aria-expanded="true"] {
   color: var.$text-color-light;
+
   @include mix.theme("dark") {
     color: var.$text-color-dark;
   }

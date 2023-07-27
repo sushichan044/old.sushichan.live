@@ -18,6 +18,7 @@
   // background-color: $bg-color;
   border-radius: 0.5rem;
   outline: $bg-color 1px solid;
+
   @include gen.hover(var.$theme-color-light, $bg: true, $shadow: true);
 
   @include mix.theme("dark") {

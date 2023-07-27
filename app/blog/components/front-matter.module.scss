@@ -41,6 +41,7 @@
 
   > h1 {
     margin-block: 0;
+
     @include mix.mq("md") {
       font-size: 2rem;
     }

@@ -6,9 +6,11 @@
   height: calc(100% - var.$header-height - var.$footer-height);
   padding-inline: var.$layout-padding-sp;
   margin-inline: auto;
+
   @include mix.mq("md") {
     padding-inline: var.$layout-padding;
   }
+
   @include mix.mq("2xl") {
     max-width: var.$layout-max-width-2xl;
   }
