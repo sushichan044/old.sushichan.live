@@ -92,5 +92,5 @@ export type MDXDirectoryType = {
 }
 
 export interface MDXDirectoryInterface extends MDXDirectoryType {
-  public getAllMDXRoutes(): MDXRoute[]
+  getAllMDXRoutes(): MDXRoute[]
 }
