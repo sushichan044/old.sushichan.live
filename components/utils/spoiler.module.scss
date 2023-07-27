@@ -1,0 +1,18 @@
+$spoiler-color: #26262e;
+
+.root {
+  display: inline-block;
+  padding-inline: 0.25em;
+  margin-inline: 0.25em;
+  background-color: $spoiler-color;
+  border-radius: 0.25em;
+}
+
+.root[aria-expanded="false"] {
+  color: transparent;
+}
+
+.root[aria-expanded="true"] {
+  color: inherit;
+  cursor: auto;
+}

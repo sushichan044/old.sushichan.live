@@ -15,6 +15,7 @@ import ResponsiveIframe from '@/components/common/responsiveIframe'
 import MDXHeading from '@/components/mdx/heading'
 import MDXImage from '@/components/mdx/image'
 import MDXLink from '@/components/mdx/link'
+import Spoiler from '@/components/utils/spoiler'
 
 const replaceComponents = {
   a: (props: React.ComponentProps<'a'>) => (
@@ -55,6 +56,7 @@ const customComponents = {
   YouTubeCard,
   WithBudoux,
   ResponsiveIframe,
+  Spoiler,
 }
 
 const iconComponents = {
