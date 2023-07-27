@@ -16,6 +16,7 @@
     "stylelint:precommit": "stylelint --max-warnings 0 --ignore-path .gitignore",
     "markuplint:precommit": "markuplint --no-color --problem-only \"./**/*.{jsx,tsx}\"",
     "ncu": "ncu -u --target minor",
+    "ncu:latest": "ncu -u --target latest",
     "tsn": "ts-node --compilerOptions='{\"module\":\"commonjs\"}'"
   },
   "lint-staged": {
