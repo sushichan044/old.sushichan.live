@@ -11,6 +11,7 @@ import TweetCard from '@/app/blog/components/card/tweetCard'
 import YouTubeCard from '@/app/blog/components/card/youTubeCard'
 import WithBudoux from '@/components/common/budoux'
 import Message from '@/components/common/message'
+import ResponsiveIframe from '@/components/common/responsiveIframe'
 import MDXHeading from '@/components/mdx/heading'
 import MDXImage from '@/components/mdx/image'
 import MDXLink from '@/components/mdx/link'
@@ -53,6 +54,7 @@ const customComponents = {
   SpotifyCard,
   YouTubeCard,
   WithBudoux,
+  ResponsiveIframe,
 }
 
 const iconComponents = {
