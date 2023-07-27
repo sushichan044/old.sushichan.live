@@ -52,7 +52,7 @@ export default function GlobalError({
   error,
   reset,
 }: {
-  error: Error;
+  error: Error
   reset: () => void
 }) {
   return (

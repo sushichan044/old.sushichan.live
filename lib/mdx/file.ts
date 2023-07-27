@@ -26,7 +26,7 @@ const getMDXFilePath = ({
   path.join(getHomeDir(), sourceDirectory, `${fileName}.${extension}`)
 
 export const getMDX = <
-  Schema extends AnyZodObjectOmitting<typeof MDXFrontMatterBaseSchema>
+  Schema extends AnyZodObjectOmitting<typeof MDXFrontMatterBaseSchema>,
 >({
   mdx,
   schema,
@@ -46,7 +46,7 @@ export const getMDX = <
 }
 
 export const getAllMDX = <
-  Schema extends AnyZodObjectOmitting<typeof MDXFrontMatterBaseSchema>
+  Schema extends AnyZodObjectOmitting<typeof MDXFrontMatterBaseSchema>,
 >({
   mdx: { sourceDirectory },
   schema,

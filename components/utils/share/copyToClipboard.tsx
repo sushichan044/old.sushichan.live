@@ -36,7 +36,7 @@ const CopyToClipboard = ({
   const onClick = async (e: React.MouseEvent<HTMLElement>) => {
     if (!e.defaultPrevented) {
       console.log(
-        'CopyToClipboard: WARNING: default onClick event was not prevented.'
+        'CopyToClipboard: WARNING: default onClick event was not prevented.',
       )
     }
     await copyText(textToCopy)

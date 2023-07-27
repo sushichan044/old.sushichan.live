@@ -20,7 +20,7 @@ const getNormalizedTweetUrl = ({ via, ...rest }: Partial<TweetData>) => {
     },
     {
       arrayFormat: 'comma',
-    }
+    },
   )
 
   return url

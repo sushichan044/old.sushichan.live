@@ -26,14 +26,14 @@ export default function Modal({ children }: ModalProps) {
         if (onDismiss) onDismiss()
       }
     },
-    [onDismiss, modalRef, wrapperRef]
+    [onDismiss, modalRef, wrapperRef],
   )
 
   const onKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === 'Escape') onDismiss()
     },
-    [onDismiss]
+    [onDismiss],
   )
 
   useEffect(() => {

@@ -35,7 +35,7 @@ const cloudinaryLoaderBase = ({
   ]
   if (blur) params.push('e_blur:1600')
   return `https://res.cloudinary.com/sushi-chan/image/upload/${params.join(
-    ','
+    ',',
   )}/${imageIdentifier}`
 }
 

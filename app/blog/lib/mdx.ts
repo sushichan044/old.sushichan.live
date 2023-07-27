@@ -21,7 +21,7 @@ type GetAllBlogMDXOptions = {
 
 export const getBlogMDX = (
   fileName: string,
-  { publicOnly = isProduction }: { publicOnly?: boolean } = {}
+  { publicOnly = isProduction }: { publicOnly?: boolean } = {},
 ) => {
   const mdx = getMDX({
     mdx: {

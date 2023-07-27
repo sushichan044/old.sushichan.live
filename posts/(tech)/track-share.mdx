@@ -12,6 +12,7 @@ status: private
 こんにちは、すしです。今回は、極限まで楽をした構成を使って、7時間でWebアプリを作ってみたのでそれについて書きます。
 
 ## 使ったもの
+
 - Next.js with TypeScript(App Router)
 - SCSS & TailwindCSS
   - なぜこれらを同時に使ってみたのかは後述
@@ -24,8 +25,10 @@ TrackShare: https://share-track.app/
 
 リポジトリはこちら: https://github.com/sushi-chaaaan/trackshare
 
-<Message type="alert">現在SpotifyのAPIの認証情報が
-開発版のままのためお試しいただけない状態になっています。近日中に修正したします。</Message>
+<Message type="alert">
+  現在SpotifyのAPIの認証情報が
+  開発版のままのためお試しいただけない状態になっています。近日中に修正したします。
+</Message>
 
 ![非ログイン状態](https://res.cloudinary.com/sushi-chan/image/upload/v1689893972/tech/track-share/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2023-07-21_075926_cuhofx.png)
 
@@ -60,7 +63,6 @@ Spotifyでログインする設定も、Spotify側の開発ダッシュボード
 サインイン用のコンポーネントもClerkから提供されているのでこれをimportして下のようなボタンコンポーネントを作るだけで、
 クリックすると画像のようなモーダルが表示され、ログイン後のリダイレクトも自動的に行われます。なんてお手軽...
 
-
 ```tsx
 import { SignInButton } from '@clerk/nextjs'
 import { FaSpotify } from 'react-icons/fa6'
@@ -81,8 +83,8 @@ const SpotifySigninButton = () => {
 }
 
 export default SpotifySigninButton
-
 ```
+
 ![𝑺𝒆𝒄𝒖𝒓𝒆𝒅 𝒃𝒚 𝑪𝒍𝒆𝒓𝒌...](https://res.cloudinary.com/sushi-chan/image/upload/v1689894001/tech/track-share/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2023-07-21_075956_bv5nmi.png)
 
 また、React Server Componentでの利用も考えられていて、サーバーサイドでも簡単に現在のログイン状態やログインしているユーザーの情報を取得できます。
@@ -98,7 +100,7 @@ const TopItem = async () => {
   const user = await currentUser()
   if (!user) return <></>
 
-  const tracks = "頑張ってAPIを叩く"
+  const tracks = '頑張ってAPIを叩く'
   return (
     <Suspense fallback={<div>loading</div>}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -125,7 +127,7 @@ async function getUserSpotifyAccessToken(userId: string) {
   // これだけで、ユーザーのログイン情報からSpotifyのAccess Tokenを取得できる。とんでもない
   const tokens = await clerkClient.users.getUserOauthAccessToken(
     userId,
-    'oauth_spotify'
+    'oauth_spotify',
   )
   return tokens
 }
@@ -149,7 +151,12 @@ Clerkの料金設定も、個人で簡単に使う認証つきWebアプリ程度
 普段はやらない実験的なこともやってみようという試みでやってみましたが、普段なら使い分けるべきでしょうね。
 
 このサイトでもSCSSとTailwindCSSが混在してますが、TailwindCSSはMarkdown系ファイルの中でしか使えない設定になっています。
-<ArticleCard href="/blog/post/tech/build-my-website#ブログをmdxで構築した" sourceDirectory="posts" fileName="tech/build-my-website" />
+
+<ArticleCard
+  href="/blog/post/tech/build-my-website#ブログをmdxで構築した"
+  sourceDirectory="posts"
+  fileName="tech/build-my-website"
+/>
 
 ## おわりに
 

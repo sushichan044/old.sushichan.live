@@ -17,7 +17,7 @@ const Card = ({ children, rounded, className, style, shadow }: CardProps) => {
         styles.root,
         className && className,
         rounded && styles.round,
-        shadow && styles.shadow
+        shadow && styles.shadow,
       )}
       style={style}
     >

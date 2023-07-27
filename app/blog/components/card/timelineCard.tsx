@@ -11,7 +11,7 @@ const TimelineCard = ({ id }: { id: string }) => {
     () => import('@/components/twitter').then((mod) => mod.TimelineEmbed),
     {
       ssr: false,
-    }
+    },
   )
 
   return (

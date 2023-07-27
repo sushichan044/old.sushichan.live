@@ -6,7 +6,7 @@ export type PropsWithAsChild<
   // コンポーネント独自の props
   Props,
   // asChild がない時の HTML 要素 or コンポーネント
-  DefaultElement extends ElementType
+  DefaultElement extends ElementType,
 > =
   | // asChild が指定なし or false の時
   // DelautElement の ref 以外の props が指定できる

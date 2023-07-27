@@ -16,10 +16,10 @@ import { glob } from 'glob'
  */
 export const hasExtension = (
   file: string,
-  expectedExtensions: string[]
+  expectedExtensions: string[],
 ): boolean => {
   const extWithDot = expectedExtensions.map((ext) =>
-    ext.startsWith('.') ? ext : `.${ext}`
+    ext.startsWith('.') ? ext : `.${ext}`,
   )
   return extWithDot.some((ext) => file.endsWith(ext))
 }

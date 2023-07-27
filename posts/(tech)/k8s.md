@@ -278,7 +278,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/mnt/data"
+    path: '/mnt/data'
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -307,7 +307,7 @@ metadata:
   name: mysql
 spec:
   ports:
-  - port: 3306
+    - port: 3306
   selector:
     app: mysql
   clusterIP: None
@@ -328,25 +328,25 @@ spec:
         app: mysql
     spec:
       containers:
-      - image: mysql:latest
-        name: mysql
-        env:
-          # Use secret in real usage
-        - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mysql-secret
-              key: PASSWORD
-        ports:
-        - containerPort: 3306
+        - image: mysql:latest
           name: mysql
-        volumeMounts:
-        - name: mysql-persistent-storage
-          mountPath: /var/lib/mysql
+          env:
+            # Use secret in real usage
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: PASSWORD
+          ports:
+            - containerPort: 3306
+              name: mysql
+          volumeMounts:
+            - name: mysql-persistent-storage
+              mountPath: /var/lib/mysql
       volumes:
-      - name: mysql-persistent-storage
-        persistentVolumeClaim:
-          claimName: mysql-pv-claim
+        - name: mysql-persistent-storage
+          persistentVolumeClaim:
+            claimName: mysql-pv-claim
 ```
 
 ```bash

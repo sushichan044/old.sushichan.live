@@ -14,7 +14,7 @@ const globFilePathByExtensions = (
   }: {
     absolute?: boolean
     extensions?: string[]
-  } = {}
+  } = {},
 ) => {
   const normalizedExtensions = extensions?.map((ext) => normalizeExtension(ext))
   const searchPattern = `${dir}/*${

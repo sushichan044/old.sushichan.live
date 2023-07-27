@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 const useAdjustedSize = (
   width: number,
   height: number,
-  target: 'width' | 'height' = 'width'
+  target: 'width' | 'height' = 'width',
 ) => {
   const targetIsWidth = target === 'width'
 

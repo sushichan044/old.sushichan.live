@@ -14,7 +14,7 @@ import { getMDXConfig } from './config'
 
 const getMDXDirectory = async (
   directory: string,
-  rootDirectory: string = directory
+  rootDirectory: string = directory,
 ): Promise<MDXDirectory> => {
   const extRegexp = getExtensionsRegex(['.mdx', '.md'])
   const cwd = getCwd()
@@ -60,10 +60,10 @@ const getMDXDirectory = async (
     // baseRoutesのFragmentはすべてnormalizeされている
     // normalizeしたrouteNameと結合して、その後routeの文字列をnormalizeする
     const routeName = normalizeRouteFragment(
-      removeSideSlashes(fileName.replace(extRegexp, ''))
+      removeSideSlashes(fileName.replace(extRegexp, '')),
     )
     const normalizedRoute = normalizeRoute(
-      [...baseRoutes, routeName && routeName].join('/')
+      [...baseRoutes, routeName && routeName].join('/'),
     )
 
     return [
@@ -82,7 +82,7 @@ const getMDXDirectory = async (
     childrenDirectories.map(async (directory) => {
       const child = await getMDXDirectory(directory, rootDirectory)
       return child
-    })
+    }),
   )
 
   return new MDXDirectory(directoryMetaData, config, routes, children)

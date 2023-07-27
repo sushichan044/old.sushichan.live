@@ -11,7 +11,7 @@ class MDXDirectory implements MDXDirectoryInterface {
 
     public config: MDXConfig | undefined,
     public routes: MDXRoute[],
-    public children: MDXDirectory[]
+    public children: MDXDirectory[],
   ) {}
 
   public getAllMDXRoutes(): MDXRoute[] {

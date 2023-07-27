@@ -15,7 +15,7 @@ export async function GET(
     params: { slug },
   }: {
     params: { slug: string[] }
-  }
+  },
 ) {
   const mdxPath = slug.join('/')
   const mdx = getBlogMDX(mdxPath)
@@ -41,6 +41,6 @@ export async function GET(
       // For convenience, we can re-use the exported opengraph-image
       // size config to also set the ImageResponse's width and height.
       ...size,
-    }
+    },
   )
 }

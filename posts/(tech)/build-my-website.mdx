@@ -22,12 +22,14 @@ status: private
 - next-mdx-remote
 
 ## App Routerの採用
+
 Next.jsのApp Routerは、v13.4からstableになったんですが、
 `pages`では難しかった機能ベースでのコード管理が楽でいいと思います。
 ClientとServerどちらで処理されるのかを明確にして考えながら書けるので、
 無理のある実装も自然に減るように感じています。
 
 ## ブログをmdxで構築した
+
 ブログ部分にはmdxを採用しました。mdxは、Markdownの中にjsxやReact Componentが書けるもので、
 自分で定義したものを簡単に使えてとても楽です。
 加えて`next-mdx-remote`というライブラリが既にReact Server Componentに対応しているので、
@@ -38,12 +40,16 @@ mdx内のjsxにも簡単にスタイルを当てられるので、すべてをmd
 
 ```mdx
 {
-<div className="grid grid-cols-1 md:grid-cols-2">{
-[
-  "https://open.spotify.com/track/7tC1BMOYXstr2ROxU6fShJ?si=8c1a9c6d5f384828",
-  "https://open.spotify.com/track/62TlWZUc57JpsQQe7kZ7WP?si=2f7fd3747cd8402e",
-].map((url) => <SpotifyCard key={url} url={url} />)}
-</div>}
+
+<div className="grid grid-cols-1 md:grid-cols-2">
+  {[
+    'https://open.spotify.com/track/7tC1BMOYXstr2ROxU6fShJ?si=8c1a9c6d5f384828',
+    'https://open.spotify.com/track/62TlWZUc57JpsQQe7kZ7WP?si=2f7fd3747cd8402e',
+  ].map((url) => (
+    <SpotifyCard key={url} url={url} />
+  ))}
+</div>
+}
 ```
 
 これをmdxに直接書くだけで...[^1]
@@ -51,10 +57,11 @@ mdx内のjsxにも簡単にスタイルを当てられるので、すべてをmd
 
 {<div className="grid grid-cols-1 md:grid-cols-2">{
 [
-  "https://open.spotify.com/track/7tC1BMOYXstr2ROxU6fShJ?si=8c1a9c6d5f384828",
-  "https://open.spotify.com/track/62TlWZUc57JpsQQe7kZ7WP?si=2f7fd3747cd8402e",
+"https://open.spotify.com/track/7tC1BMOYXstr2ROxU6fShJ?si=8c1a9c6d5f384828",
+"https://open.spotify.com/track/62TlWZUc57JpsQQe7kZ7WP?si=2f7fd3747cd8402e",
 
 ].map((url) => <SpotifyCard key={url} url={url} />)}
+
 </div>}
 
 こんな感じ、すごく楽でいいですね。

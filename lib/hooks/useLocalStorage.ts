@@ -4,10 +4,10 @@ import { useState } from 'react'
 
 const useLocalStorage = (
   key: string,
-  initialValue: string
+  initialValue: string,
 ): [
   value: string,
-  setValue: (value: string | ((value: string) => string)) => void
+  setValue: (value: string | ((value: string) => string)) => void,
 ] => {
   const [state, setState] = useState(() => {
     // Initialize the state
