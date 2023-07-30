@@ -59,6 +59,7 @@ export default async function Page() {
               external: 'As Developer',
             },
             content: devContent,
+            default: true,
           },
           {
             label: {
