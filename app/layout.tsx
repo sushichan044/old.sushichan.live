@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary',
-    site: '@sushi_chan_sub',
+    site: '@sushi_chan_dev',
   },
 }
 
