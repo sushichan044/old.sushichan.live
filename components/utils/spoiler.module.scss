@@ -9,24 +9,25 @@ $spoiler-color-dark: #4d4d5d;
   padding-inline: 0.25em;
   margin-inline: 0.25em;
   background-color: $spoiler-color-light;
+  border-radius: 0.25em;
+  transition: background-color 0.1s ease-in-out;
 
   @include mix.theme("dark") {
     background-color: $spoiler-color-dark;
   }
-
-  border-radius: 0.25em;
 }
 
 .root[aria-expanded="false"] {
   color: transparent;
+  transition: color 0.1s ease-in-out;
 }
 
 .root[aria-expanded="true"] {
   color: var.$text-color-light;
+  cursor: auto;
+  transition: color 0.1s ease-in-out;
 
   @include mix.theme("dark") {
     color: var.$text-color-dark;
   }
-
-  cursor: auto;
 }
