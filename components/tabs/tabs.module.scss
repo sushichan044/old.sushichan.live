@@ -74,12 +74,12 @@
     max-width: var.$layout-max-width-2xl;
   }
 
-  > h1:first-child,
-  > h2:first-child,
-  > h3:first-child,
-  > h4:first-child,
-  > h5:first-child,
-  > h6:first-child {
+  h1:first-child,
+  h2:first-child,
+  h3:first-child,
+  h4:first-child,
+  h5:first-child,
+  h6:first-child {
     margin-block: 0;
   }
 }

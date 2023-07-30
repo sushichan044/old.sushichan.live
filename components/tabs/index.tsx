@@ -10,6 +10,7 @@ type TabItem = {
     external: string
   }
   content: React.ReactNode
+  default?: boolean
 }
 
 type TabProps = {
@@ -26,18 +27,17 @@ const convertToComponent = (items: TabItem[]) => {
       <div className={styles.trigger}>{item.label.external}</div>
     </TabsBase.Trigger>
   ))
-  const contentBase = items.map((item) => (
-    <TabsBase.Content
-      asChild
-      key={item.label.internal}
-      value={item.label.internal}
-    >
-      <div className={styles.content}>{item.content}</div>
+  const content = items.map((item) => (
+    <TabsBase.Content key={item.label.internal} value={item.label.internal}>
+      {item.content}
     </TabsBase.Content>
   ))
 
-  const defaultValue = items[0].label.internal
-  return { trigger, content: contentBase, defaultValue }
+  // default value is the first item or the item with default flag
+  const defaultValue =
+    items.find((item) => item.default)?.label.internal ??
+    items[0].label.internal
+  return { trigger, content, defaultValue }
 }
 
 const Tabs = ({ items }: TabProps) => {
@@ -49,7 +49,7 @@ const Tabs = ({ items }: TabProps) => {
         <TabsBase.List asChild>
           <div className={styles.list}>{trigger}</div>
         </TabsBase.List>
-        {content}
+        <div className={styles.content}>{content}</div>
       </div>
     </TabsBase.Root>
   )
