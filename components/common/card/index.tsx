@@ -8,9 +8,17 @@ type CardProps = {
   rounded?: boolean
   children: React.ReactNode
   shadow?: boolean
+  caption?: string
 }
 
-const Card = ({ children, rounded, className, style, shadow }: CardProps) => {
+const Card = ({
+  children,
+  rounded,
+  className,
+  style,
+  shadow,
+  caption,
+}: CardProps) => {
   return (
     <div
       className={clsx(
@@ -22,6 +30,7 @@ const Card = ({ children, rounded, className, style, shadow }: CardProps) => {
       style={style}
     >
       {children}
+      {caption && <p className={styles.caption}>{caption}</p>}
     </div>
   )
 }
