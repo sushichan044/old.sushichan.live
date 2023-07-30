@@ -3,6 +3,7 @@
 @use "/styles/variables" as var;
 @use "sass:color";
 
+// TODO: 将来的には縦方向にも対応する
 .root {
   display: flex;
   flex-flow: column nowrap;
