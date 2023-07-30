@@ -1,0 +1,85 @@
+@use "/styles/mixins" as mix;
+@use "/styles/general.scss" as gen;
+@use "/styles/variables" as var;
+@use "sass:color";
+
+.root {
+  display: flex;
+  flex-flow: column nowrap;
+
+  @include mix.theme("dark") {
+    border: 1px solid var.$text-color-dark;
+  }
+
+  overflow: hidden;
+  border: 1px solid var.$text-color-light;
+  border-radius: 0.5rem;
+}
+
+.list {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+
+  @include mix.theme("dark") {
+    border-bottom: 1px solid var.$text-color-dark;
+  }
+
+  color: inherit;
+  border-bottom: 1px solid var.$text-color-light;
+}
+
+.trigger {
+  width: 100%;
+  color: inherit;
+  text-align: center;
+
+  &:not(:first-child) {
+    border-left: 1px solid var.$text-color-light;
+  }
+
+  @include mix.theme("dark") {
+    &:not(:first-child) {
+      border-left: 1px solid var.$text-color-dark;
+    }
+  }
+
+  @include gen.hover($bg-color: var.$theme-color-light, $bg: true);
+
+  @include mix.theme("dark") {
+    @include gen.hover($bg-color: var.$theme-color-dark, $bg: true);
+  }
+
+  &[aria-selected="true"] {
+    background-color: color.adjust(var.$theme-color-light, $blackness: 10%);
+  }
+
+  @include mix.theme("dark") {
+    &[aria-selected="true"] {
+      background-color: color.adjust(var.$theme-color-dark, $whiteness: 10%);
+    }
+  }
+}
+
+.content {
+  max-width: var.$layout-max-width;
+  padding-inline: var.$layout-padding-sp;
+  margin-block: var.$layout-margin;
+
+  @include mix.mq("md") {
+    padding-inline: var.$layout-padding;
+  }
+
+  @include mix.mq("2xl") {
+    max-width: var.$layout-max-width-2xl;
+  }
+
+  > h1:first-child,
+  > h2:first-child,
+  > h3:first-child,
+  > h4:first-child,
+  > h5:first-child,
+  > h6:first-child {
+    margin-block: 0;
+  }
+}
