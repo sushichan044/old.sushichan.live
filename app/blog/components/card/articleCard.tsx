@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from '@/app/blog/components/card/article-card.module.scss'
 import { blogFrontMatterSchema } from '@/app/blog/lib/mdx'
 import WithBudoux from '@/components/common/budoux'
+import type { CardCustomizeProps } from '@/components/common/card'
 import Card from '@/components/common/card'
 import Link from '@/components/common/link'
 import { getMDX, type PartialMDXFileMetaData } from '@/lib/mdx'
@@ -16,7 +17,8 @@ const ArticleCard = ({
   fileName,
   extension,
   href,
-}: ArticleCardProps) => {
+  ...props
+}: CardCustomizeProps<ArticleCardProps>) => {
   const mdx = getMDX({
     mdx: {
       sourceDirectory,
@@ -32,7 +34,7 @@ const ArticleCard = ({
   const { title, description, thumbnail } = mdx.frontMatter
 
   return (
-    <Card className={styles.root}>
+    <Card className={styles.root} {...props}>
       {/* @ts-expect-error validate href is not able */}
       <Link href={href} options={{ textDecoration: 'none' }}>
         <div className={styles.container}>

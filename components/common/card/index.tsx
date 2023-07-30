@@ -2,12 +2,21 @@ import clsx from 'clsx'
 
 import styles from '@/components/common/card/card.module.scss'
 
+export type CustomizeProps<T extends object> = {
+  className?: string
+  style?: React.CSSProperties
+} & Omit<T, 'className' | 'style'>
+
 type CardProps = {
   className?: string
   style?: React.CSSProperties
   rounded?: boolean
   children: React.ReactNode
   shadow?: boolean
+  caption?: string
+}
+
+export type CardCustomizeProps<T extends object> = CustomizeProps<T> & {
   caption?: string
 }
 
@@ -18,7 +27,7 @@ const Card = ({
   style,
   shadow,
   caption,
-}: CardProps) => {
+}: CustomizeProps<CardProps>) => {
   return (
     <div
       className={clsx(

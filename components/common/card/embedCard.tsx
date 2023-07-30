@@ -1,16 +1,16 @@
+import type { CardCustomizeProps } from '@/components/common/card'
 import Card from '@/components/common/card'
 
 const EmbedCard = ({
   children,
   shadow,
-  caption,
-}: {
+  ...props
+}: CardCustomizeProps<{
   children: React.ReactNode
   shadow?: boolean
-  caption?: string
-}) => {
+}>) => {
   return (
-    <Card caption={caption} shadow={shadow}>
+    <Card shadow={shadow} {...props}>
       {children}
     </Card>
   )

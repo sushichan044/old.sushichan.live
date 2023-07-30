@@ -2,10 +2,11 @@
 
 import dynamic from 'next/dynamic'
 
+import type { CardCustomizeProps } from '@/components/common/card'
 import EmbedCard from '@/components/common/card/embedCard'
 import useClientTheme from '@/lib/hooks/useClientTheme'
 
-const TimelineCard = ({ id }: { id: string }) => {
+const TimelineCard = ({ id, ...props }: CardCustomizeProps<{ id: string }>) => {
   const { theme } = useClientTheme()
   const TimelineEmbed = dynamic(
     () => import('@/components/twitter').then((mod) => mod.TimelineEmbed),
@@ -15,7 +16,7 @@ const TimelineCard = ({ id }: { id: string }) => {
   )
 
   return (
-    <EmbedCard>
+    <EmbedCard {...props}>
       <TimelineEmbed id={id} theme={theme} />
     </EmbedCard>
   )
