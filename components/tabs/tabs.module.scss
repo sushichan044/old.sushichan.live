@@ -20,17 +20,17 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
+  color: inherit;
+  border-bottom: 1px solid var.$text-color-light;
 
   @include mix.theme("dark") {
     border-bottom: 1px solid var.$text-color-dark;
   }
-
-  color: inherit;
-  border-bottom: 1px solid var.$text-color-light;
 }
 
 .trigger {
   width: 100%;
+  padding: 0.25em;
   color: inherit;
   text-align: center;
 
@@ -44,20 +44,19 @@
     }
   }
 
+  // FIXME: hoverを使うと他のCSSでtransition対象のものを書いてもtransitionする
   @include gen.hover($bg-color: var.$theme-color-light, $bg: true);
 
   @include mix.theme("dark") {
     @include gen.hover($bg-color: var.$theme-color-dark, $bg: true);
   }
+}
 
-  &[aria-selected="true"] {
-    background-color: color.adjust(var.$theme-color-light, $blackness: 10%);
-  }
+.trigger[data-state="active"] {
+  background-color: color.adjust(var.$theme-color-light, $blackness: 10%);
 
   @include mix.theme("dark") {
-    &[aria-selected="true"] {
-      background-color: color.adjust(var.$theme-color-dark, $whiteness: 10%);
-    }
+    background-color: color.adjust(var.$theme-color-dark, $whiteness: 10%);
   }
 }
 
