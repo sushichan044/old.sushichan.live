@@ -1,9 +1,9 @@
 import { notFound } from 'next/navigation'
-import { z } from 'zod'
 
+import { getAboutMDX } from '@/app/(about)/about/mdx'
 import Section from '@/components/section'
 import Tabs from '@/components/tabs'
-import { compileMDX, getMDX } from '@/lib/mdx'
+import { compileMDX } from '@/lib/mdx'
 
 export const metadata = {
   title: 'about',
@@ -11,30 +11,11 @@ export const metadata = {
 }
 
 export default async function Page() {
-  const commonAbout = getMDX({
-    mdx: {
-      sourceDirectory: 'md',
-      fileName: 'about',
-    },
-    schema: z.object({}),
-  })
-  const devAbout = getMDX({
-    mdx: {
-      sourceDirectory: 'md',
-      fileName: 'about-dev',
-    },
-    schema: z.object({}),
-  })
-  const otakuAbout = getMDX({
-    mdx: {
-      sourceDirectory: 'md',
-      fileName: 'about-otaku',
-    },
-    schema: z.object({}),
-  })
+  const { commonAbout, devAbout, otakuAbout } = getAboutMDX()
   if (!commonAbout || !devAbout || !otakuAbout) {
     notFound()
   }
+
   const commonAboutContent = await compileMDX({
     isRaw: false,
     mdxFile: commonAbout.fileMetaData,
