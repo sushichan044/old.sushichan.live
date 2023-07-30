@@ -28,6 +28,8 @@ export const compileMDX = async ({
         rehypePlugins: getRehypePlugins(pluginOptions.rehype),
         remarkRehypeOptions: {
           footnoteLabel: '脚注',
+          footnoteLabelProperties: { className: ['footnote-label'] },
+          footnoteLabelTagName: 'p',
           footnoteBackLabel: '本文へ戻る',
         },
       },
