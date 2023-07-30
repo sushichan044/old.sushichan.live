@@ -1,11 +1,7 @@
 import clsx from 'clsx'
 
 import styles from '@/components/common/card/card.module.scss'
-
-export type CustomizeProps<T extends object> = {
-  className?: string
-  style?: React.CSSProperties
-} & Omit<T, 'className' | 'style'>
+import type { CustomizeProps } from '@/components/types/customize'
 
 type CardProps = {
   className?: string
