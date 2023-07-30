@@ -32,6 +32,11 @@
     "./**/*.{css,scss}": "npm run stylelint:precommit"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-brands-svg-icons": "^6.4.0",
+    "@fortawesome/free-regular-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@next/bundle-analyzer": "^13.4.12",
     "@radix-ui/react-navigation-menu": "^1.1.3",
     "@radix-ui/react-slot": "^1.0.2",

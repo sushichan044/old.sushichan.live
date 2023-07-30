@@ -1,7 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import { FaGithub, FaLink, FaTwitter } from 'react-icons/fa'
-import { FiMail } from 'react-icons/fi'
-import { SiMisskey } from 'react-icons/si'
 
 import ArticleCard from '@/app/blog/components/card/articleCard'
 import SpotifyCard from '@/app/blog/components/card/spotifyCard'
@@ -60,11 +58,7 @@ const customComponents = {
 }
 
 const iconComponents = {
-  FaLink,
-  FaGithub,
-  FaTwitter,
-  FiMail,
-  SiMisskey,
+  FontAwesomeIcon,
 }
 // list of Custom Components used in mdx
 export const MDXComponents = {
