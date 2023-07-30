@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import { z } from 'zod'
 
 import Section from '@/components/section'
+import Tabs from '@/components/tabs'
 import { compileMDX, getMDX } from '@/lib/mdx'
 
 export const metadata = {
@@ -10,17 +11,64 @@ export const metadata = {
 }
 
 export default async function Page() {
-  const mdx = getMDX({
+  const commonAbout = getMDX({
     mdx: {
       sourceDirectory: 'md',
       fileName: 'about',
     },
     schema: z.object({}),
   })
-  if (!mdx) {
+  const devAbout = getMDX({
+    mdx: {
+      sourceDirectory: 'md',
+      fileName: 'about-dev',
+    },
+    schema: z.object({}),
+  })
+  const otakuAbout = getMDX({
+    mdx: {
+      sourceDirectory: 'md',
+      fileName: 'about-otaku',
+    },
+    schema: z.object({}),
+  })
+  if (!commonAbout || !devAbout || !otakuAbout) {
     notFound()
   }
+  const commonAboutContent = await compileMDX({
+    isRaw: false,
+    mdxFile: commonAbout.fileMetaData,
+  })
+  const devContent = await compileMDX({
+    isRaw: false,
+    mdxFile: devAbout.fileMetaData,
+  })
+  const otakuContent = await compileMDX({
+    isRaw: false,
+    mdxFile: otakuAbout.fileMetaData,
+  })
 
-  const content = await compileMDX({ isRaw: false, mdxFile: mdx.fileMetaData })
-  return <Section>{content}</Section>
+  return (
+    <Section>
+      {commonAboutContent}
+      <Tabs
+        items={[
+          {
+            label: {
+              internal: 'dev',
+              external: 'As Developer',
+            },
+            content: devContent,
+          },
+          {
+            label: {
+              internal: 'otaku',
+              external: 'As オタク',
+            },
+            content: otakuContent,
+          },
+        ]}
+      />
+    </Section>
+  )
 }
