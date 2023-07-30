@@ -56,3 +56,9 @@ a {
 
   word-wrap: break-word;
 }
+
+// react-tweetのコンポーネント自身がmarginを持っているので、
+// それを無効化するために、ここでmarginを0にしている。
+.react-tweet-theme {
+  --tweet-container-margin: 0 !important;
+}
