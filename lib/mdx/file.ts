@@ -2,6 +2,7 @@ import fs from 'fs'
 import matter from 'gray-matter'
 import path from 'path'
 
+import { convertToJST } from '@/utils/date'
 import { getFilePathRecursive, getFileTimestampsSync } from '@/utils/fs'
 
 // eslint-disable-next-line no-restricted-imports
@@ -119,7 +120,9 @@ const getFrontMatter = ({
 
 const getFileTimestamps = (mdx: MDXFileMetaData) => {
   const mdxPath = getMDXFilePath(mdx)
-  return getFileTimestampsSync(mdxPath)
+  const timestamps = getFileTimestampsSync(mdxPath)
+  const convertedTimestamps = convertToJST(timestamps)
+  return convertedTimestamps
 }
 
 export const readMDXFile = async (mdx: MDXFileMetaData) => {
