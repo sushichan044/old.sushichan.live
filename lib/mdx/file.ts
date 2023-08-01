@@ -111,18 +111,25 @@ const getFrontMatter = ({
 }) => {
   const mdxPath = getMDXFilePath(fileMetaData)
   const { data } = matter.read(mdxPath)
-  const { created, modified } = getFileTimestamps(fileMetaData)
+  const timestamp = getFileTimestamps(fileMetaData)
+  const rawCreated: Date = data.created ?? timestamp.created
+  const rawModified: Date = data.modified ?? timestamp.modified
+
+  const { created, modified } = convertToJST({
+    created: rawCreated,
+    modified: rawModified,
+  })
+
   data.status = data.status ?? 'public'
-  data.created = data.created ?? created
-  data.updated = data.updated ?? modified
+  data.created = created
+  data.updated = modified
   return data
 }
 
 const getFileTimestamps = (mdx: MDXFileMetaData) => {
   const mdxPath = getMDXFilePath(mdx)
   const timestamps = getFileTimestampsSync(mdxPath)
-  const convertedTimestamps = convertToJST(timestamps)
-  return convertedTimestamps
+  return timestamps
 }
 
 export const readMDXFile = async (mdx: MDXFileMetaData) => {
