@@ -46,6 +46,7 @@
     "clsx": "^2.0.0",
     "date-fns": "^2.30.0",
     "date-fns-tz": "^2.0.0",
+    "framer-motion": "^10.15.0",
     "glob": "^10.3.3",
     "gray-matter": "^4.0.3",
     "monaco-editor": "^0.41.0",
