@@ -19,3 +19,15 @@
   text-decoration: underline;
   text-underline-offset: 0.5em;
 }
+
+.data-footnote-backref * {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.data-footnote-backref::before {
+  margin-inline-end: -1px;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  content: "戻る";
+}
