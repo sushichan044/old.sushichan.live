@@ -6,6 +6,7 @@ import React, { useState } from 'react'
 import { useClipBoard } from '@/lib/hooks/useClipBoard'
 import { useTimeout } from '@/lib/hooks/useTimeout'
 import type { PropsWithAsChild } from '@/utils/@types/propsAsChild'
+import type { PropsWithoutChildren } from '@/utils/@types/propsWithoutChildren'
 
 type CopyToClipboardProps = {
   textToCopy: string
@@ -23,7 +24,7 @@ const CopyToClipboard = ({
   asChild,
   timeoutDuration = 2000,
   ...rest
-}: PropsWithAsChild<CopyToClipboardProps, 'button'>) => {
+}: PropsWithoutChildren<PropsWithAsChild<CopyToClipboardProps, 'button'>>) => {
   const [isCopied, setCopied] = useState(false)
   const { copyText } = useClipBoard()
   const Component = asChild ? Slot : 'button'
