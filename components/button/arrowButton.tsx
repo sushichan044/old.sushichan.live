@@ -17,7 +17,7 @@ export default function ArrowButton({
   showForwardArrow: showForward,
 }: ArrowButtonProps) {
   return (
-    <Button onClick={onClick} style={style}>
+    <Button onClick={onClick} role="button" style={style}>
       <span className={styles.label}>
         {showBack && <MdArrowBackIosNew size="0.8em" />}
         {children}
