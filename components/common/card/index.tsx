@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 
 import styles from '@/components/common/card/card.module.scss'
+import WithCaption from '@/components/common/withCaption'
 import type { CustomizeProps } from '@/components/types/customize'
 
 type CardProps = {
@@ -10,6 +11,7 @@ type CardProps = {
   children: React.ReactNode
   shadow?: boolean
   caption?: string
+  isFigure?: boolean
 }
 
 export type CardCustomizeProps<T extends object> = CustomizeProps<T> & {
@@ -23,20 +25,22 @@ const Card = ({
   style,
   shadow,
   caption,
+  isFigure = false,
 }: CustomizeProps<CardProps>) => {
   return (
-    <div
+    <WithCaption
+      caption={caption}
       className={clsx(
         styles.root,
         className && className,
         rounded && styles.round,
         shadow && styles.shadow,
       )}
+      isFigure={isFigure}
       style={style}
     >
       {children}
-      {caption && <p className={styles.caption}>{caption}</p>}
-    </div>
+    </WithCaption>
   )
 }
 
