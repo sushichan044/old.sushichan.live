@@ -20,7 +20,7 @@ const WithCaption = ({
   return (
     <div className={clsx(s.root, className && className)} {...props}>
       {children}
-      {caption && <CaptionTag>{caption}</CaptionTag>}
+      {caption && <CaptionTag className={s.caption}>{caption}</CaptionTag>}
     </div>
   )
 }
