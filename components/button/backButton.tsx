@@ -7,7 +7,7 @@ export default function BackButton() {
   const router = useRouter()
 
   return (
-    <ArrowButton onClick={() => router.back()} showBackArrow>
+    <ArrowButton onClick={() => router.back()} role="button" showBackArrow>
       <p>ひとつ前のページに戻る</p>
     </ArrowButton>
   )
