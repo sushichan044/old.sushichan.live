@@ -48,7 +48,6 @@ export const Tags = ({ tags }: { tags: string[] }) => {
         )
         return (
           <>
-            {/* <Tag key={tag} tag={tag} /> */}
             <button
               aria-pressed={isSelected}
               className={s.button}
@@ -56,8 +55,13 @@ export const Tags = ({ tags }: { tags: string[] }) => {
               onClick={
                 isSelected
                   ? () =>
-                      router.push((pathname + '?' + removeTag(tag)) as Route)
-                  : () => router.push((pathname + '?' + addTag(tag)) as Route)
+                      router.push((pathname + '?' + removeTag(tag)) as Route, {
+                        scroll: false,
+                      })
+                  : () =>
+                      router.push((pathname + '?' + addTag(tag)) as Route, {
+                        scroll: false,
+                      })
               }
             >
               {`#${tag}`}
