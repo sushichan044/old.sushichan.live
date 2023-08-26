@@ -1,8 +1,7 @@
-import RecentPosts from '@/app/blog/components/recentPosts'
-import Tag from '@/app/blog/components/tag'
+import Posts from '@/app/blog/components/posts'
+import Tags from '@/app/blog/components/tags'
 import { getAllBlogMDX, getAllBlogTags } from '@/app/blog/lib/mdx'
 import styles from '@/app/blog/page.module.scss'
-import Link from '@/components/common/link'
 import Section from '@/components/section'
 
 export default async function Page() {
@@ -15,20 +14,9 @@ export default async function Page() {
         <h1>雑記</h1>
         <p>文字を書きます。内容はいろいろ</p>
         <div className={styles.tags}>
-          {tags?.map((tag) => (
-            <Link
-              href={`/blog/tag/${tag}`}
-              key={tag}
-              options={{ textDecoration: 'none' }}
-            >
-              <Tag key={tag} tag={tag} />
-            </Link>
-          ))}
+          <Tags tags={tags} />
         </div>
-      </Section>
-      <Section>
-        <h2>最近書いた記事</h2>
-        <RecentPosts mdx={allMDX} />
+        <Posts mdx={allMDX} />
       </Section>
     </>
   )

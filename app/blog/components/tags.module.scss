@@ -1,0 +1,30 @@
+@use "/styles/mixins" as mix;
+@use "/styles/variables" as var;
+
+.tags {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1rem;
+}
+
+.button {
+  padding-inline: 0.5em;
+  color: var.$text-color-light;
+  background-color: var.$theme-color-light-darker;
+  border-radius: 0.5em;
+  transition: background-color 0.2s ease-in-out;
+
+  @include mix.theme("dark") {
+    color: var.$text-color-dark;
+    background-color: var.$theme-color-dark-lighter;
+  }
+}
+
+.button[aria-pressed="true"] {
+  background-color: #26a3ac;
+  transition: background-color 0.2s ease-in-out;
+
+  @include mix.theme("dark") {
+    background-color: #2b6079;
+  }
+}
