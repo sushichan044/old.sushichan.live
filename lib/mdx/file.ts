@@ -113,7 +113,7 @@ const getFrontMatter = ({
   const { data } = matter.read(mdxPath)
   const timestamp = getFileTimestamps(fileMetaData)
   const rawCreated: Date = data.created ?? timestamp.created
-  const rawModified: Date = data.modified ?? timestamp.modified
+  const rawModified: Date = data.modified
 
   const { created, modified } = convertToJST({
     created: rawCreated,
@@ -122,7 +122,7 @@ const getFrontMatter = ({
 
   data.status = data.status ?? 'public'
   data.created = created
-  data.updated = modified
+  modified && (data.modified = modified)
   return data
 }
 
