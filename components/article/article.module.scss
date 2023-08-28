@@ -1,0 +1,13 @@
+@use "/styles/variables" as var;
+
+.root {
+  margin-inline: auto;
+
+  > *:not(:last-child, h1, h2, h3, h4, h5, h6) {
+    margin-block: var.$content-margin;
+  }
+
+  > span {
+    display: block;
+  }
+}
