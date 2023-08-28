@@ -67,6 +67,10 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
+  if (process.env.ANALYZE === 'true') {
+    return []
+  }
+
   const allMDX = getAllBlogMDX()
   return allMDX.map(({ fileMetaData: { fileName } }) => {
     return { slug: fileName.split('/') }
