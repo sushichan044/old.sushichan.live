@@ -6,49 +6,49 @@ import type { CardCustomizeProps } from '@/components/common/card'
 import EmbedCard from '@/components/common/card/embedCard'
 
 const YouTubeCard = ({
-  id,
-  type,
+  url,
   ...props
 }: CardCustomizeProps<{
-  id: string
-  type: 'video' | 'playlist'
+  url: string
 }>) => {
-  //@ts-expect-error dynamic import
-  const YouTube = dynamic(() => import('react-youtube'), {
+  const YouTubeLazy = dynamic(() => import('react-player/lazy'), {
     ssr: false,
   })
 
-  const youtubeProps = ((type: 'video' | 'playlist') => {
-    if (type === 'video') {
-      return {
-        opts: {
-          autoplay: 0,
-          cc_lang_pref: 'ja',
-        },
-        videoId: id,
-      }
+  const youtubeProps = (() => {
+    const videoRegex = /https:\/\/www\.youtube\.com\/watch\?.*v=(?<id>[^&]+)/
+    const playlistRegex =
+      /https:\/\/www\.youtube\.com\/playlist\?.*list=(?<id>[^&]+)/
+
+    const baseConfig = {
+      embedOptions: {
+        autoplay: 0,
+        cc_lang_pref: 'ja',
+      },
     }
 
-    if (type === 'playlist') {
-      return {
-        opts: {
-          autoplay: 0,
-          cc_lang_pref: 'ja',
-          playerVars: { listType: 'playlist', list: id },
-        },
-      }
+    if (videoRegex.test(url)) {
+      return baseConfig
     }
 
-    return
-  })(type)
+    if (playlistRegex.test(url)) {
+      const { groups } = playlistRegex.exec(url) ?? {}
+
+      return {
+        ...baseConfig,
+        playerVars: { listType: 'playlist', list: groups?.id },
+      }
+    }
+  })()
 
   return (
     <EmbedCard shadow {...props}>
-      <YouTube
+      <YouTubeLazy
         className={styles.container}
-        iframeClassName={styles.iframe}
-        loading="lazy"
-        {...youtubeProps}
+        config={{ youtube: { ...youtubeProps } }}
+        height="100%"
+        url={url}
+        width="100%"
       />
     </EmbedCard>
   )

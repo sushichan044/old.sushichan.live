@@ -1,10 +1,12 @@
-.iframe {
-  width: 100%;
-  height: auto;
+.container {
   aspect-ratio: 16/9;
   border-radius: 0.5rem;
-}
 
-.container {
-  border-radius: 0.5rem;
+  > * {
+    border-radius: 0.5rem;
+  }
+
+  iframe {
+    border-radius: 0.5rem;
+  }
 }
