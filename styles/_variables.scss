@@ -18,3 +18,7 @@ $header-height: 80px;
 $footer-height: 80px;
 $layout-padding: 2.5rem;
 $layout-padding-sp: 1rem;
+
+// font
+$line-height: 1.8;
+$icon-top: calc((#{$line-height}em - 1em) / 4);

@@ -1,6 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import clsx from 'clsx'
 import React from 'react'
-import { RiErrorWarningLine } from 'react-icons/ri'
 
 import WithBudoux from '@/components/common/budoux'
 import styles from '@/components/common/message/message.module.scss'
@@ -17,10 +17,21 @@ const Message = ({ type, children }: MessageProps) => {
     type = 'info'
   }
 
+  const getIconName = () => {
+    switch (type) {
+      case 'warn':
+        return 'exclamation-triangle'
+      case 'alert':
+        return 'exclamation-circle'
+      default:
+        return 'info-circle'
+    }
+  }
+
   return (
     <div className={clsx(styles.card, styles[`card__${type}`])}>
       <div className={styles.icon}>
-        <RiErrorWarningLine color="inherit" size="1.75em" />
+        <FontAwesomeIcon icon={['fas', getIconName()]} size="lg" />
       </div>
       <div>
         <WithBudoux>{children}</WithBudoux>

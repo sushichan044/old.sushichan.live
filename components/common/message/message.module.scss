@@ -1,18 +1,11 @@
 @use "/styles/variables" as var;
 @use "/styles/mixins" as mix;
 
-.icon {
-  display: flex;
-  align-items: center;
-  width: auto;
-  height: 100%;
-}
-
 .card {
   display: flex;
   flex-flow: row nowrap;
-  gap: 0.5em;
-  align-items: flex-start;
+  gap: 1em;
+  align-items: first baseline;
   width: 100%;
   padding: var.$content-margin;
   margin-inline: auto;
@@ -25,7 +18,7 @@
     background-color: #fdecbf;
 
     @include mix.theme("dark") {
-      background-color: #6a4b16;
+      background-color: #946b23;
     }
   }
 
@@ -33,15 +26,24 @@
     background-color: #fdd8df;
 
     @include mix.theme("dark") {
-      background-color: #630001;
+      background-color: #ad3638;
     }
   }
 
   &__info {
-    background-color: #e3b5f9;
+    background-color: #77cbec;
 
     @include mix.theme("dark") {
-      background-color: #3b2e58;
+      background-color: #377a8f;
     }
   }
+}
+
+.icon {
+  position: relative;
+  top: var.$icon-top;
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: 100%;
 }
