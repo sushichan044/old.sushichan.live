@@ -64,4 +64,5 @@
     "markdown",
     "mdx"
   ],
+  "conventionalCommits.scopes": ["page", "config"]
 }
