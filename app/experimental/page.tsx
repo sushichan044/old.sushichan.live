@@ -1,3 +1,4 @@
+import UrlEmbed from '@/components/embed/url'
 import Tabs from '@/components/tabs'
 
 export default async function Page() {
@@ -21,6 +22,7 @@ export default async function Page() {
           },
         ]}
       />
+      <UrlEmbed url="https://zenn.dev/www_y/articles/ac46bdf3233193" />
     </>
   )
 }
