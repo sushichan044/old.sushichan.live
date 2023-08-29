@@ -2,11 +2,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 
 import ArticleCard from '@/app/blog/components/card/articleCard'
+import PlayerCard from '@/app/blog/components/card/playerCard'
 import SpotifyCard from '@/app/blog/components/card/spotifyCard'
 import TextCard from '@/app/blog/components/card/textCard'
 import TimelineCard from '@/app/blog/components/card/timelineCard'
 import TweetCard from '@/app/blog/components/card/tweetCard'
-import YouTubeCard from '@/app/blog/components/card/youTubeCard'
 import WithBudoux from '@/components/common/budoux'
 import Message from '@/components/common/message'
 import ResponsiveIframe from '@/components/common/responsiveIframe'
@@ -51,7 +51,7 @@ const customComponents = {
   TweetCard,
   TimelineCard,
   SpotifyCard,
-  YouTubeCard,
+  PlayerCard,
   WithBudoux,
   ResponsiveIframe,
   Spoiler,
