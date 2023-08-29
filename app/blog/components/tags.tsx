@@ -47,7 +47,7 @@ export const Tags = ({ tags }: { tags: string[] }) => {
           (selectedTag) => selectedTag === tag,
         )
         return (
-          <>
+          <span key={`fragment-${tag}`}>
             <button
               aria-pressed={isSelected}
               className={s.button}
@@ -66,7 +66,7 @@ export const Tags = ({ tags }: { tags: string[] }) => {
             >
               {`#${tag}`}
             </button>
-          </>
+          </span>
         )
       })}
     </div>
