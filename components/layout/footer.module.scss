@@ -8,9 +8,10 @@
 }
 
 .header-inside {
-  @include gen.set-layout;
-
   display: flex;
+  gap: 1rem;
   align-items: center;
   justify-content: space-between;
+
+  @include gen.set-layout;
 }
