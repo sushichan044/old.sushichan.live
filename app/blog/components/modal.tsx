@@ -1,8 +1,9 @@
 'use client'
 
+import { faXmark } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useRouter } from 'next/navigation'
 import { MouseEvent, useCallback, useEffect, useRef } from 'react'
-import { MdClose } from 'react-icons/md'
 
 import styles from '@/app/blog/components/modal.module.scss'
 
@@ -45,7 +46,7 @@ export default function Modal({ children }: ModalProps) {
     <div className={styles.root} onClick={onClick} ref={modalRef}>
       <div className={styles.wrapper} ref={wrapperRef}>
         <button className={styles.button} onClick={onDismiss}>
-          <MdClose color="#fff" size="1.5rem" />
+          <FontAwesomeIcon color="#fff" icon={faXmark} size="lg" />
         </button>
         {children}
       </div>

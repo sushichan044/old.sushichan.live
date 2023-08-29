@@ -1,6 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
-import { MdOutlineUpdate } from 'react-icons/md'
-import { TbPencil } from 'react-icons/tb'
 
 import styles from '@/app/blog/components/front-matter.module.scss'
 import Tag from '@/app/blog/components/tag'
@@ -38,12 +37,12 @@ const FrontMatterCard = ({
         </span>
         <div className={styles['date-container']}>
           <span className={styles.date}>
-            <TbPencil size="1.5em" />
+            <FontAwesomeIcon icon={['fas', 'pen']} size="1x" />
             <p>{getFormattedDate(created, { format: 'yyyy/MM/dd' })}</p>
           </span>
           {updated && (
             <span className={styles.date}>
-              <MdOutlineUpdate size="1.5em" />
+              <FontAwesomeIcon icon={['fas', 'arrow-rotate-right']} size="1x" />
               <p>{getFormattedDate(updated, { format: 'yyyy/MM/dd' })}</p>
             </span>
           )}

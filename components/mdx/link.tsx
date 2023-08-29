@@ -1,6 +1,5 @@
 import WithBudoux from '@/components/common/budoux'
 import Link from '@/components/common/link'
-// import { TbArrowUpRight } from 'react-icons/tb'
 type Props = React.ComponentProps<'a'> & {
   children: React.ReactNode
 }

@@ -1,5 +1,6 @@
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import { MdArrowBackIosNew, MdArrowForwardIos } from 'react-icons/md'
 
 import styles from '@/components/button/arrow-button.module.scss'
 import Button, { ButtonProps } from '@/components/common/button'
@@ -19,9 +20,9 @@ export default function ArrowButton({
   return (
     <Button onClick={onClick} role="button" style={style}>
       <span className={styles.label}>
-        {showBack && <MdArrowBackIosNew size="0.8em" />}
+        {showBack && <FontAwesomeIcon icon={faAngleLeft} size="1x" />}
         {children}
-        {showForward && <MdArrowForwardIos size="0.8em" />}
+        {showForward && <FontAwesomeIcon icon={faAngleRight} size="1x" />}
       </span>
     </Button>
   )

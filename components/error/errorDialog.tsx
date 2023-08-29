@@ -1,5 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import { GiSushis } from 'react-icons/gi'
 
 import BackButton from '@/components/button/backButton'
 import styles from '@/components/error/error-dialog.module.scss'
@@ -7,7 +7,11 @@ import styles from '@/components/error/error-dialog.module.scss'
 const ErrorDialog = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <GiSushis className={styles.logo} />
+      <FontAwesomeIcon
+        className={styles.logo}
+        icon={['fas', 'question']}
+        size="4x"
+      />
       <p>{children}</p>
       <BackButton />
     </>

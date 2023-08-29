@@ -64,7 +64,7 @@ Spotifyでログインする設定も、Spotify側の開発ダッシュボード
 
 ```tsx
 import { SignInButton } from '@clerk/nextjs'
-import { FaSpotify } from 'react-icons/fa6'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import Button from '@/components/common/button'
 
@@ -73,7 +73,7 @@ const SpotifySigninButton = () => {
     <SignInButton mode="modal">
       <Button className="flex flex-row gap-x-2">
         <span className="flex items-center justify-center h-full">
-          <FaSpotify />
+          <FontAwesomeIcon icon="fa-brands fa-spotify" />
         </span>
         Sign in with Spotify
       </Button>

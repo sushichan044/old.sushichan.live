@@ -19,7 +19,7 @@ status: private
 ```tsx title="error.tsx"
 'use client'
 
-import { GiSushis } from 'react-icons/gi'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import styles from '@/app/not-found.module.scss'
 import BackButton from '@/components/button/backButton'
@@ -30,7 +30,11 @@ export default function Page() {
   return (
     <FullHeightMainContainer>
       <FullScreenSection>
-        <GiSushis className={styles.logo} />
+        <FontAwesomeIcon
+          className={styles.logo}
+          icon={['fas', 'question']}
+          size="4x"
+        />
         <p>500 Server Error</p>
         <BackButton />
       </FullScreenSection>
