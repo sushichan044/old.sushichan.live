@@ -18,6 +18,7 @@ const SpotifyCard = ({
       <Spotify
         className={clsx(shape === 'wide' ? styles.wide : styles.square)}
         link={url}
+        loading="lazy"
       />
     </EmbedCard>
   )
