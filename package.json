@@ -44,6 +44,7 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-tabs": "^1.0.4",
     "budoux": "^0.5.2",
+    "bufferutil": "^4.0.7",
     "client-only": "^0.0.1",
     "clsx": "^2.0.0",
     "date-fns": "^2.30.0",
@@ -77,6 +78,7 @@
     "shiki": "^0.14.3",
     "string-width": "^6.1.0",
     "unist-util-visit": "^4.1.2",
+    "utf-8-validate": "^6.0.3",
     "zod": "^3.22.2"
   },
   "devDependencies": {
