@@ -23,7 +23,7 @@ const TwitterScript = () => {
 }(document, "script", "twitter-wjs"));`,
       }}
       id="twitter-wjs"
-      strategy="beforeInteractive"
+      strategy="afterInteractive"
     />
   )
 }
