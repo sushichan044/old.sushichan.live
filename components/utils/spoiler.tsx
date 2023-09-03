@@ -31,6 +31,7 @@ const Spoiler = ({ children }: { children: React.ReactNode }) => {
       ref={wrapperRef}
       role="button"
       tabIndex={0}
+      title="クリックして表示/非表示を切り替え"
     >
       <span aria-hidden id={contentId} ref={contentRef}>
         {children}

@@ -5,7 +5,8 @@ $spoiler-color-light: #8a8a9f;
 $spoiler-color-dark: #4d4d5d;
 
 .root {
-  display: inline;
+  display: inline-block;
+  width: fit-content;
   padding-inline: 0.25em;
   margin-inline: 0.25em;
   background-color: $spoiler-color-light;
