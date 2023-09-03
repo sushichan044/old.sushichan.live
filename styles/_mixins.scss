@@ -17,3 +17,8 @@ $breakpoints: (
     @content;
   }
 }
+
+// calculate alpha 75% color
+@function alpha($color, $alpha: 0.75) {
+  @return rgba($color, $alpha);
+}
