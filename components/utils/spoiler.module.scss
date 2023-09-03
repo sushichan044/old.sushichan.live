@@ -19,8 +19,8 @@ $spoiler-color-dark: #4d4d5d;
 }
 
 .root[aria-expanded="false"] {
-  // color: transparent;
-  // transition: color 0.2s ease-in-out;
+  color: transparent;
+  transition: color 0.1s ease-in-out;
 
   .content * {
     visibility: hidden;
@@ -29,14 +29,14 @@ $spoiler-color-dark: #4d4d5d;
 }
 
 .root[aria-expanded="true"] {
-  // color: var.$text-color-light;
-  // transition: color 0.2s ease-in-out;
+  color: var.$text-color-light;
 
-  // @include mix.theme("dark") {
-  //   color: var.$text-color-dark;
-  // }
+  @include mix.theme("dark") {
+    color: var.$text-color-dark;
+  }
 
   cursor: auto;
+  transition: color 0.1s ease-in-out;
 
   .content * {
     visibility: visible;
