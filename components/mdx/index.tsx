@@ -13,6 +13,7 @@ import ResponsiveIframe from '@/components/common/responsiveIframe'
 import MDXHeading from '@/components/mdx/heading'
 import MDXImage from '@/components/mdx/image'
 import MDXLink from '@/components/mdx/link'
+import Accordion from '@/components/utils/accordion'
 import Spoiler from '@/components/utils/spoiler'
 
 const replaceComponents = {
@@ -55,6 +56,7 @@ const customComponents = {
   WithBudoux,
   ResponsiveIframe,
   Spoiler,
+  Accordion,
 }
 
 const iconComponents = {
