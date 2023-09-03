@@ -31,10 +31,6 @@ const nextConfig = {
     serverActions: true,
     typedRoutes: true,
   },
-  webpack: (config) => {
-    config.externals = [...config.externals, 'canvas', 'jsdom']
-    return config
-  },
 }
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
