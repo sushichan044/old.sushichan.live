@@ -44,6 +44,10 @@ $spoiler-color-dark: #4d4d5d;
   }
 }
 
+.content {
+  @include mix.content-margin;
+}
+
 @keyframes fade-in {
   0% {
     visibility: hidden;

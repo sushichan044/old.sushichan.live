@@ -1,13 +1,8 @@
 @use "/styles/variables" as var;
+@use "/styles/mixins" as mix;
 
 .root {
   margin-inline: auto;
 
-  > *:not(:last-child, h1, h2, h3, h4, h5, h6) {
-    margin-block: var.$content-margin;
-  }
-
-  > span {
-    display: block;
-  }
+  @include mix.content-margin;
 }

@@ -1,3 +1,5 @@
+@use "/styles/variables" as var;
+
 $breakpoints: (
   "sm": 576px,
   "md": 768px,
@@ -18,7 +20,17 @@ $breakpoints: (
   }
 }
 
-// calculate alpha 75% color
+@mixin content-margin {
+  > *:not(:last-child, h1, h2, h3, h4, h5, h6) {
+    margin-block: var.$content-margin;
+  }
+
+  > span {
+    display: block;
+  }
+}
+
+// calculate alpha color
 @function alpha($color, $alpha: 0.75) {
   @return rgba($color, $alpha);
 }
