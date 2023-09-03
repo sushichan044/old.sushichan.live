@@ -33,7 +33,12 @@ const Spoiler = ({ children }: { children: React.ReactNode }) => {
       tabIndex={0}
       title="クリックして表示/非表示を切り替え"
     >
-      <span aria-hidden id={contentId} ref={contentRef}>
+      <span
+        aria-hidden
+        className={styles.content}
+        id={contentId}
+        ref={contentRef}
+      >
         {children}
       </span>
     </span>
