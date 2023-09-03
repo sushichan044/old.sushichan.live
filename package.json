@@ -46,7 +46,6 @@
     "@radix-ui/react-tabs": "^1.0.4",
     "budoux": "^0.5.2",
     "bufferutil": "^4.0.7",
-    "canvas": "^2.11.2",
     "client-only": "^0.0.1",
     "clsx": "^2.0.0",
     "date-fns": "^2.30.0",
