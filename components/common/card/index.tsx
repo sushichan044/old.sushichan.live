@@ -28,19 +28,19 @@ const Card = ({
   isFigure = false,
 }: CustomizeProps<CardProps>) => {
   return (
-    <WithCaption
-      caption={caption}
+    <div
       className={clsx(
         styles.root,
         className && className,
         rounded && styles.round,
         shadow && styles.shadow,
       )}
-      isFigure={isFigure}
       style={style}
     >
-      {children}
-    </WithCaption>
+      <WithCaption caption={caption} isFigure={isFigure}>
+        {children}
+      </WithCaption>
+    </div>
   )
 }
 
