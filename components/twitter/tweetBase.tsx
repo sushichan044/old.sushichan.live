@@ -1,3 +1,5 @@
+'use client'
+
 import { Tweet } from 'react-tweet'
 
 import { TweetComponents } from '@/components/twitter/tweet-components'
