@@ -7,7 +7,7 @@ import type { BlogFrontMatter } from '@/app/blog/lib/mdx'
 import WithBudoux from '@/components/common/budoux'
 import Link from '@/components/common/link'
 import type { MDX } from '@/lib/mdx'
-import { getFormattedDate } from '@/utils/date'
+import { formatDateInJST } from '@/utils/date'
 
 const FrontMatterCard = ({
   frontMatter: { title, created, updated, description, thumbnail, tags },
@@ -38,12 +38,12 @@ const FrontMatterCard = ({
         <div className={styles['date-container']}>
           <span className={styles.date}>
             <FontAwesomeIcon icon={['fas', 'pen']} size="1x" />
-            <p>{getFormattedDate(created, { format: 'yyyy/MM/dd' })}</p>
+            <p>{formatDateInJST(created, { format: 'yyyy/MM/dd' })}</p>
           </span>
           {updated && (
             <span className={styles.date}>
               <FontAwesomeIcon icon={['fas', 'arrow-rotate-right']} size="1x" />
-              <p>{getFormattedDate(updated, { format: 'yyyy/MM/dd' })}</p>
+              <p>{formatDateInJST(updated, { format: 'yyyy/MM/dd' })}</p>
             </span>
           )}
         </div>

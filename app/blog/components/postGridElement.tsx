@@ -5,7 +5,7 @@ import type { BlogFrontMatter } from '@/app/blog/lib/mdx'
 import WithBudoux from '@/components/common/budoux'
 import Link from '@/components/common/link'
 import type { MDX } from '@/lib/mdx'
-import { getFormattedDate } from '@/utils/date'
+import { formatDateInJST } from '@/utils/date'
 
 const PostGridElement = ({
   fileMetaData: file,
@@ -29,7 +29,7 @@ const PostGridElement = ({
             />
           )}
         </div>
-        <span>{getFormattedDate(date, { format: 'yyyy/MM/dd' })}</span>
+        <span>{formatDateInJST(date, { format: 'yyyy/MM/dd' })}</span>
         <span className={styles.title}>
           <WithBudoux>{title}</WithBudoux>
         </span>

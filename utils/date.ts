@@ -1,20 +1,19 @@
 import { format } from 'date-fns'
-import { utcToZonedTime } from 'date-fns-tz'
+import { formatInTimeZone, utcToZonedTime } from 'date-fns-tz'
 
-const getFormattedDate = (date: Date, options: { format: string }) => {
+const formatDate = (date: Date, options: { format: string }) => {
   return format(date, options.format, {})
 }
 
-const convertToJST = <T extends Record<string, Date>>(rec: T): T => {
+const formatDateInJST = (date: Date, options: { format: string }) => {
   const JST = 'Asia/Tokyo'
-  const converted = Object.entries(rec).reduce((acc, [key, value]) => {
-    const convertedDate = utcToZonedTime(value, JST)
-    return {
-      ...acc,
-      [key]: convertedDate,
-    }
-  }, {} as T)
-  return converted
+  return formatInTimeZone(date, JST, options.format, {})
 }
 
-export { convertToJST, getFormattedDate }
+const convertToJST = (rec: Date): Date => {
+  const JST = 'Asia/Tokyo'
+  const convertedDate = utcToZonedTime(rec, JST)
+  return convertedDate
+}
+
+export { convertToJST, formatDate, formatDateInJST }
