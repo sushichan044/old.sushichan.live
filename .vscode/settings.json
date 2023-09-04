@@ -65,5 +65,6 @@
     "markdown",
     "mdx"
   ],
-  "conventionalCommits.scopes": ["page", "config"]
+  "conventionalCommits.scopes": ["page", "config"],
+  "textlint.languages": ["markdown", "mdx"]
 }

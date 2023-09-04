@@ -227,7 +227,7 @@ kube-system   kube-proxy-wjgs6                      1/1     Running   0         
 kube-system   kube-scheduler-ubuntu-k8s1            1/1     Running   2          11m
 ```
 
-Crash LoopとかPendingとかErrorとか出てなければとりあえず大丈夫
+Crash LoopやPending、Errorなどが出てなければとりあえず大丈夫
 **ヨシ！！！**
 
 ## リモートアクセスしよう
