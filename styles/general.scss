@@ -59,18 +59,26 @@
       @include mix.theme("dark") {
         background-color: $bg-color-dark;
       }
+    } @else {
+      background-color: inherit;
     }
 
     @if $color {
       color: var.$hover-color;
+    } @else {
+      color: inherit;
     }
 
     @if $shadow {
       box-shadow: $box-shadow;
+    } @else {
+      box-shadow: none;
     }
 
     @if $transform {
       transform: translateY(-0.125em);
+    } @else {
+      transform: none;
     }
   }
 }
