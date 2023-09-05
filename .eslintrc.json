@@ -13,7 +13,7 @@
     "prettier"
   ],
   "ignorePatterns": [
-    "next.config.mjs",
+    "next.config.js",
     "postcss.config.js",
     "tailwind.config.ts"
   ],

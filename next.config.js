@@ -1,10 +1,5 @@
-import { fileURLToPath } from 'node:url'
-import path from 'node:path'
-
-import NextBundleAnalyzer from '@next/bundle-analyzer'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+const path = require('path')
+const webpack = require('webpack')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -31,17 +26,28 @@ const nextConfig = {
     ],
   },
   sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')],
+    includePaths: [path.join(__dirname, 'src', 'styles')],
   },
   experimental: {
     serverActions: true,
     typedRoutes: true,
     serverComponentsExternalPackages: ['fetch-site-metadata'],
   },
+  webpack: (config) => {
+    config.plugins = [
+      ...config.plugins,
+      // https://github.com/jsdom/jsdom/issues/3042
+      new webpack.IgnorePlugin({
+        resourceRegExp: /canvas/,
+        contextRegExp: /jsdom$/,
+      }),
+    ]
+    return config
+  },
 }
 
-const withBundleAnalyzer = NextBundleAnalyzer({
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
 
-export default withBundleAnalyzer(nextConfig)
+module.exports = withBundleAnalyzer(nextConfig)
