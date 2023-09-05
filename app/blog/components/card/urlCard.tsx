@@ -1,6 +1,7 @@
 import { Route } from 'next'
 
 import s from '@/app/blog/components/card/url-card.module.scss'
+import { CardCustomizeProps } from '@/components/common/card'
 import EmbedCard from '@/components/common/card/embedCard'
 import Link from '@/components/common/link'
 import { RawImg, RawImgWithoutSize } from '@/components/image/rawImg'
@@ -12,7 +13,10 @@ type Props = {
   url: string | URL
 }
 
-const UrlCard = async ({ url: rawUrl }: Props) => {
+const UrlCard = async ({
+  url: rawUrl,
+  ...props
+}: CardCustomizeProps<Props>) => {
   const url = new URL(rawUrl)
   const { image, ...metaData } = await fetchMetaData(url.toString())
 
@@ -22,7 +26,7 @@ const UrlCard = async ({ url: rawUrl }: Props) => {
       : undefined
 
   return (
-    <EmbedCard shadow>
+    <EmbedCard shadow {...props}>
       <Link
         className={s.link}
         href={url.toString() as Route}
