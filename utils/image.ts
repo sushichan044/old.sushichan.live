@@ -1,7 +1,7 @@
 const adjustAspectRatio = (width: number, height: number) => {
   // use 1200 / 630 or 1 / 1
   const ratio = width / height
-  if (ratio > 1.5) {
+  if (ratio > 1.8) {
     return '1200/630'
   }
   if (ratio > 1.5) {
