@@ -19,8 +19,8 @@ const CloudinaryImage = ({
 }) => {
   const maxWidth = 960
   if (width > maxWidth) {
-    width = maxWidth
     height *= maxWidth / width
+    width = maxWidth
   }
   const blurDataURL = cloudinaryLoaderBlur({
     src,
@@ -35,6 +35,7 @@ const CloudinaryImage = ({
       height={height}
       loader={cloudinaryLoader}
       placeholder="blur"
+      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       src={src}
       width={width}
       {...props}
