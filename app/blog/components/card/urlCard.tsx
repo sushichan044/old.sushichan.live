@@ -1,3 +1,5 @@
+import clsx from 'clsx'
+import type { Metadata } from 'fetch-site-metadata'
 import { Route } from 'next'
 
 import s from '@/app/blog/components/card/url-card.module.scss'
@@ -5,12 +7,33 @@ import { CardCustomizeProps } from '@/components/common/card'
 import EmbedCard from '@/components/common/card/embedCard'
 import Link from '@/components/common/link'
 import { RawImg, RawImgWithoutSize } from '@/components/image/rawImg'
-import AspectRatio from '@/components/utils/aspectRatio'
 import fetchMetaData from '@/lib/fetchMetaData'
 import { adjustAspectRatio } from '@/utils/image'
 
 type Props = {
   url: string | URL
+}
+type ImageSet = {
+  src: string
+  alt: string
+}
+
+const getImage = ({ image, icon, title }: Metadata): ImageSet | undefined => {
+  if (image) {
+    return {
+      src: image.src,
+      alt: image.alt ?? `ogp image of ${title}`,
+    }
+  }
+
+  if (icon) {
+    return {
+      src: icon,
+      alt: `icon of ${title}`,
+    }
+  }
+
+  return undefined
 }
 
 const UrlCard = async ({
@@ -18,11 +41,15 @@ const UrlCard = async ({
   ...props
 }: CardCustomizeProps<Props>) => {
   const url = new URL(rawUrl)
-  const { image, ...metaData } = await fetchMetaData(url.toString())
+  const metaData = await fetchMetaData(url.toString())
 
+  const imageSet = getImage(metaData)
   const aspectRatio =
-    image?.width && image?.height
-      ? adjustAspectRatio(parseInt(image.width), parseInt(image.height))
+    metaData?.image?.width && metaData?.image?.height
+      ? adjustAspectRatio(
+          parseInt(metaData.image.width),
+          parseInt(metaData.image.height),
+        )
       : undefined
 
   return (
@@ -33,21 +60,20 @@ const UrlCard = async ({
         options={{ textDecoration: 'none' }}
       >
         <div className={s.root}>
-          {image && image.src && (
+          {imageSet && (
             <div className={s.image}>
-              <AspectRatio
-                aspectRatio={{
-                  default: '1 / 1',
-                  matchQuery: aspectRatio,
-                }}
-                query="(min-width: 768px)"
-              >
-                <RawImgWithoutSize alt={image.alt} src={image.src} />
-              </AspectRatio>
+              <RawImgWithoutSize
+                alt={imageSet.alt ?? ''}
+                className={clsx('aspect-square', {
+                  [`md:aspect-${aspectRatio}`]: aspectRatio !== undefined,
+                })}
+                src={imageSet.src}
+              />
             </div>
           )}
           <div className={s.text}>
             <span className={s.title}>{metaData.title}</span>
+            <span className={s.description}>{metaData.description}</span>
             <div className={s.host}>
               {metaData.icon && (
                 <RawImg
