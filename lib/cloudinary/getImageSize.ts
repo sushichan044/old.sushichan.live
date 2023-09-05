@@ -7,11 +7,13 @@ const getCloudinaryImageSize = async (
     const res = await fetch(cloudinaryMetadataLoader(url))
     const isJson = res.headers.get('content-type')?.includes('application/json')
     const data = isJson ? await res.json() : await res.text()
-    if (res.ok) {
+    if (res.ok && isJson) {
       return {
         width: data?.input?.width,
         height: data?.input?.height,
       }
+    } else {
+      console.error(data)
     }
   } catch (e) {
     console.error(e)
