@@ -65,7 +65,11 @@ const UrlCard = async ({
               <RawImgWithoutSize
                 alt={imageSet.alt ?? ''}
                 className={clsx('aspect-square', {
-                  [`md:aspect-${aspectRatio}`]: aspectRatio !== undefined,
+                  [`md:aspect-1200/630`]: aspectRatio === '1200/630',
+                  [`md:aspect-16/9`]: aspectRatio === '16/9',
+                  [`md:aspect-4/3`]: aspectRatio === '4/3',
+                  [`md:aspect-3/2`]: aspectRatio === '3/2',
+                  [`md:aspect-1/1`]: aspectRatio === '1/1',
                 })}
                 src={imageSet.src}
               />
