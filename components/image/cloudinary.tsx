@@ -35,7 +35,7 @@ const CloudinaryImage = ({
       height={height}
       loader={cloudinaryLoader}
       placeholder="blur"
-      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+      sizes="(max-width: 768px) 100vw, 50vw"
       src={src}
       width={width}
       {...props}
