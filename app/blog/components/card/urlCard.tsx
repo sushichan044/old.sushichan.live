@@ -58,6 +58,7 @@ const UrlCard = async ({
         className={s.link}
         href={url.toString() as Route}
         options={{ textDecoration: 'none' }}
+        target="_blank"
       >
         <div className={s.root}>
           {imageSet && (
