@@ -1,0 +1,75 @@
+@use "@/styles/variables" as var;
+@use "@/styles/mixins" as mix;
+@use "@/styles/general" as gen;
+
+.root {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 120px;
+  border: 1px solid var.$text-color-light;
+  border-radius: 0.5rem;
+
+  @include mix.theme("dark") {
+    border-color: var.$text-color-dark;
+  }
+}
+
+.image {
+  flex-shrink: 0;
+  overflow: hidden;
+  border-inline-end: 1px solid var.$text-color-light;
+  border-start-start-radius: calc(0.5rem - 1px);
+  border-end-start-radius: calc(0.5rem - 1px);
+
+  @include mix.theme("dark") {
+    border-color: var.$text-color-dark;
+  }
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1/1;
+
+  @include mix.mq("md") {
+    aspect-ratio: 1200 / 630;
+  }
+
+  object-fit: cover;
+}
+
+.text {
+  position: relative;
+  padding: 0.5rem;
+}
+
+.title {
+  font-size: 1rem;
+}
+
+.host {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-start: 0.5rem;
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 0.25rem;
+  place-items: center;
+}
+
+.link:hover,
+.link:focus {
+  @include gen.hover(
+    $bg-color: var.$theme-color-light,
+    $bg: true,
+    $color: false
+  );
+
+  @include mix.theme("dark") {
+    @include gen.hover(
+      $bg-color: var.$theme-color-dark,
+      $bg: true,
+      $color: false
+    );
+  }
+}
