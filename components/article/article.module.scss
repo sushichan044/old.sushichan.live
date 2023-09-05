@@ -1,8 +1,0 @@
-@use "/styles/variables" as var;
-@use "/styles/mixins" as mix;
-
-.root {
-  margin-inline: auto;
-
-  @include mix.content-margin;
-}

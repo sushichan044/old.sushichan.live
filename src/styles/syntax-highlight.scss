@@ -1,0 +1,106 @@
+@use "@/styles/mixins" as mix;
+@use "@/styles/variables" as var;
+@use "sass:color";
+
+/* stylelint-disable-next-line selector-no-qualifying-type */
+code[data-line-numbers] {
+  counter-reset: line;
+
+  /* stylelint-disable-next-line selector-no-qualifying-type */
+  > .line::before {
+    /* Other styling */
+    display: inline-block;
+    width: 1rem;
+    margin-right: 1rem;
+    color: #808080;
+    text-align: right;
+    content: counter(line);
+    counter-increment: line;
+  }
+}
+
+/* stylelint-disable-next-line selector-no-qualifying-type */
+code[data-line-numbers-max-digits="2"] > .line::before {
+  width: 2rem;
+}
+
+/* stylelint-disable-next-line selector-no-qualifying-type */
+code[data-line-numbers-max-digits="3"] > .line::before {
+  width: 3rem;
+}
+
+/* stylelint-disable-next-line selector-no-qualifying-type */
+div[data-rehype-pretty-code-fragment] {
+  pre {
+    padding-block: 0.5rem;
+    padding-inline: 1rem;
+    overflow: auto;
+    border-radius: 0.5rem;
+
+    // TODO: Chrome向けスクロールバーCSS
+    scrollbar-width: auto;
+    scrollbar-color: #4e5363 #282c34;
+  }
+  /* stylelint-disable-next-line selector-no-qualifying-type */
+  > div[data-rehype-pretty-code-title] {
+    padding-inline: 1rem;
+    font-weight: 400;
+    color: #e3e3e3;
+    background-color: #4e5363;
+    border-radius: 0.5rem 0.5rem 0 0;
+
+    /* stylelint-disable-next-line max-nesting-depth */
+    + pre {
+      position: relative;
+      padding-left: 1rem;
+      border-radius: 0 0 0.5rem 0.5rem;
+
+      // &::after {
+      //   position: absolute;
+      //   top: 0;
+      //   right: 2rem;
+      //   padding-inline: 0.5rem;
+      //   font-size: 0.6rem;
+      //   content: attr(data-language);
+      //   background-color: #4f5263;
+      //   border-radius: 0 0 0.5em 0.5em;
+      // }
+    }
+  }
+}
+
+// @include mix.theme("light") {
+//   /* stylelint-disable-next-line selector-no-qualifying-type */
+//   div[data-rehype-pretty-code-fragment] {
+//     /* stylelint-disable-next-line selector-no-qualifying-type */
+//     div[data-theme="dark"],
+//     pre[data-theme="dark"],
+//     code[data-theme="dark"] {
+//       display: none;
+//     }
+//   }
+// }
+
+// @include mix.theme("dark") {
+//   /* stylelint-disable-next-line selector-no-qualifying-type */
+//   div[data-rehype-pretty-code-fragment] {
+//     /* stylelint-disable-next-line selector-no-qualifying-type */
+//     div[data-theme="light"],
+//     pre[data-theme="light"],
+//     code[data-theme="light"] {
+//       display: none;
+//     }
+//   }
+// }
+
+// for inline code
+p > code {
+  padding-inline: 0.25em;
+  margin-inline: 0.5em;
+  background-color: var.$theme-color-light-darker;
+  border-radius: 0.25em;
+
+  @include mix.theme("dark") {
+    background-color: var.$theme-color-dark-lighter;
+  }
+}

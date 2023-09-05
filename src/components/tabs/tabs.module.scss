@@ -1,0 +1,75 @@
+@use "@/styles/mixins" as mix;
+@use "@/styles/general.scss" as gen;
+@use "@/styles/variables" as var;
+@use "sass:color";
+
+// TODO: 将来的には縦方向にも対応する
+.root {
+  display: flex;
+  flex-flow: column nowrap;
+  overflow: hidden;
+  border: 1px solid var.$ui-color-light;
+  border-radius: 0.5rem;
+
+  @include mix.theme("dark") {
+    border: 1px solid var.$ui-color-dark;
+  }
+}
+
+.list {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  color: inherit;
+  border-bottom: 1px solid var.$ui-color-light;
+
+  @include mix.theme("dark") {
+    border-bottom: 1px solid var.$ui-color-dark;
+  }
+}
+
+.trigger {
+  width: 100%;
+  padding: 0.25em;
+  color: inherit;
+  text-align: center;
+
+  &:not(:first-child) {
+    border-left: 1px solid var.$ui-color-light;
+  }
+
+  @include mix.theme("dark") {
+    &:not(:first-child) {
+      border-left: 1px solid var.$ui-color-dark;
+    }
+  }
+
+  // FIXME: hoverを使うと他のCSSでtransition対象のものを書いてもtransitionする
+  @include gen.hover($bg-color: var.$theme-color-light, $bg: true);
+
+  @include mix.theme("dark") {
+    @include gen.hover($bg-color: var.$theme-color-dark, $bg: true);
+  }
+}
+
+.trigger[data-state="active"] {
+  background-color: color.adjust(var.$theme-color-light, $blackness: 10%);
+
+  @include mix.theme("dark") {
+    background-color: color.adjust(var.$theme-color-dark, $whiteness: 10%);
+  }
+}
+
+.content {
+  max-width: var.$layout-max-width;
+  padding-inline: var.$layout-padding-sp;
+  margin-block: var.$layout-margin;
+
+  @include mix.mq("md") {
+    padding-inline: var.$layout-padding;
+  }
+
+  @include mix.mq("2xl") {
+    max-width: var.$layout-max-width-2xl;
+  }
+}

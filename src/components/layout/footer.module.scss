@@ -1,0 +1,17 @@
+@use "@/styles/mixins" as mix;
+@use "@/styles/variables" as var;
+@use "@/styles/general" as gen;
+
+.container {
+  width: 100%;
+  height: var.$header-height;
+}
+
+.header-inside {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+
+  @include gen.set-layout;
+}
