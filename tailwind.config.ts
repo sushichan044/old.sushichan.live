@@ -1,11 +1,11 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from 'tailwindcss'
+
+const config: Config = {
   corePlugins: {
     preflight: false,
   },
   content: [
-    './app/**/*.{js,ts,jsx,tsx,md,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,md,mdx}',
+    './src/**/*.{js,ts,jsx,tsx,md,mdx}',
     './posts/**/*.{js,ts,jsx,tsx,md,mdx}',
     './md/**/*.{js,ts,jsx,tsx,md,mdx}',
   ],
@@ -22,3 +22,5 @@ module.exports = {
   },
   plugins: [],
 }
+
+export default config

@@ -13,9 +13,9 @@
     "prettier"
   ],
   "ignorePatterns": [
-    "next.config.js",
+    "next.config.mjs",
     "postcss.config.js",
-    "tailwind.config.js"
+    "tailwind.config.ts"
   ],
   "rules": {
     "simple-import-sort/imports": "error",
