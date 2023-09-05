@@ -18,6 +18,7 @@ import Footer from '@/components/layout/footer'
 import Header from '@/components/layout/header'
 import Favicons from '@/components/meta/favicons'
 import GeneralMetaData from '@/components/meta/general'
+import IEBuster from '@/components/meta/ieBuster'
 import TwitterScript from '@/components/meta/twitterScript'
 import { fontVariables } from '@/lib/font'
 
@@ -51,6 +52,7 @@ export default function RootLayout({
     <html lang="ja">
       <GeneralMetaData />
       <Favicons />
+      <IEBuster />
       <body className={fontVariables}>
         <NextTopLoader color="#2b78dd" showSpinner={false} />
         <Header />

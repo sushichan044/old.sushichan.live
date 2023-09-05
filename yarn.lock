@@ -6482,6 +6482,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ie-buster@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "ie-buster@npm:2.0.2"
+  checksum: 7711173a054e197da2dc66f05b5fc897f760cafbe3c480784b1f4438f3715cadefd6fe7ba9d103effde2389dfebb051ef54a48e12fe0866a7581a223e21d7119
+  languageName: node
+  linkType: hard
+
 "ieee754@npm:^1.1.13":
   version: 1.2.1
   resolution: "ieee754@npm:1.2.1"
@@ -12612,6 +12619,7 @@ __metadata:
     glob: ^10.3.3
     gray-matter: ^4.0.3
     husky: ^8.0.3
+    ie-buster: ^2.0.2
     jsdom: ^22.1.0
     lint-staged: ^14.0.1
     markuplint: ^3.12.0
