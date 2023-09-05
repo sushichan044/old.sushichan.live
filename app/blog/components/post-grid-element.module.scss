@@ -2,6 +2,24 @@
 @use "/styles/variables" as var;
 @use "/styles/general.scss" as gen;
 
+.link {
+  @include gen.hover(
+    var.$theme-color-light,
+    $bg: true,
+    $color: false,
+    $shadow: true
+  );
+
+  @include mix.theme("dark") {
+    @include gen.hover(
+      var.$theme-color-dark,
+      $bg: true,
+      $color: false,
+      $shadow: true
+    );
+  }
+}
+
 .card {
   // TODO: これは一時的なスタイル
   // あとから枠線つきでページ背景と合わせるなどのスタイルを検討する
@@ -17,18 +35,15 @@
 
   // background-color: $bg-color;
   border-radius: 0.5rem;
-  outline: $bg-color 1px solid;
-
-  @include gen.hover(var.$theme-color-light, $bg: true, $shadow: true);
+  outline: var.$ui-color-light 1px solid;
 
   @include mix.theme("dark") {
     $bg-color: #7e7e7e;
 
     color: var.$text-color-dark;
-    outline: $bg-color 1px solid;
+    outline: var.$ui-color-dark 1px solid;
 
     // background-color: $bg-color;
-    @include gen.hover(var.$theme-color-dark, $bg: true, $shadow: true);
   }
 }
 

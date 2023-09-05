@@ -7,14 +7,13 @@
 .root {
   display: flex;
   flex-flow: column nowrap;
+  overflow: hidden;
+  border: 1px solid var.$ui-color-light;
+  border-radius: 0.5rem;
 
   @include mix.theme("dark") {
-    border: 1px solid var.$text-color-dark;
+    border: 1px solid var.$ui-color-dark;
   }
-
-  overflow: hidden;
-  border: 1px solid var.$text-color-light;
-  border-radius: 0.5rem;
 }
 
 .list {
@@ -22,10 +21,10 @@
   flex-flow: row nowrap;
   justify-content: center;
   color: inherit;
-  border-bottom: 1px solid var.$text-color-light;
+  border-bottom: 1px solid var.$ui-color-light;
 
   @include mix.theme("dark") {
-    border-bottom: 1px solid var.$text-color-dark;
+    border-bottom: 1px solid var.$ui-color-dark;
   }
 }
 
@@ -36,12 +35,12 @@
   text-align: center;
 
   &:not(:first-child) {
-    border-left: 1px solid var.$text-color-light;
+    border-left: 1px solid var.$ui-color-light;
   }
 
   @include mix.theme("dark") {
     &:not(:first-child) {
-      border-left: 1px solid var.$text-color-dark;
+      border-left: 1px solid var.$ui-color-dark;
     }
   }
 

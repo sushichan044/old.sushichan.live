@@ -6,7 +6,7 @@
   display: flex;
   flex-flow: row nowrap;
   height: 120px;
-  border: 1px solid var.$text-color-light;
+  border: 1px solid var.$ui-color-light;
   border-radius: 0.5rem;
 
   > * {
@@ -18,19 +18,19 @@
   // }
 
   @include mix.theme("dark") {
-    border-color: var.$text-color-dark;
+    border-color: var.$ui-color-dark;
   }
 }
 
 .image {
   flex-shrink: 0;
   overflow: hidden;
-  border-inline-end: 1px solid var.$text-color-light;
+  border-inline-end: 1px solid var.$ui-color-light;
   border-start-start-radius: calc(0.5rem - 1px);
   border-end-start-radius: calc(0.5rem - 1px);
 
   @include mix.theme("dark") {
-    border-color: var.$text-color-dark;
+    border-color: var.$ui-color-dark;
   }
 }
 
@@ -57,6 +57,10 @@
   font-size: 1rem;
 
   @include mix.line-clamp(2);
+
+  @include mix.mq("md") {
+    font-size: 1.125rem;
+  }
 }
 
 .description {
