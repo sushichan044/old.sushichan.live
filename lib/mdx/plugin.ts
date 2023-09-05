@@ -11,8 +11,6 @@ import stringWidth from 'string-width'
 import { type PluggableList } from 'unified'
 
 // eslint-disable-next-line no-restricted-imports
-import rehypeImageOpt from './rehype-image'
-// eslint-disable-next-line no-restricted-imports
 import type { RehypeOptions, RemarkOptions } from './types'
 
 const remarkDefaultPlugins: PluggableList = [
@@ -31,7 +29,6 @@ const rehypeDefaultPlugins: PluggableList = [
   rehypeSlug,
   rehypeAutoLinkHeadings,
   rehypeKatex,
-  rehypeImageOpt,
   [
     rehypePrettyCode,
     {

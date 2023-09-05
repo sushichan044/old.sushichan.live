@@ -39,6 +39,11 @@ const cloudinaryLoaderBase = ({
   )}/${imageIdentifier}`
 }
 
+export const cloudinaryMetadataLoader = (src: string) => {
+  const imageIdentifier = getCloudinaryIdentifier(src)
+  return `https://res.cloudinary.com/sushi-chan/image/upload/fl_getinfo/${imageIdentifier}`
+}
+
 export function cloudinaryLoader({ src, width, quality }: ImageLoaderProps) {
   return cloudinaryLoaderBase({ src, width, quality })
 }
