@@ -30,6 +30,7 @@ const nextConfig = {
   experimental: {
     serverActions: true,
     typedRoutes: true,
+    serverComponentsExternalPackages: ['fetch-site-metadata'],
   },
 }
 
