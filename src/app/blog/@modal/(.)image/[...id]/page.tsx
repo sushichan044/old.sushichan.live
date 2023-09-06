@@ -1,5 +1,5 @@
-import Modal from '@/app/blog/components/modal'
-import CloudinaryImage from '@/components/image/cloudinary'
+import CloudinaryImage from '@/components/base/image/cloudinary'
+import Modal from '@/components/ui/modal'
 
 type PageProps = {
   params: {

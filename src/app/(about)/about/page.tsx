@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation'
 
 import { getAboutMDX } from '@/app/(about)/about/mdx'
-import Section from '@/components/section'
-import Tabs from '@/components/tabs'
+import Section from '@/components/base/section'
+import Tabs from '@/components/ui/tabs'
 import { compileMDX } from '@/lib/mdx'
 
 export const metadata = {

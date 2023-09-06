@@ -4,9 +4,9 @@ import React from 'react'
 
 import FrontMatterCard from '@/app/blog/components/frontMatterCard'
 import { getAllBlogMDX, getBlogMDX } from '@/app/blog/lib/mdx'
-import Article from '@/components/article'
+import Article from '@/components/base/article'
+import Section from '@/components/base/section'
 import NotFoundMeta from '@/components/meta/notFound'
-import Section from '@/components/section'
 import { compileMDX } from '@/lib/mdx'
 
 type PageProps = {

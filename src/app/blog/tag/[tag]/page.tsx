@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 
 import PostGrid from '@/app/blog/components/postGrid'
 import { getAllBlogMDX, getAllBlogTags } from '@/app/blog/lib/mdx'
-import Section from '@/components/section'
+import Section from '@/components/base/section'
 
 type PageProps = {
   params: {

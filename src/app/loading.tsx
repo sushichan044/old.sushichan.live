@@ -1,8 +1,8 @@
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import FullScreenSection from '@/components/base/section/fullScreenSection'
 import FullHeightMainContainer from '@/components/common/fullHeightMainContainer'
-import FullScreenSection from '@/components/section/fullScreenSection'
 
 export default function Page() {
   return (

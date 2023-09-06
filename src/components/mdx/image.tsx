@@ -1,5 +1,5 @@
-import Link from '@/components/common/link'
-import CloudinaryImage from '@/components/image/cloudinary'
+import CloudinaryImage from '@/components/base/image/cloudinary'
+import Link from '@/components/base/link'
 import styles from '@/components/mdx/image.module.scss'
 import { getCloudinaryImageSize } from '@/lib/cloudinary/getImageSize'
 import { getCloudinaryIdentifier } from '@/lib/imageLoader'

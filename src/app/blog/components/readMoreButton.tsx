@@ -1,4 +1,4 @@
-import Button from '@/components/common/button'
+import Button from '@/components/base/button'
 
 const ReadMoreButton = () => {
   return <Button role="button">もっと見る</Button>

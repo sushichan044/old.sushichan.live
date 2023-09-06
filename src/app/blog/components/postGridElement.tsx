@@ -2,8 +2,8 @@ import Image from 'next/image'
 
 import styles from '@/app/blog/components/post-grid-element.module.scss'
 import type { BlogFrontMatter } from '@/app/blog/lib/mdx'
+import Link from '@/components/base/link'
 import WithBudoux from '@/components/common/budoux'
-import Link from '@/components/common/link'
 import type { MDX } from '@/lib/mdx'
 import { formatDateInJST } from '@/utils/date'
 

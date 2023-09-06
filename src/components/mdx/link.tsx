@@ -1,5 +1,5 @@
+import Link from '@/components/base/link'
 import WithBudoux from '@/components/common/budoux'
-import Link from '@/components/common/link'
 type Props = React.ComponentProps<'a'> & {
   children: React.ReactNode
 }

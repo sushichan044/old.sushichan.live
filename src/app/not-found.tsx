@@ -1,6 +1,6 @@
+import FullScreenSection from '@/components/base/section/fullScreenSection'
 import FullHeightMainContainer from '@/components/common/fullHeightMainContainer'
-import NotFound from '@/components/error/notFound'
-import FullScreenSection from '@/components/section/fullScreenSection'
+import NotFound from '@/components/ui/error/notFound'
 
 export default function Page() {
   return (

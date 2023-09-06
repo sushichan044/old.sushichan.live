@@ -1,5 +1,5 @@
-import Link from '@/components/common/link'
-import Section from '@/components/section'
+import Link from '@/components/base/link'
+import Section from '@/components/base/section'
 import { compileMDX } from '@/lib/mdx'
 import { removeHtmlComments } from '@/utils/html'
 

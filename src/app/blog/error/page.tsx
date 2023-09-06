@@ -1,4 +1,4 @@
-import ErrorComponent from '@/components/error'
+import ErrorComponent from '@/components/ui/error'
 
 export default async function Page() {
   return (

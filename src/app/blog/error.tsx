@@ -1,8 +1,8 @@
 'use client'
 
+import FullScreenSection from '@/components/base/section/fullScreenSection'
 import FullHeightMainContainer from '@/components/common/fullHeightMainContainer'
-import ServerError from '@/components/error/serverError'
-import FullScreenSection from '@/components/section/fullScreenSection'
+import ServerError from '@/components/ui/error/serverError'
 
 export default function Page() {
   return (

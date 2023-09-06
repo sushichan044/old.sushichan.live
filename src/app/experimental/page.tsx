@@ -1,5 +1,5 @@
-import UrlCard from '@/app/blog/components/card/urlCard'
-import Tabs from '@/components/tabs'
+import UrlCard from '@/components/ui/card/urlCard'
+import Tabs from '@/components/ui/tabs'
 
 export default async function Page() {
   return (

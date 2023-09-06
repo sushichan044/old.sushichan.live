@@ -1,19 +1,18 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 
-import ArticleCard from '@/app/blog/components/card/articleCard'
-import PlayerCard from '@/app/blog/components/card/playerCard'
-import SpotifyCard from '@/app/blog/components/card/spotifyCard'
-import TextCard from '@/app/blog/components/card/textCard'
-import TimelineCard from '@/app/blog/components/card/timelineCard'
-import TweetCard from '@/app/blog/components/card/tweetCard'
-import UrlCard from '@/app/blog/components/card/urlCard'
 import WithBudoux from '@/components/common/budoux'
-import Message from '@/components/common/message'
 import ResponsiveIframe from '@/components/common/responsiveIframe'
 import MDXHeading from '@/components/mdx/heading'
 import MDXImage from '@/components/mdx/image'
 import MDXLink from '@/components/mdx/link'
+import PlayerCard from '@/components/ui/card/playerCard'
+import SpotifyCard from '@/components/ui/card/spotifyCard'
+import TextCard from '@/components/ui/card/textCard'
+import TimelineCard from '@/components/ui/card/timelineCard'
+import TweetCard from '@/components/ui/card/tweetCard'
+import UrlCard from '@/components/ui/card/urlCard'
+import Message from '@/components/ui/message'
 import Accordion from '@/components/utils/accordion'
 import Spoiler from '@/components/utils/spoiler'
 
@@ -48,7 +47,6 @@ const replaceComponents = {
 
 const customComponents = {
   Message,
-  ArticleCard,
   TextCard,
   TweetCard,
   TimelineCard,

@@ -1,7 +1,7 @@
 import styles from '@/app/home.module.scss'
-import Link from '@/components/common/link'
+import Link from '@/components/base/link'
+import Section from '@/components/base/section'
 import MainContainer from '@/components/common/mainContainer'
-import Section from '@/components/section'
 
 export default async function Home() {
   return (

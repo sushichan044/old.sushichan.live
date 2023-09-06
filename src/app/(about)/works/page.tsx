@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import { z } from 'zod'
 
-import Section from '@/components/section'
+import Section from '@/components/base/section'
 import { compileMDX, getMDX } from '@/lib/mdx'
 
 export const metadata = {

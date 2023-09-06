@@ -1,7 +1,7 @@
 // import Image from 'next/image'
-import Link from '@/components/common/link'
+import Link from '@/components/base/link'
 import styles from '@/components/layout/header.module.scss'
-import NavigationMenu from '@/components/navigation/navigationMenu'
+import NavigationMenu from '@/components/ui/navigation/navigationMenu'
 // import LogoSvg from '@/public/logo.svg'
 
 const Header = () => {
