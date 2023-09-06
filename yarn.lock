@@ -2320,17 +2320,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^20.1.0":
+"@types/node@npm:*, @types/node@npm:20.5.9, @types/node@npm:^20.1.0":
   version: 20.5.9
   resolution: "@types/node@npm:20.5.9"
   checksum: a071a19019b4045ba65cbacb3a24fcdf1ef41474fd15fb160a082a4c7aba7643b69c5d681637d2b0ce081f2127ce4332ea4d8bf007595efe8e82ba795872c7d0
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:20.5.7":
-  version: 20.5.7
-  resolution: "@types/node@npm:20.5.7"
-  checksum: e5bce3d38478f2a135e254e910f40f844d379dbc8d5576ec6532122297c435f9c05e01f585c38fb9a83e21bde2652cc266b6aa98e45c8b5e51cc5b11a4f64cf0
   languageName: node
   linkType: hard
 
@@ -5613,7 +5606,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:^10.16.1":
+"framer-motion@npm:^10.16.4":
   version: 10.16.4
   resolution: "framer-motion@npm:10.16.4"
   dependencies:
@@ -5878,7 +5871,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:^10.2.2, glob@npm:^10.2.5, glob@npm:^10.3.2, glob@npm:^10.3.3":
+"glob@npm:^10.2.2, glob@npm:^10.2.5, glob@npm:^10.3.2, glob@npm:^10.3.4":
   version: 10.3.4
   resolution: "glob@npm:10.3.4"
   dependencies:
@@ -10489,7 +10482,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-scss@npm:^4.0.6":
+"postcss-scss@npm:^4.0.6, postcss-scss@npm:^4.0.7":
   version: 4.0.7
   resolution: "postcss-scss@npm:4.0.7"
   peerDependencies:
@@ -10535,7 +10528,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.21, postcss@npm:^8.4.23, postcss@npm:^8.4.27, postcss@npm:^8.4.28":
+"postcss@npm:^8.4.21, postcss@npm:^8.4.23, postcss@npm:^8.4.27, postcss@npm:^8.4.29":
   version: 8.4.29
   resolution: "postcss@npm:8.4.29"
   dependencies:
@@ -10859,9 +10852,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-player@npm:^2.12.0":
-  version: 2.12.0
-  resolution: "react-player@npm:2.12.0"
+"react-player@npm:^2.13.0":
+  version: 2.13.0
+  resolution: "react-player@npm:2.13.0"
   dependencies:
     deepmerge: "npm:^4.0.0"
     load-script: "npm:^1.0.0"
@@ -10870,7 +10863,7 @@ __metadata:
     react-fast-compare: "npm:^3.0.1"
   peerDependencies:
     react: ">=16.6.0"
-  checksum: ef0c89cc5de17a149dc10c2ca36880679534980bc6fd9814b93636019af0132ebb516f282ceee249a991eef844f011fd91cb56126f5ab6c8ff0be29370c193bc
+  checksum: 3dc15908ffdab7c48788714ff806559b53bb80753024118ed2e31f8d0c857d83c04f9630bf1d195d4b0f621e3ce757f4dab9a51883fcc8c285250724edb0d9d9
   languageName: node
   linkType: hard
 
@@ -11154,7 +11147,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rehype-pretty-code@npm:^0.10.0":
+"rehype-pretty-code@npm:^0.10.1":
   version: 0.10.1
   resolution: "rehype-pretty-code@npm:0.10.1"
   dependencies:
@@ -11748,7 +11741,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"shiki@npm:^0.14.3":
+"shiki@npm:^0.14.4":
   version: 0.14.4
   resolution: "shiki@npm:0.14.4"
   dependencies:
@@ -12390,29 +12383,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-config-recommended-scss@npm:^12.0.0":
-  version: 12.0.0
-  resolution: "stylelint-config-recommended-scss@npm:12.0.0"
+"stylelint-config-recommended-scss@npm:^13.0.0":
+  version: 13.0.0
+  resolution: "stylelint-config-recommended-scss@npm:13.0.0"
   dependencies:
-    postcss-scss: "npm:^4.0.6"
-    stylelint-config-recommended: "npm:^12.0.0"
-    stylelint-scss: "npm:^5.0.0"
+    postcss-scss: "npm:^4.0.7"
+    stylelint-config-recommended: "npm:^13.0.0"
+    stylelint-scss: "npm:^5.1.0"
   peerDependencies:
     postcss: ^8.3.3
-    stylelint: ^15.5.0
+    stylelint: ^15.10.0
   peerDependenciesMeta:
     postcss:
       optional: true
-  checksum: 287098a968b861b6b2aac4ae9a3a4feedcae936d4612f177714190f981979030c5ce1e13e521878d3b4692d26c03f178446f2f3fd13f16910dcc8bcdf2a808e9
+  checksum: 370152e20e6395800ac89517019f03153b121ce7a7dfa0865442365bf2725935da9df2eb3e8b5ee4e240d1b3a7438ee2cd1932009bdc59da8c2a790066379387
   languageName: node
   linkType: hard
 
-"stylelint-config-recommended@npm:^12.0.0":
-  version: 12.0.0
-  resolution: "stylelint-config-recommended@npm:12.0.0"
+"stylelint-config-recommended@npm:^13.0.0":
+  version: 13.0.0
+  resolution: "stylelint-config-recommended@npm:13.0.0"
   peerDependencies:
-    stylelint: ^15.5.0
-  checksum: 907d93bf99e072f6964bff5e1b7a86ea9712521e8979639b29ec5a55ef09789eecb7fcdeafa688324f1a69e38c462a8f87de973b8b1fcc53058c2ca177b4f426
+    stylelint: ^15.10.0
+  checksum: 80420a1ab616e8637b66223f88c597388990d9991cd6a28b8372049b83329d893412f83029bb253a82b52387e497b62e042bc898064a2f22574b0d8921f01dd2
   languageName: node
   linkType: hard
 
@@ -12429,30 +12422,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-config-standard-scss@npm:^10.0.0":
-  version: 10.0.0
-  resolution: "stylelint-config-standard-scss@npm:10.0.0"
+"stylelint-config-standard-scss@npm:^11.0.0":
+  version: 11.0.0
+  resolution: "stylelint-config-standard-scss@npm:11.0.0"
   dependencies:
-    stylelint-config-recommended-scss: "npm:^12.0.0"
-    stylelint-config-standard: "npm:^33.0.0"
+    stylelint-config-recommended-scss: "npm:^13.0.0"
+    stylelint-config-standard: "npm:^34.0.0"
   peerDependencies:
     postcss: ^8.3.3
-    stylelint: ^15.5.0
+    stylelint: ^15.10.0
   peerDependenciesMeta:
     postcss:
       optional: true
-  checksum: 9e421733f87b163d1128f4878cbc87aafab686d5213ea0f6141f155159e675d066bc13b1a16883b442864ba8ba88723e750291e0b5988d07fc56aac97f167b1e
+  checksum: 9b0766ec11f1e6f690c1e22d74e7f7103f64569bdca966c26ff43f81f55f13797fdb1503338f973672c001daf50b13682361dd4105d22497841437c148f86be5
   languageName: node
   linkType: hard
 
-"stylelint-config-standard@npm:^33.0.0":
-  version: 33.0.0
-  resolution: "stylelint-config-standard@npm:33.0.0"
+"stylelint-config-standard@npm:^34.0.0":
+  version: 34.0.0
+  resolution: "stylelint-config-standard@npm:34.0.0"
   dependencies:
-    stylelint-config-recommended: "npm:^12.0.0"
+    stylelint-config-recommended: "npm:^13.0.0"
   peerDependencies:
-    stylelint: ^15.5.0
-  checksum: d84629f691f8d04ff2ae31c8f5ec9a4a30ec23b97b945b8a8c3e62dca3c35e00d226e47a5d56385341c6328c18bf235545bb67468ceffaeb41ff67fa4ff0c575
+    stylelint: ^15.10.0
+  checksum: 2494468af2359490b6ebb9723d9653f9e31db3a0772b8d9f0e081018b0079ef84ae6f90dcf94c879a3c374f299e334941e3dcff1afb603c2284d3103085b71fb
   languageName: node
   linkType: hard
 
@@ -12491,7 +12484,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-scss@npm:^5.0.0":
+"stylelint-scss@npm:^5.1.0":
   version: 5.1.0
   resolution: "stylelint-scss@npm:5.1.0"
   dependencies:
@@ -12640,7 +12633,7 @@ __metadata:
     "@testing-library/react": "npm:^14.0.0"
     "@testing-library/user-event": "npm:^14.4.3"
     "@types/eslint": "npm:8.44.2"
-    "@types/node": "npm:20.5.7"
+    "@types/node": "npm:20.5.9"
     "@types/react": "npm:^18.2.21"
     "@types/react-dom": "npm:^18.2.7"
     "@types/styled-components": "npm:^5.1.26"
@@ -12661,8 +12654,8 @@ __metadata:
     eslint-config-prettier: "npm:^8.10.0"
     eslint-plugin-simple-import-sort: "npm:^10.0.0"
     fetch-site-metadata: "npm:^0.1.3"
-    framer-motion: "npm:^10.16.1"
-    glob: "npm:^10.3.3"
+    framer-motion: "npm:^10.16.4"
+    glob: "npm:^10.3.4"
     gray-matter: "npm:^4.0.3"
     husky: "npm:^8.0.3"
     ie-buster: "npm:^2.0.2"
@@ -12673,17 +12666,17 @@ __metadata:
     next-mdx-remote: "npm:^4.4.1"
     nextjs-toploader: "npm:^1.4.2"
     npm-check-updates: "npm:^16.13.2"
-    postcss: "npm:^8.4.28"
+    postcss: "npm:^8.4.29"
     prettier: "npm:^3.0.3"
     query-string: "npm:^8.1.0"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
-    react-player: "npm:^2.12.0"
+    react-player: "npm:^2.13.0"
     react-spotify-embed: "npm:^2.0.3"
     react-tweet: "npm:^3.1.1"
     rehype-autolink-headings: "npm:^6.1.1"
     rehype-katex: "npm:^6.0.3"
-    rehype-pretty-code: "npm:^0.10.0"
+    rehype-pretty-code: "npm:^0.10.1"
     rehype-slug: "npm:^5.1.0"
     rehype-toc: "npm:^3.0.2"
     remark-emoji: "npm:^4.0.0"
@@ -12694,13 +12687,13 @@ __metadata:
     sass: "npm:^1.66.1"
     server-only: "npm:^0.0.1"
     sharp: "npm:^0.32.5"
-    shiki: "npm:^0.14.3"
+    shiki: "npm:^0.14.4"
     string-width: "npm:^6.1.0"
     stylelint: "npm:^15.10.3"
     stylelint-a11y: "npm:^1.2.3"
     stylelint-config-recess-order: "npm:^4.3.0"
     stylelint-config-sass-guidelines: "npm:^10.0.0"
-    stylelint-config-standard-scss: "npm:^10.0.0"
+    stylelint-config-standard-scss: "npm:^11.0.0"
     stylelint-declaration-block-no-ignored-properties: "npm:^2.7.0"
     stylelint-value-no-unknown-custom-properties: "npm:^4.0.0"
     tailwindcss: "npm:^3.3.3"
