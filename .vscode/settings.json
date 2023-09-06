@@ -31,7 +31,6 @@
   },
   "[mdx]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": false,
     "editor.trimAutoWhitespace": false
   },
   "stylelint.validate": ["css", "scss"],
