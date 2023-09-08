@@ -8,6 +8,7 @@ import Article from '@/components/base/article'
 import Section from '@/components/base/section'
 import NotFoundMeta from '@/components/meta/notFound'
 import MdxRenderer from '@/lib/mdx/component'
+import { isAnalyzeBuild } from '@/utils/helper'
 
 type PageProps = {
   params: {
@@ -67,7 +68,7 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  if (process.env.ANALYZE === 'true') {
+  if (isAnalyzeBuild) {
     return []
   }
 
