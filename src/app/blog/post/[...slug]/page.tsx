@@ -7,7 +7,7 @@ import { getAllBlogMDX, getBlogMDX } from '@/app/blog/lib/mdx'
 import Article from '@/components/base/article'
 import Section from '@/components/base/section'
 import NotFoundMeta from '@/components/meta/notFound'
-import { compileMDX } from '@/lib/mdx'
+import MdxRenderer from '@/lib/mdx/component'
 
 type PageProps = {
   params: {
@@ -84,30 +84,29 @@ export default async function Page({ params: { slug } }: PageProps) {
     notFound()
   }
 
-  const content = await compileMDX({
-    isRaw: false,
-    mdxFile: mdx.fileMetaData,
-    options: {
-      pluginOptions: {
-        remark: {},
-        rehype: {
-          rehypeToc: {
-            use: true,
-            options: {
-              headings: ['h2'],
-            },
-          },
-        },
-      },
-    },
-  })
-
   return (
     <>
       <Section>
         <FrontMatterCard {...mdx} />
       </Section>
-      <Article>{content}</Article>
+      <Article>
+        <MdxRenderer
+          isRaw={false}
+          mdxFile={mdx.fileMetaData}
+          options={{
+            pluginOptions: {
+              rehype: {
+                rehypeToc: {
+                  use: true,
+                  options: {
+                    headings: ['h2'],
+                  },
+                },
+              },
+            },
+          }}
+        />
+      </Article>
     </>
   )
 }
