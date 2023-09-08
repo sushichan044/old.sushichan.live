@@ -1,0 +1,5 @@
+@use "@/styles/variables" as var;
+
+.heading {
+  border-bottom: 1px solid rgba($color: var.$hover-color-lighter, $alpha: 75%);
+}

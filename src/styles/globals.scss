@@ -1,0 +1,64 @@
+@use "@/styles/general" as gen;
+@use "@/styles/typography.scss" as typography;
+@use "@/styles/variables" as var;
+@use "@/styles/mixins" as mix;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 100vh;
+  font-family:
+    var(--font-roboto),
+    var(--font-noto-sans-jp),
+    system-ui,
+    -apple-system,
+    blinkmacsystemfont,
+    "Segoe UI",
+    oxygen,
+    ubuntu,
+    cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+
+  // color
+  @include gen.set-theme;
+
+  // typography
+  @include typography.set-typography;
+}
+
+main {
+  flex: 1;
+}
+
+body code,
+body pre {
+  font-family: var(--font-fira-code), var(--font-noto-sans-jp), monospace;
+  font-weight: 400;
+}
+
+a {
+  // TODO: ここは多分リンクに最初から色を付けるべき...
+  color: var.$text-color-light;
+  text-decoration: none;
+
+  @include gen.hover(var.$text-color-light, $color: true);
+
+  @include mix.theme("dark") {
+    color: var.$text-color-dark;
+
+    @include gen.hover(var.$text-color-dark, $color: true);
+  }
+
+  word-wrap: break-word;
+}
+
+// react-tweetのコンポーネント自身がmarginを持っているので、
+// それを無効化するために、ここでmarginを0にしている。
+.react-tweet-theme {
+  --tweet-container-margin: 0 !important;
+}

@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -25,12 +26,23 @@ const nextConfig = {
     ],
   },
   sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')],
+    includePaths: [path.join(__dirname, 'src', 'styles')],
   },
   experimental: {
     serverActions: true,
     typedRoutes: true,
     serverComponentsExternalPackages: ['fetch-site-metadata'],
+  },
+  webpack: (config) => {
+    config.plugins = [
+      ...config.plugins,
+      // https://github.com/jsdom/jsdom/issues/3042
+      new webpack.IgnorePlugin({
+        resourceRegExp: /canvas/,
+        contextRegExp: /jsdom$/,
+      }),
+    ]
+    return config
   },
 }
 

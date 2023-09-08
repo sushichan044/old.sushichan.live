@@ -30,7 +30,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[mdx]": {
-    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.trimAutoWhitespace": false
   },
   "stylelint.validate": ["css", "scss"],

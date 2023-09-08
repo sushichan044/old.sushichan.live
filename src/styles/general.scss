@@ -1,0 +1,84 @@
+@use "@/styles/mixins" as mix;
+@use "@/styles/variables" as var;
+@use "sass:color";
+
+@mixin set-theme {
+  color: var.$text-color-light;
+  background-color: var.$theme-color-light;
+
+  @include mix.theme("dark") {
+    color: var.$text-color-dark;
+    background-color: var.$theme-color-dark;
+  }
+}
+
+@mixin set-layout {
+  max-width: var.$layout-max-width;
+  padding-inline: var.$layout-padding-sp;
+  margin-block: var.$layout-margin;
+  margin-inline: auto;
+
+  @include mix.mq("md") {
+    padding-inline: var.$layout-padding;
+  }
+
+  @include mix.mq("2xl") {
+    max-width: var.$layout-max-width-2xl;
+  }
+}
+
+// FIXME: fix to accept transition property from arguments
+
+@mixin hover(
+  $bg-color: #fff,
+  $bg: false,
+  $color: false,
+  $shadow: false,
+  $transform: false
+) {
+  $bg-color-light: color.adjust($bg-color, $blackness: 5%);
+  $bg-color-dark: color.adjust($bg-color, $whiteness: 5%);
+  $box-shadow: rgb(0 0 0 / 25%) 0 0.25em 0.25em;
+
+  /* stylelint-disable-next-line scss/dollar-variable-colon-space-after */
+  $transition:
+    background-color 0.25s ease-in-out,
+    color 0.25s ease-in-out,
+    box-shadow 0.25s ease-in-out,
+    transform 0.25s ease-in-out;
+
+  transition: $transition;
+
+  &:hover,
+  &:focus {
+    transition: $transition;
+
+    @if $bg {
+      background-color: $bg-color-light;
+
+      @include mix.theme("dark") {
+        background-color: $bg-color-dark;
+      }
+    } @else {
+      background-color: inherit;
+    }
+
+    @if $color {
+      color: var.$hover-color;
+    } @else {
+      color: inherit;
+    }
+
+    @if $shadow {
+      box-shadow: $box-shadow;
+    } @else {
+      box-shadow: none;
+    }
+
+    @if $transform {
+      transform: translateY(-0.125em);
+    } @else {
+      transform: none;
+    }
+  }
+}

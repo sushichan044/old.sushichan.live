@@ -1,0 +1,16 @@
+@use "@/styles/mixins" as mix;
+@use "@/styles/variables" as var;
+
+.section-root {
+  margin-block: var.$layout-margin;
+  margin-inline: auto;
+  border-radius: 1rem;
+
+  > *:not(:last-child, h1, h2, h3, h4, h5, h6) {
+    margin-block: var.$content-margin;
+  }
+
+  > span {
+    display: block;
+  }
+}
